@@ -1,0 +1,417 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" DoublePass="true" ReportInfo.Created="03/11/2015 18:35:11" ReportInfo.Modified="06/28/2016 17:26:13" ReportInfo.CreatorVersion="2013.2.5.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {                                                                                               
+    private void Text67_BeforePrint(object sender, EventArgs e)
+    {
+      if(((Decimal)Report.GetColumnValue(&quot;FORD_.fordd_recordno&quot;))==((Decimal)Report.GetColumnValue(&quot;FORD_.ford_recordno&quot;)))
+      {
+        Text67.Visible=true;
+      } 
+      else
+        Text67.Visible=false; 
+    }
+
+    private void Text66_BeforePrint(object sender, EventArgs e)
+    {
+      if (((Int32)Report.GetVariableValue(&quot;Page&quot;))!=((Int32)Report.GetVariableValue(&quot;TotalPages&quot;)))
+      {
+        Text66.Visible=true;
+      }
+      else
+        Text66.Visible=false;
+    }       
+
+    private void Text1_BeforePrint(object sender, EventArgs e)
+    {
+      //銷貨日期
+      string date = (((String)Report.GetColumnValue(&quot;FORD_.ford_採購日期_西元&quot;)));
+      string date1 = &quot;&quot;;
+      if(((String)Report.GetParameterValue(&quot;date&quot;)) == &quot;民國&quot;)
+      {
+        date1 = (Convert.ToInt32((date.Substring(0,4)))-1911).ToString()+&quot;.&quot;;
+        date1 += date.Substring(4,2)+&quot;.&quot;+date.Substring(6,2); 
+      }
+      else
+      {
+        date1 = date.Substring(0,4)+&quot;.&quot;;
+        date1 += date.Substring(4,2)+&quot;.&quot;+date.Substring(6,2); 
+      }
+      Text1.Text = date1;
+    }
+
+    private void Text40_BeforePrint(object sender, EventArgs e)
+    {
+      //金額
+      if(((Boolean)Report.GetParameterValue(&quot;是否顯示金額&quot;)) == false)
+      {
+        Text40.Text =&quot;&quot;;
+        return;
+      }
+      string formet = &quot;f&quot;+((String)Report.GetParameterValue(&quot;進項金額小數&quot;));
+      Text40.Text = ((Decimal)Report.GetColumnValue(&quot;FORD_.fordd_外幣稅前金額&quot;)).ToString(formet);
+    }
+
+    private void Text37_BeforePrint(object sender, EventArgs e)
+    {
+      //數量
+      string formet = &quot;f&quot;+((String)Report.GetParameterValue(&quot;庫存數量小數&quot;));
+      Text37.Text = ((Decimal)Report.GetColumnValue(&quot;FORD_.fordd_數量&quot;)).ToString(formet);
+    }
+
+    private void Text39_BeforePrint(object sender, EventArgs e)
+    {
+      //單價
+      if(((Boolean)Report.GetParameterValue(&quot;是否顯示金額&quot;)) == false)
+      {
+        Text39.Text =&quot;&quot;;
+        return;
+      }
+    　string formet = &quot;f&quot;+((String)Report.GetParameterValue(&quot;進貨單價小數&quot;));
+     　Text39.Text = ((Decimal)Report.GetColumnValue(&quot;FORD_.fordd_外幣稅前單價&quot;)).ToString(formet); 
+    }
+
+    private void Text52_BeforePrint(object sender, EventArgs e)
+    {
+      //稅前合計
+      if(((Boolean)Report.GetParameterValue(&quot;是否顯示金額&quot;)) == false)
+      {
+        Text52.Text =&quot;&quot;;
+        return;
+      }
+      string formet = &quot;f&quot;+(((String)Report.GetParameterValue(&quot;進貨單據小數&quot;)));
+      Text52.Text = ((Decimal)Report.GetColumnValue(&quot;FORD_.ford_外幣合計&quot;)).ToString(formet); 
+    }
+
+    private void Text58_BeforePrint(object sender, EventArgs e)
+    {
+      //營業稅額
+      if(((Boolean)Report.GetParameterValue(&quot;是否顯示金額&quot;)) == false)
+      {
+        Text58.Text =&quot;&quot;;
+        return;
+      }
+      string formet = &quot;f&quot;+(((String)Report.GetParameterValue(&quot;進項稅額小數&quot;)));
+      Text58.Text = ((Decimal)Report.GetColumnValue(&quot;FORD_.ford_外幣營業稅額&quot;)).ToString(formet); 
+    }
+    
+
+    private void Text56_BeforePrint(object sender, EventArgs e)
+    {
+      //報價總額
+      if(((Boolean)Report.GetParameterValue(&quot;是否顯示金額&quot;)) == false)
+      {
+        Text56.Text =&quot;&quot;;
+        return;
+      }
+      string formet = &quot;f&quot;+(((String)Report.GetParameterValue(&quot;進貨單據小數&quot;)));
+      Text56.Text = ((Decimal)Report.GetColumnValue(&quot;FORD_.ford_外幣採購總額&quot;)).ToString(formet); 
+    }
+    
+    
+
+    private void Text45_BeforePrint(object sender, EventArgs e)
+    {
+      string str=&quot;&quot;;
+      if(((String)Report.GetColumnValue(&quot;FORD_.fordd_規格說明1&quot;))!=&quot;&quot;){str+=((String)Report.GetColumnValue(&quot;FORD_.fordd_規格說明1&quot;))+Environment.NewLine;}
+      if(((String)Report.GetColumnValue(&quot;FORD_.fordd_規格說明2&quot;))!=&quot;&quot;){str+=((String)Report.GetColumnValue(&quot;FORD_.fordd_規格說明2&quot;))+Environment.NewLine;}
+      if(((String)Report.GetColumnValue(&quot;FORD_.fordd_規格說明3&quot;))!=&quot;&quot;){str+=((String)Report.GetColumnValue(&quot;FORD_.fordd_規格說明3&quot;))+Environment.NewLine;}
+      if(((String)Report.GetColumnValue(&quot;FORD_.fordd_規格說明4&quot;))!=&quot;&quot;){str+=((String)Report.GetColumnValue(&quot;FORD_.fordd_規格說明4&quot;))+Environment.NewLine;}
+      if(((String)Report.GetColumnValue(&quot;FORD_.fordd_規格說明5&quot;))!=&quot;&quot;){str+=((String)Report.GetColumnValue(&quot;FORD_.fordd_規格說明5&quot;))+Environment.NewLine;}
+      if(((String)Report.GetColumnValue(&quot;FORD_.fordd_規格說明6&quot;))!=&quot;&quot;){str+=((String)Report.GetColumnValue(&quot;FORD_.fordd_規格說明6&quot;))+Environment.NewLine;}
+      if(((String)Report.GetColumnValue(&quot;FORD_.fordd_規格說明7&quot;))!=&quot;&quot;){str+=((String)Report.GetColumnValue(&quot;FORD_.fordd_規格說明7&quot;))+Environment.NewLine;}
+      if(((String)Report.GetColumnValue(&quot;FORD_.fordd_規格說明8&quot;))!=&quot;&quot;){str+=((String)Report.GetColumnValue(&quot;FORD_.fordd_規格說明8&quot;))+Environment.NewLine;}
+      if(((String)Report.GetColumnValue(&quot;FORD_.fordd_規格說明9&quot;))!=&quot;&quot;){str+=((String)Report.GetColumnValue(&quot;FORD_.fordd_規格說明9&quot;))+Environment.NewLine;}
+      if(((String)Report.GetColumnValue(&quot;FORD_.fordd_規格說明10&quot;))!=&quot;&quot;){str+=((String)Report.GetColumnValue(&quot;FORD_.fordd_規格說明10&quot;))+Environment.NewLine;}
+      if(str==&quot;&quot;){Text45.Visible=false;}
+      else
+        Text45.Text=str; 
+    }
+
+    private void Picture1_BeforePrint(object sender, EventArgs e)
+    {
+      if(((Int32)Report.GetColumnValue(&quot;FORD_.pic長度&quot;))==0){Picture1.Visible=false;}  
+    }
+
+    private void Text53_BeforePrint(object sender, EventArgs e)
+    {
+      //標準用量
+      string formet = &quot;f&quot;+((String)Report.GetParameterValue(&quot;庫存數量小數&quot;));
+      decimal itqty = ((Decimal)Report.GetColumnValue(&quot;FORD_.FOrdBom_標準用量&quot;));
+      decimal itpareprs = ((Decimal)Report.GetColumnValue(&quot;FORD_.FOrdBom_母件比率&quot;));
+      decimal itpkgqty = ((Decimal)Report.GetColumnValue(&quot;FORD_.FOrdBom_包裝數量&quot;));
+      if(itpareprs == 0)
+      {
+        Text53.Text=(0M).ToString(formet);
+      }
+      else
+      {
+        Text53.Text=((itqty / itpareprs)*itpkgqty).ToString(formet);
+      }
+    }
+
+    private void Text46_BeforePrint(object sender, EventArgs e)
+    {
+      if (((String)Report.GetColumnValue(&quot;FORD_.FOrdBom_品名規格&quot;))==&quot;&quot;){Data1.Visible=false;}
+    }
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <MsSqlDataConnection Name="Connection" ConnectionString="rijcmlq+rW0RkboK+/8CKGGYUID3ctBV8q9SvKYxl3iiE7vBnh7Tgou0+4WFf3NfmPSvHVFX/S2Yvz0Ibm2enAAh/bj5IwCF1OGDq6mzCDV0cmqq5lzdq8B2h44YdiG1MkNRxzZmCUdOqUj+K3AG9XjPOZ10o/90rH3nVFFDuvrV+6muQo=">
+      <TableDataSource Name="Table" Alias="FORD_" DataType="System.Int32" Enabled="true" SelectCommand="SELECT ford.fono AS ford_採購單號, ford.fodate AS ford_採購日期_民國, ford.fodate1 AS ford_採購日期_西元, ford.fodate2 AS ford_採購日期_保留, ford.fqno AS ford_詢價憑證, ford.fotrnflag AS ford_fotrnflag, ford.fooverflag AS ford_結案標示, ford.cono AS ford_公司編號, ford.coname1 AS ford_公司簡稱, ford.coname2 AS ford_公司名稱, ford.fano AS ford_廠商編號, ford.faname2 AS ford_廠商名稱, ford.faname1 AS ford_廠商簡稱, ford.fatel1 AS ford_廠商電話, ford.faper1 AS ford_廠商聯絡人,ford.emno AS ford_採購人員編號, ford.emname AS ford_採購人員姓名, ford.xa1no AS ford_幣別編號, ford.xa1name AS ford_幣別名稱, ford.xa1par AS ford_匯率, ford.trno AS ford_trno, ford.trname AS ford_trname, ford.taxmnyf AS ford_taxmnyf, ford.taxmnyb AS ford_本幣合計, ford.taxmny AS ford_外幣合計, ford.x3no AS 稅別編號, ford.rate AS ford_稅率, ford.tax AS ford_外幣營業稅額, ford.totmny AS ford_外幣採購總額, ford.taxb AS ford_本幣營業稅額, ford.totmnyb AS ford_本幣採購總額, ford.fopayment AS ford_付款條件, ford.foperiod AS ford_有效期限, ford.fomemo AS ford_備註, ford.recordno AS ford_recordno, ford.UsrNo AS ford_UsrNo, ford.AppDate AS ford_AppDate, ford.EdtDate AS ford_EdtDate, ford.AppScNo AS ford_AppScNo, ford.EdtScNo AS ford_EdtScNo,ford.fomemo1 AS ford_詳細備註, FOrdBom.FoNo AS FOrdBom_採購單號, FOrdBom.BomID AS FOrdBom_BomID, FOrdBom.BomRec AS FOrdBom_BomRec,FOrdBom.itno AS FOrdBom_產品編號, FOrdBom.itname AS FOrdBom_品名規格, FOrdBom.itunit AS FOrdBom_單位, FOrdBom.itqty AS FOrdBom_標準用量, FOrdBom.itpareprs AS FOrdBom_母件比率, FOrdBom.itpkgqty AS FOrdBom_包裝數量, FOrdBom.itrec AS FOrdBom_itrec, FOrdBom.itprice AS FOrdBom_單價, FOrdBom.itprs AS FOrdBom_折數, FOrdBom.itmny AS FOrdBom_數量, FOrdBom.itnote AS FOrdBom_備註, FOrdBom.ItSource AS FOrdBom_ItSource, FOrdBom.ItBuyPri AS FOrdBom_ItBuyPri, FOrdBom.ItBuyMny AS FOrdBom_ItBuyMny, fordd.fono AS fordd_採購單號, fordd.fodate AS fordd_採購日期_民國, fordd.fodate1 AS fordd_採購日期_西元, fordd.fodate2 AS fordd_採購日期_保留, fordd.fqno AS fordd_詢價憑證, fordd.fotrnflag AS fordd_fotrnflag, fordd.fano AS fordd_廠商編號, fordd.emno AS fordd_採購人員編號, fordd.xa1no AS fordd_幣別編號, fordd.xa1par AS fordd_匯率, fordd.itno AS fordd_產品編號, fordd.itname AS fordd_品名規格, fordd.ittrait AS fordd_產品組成, fordd.itunit AS fordd_單位, fordd.itpkgqty AS fordd_包裝數量, fordd.qty AS fordd_數量, fordd.prs AS fordd_折數, fordd.price AS fordd_外幣單價, fordd.rate AS fordd_稅率, fordd.taxprice AS fordd_外幣稅前單價, fordd.mny AS fordd_外幣稅前金額, fordd.priceb AS fordd_本幣單價, fordd.taxpriceb AS fordd_本幣稅前單價, fordd.mnyb AS fordd_本幣稅前金額, fordd.qtyout AS fordd_qtyout, fordd.qtyin AS fordd_採購已交量, fordd.esdate AS fordd_交貨日_民國, fordd.esdate1 AS fordd_交貨日_西元, fordd.esdate2 AS fordd_交貨日_保留, fordd.memo AS fordd_說明, fordd.lowzero AS fordd_lowzero, fordd.bomid AS fordd_bomid, fordd.bomrec AS fordd_bomrec, fordd.recordno AS fordd_recordno, fordd.sltflag AS fordd_sltflag, fordd.extflag AS fordd_extflag, fordd.itdesp1 AS fordd_規格說明1, fordd.itdesp2 AS fordd_規格說明2, fordd.itdesp3 AS fordd_規格說明3, fordd.itdesp4 AS fordd_規格說明4, fordd.itdesp5 AS fordd_規格說明5, fordd.itdesp6 AS fordd_規格說明6,fordd.itdesp7 AS fordd_規格說明7, fordd.itdesp8 AS fordd_規格說明8, fordd.itdesp9 AS fordd_規格說明9, fordd.itdesp10 AS fordd_規格說明10, fordd.stName AS fordd_stName, fordd.qtyNotIn AS fordd_採購未交量, fordd.OrNo AS fordd_OrNo, fordd.OrRno AS fordd_OrRno, fordd.mformula AS fordd_mformula, fordd.mwidth4 AS fordd_mwidth4, fordd.mwidth3 AS fordd_mwidth3, fordd.mwidth2 AS fordd_mwidth2, fordd.mwidth1 AS fordd_mwidth1, fordd.mlong AS fordd_mlong, fordd.munit AS fordd_munit, fordd.mqty AS fordd_mqty, fordd.Pqty AS fordd_Pqty, fordd.Punit AS fordd_Punit, fordd.FoID AS fordd_FoID,fact.faname2 AS fact_廠商名稱, fact.fatel1 AS fact_廠商電話, fact.fafax1 AS fact_廠商傳真, fact.faaddr1 AS fact_廠商地址, fact.fauno AS fact_廠商統一編號, fact.faname1 AS fact_廠商簡稱 , i.itpicture AS item_itpicture , i.pic AS item_pic,DATALENGTH(i.pic) as pic長度,fact.faper1 AS fact_廠商聯絡人, scrit.scname as 使用者編號,scrit.scname1 as 使用者名稱 FROM ford LEFT JOIN fordd ON ford.fono = fordd.fono LEFT JOIN fact ON ford.fano = fact.fano  LEFT JOIN scrit ON ford.appscno = scrit.scname   left join item as i on i.itno=fordd.itno LEFT JOIN FOrdBom ON fordd.bomid = FOrdBom.bomid order by fordd_FoID ">
+        <Column Name="ford_採購單號" DataType="System.String"/>
+        <Column Name="ford_採購日期_民國" DataType="System.String"/>
+        <Column Name="ford_採購日期_西元" DataType="System.String"/>
+        <Column Name="ford_詢價憑證" DataType="System.String"/>
+        <Column Name="ford_fotrnflag" DataType="System.Boolean" BindableControl="CheckBox"/>
+        <Column Name="ford_結案標示" DataType="System.Boolean" BindableControl="CheckBox"/>
+        <Column Name="ford_公司編號" DataType="System.String"/>
+        <Column Name="ford_公司簡稱" DataType="System.String"/>
+        <Column Name="ford_公司名稱" DataType="System.String"/>
+        <Column Name="ford_廠商編號" DataType="System.String"/>
+        <Column Name="ford_廠商名稱" DataType="System.String"/>
+        <Column Name="ford_廠商簡稱" DataType="System.String"/>
+        <Column Name="ford_廠商電話" DataType="System.String"/>
+        <Column Name="ford_廠商聯絡人" DataType="System.String"/>
+        <Column Name="ford_採購人員編號" DataType="System.String"/>
+        <Column Name="ford_採購人員姓名" DataType="System.String"/>
+        <Column Name="ford_幣別名稱" DataType="System.String"/>
+        <Column Name="ford_匯率" DataType="System.Decimal"/>
+        <Column Name="ford_trno" DataType="System.String"/>
+        <Column Name="ford_trname" DataType="System.String"/>
+        <Column Name="ford_taxmnyf" DataType="System.Decimal"/>
+        <Column Name="ford_本幣合計" DataType="System.Decimal"/>
+        <Column Name="ford_外幣合計" DataType="System.Decimal"/>
+        <Column Name="稅別編號" DataType="System.Decimal"/>
+        <Column Name="ford_稅率" DataType="System.Decimal"/>
+        <Column Name="ford_外幣營業稅額" DataType="System.Decimal"/>
+        <Column Name="ford_本幣營業稅額" DataType="System.Decimal"/>
+        <Column Name="ford_付款條件" DataType="System.String"/>
+        <Column Name="ford_有效期限" DataType="System.String"/>
+        <Column Name="ford_備註" DataType="System.String"/>
+        <Column Name="ford_recordno" DataType="System.Decimal"/>
+        <Column Name="ford_UsrNo" DataType="System.String"/>
+        <Column Name="ford_AppDate" DataType="System.String"/>
+        <Column Name="ford_EdtDate" DataType="System.String"/>
+        <Column Name="ford_AppScNo" DataType="System.String"/>
+        <Column Name="ford_EdtScNo" DataType="System.String"/>
+        <Column Name="ford_詳細備註" DataType="System.String"/>
+        <Column Name="fordd_採購單號" DataType="System.String"/>
+        <Column Name="fordd_採購日期_民國" DataType="System.String"/>
+        <Column Name="fordd_採購日期_西元" DataType="System.String"/>
+        <Column Name="fordd_採購日期_保留" DataType="System.String"/>
+        <Column Name="fordd_詢價憑證" DataType="System.String"/>
+        <Column Name="fordd_fotrnflag" DataType="System.Boolean" BindableControl="CheckBox"/>
+        <Column Name="fordd_廠商編號" DataType="System.String"/>
+        <Column Name="fordd_採購人員編號" DataType="System.String"/>
+        <Column Name="fordd_幣別編號" DataType="System.String"/>
+        <Column Name="fordd_匯率" DataType="System.Decimal"/>
+        <Column Name="fordd_產品編號" DataType="System.String"/>
+        <Column Name="fordd_品名規格" DataType="System.String"/>
+        <Column Name="fordd_產品組成" DataType="System.Decimal"/>
+        <Column Name="fordd_單位" DataType="System.String"/>
+        <Column Name="fordd_包裝數量" DataType="System.Decimal"/>
+        <Column Name="fordd_數量" DataType="System.Decimal"/>
+        <Column Name="fordd_折數" DataType="System.Decimal"/>
+        <Column Name="fordd_外幣單價" DataType="System.Decimal"/>
+        <Column Name="fordd_稅率" DataType="System.Decimal"/>
+        <Column Name="fordd_外幣稅前單價" DataType="System.Decimal"/>
+        <Column Name="fordd_外幣稅前金額" DataType="System.Decimal"/>
+        <Column Name="fordd_本幣單價" DataType="System.Decimal"/>
+        <Column Name="fordd_本幣稅前單價" DataType="System.Decimal"/>
+        <Column Name="fordd_本幣稅前金額" DataType="System.Decimal"/>
+        <Column Name="fordd_採購已交量" DataType="System.Decimal"/>
+        <Column Name="fordd_交貨日_民國" DataType="System.String"/>
+        <Column Name="fordd_交貨日_西元" DataType="System.String"/>
+        <Column Name="fordd_交貨日_保留" DataType="System.String"/>
+        <Column Name="fordd_說明" DataType="System.String"/>
+        <Column Name="fordd_lowzero" DataType="System.String"/>
+        <Column Name="fordd_bomid" DataType="System.String"/>
+        <Column Name="fordd_bomrec" DataType="System.Decimal"/>
+        <Column Name="fordd_recordno" DataType="System.Decimal"/>
+        <Column Name="fordd_sltflag" DataType="System.Boolean" BindableControl="CheckBox"/>
+        <Column Name="fordd_extflag" DataType="System.Boolean" BindableControl="CheckBox"/>
+        <Column Name="fordd_規格說明1" DataType="System.String"/>
+        <Column Name="fordd_規格說明2" DataType="System.String"/>
+        <Column Name="fordd_規格說明3" DataType="System.String"/>
+        <Column Name="fordd_規格說明4" DataType="System.String"/>
+        <Column Name="fordd_規格說明5" DataType="System.String"/>
+        <Column Name="fordd_規格說明6" DataType="System.String"/>
+        <Column Name="fordd_規格說明7" DataType="System.String"/>
+        <Column Name="fordd_規格說明8" DataType="System.String"/>
+        <Column Name="fordd_規格說明9" DataType="System.String"/>
+        <Column Name="fordd_規格說明10" DataType="System.String"/>
+        <Column Name="fordd_stName" DataType="System.String"/>
+        <Column Name="fordd_OrNo" DataType="System.String"/>
+        <Column Name="fordd_OrRno" DataType="System.Decimal"/>
+        <Column Name="fordd_mformula" DataType="System.Decimal"/>
+        <Column Name="fordd_mwidth4" DataType="System.Decimal"/>
+        <Column Name="fordd_mwidth3" DataType="System.Decimal"/>
+        <Column Name="fordd_mwidth2" DataType="System.Decimal"/>
+        <Column Name="fordd_mwidth1" DataType="System.Decimal"/>
+        <Column Name="fordd_mlong" DataType="System.Decimal"/>
+        <Column Name="fordd_munit" DataType="System.String"/>
+        <Column Name="fordd_mqty" DataType="System.Decimal"/>
+        <Column Name="fordd_Pqty" DataType="System.Decimal"/>
+        <Column Name="fordd_Punit" DataType="System.String"/>
+        <Column Name="fordd_FoID" DataType="System.Int32"/>
+        <Column Name="fact_廠商名稱" DataType="System.String"/>
+        <Column Name="fact_廠商簡稱" DataType="System.String"/>
+        <Column Name="fact_廠商傳真" DataType="System.String"/>
+        <Column Name="fact_廠商地址" DataType="System.String"/>
+        <Column Name="fact_廠商統一編號" DataType="System.String"/>
+        <Column Name="fact_廠商聯絡人" DataType="System.String"/>
+        <Column Name="使用者編號" DataType="System.String"/>
+        <Column Name="使用者名稱" DataType="System.String"/>
+        <Column Name="ford_幣別編號" DataType="System.String"/>
+        <Column Name="ford_採購日期_保留" DataType="System.String"/>
+        <Column Name="item_itpicture" DataType="System.String"/>
+        <Column Name="item_pic" DataType="System.Byte[]" BindableControl="Picture"/>
+        <Column Name="pic長度" DataType="System.Int32"/>
+        <Column Name="FOrdBom_採購單號" DataType="System.String"/>
+        <Column Name="FOrdBom_BomID" DataType="System.String"/>
+        <Column Name="FOrdBom_BomRec" DataType="System.String"/>
+        <Column Name="FOrdBom_產品編號" DataType="System.String"/>
+        <Column Name="FOrdBom_品名規格" DataType="System.String"/>
+        <Column Name="FOrdBom_單位" DataType="System.String"/>
+        <Column Name="FOrdBom_標準用量" DataType="System.Decimal"/>
+        <Column Name="FOrdBom_母件比率" DataType="System.Decimal"/>
+        <Column Name="FOrdBom_包裝數量" DataType="System.Decimal"/>
+        <Column Name="FOrdBom_itrec" DataType="System.Decimal"/>
+        <Column Name="FOrdBom_單價" DataType="System.Decimal"/>
+        <Column Name="FOrdBom_折數" DataType="System.Decimal"/>
+        <Column Name="FOrdBom_數量" DataType="System.Decimal"/>
+        <Column Name="FOrdBom_備註" DataType="System.String"/>
+        <Column Name="FOrdBom_ItSource" DataType="System.Decimal"/>
+        <Column Name="FOrdBom_ItBuyPri" DataType="System.Decimal"/>
+        <Column Name="FOrdBom_ItBuyMny" DataType="System.Decimal"/>
+        <Column Name="ford_外幣採購總額" DataType="System.Decimal"/>
+        <Column Name="ford_本幣採購總額" DataType="System.Decimal"/>
+        <Column Name="fordd_qtyout" DataType="System.Decimal"/>
+        <Column Name="fordd_採購未交量" DataType="System.Decimal"/>
+        <Column Name="fact_廠商電話" DataType="System.String"/>
+      </TableDataSource>
+    </MsSqlDataConnection>
+    <Parameter Name="txtstart" DataType="System.String"/>
+    <Parameter Name="DateRange" DataType="System.String"/>
+    <Parameter Name="RankState" DataType="System.String"/>
+    <Parameter Name="txtend" DataType="System.String"/>
+    <Parameter Name="銷項金額小數" DataType="System.String"/>
+    <Parameter Name="txtadress" DataType="System.String"/>
+    <Parameter Name="txttel" DataType="System.String"/>
+    <Parameter Name="銷貨單價小數" DataType="System.String"/>
+    <Parameter Name="銷貨單據小數" DataType="System.String"/>
+    <Parameter Name="銷項稅額小數" DataType="System.String"/>
+    <Parameter Name="庫存數量小數" DataType="System.String"/>
+    <Parameter Name="是否顯示金額" DataType="System.Boolean"/>
+    <Parameter Name="date" DataType="System.String"/>
+    <Parameter Name="進貨單價小數" DataType="System.String"/>
+    <Parameter Name="進貨單據小數" DataType="System.String"/>
+    <Parameter Name="進項稅額小數" DataType="System.String"/>
+    <Parameter Name="進項金額小數" DataType="System.String"/>
+    <Total Name="Rank" TotalType="Count" Evaluator="Data1" ResetAfterPrint="false"/>
+  </Dictionary>
+  <ReportPage Name="Page1" PaperWidth="215.9" PaperHeight="279.4" RawPaperSize="1" LeftMargin="2.5" TopMargin="2.5" RightMargin="2.5" BottomMargin="2.5" FirstPageSource="15" OtherPagesSource="15" Guides="786.24,757.89">
+    <PageHeaderBand Name="PageHeader1" Top="20" Width="797.2" Height="201.77" CanGrow="true" CanShrink="true">
+      <TextObject Name="txtstart" Top="3.42" Width="756" Height="34.02" Text="[txtstart]" HorzAlign="Center" WordWrap="false" Font="細明體, 20pt, style=Bold"/>
+      <TextObject Name="Text11" Left="326.97" Top="41.63" Width="101" Height="22.3" Text="採 購 單" HorzAlign="Center" WordWrap="false" Font="細明體, 14pt, style=Bold, Underline"/>
+      <TextObject Name="Text12" Left="3.78" Top="108.26" Width="79.01" Height="18.9" Text="廠商名稱:" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text13" Left="3.78" Top="129.88" Width="79.01" Height="18.9" Text="公司地址:" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text14" Left="3.78" Top="86.26" Width="79.01" Height="18.9" Text="採購日期:" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text15" Left="3.78" Top="151.88" Width="79.01" Height="18.9" Text="聯絡電話:" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text5" Left="188.78" Top="86.26" Width="135.71" Height="18.9" Text="幣別名稱:" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text16" Left="234.14" Top="151.88" Width="79.01" Height="18.9" Text="傳 真 機:" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text6" Left="426.22" Top="86.26" Width="49.14" Height="18.9" Text="匯率:" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text9" Left="477.21" Top="86.26" Width="71.83" Height="18.9" Text="[FORD_.ford_匯率]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="4" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" WordWrap="false" Font="細明體, 12pt" Trimming="EllipsisCharacter"/>
+      <TextObject Name="Text1" Left="84.3" Top="86.26" Width="94.5" Height="18.9" BeforePrintEvent="Text1_BeforePrint" Text="[FORD_.ford_採購日期_西元]" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text2" Left="84.3" Top="108.26" Width="458.88" Height="21.55" Text="[FORD_.ford_廠商編號] [FORD_.fact_廠商名稱]" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text4" Left="84.3" Top="151.88" Width="140.25" Height="18.9" Text="[FORD_.ford_廠商電話]" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text10" Left="557.6" Top="86.26" Width="79.01" Height="18.9" Text="頁    次:" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text17" Left="557.98" Top="108.26" Width="79.01" Height="18.9" Text="採購憑證:" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text18" Left="557.6" Top="129.88" Width="79.01" Height="18.9" Text="聯 絡 人:" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text19" Left="557.6" Top="151.88" Width="79.01" Height="18.9" Text="統一編號:" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text20" Left="638.42" Top="86.26" Width="115.72" Height="18.9" Text="[Page]" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text21" Left="638.42" Top="108.26" Width="115.72" Height="18.9" Text="[FORD_.ford_採購單號]" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text22" Left="638.42" Top="129.88" Width="115.72" Height="18.9" Text="[FORD_.ford_廠商聯絡人]" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text23" Left="638.42" Top="151.88" Width="115.72" Height="18.9" Text="[FORD_.fact_廠商統一編號]" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text25" Left="315.28" Top="151.88" Width="228.26" Height="18.9" Text="[FORD_.fact_廠商傳真]" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text26" Left="269.92" Top="86.26" Width="149.34" Height="18.9" Text="[FORD_.ford_幣別編號][FORD_.ford_幣別名稱]" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text27" Left="3.78" Top="179.46" Width="35.06" Height="15.49" Text="序號" WordWrap="false" Font="細明體, 11pt"/>
+      <TextObject Name="Text28" Left="43.4" Top="179.46" Width="126.56" Height="15.49" Text="產品編號" WordWrap="false" Font="細明體, 11pt"/>
+      <TextObject Name="Text29" Left="174.32" Top="179.46" Width="167.39" Height="15.49" Text="產品規格" WordWrap="false" Font="細明體, 11pt"/>
+      <TextObject Name="Text30" Left="345.66" Top="179.46" Width="88.43" Height="15.49" Text="數量" HorzAlign="Right" WordWrap="false" Font="細明體, 11pt"/>
+      <TextObject Name="Text31" Left="438.2" Top="179.46" Width="38.44" Height="15.49" Text="單位" WordWrap="false" Font="細明體, 11pt"/>
+      <TextObject Name="Text32" Left="481.22" Top="179.46" Width="88.43" Height="15.49" Text="單價" HorzAlign="Right" WordWrap="false" Font="細明體, 11pt"/>
+      <TextObject Name="Text33" Left="575.54" Top="179.46" Width="84.65" Height="15.49" Text="金額" HorzAlign="Right" WordWrap="false" Font="細明體, 11pt"/>
+      <LineObject Name="Line1" Left="-3.78" Top="174.92" Width="761.67" Border.Width="2"/>
+      <LineObject Name="Line2" Top="199.86" Width="758.65" Border.Width="2"/>
+      <TextObject Name="Text24" Left="84.3" Top="129.88" Width="458.48" Height="18.9" Text="[FORD_.fact_廠商地址]" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text7" Left="462.1" Top="42.38" Width="294.34" Height="15.88" Text="[txtadress]" WordWrap="false" Font="細明體, 10pt"/>
+      <TextObject Name="Text8" Left="462.1" Top="63.16" Width="294.34" Height="15.88" Text="[txttel]" WordWrap="false" Font="細明體, 10pt"/>
+      <TextObject Name="Text44" Left="663.39" Top="179.46" Width="94.5" Height="15.49" Text="交貨日期" HorzAlign="Right" Font="細明體, 11pt"/>
+    </PageHeaderBand>
+    <GroupHeaderBand Name="GroupHeader1" Top="241.77" Width="797.2" StartNewPage="true" Condition="[FORD_.ford_採購單號]" ResetPageNumber="true">
+      <GroupHeaderBand Name="GroupHeader2" Top="261.77" Width="797.2" Height="71.82" CanGrow="true" CanShrink="true" Condition="[FORD_.fordd_recordno]">
+        <TextObject Name="Text34" Left="3.78" Width="35.06" Height="13.6" Text="[FORD_.fordd_recordno]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" WordWrap="false" Font="細明體, 10pt" Trimming="EllipsisCharacter"/>
+        <TextObject Name="Text35" Left="43.4" Width="126.56" Height="13.6" Text="[FORD_.fordd_產品編號]" WordWrap="false" Font="細明體, 10pt"/>
+        <TextObject Name="Text36" Left="174.32" Width="167.39" Height="13.6" Text="[FORD_.fordd_品名規格]" WordWrap="false" Font="細明體, 10pt"/>
+        <TextObject Name="Text37" Left="345.66" Width="88.43" Height="13.6" BeforePrintEvent="Text37_BeforePrint" Text="[FORD_.fordd_數量]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="細明體, 10pt" Trimming="EllipsisCharacter"/>
+        <TextObject Name="Text38" Left="438.2" Width="38.44" Height="13.6" Text="[FORD_.fordd_單位]" WordWrap="false" Font="細明體, 10pt"/>
+        <TextObject Name="Text39" Left="481.22" Width="88.43" Height="13.6" BeforePrintEvent="Text39_BeforePrint" Text="[FORD_.fordd_外幣稅前單價]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="細明體, 10pt" Trimming="EllipsisCharacter"/>
+        <TextObject Name="Text40" Left="575.54" Width="84.65" Height="13.6" BeforePrintEvent="Text40_BeforePrint" Text="[FORD_.fordd_外幣稅前金額]" Format="Currency" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="細明體, 10pt" Trimming="EllipsisCharacter"/>
+        <TextObject Name="Text68" Left="662.75" Width="94.5" Height="13.6" Text="[FORD_.fordd_交貨日_民國]" HorzAlign="Right" WordWrap="false" Font="細明體, 10pt"/>
+        <TextObject Name="Text45" Left="173.88" Top="15.12" Width="167.39" Height="13.6" CanGrow="true" CanShrink="true" BeforePrintEvent="Text45_BeforePrint" Text="[FORD_.fordd_規格說明1]" WordWrap="false" Font="SimSun, 9pt"/>
+        <PictureObject Name="Picture1" Left="345.66" Top="15.12" Width="64.26" Height="56.7" CanGrow="true" CanShrink="true" BeforePrintEvent="Picture1_BeforePrint" DataColumn="FORD_.item_pic"/>
+        <GroupHeaderBand Name="GroupHeader3" Top="353.59" Width="797.2" Condition="[FORD_.fordd_bomid]">
+          <DataBand Name="Data1" Top="373.59" Width="797.2" Height="13.6" CanGrow="true" CanShrink="true" DataSource="Table">
+            <TextObject Name="Text46" Left="173.88" Width="167.39" Height="13.6" BeforePrintEvent="Text46_BeforePrint" Text="[FORD_.FOrdBom_品名規格]" WordWrap="false" Font="細明體, 10pt"/>
+            <TextObject Name="Text53" Left="345.66" Width="88.43" Height="13.6" BeforePrintEvent="Text53_BeforePrint" Text="[FORD_.FOrdBom_標準用量]" HorzAlign="Right" WordWrap="false" Font="細明體, 10pt"/>
+            <TextObject Name="Text54" Left="438.2" Width="38.44" Height="13.6" Text="[FORD_.FOrdBom_單位]" WordWrap="false" Font="細明體, 10pt"/>
+          </DataBand>
+          <GroupFooterBand Name="GroupFooter3" Top="407.19" Width="797.2" Height="5.29">
+            <LineObject Name="Line5" Left="0.43" Top="2.64" Width="756.7"/>
+          </GroupFooterBand>
+        </GroupHeaderBand>
+        <GroupFooterBand Name="GroupFooter2" Top="432.48" Width="797.2" Height="15.5" CanGrow="true" CanShrink="true">
+          <TextObject Name="Text67" Top="1.9" Width="756" Height="13.6" BeforePrintEvent="Text67_BeforePrint" Text="*****以 下 空 白  *****" HorzAlign="Center" WordWrap="false" Font="細明體, 10pt"/>
+        </GroupFooterBand>
+      </GroupHeaderBand>
+      <GroupFooterBand Name="GroupFooter1" Top="467.98" Width="797.2" Height="177.66" PrintOnBottom="true" RepeatOnEveryPage="true">
+        <TextObject Name="Text41" Left="3.78" Top="26.06" Width="79.01" Height="18.9" Text="付款條件:" WordWrap="false" Font="細明體, 12pt"/>
+        <TextObject Name="Text42" Left="3.78" Top="47.58" Width="79.01" Height="18.9" Text="有效期限:" WordWrap="false" Font="細明體, 12pt"/>
+        <TextObject Name="Text47" Left="557.6" Top="26.06" Width="79.01" Height="18.9" Text="稅前合計:" WordWrap="false" Font="細明體, 12pt"/>
+        <TextObject Name="Text48" Left="557.6" Top="47.58" Width="79.01" Height="18.9" Text="營業稅額:" WordWrap="false" Font="細明體, 12pt"/>
+        <TextObject Name="Text49" Left="557.6" Top="69.1" Width="79.01" Height="18.9" Text="採購總額:" WordWrap="false" Font="細明體, 12pt"/>
+        <TextObject Name="Text50" Left="84.68" Top="26.06" Width="470.16" Height="18.9" BeforePrintEvent="Text50_BeforePrint" Text="[FORD_.ford_付款條件]" Format="Number" Format.UseLocale="true" WordWrap="false" Font="細明體, 12pt"/>
+        <TextObject Name="Text51" Left="84.68" Top="47.58" Width="470.16" Height="18.9" BeforePrintEvent="Text51_BeforePrint" Text="[FORD_.ford_有效期限]" Format="Number" Format.UseLocale="true" WordWrap="false" Font="細明體, 12pt"/>
+        <TextObject Name="Text52" Left="640.32" Top="26.06" Width="115.72" Height="18.9" BeforePrintEvent="Text52_BeforePrint" Text="[FORD_.ford_外幣合計]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="細明體, 12pt"/>
+        <TextObject Name="Text56" Left="640.32" Top="69.1" Width="115.72" Height="18.9" BeforePrintEvent="Text56_BeforePrint" Text="[FORD_.ford_外幣採購總額]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="細明體, 12pt"/>
+        <TextObject Name="Text58" Left="640.32" Top="47.58" Width="115.72" Height="18.9" BeforePrintEvent="Text58_BeforePrint" Text="[FORD_.ford_外幣營業稅額]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="細明體, 12pt"/>
+        <TextObject Name="Text61" Left="3.78" Top="68.68" Width="79.01" Height="18.9" Text="備    註:" WordWrap="false" Font="細明體, 12pt"/>
+        <TextObject Name="Text64" Left="86.45" Top="68.68" Width="467.32" Height="18.9" Text="[FORD_.ford_備註]" WordWrap="false" Font="細明體, 12pt"/>
+        <LineObject Name="Line3" Top="21.92" Width="754.48" Border.Width="2"/>
+        <LineObject Name="Line4" Left="-3.78" Top="91.76" Width="760.53" Border.Width="2"/>
+        <TextObject Name="Text66" Left="0.38" Top="2.23" Width="756" Height="13.6" BeforePrintEvent="Text66_BeforePrint" Text="*****續 下 頁  *****" HorzAlign="Center" WordWrap="false" Font="細明體, 10pt"/>
+        <TextObject Name="Text3" Left="4.16" Top="94.83" Width="753.73" Height="62.72" Text="[txtend]" WordWrap="false" Font="細明體, 12pt"/>
+        <TextObject Name="Text43" Left="3.78" Top="158.76" Width="132.3" Height="18.9" Text="廠商確認簽回處:" WordWrap="false" Font="細明體, 12pt, style=Bold"/>
+      </GroupFooterBand>
+    </GroupHeaderBand>
+  </ReportPage>
+</Report>

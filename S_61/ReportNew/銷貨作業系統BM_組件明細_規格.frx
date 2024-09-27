@@ -1,0 +1,572 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" DoublePass="true" ReportInfo.Created="03/11/2015 18:35:11" ReportInfo.Modified="07/04/2016 20:01:11" ReportInfo.CreatorVersion="2013.2.5.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {         
+    private void Text67_BeforePrint(object sender, EventArgs e)
+    {
+      if(((Decimal)Report.GetColumnValue(&quot;SALE_.sale_recordno&quot;))==((Decimal)Report.GetColumnValue(&quot;SALE_.saled_recordno&quot;)))
+      {
+        Text67.Visible=true;
+      } 
+      else
+        Text67.Visible=false; 
+    }
+
+    private void Text66_BeforePrint(object sender, EventArgs e)
+    {
+      if (((Int32)Report.GetVariableValue(&quot;Page&quot;))!=((Int32)Report.GetVariableValue(&quot;TotalPages&quot;)))
+      {
+        Text66.Visible=true;
+      }
+      else
+        Text66.Visible=false;
+    }       
+
+    private void Text1_BeforePrint(object sender, EventArgs e)
+    {
+      //銷貨日期
+      string date = ((String)Report.GetColumnValue(&quot;SALE_.sale_銷貨日期_西元&quot;));
+      string date1 = &quot;&quot;;
+      if(((String)Report.GetParameterValue(&quot;date&quot;)) == &quot;民國&quot;)
+      {
+        date1 = (Convert.ToInt32((date.Substring(0,4)))-1911).ToString()+&quot;.&quot;;
+        date1 += date.Substring(4,2)+&quot;.&quot;+date.Substring(6,2); 
+      }
+      else
+      {
+        date1 = date.Substring(0,4)+&quot;.&quot;;
+        date1 += date.Substring(4,2)+&quot;.&quot;+date.Substring(6,2); 
+      }
+      Text1.Text = date1;
+    }
+
+    private void Text40_BeforePrint(object sender, EventArgs e)
+    {
+      //金額
+      if(((Boolean)Report.GetParameterValue(&quot;是否顯示金額&quot;)) == false)
+      {
+        Text40.Text =&quot;&quot;;
+        return;
+      }
+      string formet = &quot;f&quot;+((String)Report.GetParameterValue(&quot;銷項金額小數&quot;))    ;
+      Text40.Text = ((Decimal)Report.GetColumnValue(&quot;SALE_.saled_外幣稅前金額&quot;)).ToString(formet);
+    }
+
+    private void Text37_BeforePrint(object sender, EventArgs e)
+    {
+      //數量
+      string formet = &quot;f&quot;+((String)Report.GetParameterValue(&quot;庫存數量小數&quot;));
+      Text37.Text = ((Decimal)Report.GetColumnValue(&quot;SALE_.saled_數量&quot;)).ToString(formet);
+    }
+
+    private void Text39_BeforePrint(object sender, EventArgs e)
+    {
+      //單價
+      if(((Boolean)Report.GetParameterValue(&quot;是否顯示金額&quot;)) == false)
+      {
+        Text39.Text =&quot;&quot;;
+        return;
+      }
+      string formet = &quot;f&quot;+((String)Report.GetParameterValue(&quot;銷貨單價小數&quot;));
+      Text39.Text = ((Decimal)Report.GetColumnValue(&quot;SALE_.saled_外幣稅前單價&quot;)).ToString(formet);
+    }
+
+    private void Text50_BeforePrint(object sender, EventArgs e)
+    {
+      //稅前合計
+      if(((Boolean)Report.GetParameterValue(&quot;是否顯示金額&quot;)) == false)
+      {
+        Text50.Text =&quot;&quot;;
+        return;
+      }
+      string formet = &quot;f&quot;+((String)Report.GetParameterValue(&quot;銷貨單據小數&quot;));
+      Text50.Text = ((Decimal)Report.GetColumnValue(&quot;SALE_.sale_外幣稅前合計&quot;)).ToString(formet);
+    }
+
+    private void Text51_BeforePrint(object sender, EventArgs e)
+    {
+      //營業稅
+      if(((Boolean)Report.GetParameterValue(&quot;是否顯示金額&quot;)) == false)
+      {
+        Text51.Text =&quot;&quot;;
+        return;
+      }
+      string formet = &quot;f&quot;+((String)Report.GetParameterValue(&quot;銷項稅額小數&quot;));
+      Text51.Text =((Decimal)Report.GetColumnValue(&quot;SALE_.sale_外幣營業稅額&quot;)) .ToString(formet);
+    }
+
+    private void Text57_BeforePrint(object sender, EventArgs e)
+    {
+      //應收總額
+      if(((Boolean)Report.GetParameterValue(&quot;是否顯示金額&quot;)) == false)
+      {
+        Text57.Text =&quot;&quot;;
+        return;
+      }
+      string formet = &quot;f&quot;+((String)Report.GetParameterValue(&quot;銷貨單據小數&quot;));
+      Text57.Text =((Decimal)Report.GetColumnValue(&quot;SALE_.sale_外幣總額&quot;)).ToString(formet);
+    }
+
+    private void Text53_BeforePrint(object sender, EventArgs e)
+    {
+      //已收金額
+      if(((Boolean)Report.GetParameterValue(&quot;是否顯示金額&quot;)) == false)
+      {
+        Text53.Text =&quot;&quot;;
+        return;
+      }
+      string formet = &quot;f&quot;+((String)Report.GetParameterValue(&quot;銷貨單據小數&quot;));
+      Text53.Text =((Decimal)Report.GetColumnValue(&quot;SALE_.sale_已收金額&quot;)).ToString(formet);
+    }
+
+    private void Text54_BeforePrint(object sender, EventArgs e)
+    {
+      //折購金額
+      if(((Boolean)Report.GetParameterValue(&quot;是否顯示金額&quot;)) == false)
+      {
+        Text54.Text =&quot;&quot;;
+        return;
+      }
+      string formet = &quot;f&quot;+((String)Report.GetParameterValue(&quot;銷貨單據小數&quot;));
+      Text54.Text =((Decimal)Report.GetColumnValue(&quot;SALE_.sale_折扣金額&quot;)).ToString(formet);
+    }
+
+    private void Text55_BeforePrint(object sender, EventArgs e)
+    {
+      // 取用預收
+      if(((Boolean)Report.GetParameterValue(&quot;是否顯示金額&quot;)) == false)
+      {
+        Text55.Text =&quot;&quot;;
+        return;
+      }
+      string formet = &quot;f&quot;+((String)Report.GetParameterValue(&quot;銷貨單據小數&quot;));
+      Text55.Text =((Decimal)Report.GetColumnValue(&quot;SALE_.sale_取用預收&quot;)).ToString(formet);
+    }
+
+    private void Text52_BeforePrint(object sender, EventArgs e)
+    {
+      //未收金額
+      if(((Boolean)Report.GetParameterValue(&quot;是否顯示金額&quot;)) == false)
+      {
+        Text52.Text =&quot;&quot;;
+        return;
+      }
+      string formet = &quot;f&quot;+((String)Report.GetParameterValue(&quot;銷貨單據小數&quot;));
+      Text52.Text =((Decimal)Report.GetColumnValue(&quot;SALE_.sale_未收金額&quot;)).ToString(formet);
+    }
+    private void Text70_BeforePrint(object sender, EventArgs e)
+    {
+      string formet = &quot;f&quot;+((String)Report.GetParameterValue(&quot;庫存數量小數&quot;));
+      decimal itqty = ((Decimal)Report.GetColumnValue(&quot;SALE_.salebom_標準用量&quot;));
+      decimal itpareprs = ((Decimal)Report.GetColumnValue(&quot;SALE_.salebom_母件比率&quot;));
+      decimal itpkgqty = ((Decimal)Report.GetColumnValue(&quot;SALE_.salebom_包裝數量&quot;));
+      if(itpareprs == 0)
+      {
+        Text70.Text=(0M).ToString(formet);
+      }
+      else
+      {
+        Text70.Text=((itqty / itpareprs)*itpkgqty).ToString(formet);
+      }
+    }
+
+    private void Text69_BeforePrint(object sender, EventArgs e)
+    {
+      if(((String)Report.GetColumnValue(&quot;SALE_.salebom_品名規格&quot;))==&quot;&quot;){Data1.Visible=false;} 
+    }
+
+    
+
+    private void Picture1_BeforePrint(object sender, EventArgs e)
+    {
+      if(((Int32)Report.GetColumnValue(&quot;SALE_.長度&quot;))==0){Picture1.Visible=false;}
+    }
+
+    private void Text72_BeforePrint(object sender, EventArgs e)
+    {
+      string str=&quot;&quot;;
+      if(((String)Report.GetColumnValue(&quot;SALE_.saled_規格說明1&quot;))!=&quot;&quot;){str+=((String)Report.GetColumnValue(&quot;SALE_.saled_規格說明1&quot;))+Environment.NewLine;}
+      if(((String)Report.GetColumnValue(&quot;SALE_.saled_規格說明2&quot;))!=&quot;&quot;){str+=((String)Report.GetColumnValue(&quot;SALE_.saled_規格說明2&quot;))+Environment.NewLine;}
+      if(((String)Report.GetColumnValue(&quot;SALE_.saled_規格說明3&quot;))!=&quot;&quot;){str+=((String)Report.GetColumnValue(&quot;SALE_.saled_規格說明3&quot;))+Environment.NewLine;}
+      if(((String)Report.GetColumnValue(&quot;SALE_.saled_規格說明4&quot;))!=&quot;&quot;){str+=((String)Report.GetColumnValue(&quot;SALE_.saled_規格說明4&quot;))+Environment.NewLine;}
+      if(((String)Report.GetColumnValue(&quot;SALE_.saled_規格說明5&quot;))!=&quot;&quot;){str+=((String)Report.GetColumnValue(&quot;SALE_.saled_規格說明5&quot;))+Environment.NewLine;}
+      if(((String)Report.GetColumnValue(&quot;SALE_.saled_規格說明6&quot;))!=&quot;&quot;){str+=((String)Report.GetColumnValue(&quot;SALE_.saled_規格說明6&quot;))+Environment.NewLine;}
+      if(((String)Report.GetColumnValue(&quot;SALE_.saled_規格說明7&quot;))!=&quot;&quot;){str+=((String)Report.GetColumnValue(&quot;SALE_.saled_規格說明7&quot;))+Environment.NewLine;}
+      if(((String)Report.GetColumnValue(&quot;SALE_.saled_規格說明8&quot;))!=&quot;&quot;){str+=((String)Report.GetColumnValue(&quot;SALE_.saled_規格說明8&quot;))+Environment.NewLine;}
+      if(((String)Report.GetColumnValue(&quot;SALE_.saled_規格說明9&quot;))!=&quot;&quot;){str+=((String)Report.GetColumnValue(&quot;SALE_.saled_規格說明9&quot;))+Environment.NewLine;}
+      if(((String)Report.GetColumnValue(&quot;SALE_.saled_規格說明10&quot;))!=&quot;&quot;){str+=((String)Report.GetColumnValue(&quot;SALE_.saled_規格說明10&quot;))+Environment.NewLine;}
+      if(str==&quot;&quot;){Text72.Visible=false;}
+      Text72.Text=str;
+    }
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <MsSqlDataConnection Name="Connection" ConnectionString="rijcmlqr2sEgbyd/XFgYBeuRgqcA2fPEABqa7op7lzIvjCd0OC4AYhmBbgkZmVd9K9BlXfZ/iiMt8bGpj/FXE8QXQub9+YgGzr/o8enCWd1YxKcVamC0iAzHRtNi1xbt0lk9dsowavE0Z71FcL20DHAxCiA72mbAp/ZappgtxvOBXLovP02wrZz+XsRiL/fUlR9k+hC">
+      <TableDataSource Name="Table" Alias="SALE_" DataType="System.Int32" Enabled="true" SelectCommand="  SELECT sale.sano AS sale_銷貨單號, sale.sadate AS sale_銷貨日期_民國, sale.sadateac AS sale_帳款日期_民國,  sale.sadate1 AS sale_銷貨日期_西元, sale.sadate2 AS sale_銷貨日期_保留, sale.sadateac1 AS sale_帳款日期_西元, sale.sadateac2 AS sale_帳款日期_保留, sale.quno AS sale_報價憑證, sale.cono AS sale_公司編號,  sale.coname1 AS sale_公司簡稱, sale.coname2 AS sale_公司名稱, sale.cuno AS sale_客戶編號,  sale.cuname2 AS sale_客戶名稱, sale.cuname1 AS sale_客戶簡稱, sale.cutel1 AS sale_客戶電話,  sale.cuper1 AS sale_客戶聯絡人, sale.emno AS sale_業務編號, sale.emname AS sale_業務姓名, sale.spno AS sale_專案編號,  sale.spname AS sale_專案名稱, sale.stno AS sale_出貨倉庫編號, sale.stname AS sale_出貨倉庫名稱, sale.xa1no AS sale_幣別編號,  sale.Xa1Name AS sale_幣別名稱, sale.xa1par AS sale_匯率, sale.taxmnyf AS sale_taxmnyf,  sale.taxmnyb AS sale_本幣稅前合計, sale.taxmny AS sale_外幣稅前合計, sale.x3no AS sale_稅別編號, sale.rate AS sale_稅率,  sale.x5no AS sale_發票種類, sale.seno AS sale_送貨編號, sale.sename AS sale_送貨名稱, sale.x4no AS sale_結帳類別編號,  sale.x4name AS sale_結帳類別名稱, sale.tax AS sale_外幣營業稅額, sale.totmny AS sale_外幣總額, sale.taxb AS sale_本幣營業稅額,  sale.totmnyb AS sale_本幣總額, sale.discount AS sale_折扣金額, sale.cashmny AS sale_收現金額,  sale.cardmny AS sale_刷卡金額, sale.cardno AS sale_刷卡卡號, sale.ticket AS sale_禮卷金額,  sale.collectmny AS sale_已收金額, sale.getprvacc AS sale_取用預收, sale.acctmny AS sale_未收金額,  sale.samemo AS sale_備註, sale.samemo1 AS sale_詳細備註, sale.bracket AS sale_表單類型,  sale.recordno AS sale_recordno, sale.invno AS sale_發票編號, sale.invdate AS sale_發票日期_民國,  sale.invdate1 AS 發票日期_西元, sale.invname AS 發票抬頭, sale.invtaxno AS sale_統一編號,  sale.invaddr1 AS sale_發票地址, sale.invbatch AS sale_發票批開選定, sale.invbatflg AS sale_批開發票標記,  sale.appdate AS sale_新增日期時間, sale.edtdate AS sale_修改日期時間, sale.appscno AS sale_登錄人員,  sale.edtscno AS sale_最後修改人員, sale.acno AS sale_傳票編號, sale.cloflag AS sale_cloflag,sale.SaPayment as sale_付款條件,  sale.SendAddr AS sale_sendaddr, sale.UsrNo AS sale_usrno, saled.saID AS saled_said, saled.sano AS saled_銷貨單號,  saled.sadate AS saled_銷貨日期_民國, saled.sadate1 AS saled_銷貨日期_西元, saled.sadate2 AS saled_銷貨日期_保留,  saled.sadateac AS saled_帳款日期_民國, saled.sadateac1 AS saled_帳款日期_西元, saled.sadateac2 AS saled_帳款日期_保留,  saled.quno AS saled_報價憑證, saled.cono AS saled_公司編號, saled.cuno AS saled_客戶編號, saled.emno AS saled_業務編號,  saled.spno AS saled_專案編號, saled.stno AS saled_出貨倉庫編號, saled.xa1no AS saled_幣別編號,  saled.xa1par AS saled_匯率, saled.seno AS saled_送貨編號, saled.sename AS saled_送貨名稱,  saled.x4no AS saled_結帳類別編號, saled.x4name AS saled_結帳類別名稱, saled.orno AS saled_訂單單號, saled.itno AS saled_產品編號,  saled.itname AS saled_品名規格, saled.ittrait AS saled_產品組成, saled.itunit AS saled_單位,  saled.itpkgqty AS saled_包裝數量, saled.qty AS saled_數量, saled.price AS saled_外幣單價, saled.prs AS saled_折數,  saled.rate AS saled_稅率, saled.taxprice AS saled_外幣稅前單價, saled.mny AS saled_外幣稅前金額,  saled.priceb AS saled_本幣單價, saled.taxpriceb AS saled_本幣稅前單價, saled.mnyb AS 本幣稅前金額,  saled.memo AS saled_備註說明, saled.lowzero AS saled_lowzero, saled.bomid AS saled_bomid,  saled.bomrec AS saled_bomrec, saled.recordno AS saled_recordno, saled.sltflag AS saled_sltflag,  saled.extflag AS saled_extflag, saled.bracket AS saled_表單類型, saled.itdesp1 AS saled_規格說明1,  saled.itdesp2 AS saled_規格說明2, saled.itdesp3 AS saled_規格說明3, saled.itdesp4 AS saled_規格說明4,  saled.itdesp5 AS saled_規格說明5, saled.itdesp6 AS saled_規格說明6, saled.itdesp7 AS saled_規格說明7,  saled.itdesp8 AS saled_規格說明8, saled.itdesp9 AS saled_規格說明9, saled.itdesp10 AS saled_規格說明10, saled.PQty AS saled_PQty,saled.PUnit AS saled_PUnit,  saled.stName AS saled_出貨倉庫名稱, saled.RecordNo_D AS saled_recordno_d, cust.cuno AS cust_客戶編號,  saled.mwidth1 AS saled_mwidth1,saled.mwidth2 AS saled_mwidth2,saled.mwidth3 AS saled_mwidth3,saled.mwidth4 AS saled_mwidth4, scrit.scname1, saled.Pformula,  sale.AdAddr as sale_AdAddr,ISNULL(sale.Adper1, '')  as sale_客戶收件人,sale.Adtel as sale_Adtel,  saled.AdAddr as saled_AdAddr,saled.Adper1 as saled_Adper1,saled.Adtel as saled_Adtel,saled.AdName as  saled_AdName,  saled.standard as saled_型號,  cust.cuname2 AS cust_客戶名稱, cust.cuname1 AS cust_客戶簡稱, cust.cuinvoname AS cust_發票抬頭,  cust.cuchkname AS cust_支票抬頭, cust.cuxa1no AS cust_交易幣別編號, cust.cupareno AS cust_隸屬經銷編號,  cust.cucono AS cust_隸屬公司編號, cust.cuime AS cust_注音速查, cust.cux1no AS cust_客戶類別編號,  cust.cuemno1 AS cust_業務人員編號, cust.cuper1 AS cust_聯絡人1, cust.cuper2 AS cust_聯絡人2, cust.cuper AS cust_負責人,  cust.cutel1 AS cust_電話1, cust.cutel2 AS cust_電話2, cust.cufax1 AS cust_傳真, cust.cuatel1 AS cust_行動電話1,  cust.cuatel2 AS cust_行動電話2, cust.cuatel3 AS cust_080電話, cust.cubbc AS cust_cubbc, cust.cuaddr1 AS cust_公司地址,  cust.cur1 AS cust_公司地址郵遞區號, cust.cuaddr2 AS cust_發票地址, cust.cur2 AS cust_發票地址郵遞區號, cust.cuaddr3 AS cust_送貨地址,  cust.cur3 AS cust_送貨地址郵遞區號, cust.cuslevel AS cust_售價等級, cust.cudisc AS cust_折數, cust.cuemail AS cust_電子信箱,  cust.cuwww AS cust_網址, cust.cux2no AS cust_區域名稱編號, cust.cuuno AS cust_統編, cust.cux3no AS cust_營業稅編號,  cust.cux4no AS cust_結帳類別編號, cust.cucredit AS cust_信用額度, cust.cuengname AS cust_英文抬頭,  cust.cuengaddr AS cust_英文地址, cust.cuengr1 AS cust_英文郵遞區號, cust.cumemo1 AS cust_備註ㄧ,  cust.cumemo2 AS cust_備註二, cust.cux5no AS cust_發票模式編號, cust.cuarea AS cust_地區類別,  cust.cuudf1 AS cust_自定ㄧ, cust.cuudf2 AS cust_自定二, cust.cuudf3 AS cust_自定三, cust.cuudf4 AS cust_自定四,  cust.cuudf5 AS cust_自定五, cust.cuudf6 AS cust_自定六, cust.cudate AS cust_建檔日期_民國, cust.cudate1 AS cust_建檔日期_西元,  cust.cudate2 AS cust_建檔日期_保留, cust.culastday AS cust_最近交易_民國, cust.culastday1 AS cust_最近交易_西元,  cust.culastday2 AS cust_最近交易_保留, cust.cufirreceiv AS cust_期初應收帳款金額, cust.cusparercv AS cust_期初應收帳款餘額,  cust.cureceiv AS cust_現有應收帳款金額, cust.cufirrcvpar AS cust_期初應收帳款匯率, cust.cufiradvamt AS cust_期初預收餘額,  cust.cuadvamt AS cust_預收餘額, cust.cunote AS cust_備忘錄, cust.cubirth AS cust_出生日期_民國,  cust.cubirth1 AS cust_出生日期_西元, cust.cubirth2 AS cust_出生日期_保留, cust.cusex AS cust_性別,  cust.cublood AS cust_血型, cust.cuidno AS cust_身分證, cust.ServDate AS cust_servdate,  cust.BetwDates AS cust_betwdates, cust.MsgFlag AS cust_msgflag, cust.CuPause AS cust_cupause, item.kino, kind.kiname,  salebom.SaNo AS salebom_報價單號, salebom.BomID AS salebom_bomid, salebom.BomRec AS salebom_bomrec,  salebom.itno AS salebom_產品編號, salebom.itname AS salebom_品名規格, salebom.itunit AS salebom_單位,  salebom.itqty AS salebom_標準用量, salebom.itpareprs AS salebom_母件比率, salebom.itpkgqty AS salebom_包裝數量,  salebom.itrec AS salebom_itrec, salebom.itprice AS salebom_產品單價, salebom.itprs AS salebom_產品折數,  salebom.itmny AS salebom_產品稅前金額, salebom.itnote AS salebom_產品說明, salebom.ItSource AS salebom_itsource,  salebom.ItBuyPri AS salebom_itbuypri, salebom.ItBuyMny AS salebom_itbuymny,  item.pic AS item_pic,item.itpicture AS item_showpic, item.ItUdf1 AS item_ItUdf1  FROM sale  LEFT OUTER JOIN scrit ON sale.appscno = scrit.scname LEFT OUTER JOIN saled ON sale.sano = saled.sano LEFT OUTER JOIN cust ON sale.cuno = cust.cuno LEFT OUTER JOIN item ON saled.itno = item.itno LEFT OUTER JOIN kind ON item.kino = kind.kino LEFT OUTER JOIN salebom ON saled.bomid = salebom.BomID  Order by saled_said ">
+        <Column Name="sale_銷貨單號" DataType="System.String"/>
+        <Column Name="sale_銷貨日期_民國" DataType="System.String"/>
+        <Column Name="sale_帳款日期_民國" DataType="System.String"/>
+        <Column Name="sale_銷貨日期_西元" DataType="System.String"/>
+        <Column Name="sale_銷貨日期_保留" DataType="System.String"/>
+        <Column Name="sale_帳款日期_西元" DataType="System.String"/>
+        <Column Name="sale_帳款日期_保留" DataType="System.String"/>
+        <Column Name="sale_報價憑證" DataType="System.String"/>
+        <Column Name="sale_公司編號" DataType="System.String"/>
+        <Column Name="sale_公司簡稱" DataType="System.String"/>
+        <Column Name="sale_公司名稱" DataType="System.String"/>
+        <Column Name="sale_客戶編號" DataType="System.String"/>
+        <Column Name="sale_客戶名稱" DataType="System.String"/>
+        <Column Name="sale_客戶簡稱" DataType="System.String"/>
+        <Column Name="sale_客戶電話" DataType="System.String"/>
+        <Column Name="sale_客戶聯絡人" DataType="System.String"/>
+        <Column Name="sale_業務編號" DataType="System.String"/>
+        <Column Name="sale_業務姓名" DataType="System.String"/>
+        <Column Name="sale_專案編號" DataType="System.String"/>
+        <Column Name="sale_專案名稱" DataType="System.String"/>
+        <Column Name="sale_出貨倉庫編號" DataType="System.String"/>
+        <Column Name="sale_出貨倉庫名稱" DataType="System.String"/>
+        <Column Name="sale_幣別編號" DataType="System.String"/>
+        <Column Name="sale_幣別名稱" DataType="System.String"/>
+        <Column Name="sale_匯率" DataType="System.Decimal"/>
+        <Column Name="sale_taxmnyf" DataType="System.Decimal"/>
+        <Column Name="sale_本幣稅前合計" DataType="System.Decimal"/>
+        <Column Name="sale_外幣稅前合計" DataType="System.Decimal"/>
+        <Column Name="sale_稅別編號" DataType="System.Decimal"/>
+        <Column Name="sale_稅率" DataType="System.Decimal"/>
+        <Column Name="sale_發票種類" DataType="System.Decimal"/>
+        <Column Name="sale_送貨編號" DataType="System.String"/>
+        <Column Name="sale_送貨名稱" DataType="System.String"/>
+        <Column Name="sale_結帳類別編號" DataType="System.String"/>
+        <Column Name="sale_結帳類別名稱" DataType="System.String"/>
+        <Column Name="sale_外幣營業稅額" DataType="System.Decimal"/>
+        <Column Name="sale_外幣總額" DataType="System.Decimal"/>
+        <Column Name="sale_本幣營業稅額" DataType="System.Decimal"/>
+        <Column Name="sale_本幣總額" DataType="System.Decimal"/>
+        <Column Name="sale_折扣金額" DataType="System.Decimal"/>
+        <Column Name="sale_收現金額" DataType="System.Decimal"/>
+        <Column Name="sale_刷卡金額" DataType="System.Decimal"/>
+        <Column Name="sale_刷卡卡號" DataType="System.String"/>
+        <Column Name="sale_禮卷金額" DataType="System.Decimal"/>
+        <Column Name="sale_已收金額" DataType="System.Decimal"/>
+        <Column Name="sale_取用預收" DataType="System.Decimal"/>
+        <Column Name="sale_未收金額" DataType="System.Decimal"/>
+        <Column Name="sale_備註" DataType="System.String"/>
+        <Column Name="sale_詳細備註" DataType="System.String"/>
+        <Column Name="sale_表單類型" DataType="System.String"/>
+        <Column Name="sale_recordno" DataType="System.Decimal"/>
+        <Column Name="sale_發票編號" DataType="System.String"/>
+        <Column Name="sale_發票日期_民國" DataType="System.String"/>
+        <Column Name="發票日期_西元" DataType="System.String"/>
+        <Column Name="發票抬頭" DataType="System.String"/>
+        <Column Name="sale_統一編號" DataType="System.String"/>
+        <Column Name="sale_發票地址" DataType="System.String"/>
+        <Column Name="sale_發票批開選定" DataType="System.Decimal"/>
+        <Column Name="sale_批開發票標記" DataType="System.Decimal"/>
+        <Column Name="sale_新增日期時間" DataType="System.String"/>
+        <Column Name="sale_修改日期時間" DataType="System.String"/>
+        <Column Name="sale_登錄人員" DataType="System.String"/>
+        <Column Name="sale_最後修改人員" DataType="System.String"/>
+        <Column Name="sale_傳票編號" DataType="System.String"/>
+        <Column Name="sale_cloflag" DataType="System.Boolean" BindableControl="CheckBox"/>
+        <Column Name="sale_付款條件" DataType="System.String"/>
+        <Column Name="sale_sendaddr" DataType="System.String"/>
+        <Column Name="sale_usrno" DataType="System.String"/>
+        <Column Name="saled_said" DataType="System.Int32"/>
+        <Column Name="saled_銷貨單號" DataType="System.String"/>
+        <Column Name="saled_銷貨日期_民國" DataType="System.String"/>
+        <Column Name="saled_銷貨日期_西元" DataType="System.String"/>
+        <Column Name="saled_銷貨日期_保留" DataType="System.String"/>
+        <Column Name="saled_帳款日期_民國" DataType="System.String"/>
+        <Column Name="saled_帳款日期_西元" DataType="System.String"/>
+        <Column Name="saled_帳款日期_保留" DataType="System.String"/>
+        <Column Name="saled_報價憑證" DataType="System.String"/>
+        <Column Name="saled_公司編號" DataType="System.String"/>
+        <Column Name="saled_客戶編號" DataType="System.String"/>
+        <Column Name="saled_業務編號" DataType="System.String"/>
+        <Column Name="saled_專案編號" DataType="System.String"/>
+        <Column Name="saled_出貨倉庫編號" DataType="System.String"/>
+        <Column Name="saled_幣別編號" DataType="System.String"/>
+        <Column Name="saled_匯率" DataType="System.Decimal"/>
+        <Column Name="saled_送貨編號" DataType="System.String"/>
+        <Column Name="saled_送貨名稱" DataType="System.String"/>
+        <Column Name="saled_結帳類別編號" DataType="System.String"/>
+        <Column Name="saled_結帳類別名稱" DataType="System.String"/>
+        <Column Name="saled_訂單單號" DataType="System.String"/>
+        <Column Name="saled_產品編號" DataType="System.String"/>
+        <Column Name="saled_品名規格" DataType="System.String"/>
+        <Column Name="saled_產品組成" DataType="System.Decimal"/>
+        <Column Name="saled_單位" DataType="System.String"/>
+        <Column Name="saled_包裝數量" DataType="System.Decimal"/>
+        <Column Name="saled_數量" DataType="System.Decimal"/>
+        <Column Name="saled_外幣單價" DataType="System.Decimal"/>
+        <Column Name="saled_折數" DataType="System.Decimal"/>
+        <Column Name="saled_稅率" DataType="System.Decimal"/>
+        <Column Name="saled_外幣稅前單價" DataType="System.Decimal"/>
+        <Column Name="saled_外幣稅前金額" DataType="System.Decimal"/>
+        <Column Name="saled_本幣單價" DataType="System.Decimal"/>
+        <Column Name="saled_本幣稅前單價" DataType="System.Decimal"/>
+        <Column Name="本幣稅前金額" DataType="System.Decimal"/>
+        <Column Name="saled_備註說明" DataType="System.String"/>
+        <Column Name="saled_lowzero" DataType="System.String"/>
+        <Column Name="saled_bomid" DataType="System.String"/>
+        <Column Name="saled_bomrec" DataType="System.Decimal"/>
+        <Column Name="saled_recordno" DataType="System.Decimal"/>
+        <Column Name="saled_sltflag" DataType="System.Boolean" BindableControl="CheckBox"/>
+        <Column Name="saled_extflag" DataType="System.Boolean" BindableControl="CheckBox"/>
+        <Column Name="saled_表單類型" DataType="System.String"/>
+        <Column Name="saled_規格說明1" DataType="System.String"/>
+        <Column Name="saled_規格說明2" DataType="System.String"/>
+        <Column Name="saled_規格說明3" DataType="System.String"/>
+        <Column Name="saled_規格說明4" DataType="System.String"/>
+        <Column Name="saled_規格說明5" DataType="System.String"/>
+        <Column Name="saled_規格說明6" DataType="System.String"/>
+        <Column Name="saled_規格說明7" DataType="System.String"/>
+        <Column Name="saled_規格說明8" DataType="System.String"/>
+        <Column Name="saled_規格說明9" DataType="System.String"/>
+        <Column Name="saled_規格說明10" DataType="System.String"/>
+        <Column Name="saled_PQty" DataType="System.Decimal"/>
+        <Column Name="saled_PUnit" DataType="System.String"/>
+        <Column Name="saled_出貨倉庫名稱" DataType="System.String"/>
+        <Column Name="saled_recordno_d" DataType="System.Decimal"/>
+        <Column Name="cust_客戶編號" DataType="System.String"/>
+        <Column Name="saled_mwidth1" DataType="System.Decimal"/>
+        <Column Name="saled_mwidth2" DataType="System.Decimal"/>
+        <Column Name="saled_mwidth3" DataType="System.Decimal"/>
+        <Column Name="saled_mwidth4" DataType="System.Decimal"/>
+        <Column Name="scname1" DataType="System.String"/>
+        <Column Name="Pformula" DataType="System.String"/>
+        <Column Name="sale_AdAddr" DataType="System.String"/>
+        <Column Name="sale_客戶收件人" DataType="System.String"/>
+        <Column Name="sale_Adtel" DataType="System.String"/>
+        <Column Name="saled_AdAddr" DataType="System.String"/>
+        <Column Name="saled_Adper1" DataType="System.String"/>
+        <Column Name="saled_Adtel" DataType="System.String"/>
+        <Column Name="saled_AdName" DataType="System.String"/>
+        <Column Name="saled_型號" DataType="System.String"/>
+        <Column Name="cust_客戶名稱" DataType="System.String"/>
+        <Column Name="cust_客戶簡稱" DataType="System.String"/>
+        <Column Name="cust_發票抬頭" DataType="System.String"/>
+        <Column Name="cust_支票抬頭" DataType="System.String"/>
+        <Column Name="cust_交易幣別編號" DataType="System.String"/>
+        <Column Name="cust_隸屬經銷編號" DataType="System.String"/>
+        <Column Name="cust_隸屬公司編號" DataType="System.String"/>
+        <Column Name="cust_注音速查" DataType="System.String"/>
+        <Column Name="cust_客戶類別編號" DataType="System.String"/>
+        <Column Name="cust_業務人員編號" DataType="System.String"/>
+        <Column Name="cust_聯絡人1" DataType="System.String"/>
+        <Column Name="cust_聯絡人2" DataType="System.String"/>
+        <Column Name="cust_負責人" DataType="System.String"/>
+        <Column Name="cust_電話1" DataType="System.String"/>
+        <Column Name="cust_電話2" DataType="System.String"/>
+        <Column Name="cust_傳真" DataType="System.String"/>
+        <Column Name="cust_行動電話1" DataType="System.String"/>
+        <Column Name="cust_行動電話2" DataType="System.String"/>
+        <Column Name="cust_080電話" DataType="System.String"/>
+        <Column Name="cust_cubbc" DataType="System.String"/>
+        <Column Name="cust_公司地址" DataType="System.String"/>
+        <Column Name="cust_公司地址郵遞區號" DataType="System.String"/>
+        <Column Name="cust_發票地址" DataType="System.String"/>
+        <Column Name="cust_發票地址郵遞區號" DataType="System.String"/>
+        <Column Name="cust_送貨地址" DataType="System.String"/>
+        <Column Name="cust_送貨地址郵遞區號" DataType="System.String"/>
+        <Column Name="cust_售價等級" DataType="System.String"/>
+        <Column Name="cust_折數" DataType="System.Decimal"/>
+        <Column Name="cust_電子信箱" DataType="System.String"/>
+        <Column Name="cust_網址" DataType="System.String"/>
+        <Column Name="cust_區域名稱編號" DataType="System.String"/>
+        <Column Name="cust_統編" DataType="System.String"/>
+        <Column Name="cust_營業稅編號" DataType="System.String"/>
+        <Column Name="cust_結帳類別編號" DataType="System.String"/>
+        <Column Name="cust_信用額度" DataType="System.Decimal"/>
+        <Column Name="cust_英文抬頭" DataType="System.String"/>
+        <Column Name="cust_英文地址" DataType="System.String"/>
+        <Column Name="cust_英文郵遞區號" DataType="System.String"/>
+        <Column Name="cust_備註ㄧ" DataType="System.String"/>
+        <Column Name="cust_備註二" DataType="System.String"/>
+        <Column Name="cust_發票模式編號" DataType="System.String"/>
+        <Column Name="cust_地區類別" DataType="System.String"/>
+        <Column Name="cust_自定ㄧ" DataType="System.String"/>
+        <Column Name="cust_自定二" DataType="System.String"/>
+        <Column Name="cust_自定三" DataType="System.String"/>
+        <Column Name="cust_自定四" DataType="System.String"/>
+        <Column Name="cust_自定五" DataType="System.String"/>
+        <Column Name="cust_自定六" DataType="System.String"/>
+        <Column Name="cust_建檔日期_民國" DataType="System.String"/>
+        <Column Name="cust_建檔日期_西元" DataType="System.String"/>
+        <Column Name="cust_建檔日期_保留" DataType="System.String"/>
+        <Column Name="cust_最近交易_民國" DataType="System.String"/>
+        <Column Name="cust_最近交易_西元" DataType="System.String"/>
+        <Column Name="cust_最近交易_保留" DataType="System.String"/>
+        <Column Name="cust_期初應收帳款金額" DataType="System.Decimal"/>
+        <Column Name="cust_期初應收帳款餘額" DataType="System.Decimal"/>
+        <Column Name="cust_現有應收帳款金額" DataType="System.Decimal"/>
+        <Column Name="cust_期初應收帳款匯率" DataType="System.Decimal"/>
+        <Column Name="cust_期初預收餘額" DataType="System.Decimal"/>
+        <Column Name="cust_預收餘額" DataType="System.Decimal"/>
+        <Column Name="cust_備忘錄" DataType="System.String"/>
+        <Column Name="cust_出生日期_民國" DataType="System.String"/>
+        <Column Name="cust_出生日期_西元" DataType="System.String"/>
+        <Column Name="cust_出生日期_保留" DataType="System.String"/>
+        <Column Name="cust_性別" DataType="System.String"/>
+        <Column Name="cust_血型" DataType="System.String"/>
+        <Column Name="cust_身分證" DataType="System.String"/>
+        <Column Name="cust_servdate" DataType="System.String"/>
+        <Column Name="cust_betwdates" DataType="System.Int16"/>
+        <Column Name="cust_msgflag" DataType="System.Boolean" BindableControl="CheckBox"/>
+        <Column Name="cust_cupause" DataType="System.Int16"/>
+        <Column Name="kino" DataType="System.String"/>
+        <Column Name="kiname" DataType="System.String"/>
+        <Column Name="item_pic" DataType="System.Byte[]" BindableControl="Picture"/>
+        <Column Name="item_showpic" DataType="System.String"/>
+        <Column Name="item_ItUdf1" DataType="System.String"/>
+        <Column Name="salebom_報價單號" DataType="System.String"/>
+        <Column Name="salebom_bomid" DataType="System.String"/>
+        <Column Name="salebom_bomrec" DataType="System.String"/>
+        <Column Name="salebom_產品編號" DataType="System.String"/>
+        <Column Name="salebom_品名規格" DataType="System.String"/>
+        <Column Name="salebom_單位" DataType="System.String"/>
+        <Column Name="salebom_標準用量" DataType="System.Decimal"/>
+        <Column Name="salebom_母件比率" DataType="System.Decimal"/>
+        <Column Name="salebom_包裝數量" DataType="System.Decimal"/>
+        <Column Name="salebom_itrec" DataType="System.Decimal"/>
+        <Column Name="salebom_產品單價" DataType="System.Decimal"/>
+        <Column Name="salebom_產品折數" DataType="System.Decimal"/>
+        <Column Name="salebom_產品稅前金額" DataType="System.Decimal"/>
+        <Column Name="salebom_產品說明" DataType="System.String"/>
+        <Column Name="salebom_itsource" DataType="System.Decimal"/>
+        <Column Name="salebom_itbuypri" DataType="System.Decimal"/>
+        <Column Name="salebom_itbuymny" DataType="System.Decimal"/>
+      </TableDataSource>
+    </MsSqlDataConnection>
+    <Parameter Name="txtstart" DataType="System.String"/>
+    <Parameter Name="DateRange" DataType="System.String"/>
+    <Parameter Name="RankState" DataType="System.String"/>
+    <Parameter Name="txtend" DataType="System.String"/>
+    <Parameter Name="銷項金額小數" DataType="System.String"/>
+    <Parameter Name="txtadress" DataType="System.String"/>
+    <Parameter Name="txttel" DataType="System.String"/>
+    <Parameter Name="銷貨單價小數" DataType="System.String"/>
+    <Parameter Name="銷貨單據小數" DataType="System.String"/>
+    <Parameter Name="銷項稅額小數" DataType="System.String"/>
+    <Parameter Name="庫存數量小數" DataType="System.String"/>
+    <Parameter Name="是否顯示金額" DataType="System.Boolean"/>
+    <Parameter Name="date" DataType="System.String"/>
+    <Total Name="Rank" TotalType="Count" Evaluator="Data1" ResetAfterPrint="false"/>
+  </Dictionary>
+  <ReportPage Name="Page1" PaperWidth="215.9" PaperHeight="139.7" RawPaperSize="119" LeftMargin="2.5" TopMargin="2.5" RightMargin="2.5" BottomMargin="2.5" FirstPageSource="15" OtherPagesSource="15" Guides="757.89,378">
+    <PageHeaderBand Name="PageHeader1" Width="797.2" Height="201.77" CanGrow="true" CanShrink="true">
+      <TextObject Name="txtstart" Top="3.42" Width="756" Height="34.02" Text="[txtstart]" HorzAlign="Center" WordWrap="false" Font="細明體, 20pt, style=Bold"/>
+      <TextObject Name="Text11" Left="315.68" Top="41.63" Width="121.03" Height="22.3" Text="銷  貨  單" HorzAlign="Center" WordWrap="false" Font="細明體, 16pt, style=Bold, Underline"/>
+      <TextObject Name="Text12" Left="3.78" Top="108.26" Width="79.01" Height="18.9" Text="客戶名稱:" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text13" Left="3.78" Top="129.88" Width="79.01" Height="18.9" Text="公司地址:" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text14" Left="3.78" Top="86.26" Width="79.01" Height="18.9" Text="銷貨日期:" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text15" Left="3.78" Top="151.88" Width="79.01" Height="18.9" Text="聯絡電話:" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text5" Left="234.14" Top="86.26" Width="79.01" Height="18.9" Text="幣別名稱:" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text16" Left="234.14" Top="151.88" Width="79.01" Height="18.9" Text="傳 真 機:" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text6" Left="426.22" Top="86.26" Width="49.14" Height="18.9" Text="匯率:" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text9" Left="477.21" Top="86.26" Width="71.83" Height="18.9" Text="[SALE_.sale_匯率]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="4" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" WordWrap="false" Font="細明體, 12pt" Trimming="EllipsisCharacter"/>
+      <TextObject Name="Text1" Left="84.3" Top="86.26" Width="94.5" Height="18.9" BeforePrintEvent="Text1_BeforePrint" Text="[SALE_.sale_銷貨日期_民國]" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text2" Left="84.3" Top="108.26" Width="458.88" Height="21.55" Text="[SALE_.sale_客戶編號] [SALE_.cust_客戶名稱]" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text4" Left="84.3" Top="151.88" Width="140.25" Height="18.9" Text="[SALE_.sale_客戶電話]" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text10" Left="557.6" Top="86.26" Width="79.01" Height="18.9" Text="頁    次:" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text17" Left="557.98" Top="108.26" Width="79.01" Height="18.9" Text="銷貨憑證:" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text18" Left="557.6" Top="129.88" Width="79.01" Height="18.9" Text="統一編號:" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text19" Left="557.6" Top="151.88" Width="79.01" Height="18.9" Text="發票號碼:" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text20" Left="638.42" Top="86.26" Width="115.72" Height="18.9" Text="[Page]" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text21" Left="638.42" Top="108.26" Width="115.72" Height="18.9" Text="[SALE_.sale_銷貨單號]" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text22" Left="638.42" Top="129.88" Width="115.72" Height="18.9" Text="[SALE_.sale_統一編號]" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text23" Left="638.42" Top="151.88" Width="115.72" Height="18.9" Text="[SALE_.sale_發票編號]" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text25" Left="315.28" Top="151.88" Width="228.26" Height="18.9" Text="[SALE_.cust_傳真]" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text26" Left="315.28" Top="86.26" Width="92.64" Height="18.9" Text="[SALE_.sale_幣別名稱] [SALE_.sale_幣別編號]" WordWrap="false" Font="細明體, 12pt"/>
+      <LineObject Name="Line1" Left="-3.78" Top="174.92" Width="761.67" Border.Width="2"/>
+      <LineObject Name="Line2" Top="199.86" Width="758.65" Border.Width="2"/>
+      <TextObject Name="Text24" Left="84.3" Top="129.88" Width="458.48" Height="18.9" Text="[SALE_.cust_公司地址]" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text7" Left="462.1" Top="42.38" Width="294.34" Height="15.88" Text="[txtadress]" WordWrap="false" Font="細明體, 10pt"/>
+      <TextObject Name="Text8" Left="462.1" Top="63.16" Width="294.34" Height="15.88" Text="[txttel]" WordWrap="false" Font="細明體, 10pt"/>
+      <TextObject Name="Text28" Left="5.6" Top="181.44" Width="156.8" Height="15.49" Text="產品編號" WordWrap="false" Font="細明體, 11pt"/>
+      <TextObject Name="Text29" Left="166.76" Top="181.44" Width="159.83" Height="15.49" Text="產品規格" WordWrap="false" Font="細明體, 11pt"/>
+      <TextObject Name="Text30" Left="334.32" Top="181.44" Width="88.43" Height="15.49" Text="數量" HorzAlign="Right" WordWrap="false" Font="細明體, 11pt"/>
+      <TextObject Name="Text31" Left="426.86" Top="181.44" Width="38.44" Height="15.49" Text="單位" WordWrap="false" Font="細明體, 11pt"/>
+      <TextObject Name="Text32" Left="469.88" Top="181.44" Width="88.43" Height="15.49" Text="單價" HorzAlign="Right" WordWrap="false" Font="細明體, 11pt"/>
+      <TextObject Name="Text33" Left="564.2" Top="181.44" Width="88.43" Height="15.49" Text="金額" HorzAlign="Right" WordWrap="false" Font="細明體, 11pt"/>
+      <TextObject Name="Text73" Left="658.12" Top="181.44" Width="88.43" Height="15.49" Text="備註說明" HorzAlign="Right" WordWrap="false" Font="細明體, 11pt"/>
+    </PageHeaderBand>
+    <GroupHeaderBand Name="GroupHeader1" Top="205.77" Width="797.2" StartNewPage="true" Condition="[SALE_.sale_銷貨單號]" ResetPageNumber="true">
+      <GroupHeaderBand Name="GroupHeader2" Top="209.77" Width="797.2" Height="63.9" CanGrow="true" CanShrink="true" Condition="[SALE_.saled_recordno]">
+        <TextObject Name="Text72" Left="166.76" Top="22.32" Width="254.33" Height="13.6" CanGrow="true" CanShrink="true" BeforePrintEvent="Text72_BeforePrint" Text="[SALE_.saled_規格說明1]&#13;&#10;[SALE_.saled_規格說明2]&#13;&#10;[SALE_.saled_規格說明3]&#13;&#10;[SALE_.saled_規格說明4]&#13;&#10;[SALE_.saled_規格說明5]&#13;&#10;[SALE_.saled_規格說明6]&#13;&#10;[SALE_.saled_規格說明7]&#13;&#10;[SALE_.saled_規格說明8]&#13;&#10;[SALE_.saled_規格說明9]&#13;&#10;[SALE_.saled_規格說明10]" WordWrap="false" Font="細明體, 10pt"/>
+        <PictureObject Name="Picture1" Left="434.7" Top="22.32" Width="45.36" Height="41.58" CanGrow="true" CanShrink="true" BeforePrintEvent="Picture1_BeforePrint" DataColumn="SALE_.item_pic"/>
+        <TextObject Name="Text35" Left="6" Top="3.42" Width="156.8" Height="13.6" Text="[SALE_.saled_產品編號]" WordWrap="false" Font="細明體, 10pt"/>
+        <TextObject Name="Text36" Left="167.16" Top="3.42" Width="159.83" Height="13.6" Text="[SALE_.saled_品名規格]" WordWrap="false" Font="細明體, 10pt"/>
+        <TextObject Name="Text37" Left="334.72" Top="3.42" Width="88.43" Height="13.6" BeforePrintEvent="Text37_BeforePrint" Text="[SALE_.saled_數量]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="細明體, 10pt" Trimming="EllipsisCharacter"/>
+        <TextObject Name="Text38" Left="427.26" Top="3.42" Width="38.44" Height="13.6" Text="[SALE_.saled_單位]" WordWrap="false" Font="細明體, 10pt"/>
+        <TextObject Name="Text39" Left="470.28" Top="3.42" Width="88.43" Height="13.6" BeforePrintEvent="Text39_BeforePrint" Text="[SALE_.saled_外幣稅前單價]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="細明體, 10pt" Trimming="EllipsisCharacter"/>
+        <TextObject Name="Text40" Left="564.6" Top="3.42" Width="88.43" Height="13.6" BeforePrintEvent="Text40_BeforePrint" Text="[SALE_.saled_外幣稅前金額]" Format="Currency" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="細明體, 10pt" Trimming="EllipsisCharacter"/>
+        <TextObject Name="Text27" Left="658.12" Top="3.42" Width="88.43" Height="13.6" Text="[SALE_.saled_備註說明]" Format="Currency" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="細明體, 10pt" Trimming="EllipsisCharacter"/>
+        <GroupHeaderBand Name="GroupHeader3" Top="277.67" Width="797.2" Condition="[SALE_.salebom_產品編號]">
+          <GroupHeaderBand Name="GroupHeader4" Top="281.67" Width="797.2" Condition="[SALE_.salebom_itrec]">
+            <DataBand Name="Data1" Top="285.67" Width="797.2" Height="15.88" DataSource="Table">
+              <TextObject Name="Text68" Left="6" Top="2.28" Width="156.8" Height="13.6" Text="[SALE_.salebom_產品編號]" Format="Number" Format.UseLocale="true" WordWrap="false" Font="細明體, 10pt"/>
+              <TextObject Name="Text69" Left="167.16" Top="2.28" Width="159.83" Height="13.6" BeforePrintEvent="Text69_BeforePrint" Text="[SALE_.salebom_品名規格]" Format="Number" Format.UseLocale="true" WordWrap="false" Font="細明體, 10pt"/>
+              <TextObject Name="Text70" Left="334.72" Top="2.28" Width="88.43" Height="13.6" BeforePrintEvent="Text70_BeforePrint" Text="[SALE_.salebom_標準用量]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="細明體, 10pt"/>
+              <TextObject Name="Text71" Left="427.26" Top="2.28" Width="38.44" Height="13.6" Text="[SALE_.salebom_單位]" Format="Number" Format.UseLocale="true" WordWrap="false" Font="細明體, 10pt"/>
+            </DataBand>
+            <GroupFooterBand Name="GroupFooter4" Top="305.55" Width="797.2"/>
+          </GroupHeaderBand>
+          <GroupFooterBand Name="GroupFooter3" Top="309.55" Width="797.2"/>
+        </GroupHeaderBand>
+        <GroupFooterBand Name="GroupFooter2" Top="313.55" Width="797.2" Height="21.2" CanShrink="true">
+          <TextObject Name="Text67" Top="7.6" Width="756" Height="13.6" BeforePrintEvent="Text67_BeforePrint" Text="*****以 下 空 白  *****" HorzAlign="Center" WordWrap="false" Font="細明體, 10pt"/>
+          <LineObject Name="Line5" Left="0.01" Top="3.4" Width="755.98"/>
+        </GroupFooterBand>
+      </GroupHeaderBand>
+      <GroupFooterBand Name="GroupFooter1" Top="338.75" Width="797.2" Height="210.47" PrintOnBottom="true" RepeatOnEveryPage="true">
+        <TextObject Name="Text41" Left="3.78" Top="26.06" Width="79.01" Height="18.9" Text="稅前合計:" WordWrap="false" Font="細明體, 12pt"/>
+        <TextObject Name="Text42" Left="3.78" Top="47.58" Width="79.01" Height="18.9" Text="營業稅額:" WordWrap="false" Font="細明體, 12pt"/>
+        <TextObject Name="Text43" Left="3.78" Top="69.1" Width="79.01" Height="18.9" Text="應收總計:" WordWrap="false" Font="細明體, 12pt"/>
+        <TextObject Name="Text44" Left="234.14" Top="26.06" Width="79.01" Height="18.9" Text="已收金額:" WordWrap="false" Font="細明體, 12pt"/>
+        <TextObject Name="Text45" Left="234.14" Top="47.58" Width="79.01" Height="18.9" Text="折扣金額:" WordWrap="false" Font="細明體, 12pt"/>
+        <TextObject Name="Text46" Left="234.14" Top="69.1" Width="79.01" Height="18.9" Text="取用預收:" WordWrap="false" Font="細明體, 12pt"/>
+        <TextObject Name="Text47" Left="557.6" Top="26.06" Width="79.01" Height="18.9" Text="未收金額:" WordWrap="false" Font="細明體, 12pt"/>
+        <TextObject Name="Text48" Left="557.6" Top="47.58" Width="79.01" Height="18.9" Text="送貨方式:" WordWrap="false" Font="細明體, 12pt"/>
+        <TextObject Name="Text49" Left="557.6" Top="69.1" Width="79.01" Height="18.9" Text="業務人員:" WordWrap="false" Font="細明體, 12pt"/>
+        <TextObject Name="Text50" Left="84.68" Top="26.06" Width="106.98" Height="18.9" BeforePrintEvent="Text50_BeforePrint" Text="[SALE_.sale_外幣稅前合計]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="細明體, 12pt"/>
+        <TextObject Name="Text51" Left="84.68" Top="47.58" Width="106.98" Height="18.9" BeforePrintEvent="Text51_BeforePrint" Text="[SALE_.sale_外幣營業稅額]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="細明體, 12pt"/>
+        <TextObject Name="Text52" Left="640.32" Top="26.06" Width="115.72" Height="18.9" BeforePrintEvent="Text52_BeforePrint" Text="[SALE_.sale_未收金額]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="細明體, 12pt"/>
+        <TextObject Name="Text53" Left="315.28" Top="26.06" Width="106.98" Height="18.9" BeforePrintEvent="Text53_BeforePrint" Text="[SALE_.sale_已收金額]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="細明體, 12pt"/>
+        <TextObject Name="Text54" Left="315.28" Top="47.58" Width="106.98" Height="18.9" BeforePrintEvent="Text54_BeforePrint" Text="[SALE_.sale_折扣金額]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="細明體, 12pt"/>
+        <TextObject Name="Text55" Left="315.28" Top="69.1" Width="106.98" Height="18.9" BeforePrintEvent="Text55_BeforePrint" Text="[SALE_.sale_取用預收]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="細明體, 12pt"/>
+        <TextObject Name="Text56" Left="640.32" Top="69.1" Width="115.72" Height="18.9" Text="[SALE_.sale_業務姓名]" Format="Number" Format.UseLocale="true" WordWrap="false" Font="細明體, 12pt"/>
+        <TextObject Name="Text57" Left="84.68" Top="69.1" Width="106.98" Height="18.9" BeforePrintEvent="Text57_BeforePrint" Text="[SALE_.sale_外幣總額]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="細明體, 12pt"/>
+        <TextObject Name="Text58" Left="640.32" Top="47.58" Width="115.72" Height="18.9" Text="[SALE_.sale_送貨名稱]" Format="Number" Format.UseLocale="true" WordWrap="false" Font="細明體, 12pt"/>
+        <TextObject Name="Text59" Left="3.4" Top="96.3" Width="79.01" Height="18.9" Text="結帳方式:" WordWrap="false" Font="細明體, 12pt"/>
+        <TextObject Name="Text60" Left="234.14" Top="96.3" Width="79.01" Height="18.9" Text="專案名稱:" WordWrap="false" Font="細明體, 12pt"/>
+        <TextObject Name="Text61" Left="3.4" Top="121.6" Width="79.01" Height="18.9" Text="備    註:" WordWrap="false" Font="細明體, 12pt"/>
+        <TextObject Name="Text62" Left="84.68" Top="96.3" Width="144.39" Height="18.9" Text="[SALE_.sale_結帳類別名稱]" WordWrap="false" Font="細明體, 12pt"/>
+        <TextObject Name="Text63" Left="315.28" Top="96.3" Width="441.11" Height="18.9" Text="[SALE_.sale_專案名稱]" WordWrap="false" Font="細明體, 12pt"/>
+        <TextObject Name="Text64" Left="84.68" Top="121.6" Width="411.23" Height="18.9" Text="[SALE_.sale_備註]" WordWrap="false" Font="細明體, 12pt"/>
+        <TextObject Name="Text65" Left="500.65" Top="121.22" Width="153.09" Height="24.57" Text="客 戶 簽 章 :" WordWrap="false" Font="細明體, 16pt, style=Bold"/>
+        <LineObject Name="Line3" Top="21.92" Width="754.48" Border.Width="2"/>
+        <LineObject Name="Line4" Left="-3.78" Top="91.76" Width="760.53" Border.Width="2"/>
+        <TextObject Name="Text66" Left="0.38" Top="2.23" Width="756" Height="13.6" BeforePrintEvent="Text66_BeforePrint" Text="*****續 下 頁  *****" HorzAlign="Center" WordWrap="false" Font="細明體, 10pt"/>
+        <TextObject Name="Text3" Left="4.16" Top="147.75" Width="753.73" Height="62.72" Text="[txtend]" WordWrap="false" Font="細明體, 12pt"/>
+      </GroupFooterBand>
+    </GroupHeaderBand>
+  </ReportPage>
+</Report>

@@ -1,0 +1,816 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="Quote" targetNamespace="http://tempuri.org/Quote.xsd" xmlns:mstns="http://tempuri.org/Quote.xsd" xmlns="http://tempuri.org/Quote.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="4" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="webConnectionString" IsAppSettingsProperty="true" Modifier="Assembly" Name="webConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.S_61.Properties.Settings.GlobalReference.Default.webConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="STOCKConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="STOCKConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.S_61.Properties.Settings.GlobalReference.Default.STOCKConnectionString" Provider="System.Data.SqlClient" />
+          <Connection ConnectionStringObject="Data Source=.;Initial Catalog=TEST;Integrated Security=True" IsAppSettingsProperty="false" Modifier="Assembly" Name="wks5123-pc.TEST.dbo" ParameterPrefix="@" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="LONGConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="LONGConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.S_61.Properties.Settings.GlobalReference.Default.LONGConnectionString" Provider="System.Data.SqlClient" />
+          <Connection ConnectionStringObject="Data Source=.;Initial Catalog=bm888;Persist Security Info=True;User ID=BMIDP;Password=BMIDP" IsAppSettingsProperty="false" Modifier="Assembly" Name="wang_weiren.bm888.dbo" ParameterPrefix="@" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="quoteTableAdapter" GeneratorDataComponentClassName="quoteTableAdapter" Name="quote" UserDataComponentName="quoteTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="STOCKConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT          a.quno AS quote_quno, a.qudate1 AS quote_qudate1, a.qudates1 AS quote_qudates1, a.qudates2 AS quote_qudates2, 
+                            a.cono AS quote_cono, a.coname1 AS quote_coname1, a.coname2 AS quote_coname2, a.cuno AS quote_cuno, 
+                            a.cuname2 AS quote_cuname2, a.cuname1 AS quote_cuname1, a.cutel1 AS quote_cutel1, a.cuper1 AS quote_cuper1, 
+                            a.emno AS quote_emno, a.emname AS quote_emname, a.xa1no AS quote_xa1no, a.xa1name AS quote_xa1name, 
+                            a.xa1par AS quote_xa1par, a.trno AS quote_trno, a.trname AS quote_trname, a.taxmnyf AS quote_taxmnyf, 
+                            a.taxmnyb AS quote_taxmnyb, a.taxmny AS quote_taxmny, a.x3no AS quote_x3no, a.rate AS quote_rate, 
+                            a.tax AS quote_tax, a.totmny AS quote_totmny, a.taxb AS quote_taxb, a.totmnyb AS quote_totmnyb, 
+                            a.qupayment AS quote_qupayment, a.quperiod AS quote_quperiod, a.qumemo AS quote_qumemo, 
+                            a.recordno AS quote_recordno, a.UsrNo AS quote_UsrNo, a.QuDate AS quote_QuDate, a.QuDates AS quote_QuDates, a.ischeck AS quote_ischeck,
+                            c.QuNo AS quotebom_QuNo, c.BomID AS quotebom_BomID, c.BomRec AS quotebom_BomRec, 
+                            c.itno AS quotebom_itno, c.itname AS quotebom_itname, c.itunit AS quotebom_itunit, c.itqty AS quotebom_itqty, 
+                            c.itpareprs AS quotebom_itpareprs, c.itpkgqty AS quotebom_itpkgqty, c.itrec AS quotebom_itrec, 
+                            c.itprice AS quotebom_itprice, c.itprs AS quotebom_itprs, c.itmny AS quotebom_itmny, c.itnote AS quotebom_itnote, 
+                            c.ItSource AS quotebom_ItSource, c.ItBuyPri AS quotebom_ItBuyPri, c.ItBuyMny AS quotebom_ItBuyMny, 
+                            b.quid AS quoted_quid, b.quno AS quoted_quno, b.qudate1 AS quoted_qudate1, b.qudate2 AS quoted_qudate2, 
+                            b.qudates1 AS quoted_qudates1, b.qudates2 AS quoted_qudates2, b.cuno AS quoted_cuno, b.emno AS quoted_emno, 
+                            b.xa1no AS quoted_xa1no, b.xa1par AS quoted_xa1par, b.trno AS quoted_trno, b.itno AS quoted_itno, 
+                            b.itname AS quoted_itname, b.ittrait AS quoted_ittrait, b.itunit AS quoted_itunit, b.itpkgqty AS quoted_itpkgqty, 
+                            b.qty AS quoted_qty, b.price AS quoted_price, b.prs AS quoted_prs, b.rate AS quoted_rate, 
+                            b.taxprice AS quoted_taxprice, b.mny AS quoted_mny, b.priceb AS quoted_priceb, b.taxpriceb AS quoted_taxpriceb, 
+                            b.mnyb AS quoted_mnyb, b.memo AS quoted_memo, b.lowzero AS quoted_lowzero, b.bomid AS quoted_bomid, 
+                            b.bomrec AS quoted_bomrec, b.recordno AS quoted_recordno, b.sltflag AS quoted_sltflag, b.extflag AS quoted_extflag, 
+                            b.itdesp1 AS quoted_itdesp1, b.itdesp2 AS quoted_itdesp2, b.itdesp3 AS quoted_itdesp3, 
+                            b.itdesp4 AS quoted_itdesp4, b.itdesp5 AS quoted_itdesp5, b.itdesp6 AS quoted_itdesp6, 
+                            b.itdesp7 AS quoted_itdesp7, b.itdesp8 AS quoted_itdesp8, b.itdesp9 AS quoted_itdesp9, 
+                            b.itdesp10 AS quoted_itdesp10,b.pqty,b.punit, b.stName AS quoted_stName, b.QuDate AS quoted_QuDate, 
+                            b.QuDates AS quoted_QuDates,quoted_standard='', d.cufax1 AS cust_cufax1, d.cuaddr1 AS cust_cuaddr1, d.cuuno AS cust_cuuno, 
+                            d.cuname2 AS cust_cuname2,d.cuatel1 AS cust_cuatel1,
+ i.itpicture AS item_itpicture, i.pic AS item_pic, a.AppScNo AS quote_AppScNo, 
+                            a.AppDate AS quote_AppDate, a.EdtScNo AS quote_EdtScNo, a.EdtDate AS quote_EdtDate, 
+                            a.qumemo1 AS quote_qumemo1, i.itnote AS item_itnote , i.kino,kind.kiname ,scrit.scname,scrit.scname1 
+,i.itnoudf ,DATALENGTH(pic)長度,EmAtel1='',EmEmail=''
+
+
+FROM              quoted AS b 
+LEFT OUTER JOIN                            item AS i ON b.itno = i.itno 
+LEFT OUTER JOIN                            cust AS d ON b.cuno = d.cuno 
+LEFT OUTER JOIN                            QuoteBom AS c ON c.BomID = b.bomid 
+LEFT OUTER JOIN                            quote AS a ON a.quno = b.quno
+   LEFT   JOIN scrit ON a.appscno = scrit.scname  
+LEFT OUTER JOIN       kind on i.kino = kind.kino</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="quote_quno" DataSetColumn="quote_quno" />
+              <Mapping SourceColumn="quote_qudate1" DataSetColumn="quote_qudate1" />
+              <Mapping SourceColumn="quote_qudates1" DataSetColumn="quote_qudates1" />
+              <Mapping SourceColumn="quote_qudates2" DataSetColumn="quote_qudates2" />
+              <Mapping SourceColumn="quote_cono" DataSetColumn="quote_cono" />
+              <Mapping SourceColumn="quote_coname1" DataSetColumn="quote_coname1" />
+              <Mapping SourceColumn="quote_coname2" DataSetColumn="quote_coname2" />
+              <Mapping SourceColumn="quote_cuno" DataSetColumn="quote_cuno" />
+              <Mapping SourceColumn="quote_cuname2" DataSetColumn="quote_cuname2" />
+              <Mapping SourceColumn="quote_cuname1" DataSetColumn="quote_cuname1" />
+              <Mapping SourceColumn="quote_cutel1" DataSetColumn="quote_cutel1" />
+              <Mapping SourceColumn="quote_cuper1" DataSetColumn="quote_cuper1" />
+              <Mapping SourceColumn="quote_emno" DataSetColumn="quote_emno" />
+              <Mapping SourceColumn="quote_emname" DataSetColumn="quote_emname" />
+              <Mapping SourceColumn="quote_xa1no" DataSetColumn="quote_xa1no" />
+              <Mapping SourceColumn="quote_xa1name" DataSetColumn="quote_xa1name" />
+              <Mapping SourceColumn="quote_xa1par" DataSetColumn="quote_xa1par" />
+              <Mapping SourceColumn="quote_trno" DataSetColumn="quote_trno" />
+              <Mapping SourceColumn="quote_trname" DataSetColumn="quote_trname" />
+              <Mapping SourceColumn="quote_taxmnyf" DataSetColumn="quote_taxmnyf" />
+              <Mapping SourceColumn="quote_taxmnyb" DataSetColumn="quote_taxmnyb" />
+              <Mapping SourceColumn="quote_taxmny" DataSetColumn="quote_taxmny" />
+              <Mapping SourceColumn="quote_x3no" DataSetColumn="quote_x3no" />
+              <Mapping SourceColumn="quote_rate" DataSetColumn="quote_rate" />
+              <Mapping SourceColumn="quote_tax" DataSetColumn="quote_tax" />
+              <Mapping SourceColumn="quote_totmny" DataSetColumn="quote_totmny" />
+              <Mapping SourceColumn="quote_taxb" DataSetColumn="quote_taxb" />
+              <Mapping SourceColumn="quote_totmnyb" DataSetColumn="quote_totmnyb" />
+              <Mapping SourceColumn="quote_qupayment" DataSetColumn="quote_qupayment" />
+              <Mapping SourceColumn="quote_quperiod" DataSetColumn="quote_quperiod" />
+              <Mapping SourceColumn="quote_qumemo" DataSetColumn="quote_qumemo" />
+              <Mapping SourceColumn="quote_recordno" DataSetColumn="quote_recordno" />
+              <Mapping SourceColumn="quote_UsrNo" DataSetColumn="quote_UsrNo" />
+              <Mapping SourceColumn="quote_QuDate" DataSetColumn="quote_QuDate" />
+              <Mapping SourceColumn="quote_QuDates" DataSetColumn="quote_QuDates" />
+              <Mapping SourceColumn="quotebom_QuNo" DataSetColumn="quotebom_QuNo" />
+              <Mapping SourceColumn="quotebom_BomID" DataSetColumn="quotebom_BomID" />
+              <Mapping SourceColumn="quotebom_BomRec" DataSetColumn="quotebom_BomRec" />
+              <Mapping SourceColumn="quotebom_itno" DataSetColumn="quotebom_itno" />
+              <Mapping SourceColumn="quotebom_itname" DataSetColumn="quotebom_itname" />
+              <Mapping SourceColumn="quotebom_itunit" DataSetColumn="quotebom_itunit" />
+              <Mapping SourceColumn="quotebom_itqty" DataSetColumn="quotebom_itqty" />
+              <Mapping SourceColumn="quotebom_itpareprs" DataSetColumn="quotebom_itpareprs" />
+              <Mapping SourceColumn="quotebom_itpkgqty" DataSetColumn="quotebom_itpkgqty" />
+              <Mapping SourceColumn="quotebom_itrec" DataSetColumn="quotebom_itrec" />
+              <Mapping SourceColumn="quotebom_itprice" DataSetColumn="quotebom_itprice" />
+              <Mapping SourceColumn="quotebom_itprs" DataSetColumn="quotebom_itprs" />
+              <Mapping SourceColumn="quotebom_itmny" DataSetColumn="quotebom_itmny" />
+              <Mapping SourceColumn="quotebom_itnote" DataSetColumn="quotebom_itnote" />
+              <Mapping SourceColumn="quotebom_ItSource" DataSetColumn="quotebom_ItSource" />
+              <Mapping SourceColumn="quotebom_ItBuyPri" DataSetColumn="quotebom_ItBuyPri" />
+              <Mapping SourceColumn="quotebom_ItBuyMny" DataSetColumn="quotebom_ItBuyMny" />
+              <Mapping SourceColumn="quoted_quid" DataSetColumn="quoted_quid" />
+              <Mapping SourceColumn="quoted_quno" DataSetColumn="quoted_quno" />
+              <Mapping SourceColumn="quoted_qudate1" DataSetColumn="quoted_qudate1" />
+              <Mapping SourceColumn="quoted_qudate2" DataSetColumn="quoted_qudate2" />
+              <Mapping SourceColumn="quoted_qudates1" DataSetColumn="quoted_qudates1" />
+              <Mapping SourceColumn="quoted_qudates2" DataSetColumn="quoted_qudates2" />
+              <Mapping SourceColumn="quoted_cuno" DataSetColumn="quoted_cuno" />
+              <Mapping SourceColumn="quoted_emno" DataSetColumn="quoted_emno" />
+              <Mapping SourceColumn="quoted_xa1no" DataSetColumn="quoted_xa1no" />
+              <Mapping SourceColumn="quoted_xa1par" DataSetColumn="quoted_xa1par" />
+              <Mapping SourceColumn="quoted_trno" DataSetColumn="quoted_trno" />
+              <Mapping SourceColumn="quoted_itno" DataSetColumn="quoted_itno" />
+              <Mapping SourceColumn="quoted_itname" DataSetColumn="quoted_itname" />
+              <Mapping SourceColumn="quoted_ittrait" DataSetColumn="quoted_ittrait" />
+              <Mapping SourceColumn="quoted_itunit" DataSetColumn="quoted_itunit" />
+              <Mapping SourceColumn="quoted_itpkgqty" DataSetColumn="quoted_itpkgqty" />
+              <Mapping SourceColumn="quoted_qty" DataSetColumn="quoted_qty" />
+              <Mapping SourceColumn="quoted_price" DataSetColumn="quoted_price" />
+              <Mapping SourceColumn="quoted_prs" DataSetColumn="quoted_prs" />
+              <Mapping SourceColumn="quoted_rate" DataSetColumn="quoted_rate" />
+              <Mapping SourceColumn="quoted_taxprice" DataSetColumn="quoted_taxprice" />
+              <Mapping SourceColumn="quoted_mny" DataSetColumn="quoted_mny" />
+              <Mapping SourceColumn="quoted_priceb" DataSetColumn="quoted_priceb" />
+              <Mapping SourceColumn="quoted_taxpriceb" DataSetColumn="quoted_taxpriceb" />
+              <Mapping SourceColumn="quoted_mnyb" DataSetColumn="quoted_mnyb" />
+              <Mapping SourceColumn="quoted_memo" DataSetColumn="quoted_memo" />
+              <Mapping SourceColumn="quoted_lowzero" DataSetColumn="quoted_lowzero" />
+              <Mapping SourceColumn="quoted_bomid" DataSetColumn="quoted_bomid" />
+              <Mapping SourceColumn="quoted_bomrec" DataSetColumn="quoted_bomrec" />
+              <Mapping SourceColumn="quoted_recordno" DataSetColumn="quoted_recordno" />
+              <Mapping SourceColumn="quoted_sltflag" DataSetColumn="quoted_sltflag" />
+              <Mapping SourceColumn="quoted_extflag" DataSetColumn="quoted_extflag" />
+              <Mapping SourceColumn="quoted_itdesp1" DataSetColumn="quoted_itdesp1" />
+              <Mapping SourceColumn="quoted_itdesp2" DataSetColumn="quoted_itdesp2" />
+              <Mapping SourceColumn="quoted_itdesp3" DataSetColumn="quoted_itdesp3" />
+              <Mapping SourceColumn="quoted_itdesp4" DataSetColumn="quoted_itdesp4" />
+              <Mapping SourceColumn="quoted_itdesp5" DataSetColumn="quoted_itdesp5" />
+              <Mapping SourceColumn="quoted_itdesp6" DataSetColumn="quoted_itdesp6" />
+              <Mapping SourceColumn="quoted_itdesp7" DataSetColumn="quoted_itdesp7" />
+              <Mapping SourceColumn="quoted_itdesp8" DataSetColumn="quoted_itdesp8" />
+              <Mapping SourceColumn="quoted_itdesp9" DataSetColumn="quoted_itdesp9" />
+              <Mapping SourceColumn="quoted_itdesp10" DataSetColumn="quoted_itdesp10" />
+              <Mapping SourceColumn="quoted_stName" DataSetColumn="quoted_stName" />
+              <Mapping SourceColumn="quoted_QuDate" DataSetColumn="quoted_QuDate" />
+              <Mapping SourceColumn="quoted_QuDates" DataSetColumn="quoted_QuDates" />
+              <Mapping SourceColumn="cust_cufax1" DataSetColumn="cust_cufax1" />
+              <Mapping SourceColumn="cust_cuaddr1" DataSetColumn="cust_cuaddr1" />
+              <Mapping SourceColumn="cust_cuuno" DataSetColumn="cust_cuuno" />
+              <Mapping SourceColumn="cust_cuname2" DataSetColumn="cust_cuname2" />
+              <Mapping SourceColumn="item_itpicture" DataSetColumn="item_itpicture" />
+              <Mapping SourceColumn="item_pic" DataSetColumn="item_pic" />
+              <Mapping SourceColumn="quote_AppScNo" DataSetColumn="quote_AppScNo" />
+              <Mapping SourceColumn="quote_AppDate" DataSetColumn="quote_AppDate" />
+              <Mapping SourceColumn="quote_EdtScNo" DataSetColumn="quote_EdtScNo" />
+              <Mapping SourceColumn="quote_EdtDate" DataSetColumn="quote_EdtDate" />
+              <Mapping SourceColumn="quote_qumemo1" DataSetColumn="quote_qumemo1" />
+              <Mapping SourceColumn="item_itnote" DataSetColumn="item_itnote" />
+              <Mapping SourceColumn="kino" DataSetColumn="kino" />
+              <Mapping SourceColumn="kiname" DataSetColumn="kiname" />
+              <Mapping SourceColumn="scname" DataSetColumn="scname" />
+              <Mapping SourceColumn="scname1" DataSetColumn="scname1" />
+              <Mapping SourceColumn="pqty" DataSetColumn="pqty" />
+              <Mapping SourceColumn="punit" DataSetColumn="punit" />
+              <Mapping SourceColumn="cust_cuatel1" DataSetColumn="cust_cuatel1" />
+              <Mapping SourceColumn="itnoudf" DataSetColumn="itnoudf" />
+              <Mapping SourceColumn="長度" DataSetColumn="長度" />
+              <Mapping SourceColumn="quoted_standard" DataSetColumn="quoted_standard" />
+              <Mapping SourceColumn="quote_ischeck" DataSetColumn="quote_ischeck" />
+              <Mapping SourceColumn="EmAtel1" DataSetColumn="EmAtel1" />
+              <Mapping SourceColumn="EmEmail" DataSetColumn="EmEmail" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="Quote" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="Quote" msprop:Generator_UserDSName="Quote">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="quote" msprop:Generator_TableClassName="quoteDataTable" msprop:Generator_TableVarName="tablequote" msprop:Generator_RowChangedName="quoteRowChanged" msprop:Generator_TablePropName="quote" msprop:Generator_RowDeletingName="quoteRowDeleting" msprop:Generator_RowChangingName="quoteRowChanging" msprop:Generator_RowEvHandlerName="quoteRowChangeEventHandler" msprop:Generator_RowDeletedName="quoteRowDeleted" msprop:Generator_RowClassName="quoteRow" msprop:Generator_UserTableName="quote" msprop:Generator_RowEvArgName="quoteRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="quote_quno" msprop:Generator_ColumnVarNameInTable="columnquote_quno" msprop:Generator_ColumnPropNameInRow="quote_quno" msprop:Generator_ColumnPropNameInTable="quote_qunoColumn" msprop:Generator_UserColumnName="quote_quno" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="16" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="quote_qudate1" msprop:Generator_ColumnVarNameInTable="columnquote_qudate1" msprop:Generator_ColumnPropNameInRow="quote_qudate1" msprop:Generator_ColumnPropNameInTable="quote_qudate1Column" msprop:Generator_UserColumnName="quote_qudate1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="quote_qudates1" msprop:Generator_ColumnVarNameInTable="columnquote_qudates1" msprop:Generator_ColumnPropNameInRow="quote_qudates1" msprop:Generator_ColumnPropNameInTable="quote_qudates1Column" msprop:Generator_UserColumnName="quote_qudates1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="quote_qudates2" msprop:Generator_ColumnVarNameInTable="columnquote_qudates2" msprop:Generator_ColumnPropNameInRow="quote_qudates2" msprop:Generator_ColumnPropNameInTable="quote_qudates2Column" msprop:Generator_UserColumnName="quote_qudates2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="quote_cono" msprop:Generator_ColumnVarNameInTable="columnquote_cono" msprop:Generator_ColumnPropNameInRow="quote_cono" msprop:Generator_ColumnPropNameInTable="quote_conoColumn" msprop:Generator_UserColumnName="quote_cono" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="quote_coname1" msprop:Generator_ColumnVarNameInTable="columnquote_coname1" msprop:Generator_ColumnPropNameInRow="quote_coname1" msprop:Generator_ColumnPropNameInTable="quote_coname1Column" msprop:Generator_UserColumnName="quote_coname1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="quote_coname2" msprop:Generator_ColumnVarNameInTable="columnquote_coname2" msprop:Generator_ColumnPropNameInRow="quote_coname2" msprop:Generator_ColumnPropNameInTable="quote_coname2Column" msprop:Generator_UserColumnName="quote_coname2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="quote_cuno" msprop:Generator_ColumnVarNameInTable="columnquote_cuno" msprop:Generator_ColumnPropNameInRow="quote_cuno" msprop:Generator_ColumnPropNameInTable="quote_cunoColumn" msprop:Generator_UserColumnName="quote_cuno" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="quote_cuname2" msprop:Generator_ColumnVarNameInTable="columnquote_cuname2" msprop:Generator_ColumnPropNameInRow="quote_cuname2" msprop:Generator_ColumnPropNameInTable="quote_cuname2Column" msprop:Generator_UserColumnName="quote_cuname2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="quote_cuname1" msprop:Generator_ColumnVarNameInTable="columnquote_cuname1" msprop:Generator_ColumnPropNameInRow="quote_cuname1" msprop:Generator_ColumnPropNameInTable="quote_cuname1Column" msprop:Generator_UserColumnName="quote_cuname1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="quote_cutel1" msprop:Generator_ColumnVarNameInTable="columnquote_cutel1" msprop:Generator_ColumnPropNameInRow="quote_cutel1" msprop:Generator_ColumnPropNameInTable="quote_cutel1Column" msprop:Generator_UserColumnName="quote_cutel1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="quote_cuper1" msprop:Generator_ColumnVarNameInTable="columnquote_cuper1" msprop:Generator_ColumnPropNameInRow="quote_cuper1" msprop:Generator_ColumnPropNameInTable="quote_cuper1Column" msprop:Generator_UserColumnName="quote_cuper1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="quote_emno" msprop:Generator_ColumnVarNameInTable="columnquote_emno" msprop:Generator_ColumnPropNameInRow="quote_emno" msprop:Generator_ColumnPropNameInTable="quote_emnoColumn" msprop:Generator_UserColumnName="quote_emno" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="quote_emname" msprop:Generator_ColumnVarNameInTable="columnquote_emname" msprop:Generator_ColumnPropNameInRow="quote_emname" msprop:Generator_ColumnPropNameInTable="quote_emnameColumn" msprop:Generator_UserColumnName="quote_emname" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="quote_xa1no" msprop:Generator_ColumnVarNameInTable="columnquote_xa1no" msprop:Generator_ColumnPropNameInRow="quote_xa1no" msprop:Generator_ColumnPropNameInTable="quote_xa1noColumn" msprop:Generator_UserColumnName="quote_xa1no" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="quote_xa1name" msprop:Generator_ColumnVarNameInTable="columnquote_xa1name" msprop:Generator_ColumnPropNameInRow="quote_xa1name" msprop:Generator_ColumnPropNameInTable="quote_xa1nameColumn" msprop:Generator_UserColumnName="quote_xa1name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="12" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="quote_xa1par" msprop:Generator_ColumnVarNameInTable="columnquote_xa1par" msprop:Generator_ColumnPropNameInRow="quote_xa1par" msprop:Generator_ColumnPropNameInTable="quote_xa1parColumn" msprop:Generator_UserColumnName="quote_xa1par" type="xs:decimal" minOccurs="0" />
+              <xs:element name="quote_trno" msprop:Generator_ColumnVarNameInTable="columnquote_trno" msprop:Generator_ColumnPropNameInRow="quote_trno" msprop:Generator_ColumnPropNameInTable="quote_trnoColumn" msprop:Generator_UserColumnName="quote_trno" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="quote_trname" msprop:Generator_ColumnVarNameInTable="columnquote_trname" msprop:Generator_ColumnPropNameInRow="quote_trname" msprop:Generator_ColumnPropNameInTable="quote_trnameColumn" msprop:Generator_UserColumnName="quote_trname" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="quote_taxmnyf" msprop:Generator_ColumnVarNameInTable="columnquote_taxmnyf" msprop:Generator_ColumnPropNameInRow="quote_taxmnyf" msprop:Generator_ColumnPropNameInTable="quote_taxmnyfColumn" msprop:Generator_UserColumnName="quote_taxmnyf" type="xs:decimal" minOccurs="0" />
+              <xs:element name="quote_taxmnyb" msprop:Generator_ColumnVarNameInTable="columnquote_taxmnyb" msprop:Generator_ColumnPropNameInRow="quote_taxmnyb" msprop:Generator_ColumnPropNameInTable="quote_taxmnybColumn" msprop:Generator_UserColumnName="quote_taxmnyb" type="xs:decimal" minOccurs="0" />
+              <xs:element name="quote_taxmny" msprop:Generator_ColumnVarNameInTable="columnquote_taxmny" msprop:Generator_ColumnPropNameInRow="quote_taxmny" msprop:Generator_ColumnPropNameInTable="quote_taxmnyColumn" msprop:Generator_UserColumnName="quote_taxmny" type="xs:decimal" minOccurs="0" />
+              <xs:element name="quote_x3no" msprop:Generator_ColumnVarNameInTable="columnquote_x3no" msprop:Generator_ColumnPropNameInRow="quote_x3no" msprop:Generator_ColumnPropNameInTable="quote_x3noColumn" msprop:Generator_UserColumnName="quote_x3no" type="xs:decimal" minOccurs="0" />
+              <xs:element name="quote_rate" msprop:Generator_ColumnVarNameInTable="columnquote_rate" msprop:Generator_ColumnPropNameInRow="quote_rate" msprop:Generator_ColumnPropNameInTable="quote_rateColumn" msprop:Generator_UserColumnName="quote_rate" type="xs:decimal" minOccurs="0" />
+              <xs:element name="quote_tax" msprop:Generator_ColumnVarNameInTable="columnquote_tax" msprop:Generator_ColumnPropNameInRow="quote_tax" msprop:Generator_ColumnPropNameInTable="quote_taxColumn" msprop:Generator_UserColumnName="quote_tax" type="xs:decimal" minOccurs="0" />
+              <xs:element name="quote_totmny" msprop:Generator_ColumnVarNameInTable="columnquote_totmny" msprop:Generator_ColumnPropNameInRow="quote_totmny" msprop:Generator_ColumnPropNameInTable="quote_totmnyColumn" msprop:Generator_UserColumnName="quote_totmny" type="xs:decimal" minOccurs="0" />
+              <xs:element name="quote_taxb" msprop:Generator_ColumnVarNameInTable="columnquote_taxb" msprop:Generator_ColumnPropNameInRow="quote_taxb" msprop:Generator_ColumnPropNameInTable="quote_taxbColumn" msprop:Generator_UserColumnName="quote_taxb" type="xs:decimal" minOccurs="0" />
+              <xs:element name="quote_totmnyb" msprop:Generator_ColumnVarNameInTable="columnquote_totmnyb" msprop:Generator_ColumnPropNameInRow="quote_totmnyb" msprop:Generator_ColumnPropNameInTable="quote_totmnybColumn" msprop:Generator_UserColumnName="quote_totmnyb" type="xs:decimal" minOccurs="0" />
+              <xs:element name="quote_qupayment" msprop:Generator_ColumnVarNameInTable="columnquote_qupayment" msprop:Generator_ColumnPropNameInRow="quote_qupayment" msprop:Generator_ColumnPropNameInTable="quote_qupaymentColumn" msprop:Generator_UserColumnName="quote_qupayment" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="quote_quperiod" msprop:Generator_ColumnVarNameInTable="columnquote_quperiod" msprop:Generator_ColumnPropNameInRow="quote_quperiod" msprop:Generator_ColumnPropNameInTable="quote_quperiodColumn" msprop:Generator_UserColumnName="quote_quperiod" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="quote_qumemo" msprop:Generator_ColumnVarNameInTable="columnquote_qumemo" msprop:Generator_ColumnPropNameInRow="quote_qumemo" msprop:Generator_ColumnPropNameInTable="quote_qumemoColumn" msprop:Generator_UserColumnName="quote_qumemo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="quote_recordno" msprop:Generator_ColumnVarNameInTable="columnquote_recordno" msprop:Generator_ColumnPropNameInRow="quote_recordno" msprop:Generator_ColumnPropNameInTable="quote_recordnoColumn" msprop:Generator_UserColumnName="quote_recordno" type="xs:decimal" minOccurs="0" />
+              <xs:element name="quote_UsrNo" msprop:Generator_ColumnVarNameInTable="columnquote_UsrNo" msprop:Generator_ColumnPropNameInRow="quote_UsrNo" msprop:Generator_ColumnPropNameInTable="quote_UsrNoColumn" msprop:Generator_UserColumnName="quote_UsrNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="quote_QuDate" msprop:Generator_ColumnVarNameInTable="columnquote_QuDate" msprop:Generator_ColumnPropNameInRow="quote_QuDate" msprop:Generator_ColumnPropNameInTable="quote_QuDateColumn" msprop:Generator_UserColumnName="quote_QuDate" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="quote_QuDates" msprop:Generator_ColumnVarNameInTable="columnquote_QuDates" msprop:Generator_ColumnPropNameInRow="quote_QuDates" msprop:Generator_ColumnPropNameInTable="quote_QuDatesColumn" msprop:Generator_UserColumnName="quote_QuDates" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="quotebom_QuNo" msprop:Generator_ColumnVarNameInTable="columnquotebom_QuNo" msprop:Generator_ColumnPropNameInRow="quotebom_QuNo" msprop:Generator_ColumnPropNameInTable="quotebom_QuNoColumn" msprop:Generator_UserColumnName="quotebom_QuNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="16" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="quotebom_BomID" msprop:Generator_ColumnVarNameInTable="columnquotebom_BomID" msprop:Generator_ColumnPropNameInRow="quotebom_BomID" msprop:Generator_ColumnPropNameInTable="quotebom_BomIDColumn" msprop:Generator_UserColumnName="quotebom_BomID" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="quotebom_BomRec" msprop:Generator_ColumnVarNameInTable="columnquotebom_BomRec" msprop:Generator_ColumnPropNameInRow="quotebom_BomRec" msprop:Generator_ColumnPropNameInTable="quotebom_BomRecColumn" msprop:Generator_UserColumnName="quotebom_BomRec" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="quotebom_itno" msprop:Generator_ColumnVarNameInTable="columnquotebom_itno" msprop:Generator_ColumnPropNameInRow="quotebom_itno" msprop:Generator_ColumnPropNameInTable="quotebom_itnoColumn" msprop:Generator_UserColumnName="quotebom_itno" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="quotebom_itname" msprop:Generator_ColumnVarNameInTable="columnquotebom_itname" msprop:Generator_ColumnPropNameInRow="quotebom_itname" msprop:Generator_ColumnPropNameInTable="quotebom_itnameColumn" msprop:Generator_UserColumnName="quotebom_itname" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="quotebom_itunit" msprop:Generator_ColumnVarNameInTable="columnquotebom_itunit" msprop:Generator_ColumnPropNameInRow="quotebom_itunit" msprop:Generator_ColumnPropNameInTable="quotebom_itunitColumn" msprop:Generator_UserColumnName="quotebom_itunit" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="quotebom_itqty" msprop:Generator_ColumnVarNameInTable="columnquotebom_itqty" msprop:Generator_ColumnPropNameInRow="quotebom_itqty" msprop:Generator_ColumnPropNameInTable="quotebom_itqtyColumn" msprop:Generator_UserColumnName="quotebom_itqty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="quotebom_itpareprs" msprop:Generator_ColumnVarNameInTable="columnquotebom_itpareprs" msprop:Generator_ColumnPropNameInRow="quotebom_itpareprs" msprop:Generator_ColumnPropNameInTable="quotebom_itpareprsColumn" msprop:Generator_UserColumnName="quotebom_itpareprs" type="xs:decimal" minOccurs="0" />
+              <xs:element name="quotebom_itpkgqty" msprop:Generator_ColumnVarNameInTable="columnquotebom_itpkgqty" msprop:Generator_ColumnPropNameInRow="quotebom_itpkgqty" msprop:Generator_ColumnPropNameInTable="quotebom_itpkgqtyColumn" msprop:Generator_UserColumnName="quotebom_itpkgqty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="quotebom_itrec" msprop:Generator_ColumnVarNameInTable="columnquotebom_itrec" msprop:Generator_ColumnPropNameInRow="quotebom_itrec" msprop:Generator_ColumnPropNameInTable="quotebom_itrecColumn" msprop:Generator_UserColumnName="quotebom_itrec" type="xs:decimal" minOccurs="0" />
+              <xs:element name="quotebom_itprice" msprop:Generator_ColumnVarNameInTable="columnquotebom_itprice" msprop:Generator_ColumnPropNameInRow="quotebom_itprice" msprop:Generator_ColumnPropNameInTable="quotebom_itpriceColumn" msprop:Generator_UserColumnName="quotebom_itprice" type="xs:decimal" minOccurs="0" />
+              <xs:element name="quotebom_itprs" msprop:Generator_ColumnVarNameInTable="columnquotebom_itprs" msprop:Generator_ColumnPropNameInRow="quotebom_itprs" msprop:Generator_ColumnPropNameInTable="quotebom_itprsColumn" msprop:Generator_UserColumnName="quotebom_itprs" type="xs:decimal" minOccurs="0" />
+              <xs:element name="quotebom_itmny" msprop:Generator_ColumnVarNameInTable="columnquotebom_itmny" msprop:Generator_ColumnPropNameInRow="quotebom_itmny" msprop:Generator_ColumnPropNameInTable="quotebom_itmnyColumn" msprop:Generator_UserColumnName="quotebom_itmny" type="xs:decimal" minOccurs="0" />
+              <xs:element name="quotebom_itnote" msprop:Generator_ColumnVarNameInTable="columnquotebom_itnote" msprop:Generator_ColumnPropNameInRow="quotebom_itnote" msprop:Generator_ColumnPropNameInTable="quotebom_itnoteColumn" msprop:Generator_UserColumnName="quotebom_itnote" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="quotebom_ItSource" msprop:Generator_ColumnVarNameInTable="columnquotebom_ItSource" msprop:Generator_ColumnPropNameInRow="quotebom_ItSource" msprop:Generator_ColumnPropNameInTable="quotebom_ItSourceColumn" msprop:Generator_UserColumnName="quotebom_ItSource" type="xs:decimal" minOccurs="0" />
+              <xs:element name="quotebom_ItBuyPri" msprop:Generator_ColumnVarNameInTable="columnquotebom_ItBuyPri" msprop:Generator_ColumnPropNameInRow="quotebom_ItBuyPri" msprop:Generator_ColumnPropNameInTable="quotebom_ItBuyPriColumn" msprop:Generator_UserColumnName="quotebom_ItBuyPri" type="xs:decimal" minOccurs="0" />
+              <xs:element name="quotebom_ItBuyMny" msprop:Generator_ColumnVarNameInTable="columnquotebom_ItBuyMny" msprop:Generator_ColumnPropNameInRow="quotebom_ItBuyMny" msprop:Generator_ColumnPropNameInTable="quotebom_ItBuyMnyColumn" msprop:Generator_UserColumnName="quotebom_ItBuyMny" type="xs:decimal" minOccurs="0" />
+              <xs:element name="quoted_quid" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnquoted_quid" msprop:Generator_ColumnPropNameInRow="quoted_quid" msprop:Generator_ColumnPropNameInTable="quoted_quidColumn" msprop:Generator_UserColumnName="quoted_quid" type="xs:int" />
+              <xs:element name="quoted_quno" msprop:Generator_ColumnVarNameInTable="columnquoted_quno" msprop:Generator_ColumnPropNameInRow="quoted_quno" msprop:Generator_ColumnPropNameInTable="quoted_qunoColumn" msprop:Generator_UserColumnName="quoted_quno" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="16" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="quoted_qudate1" msprop:Generator_ColumnVarNameInTable="columnquoted_qudate1" msprop:Generator_ColumnPropNameInRow="quoted_qudate1" msprop:Generator_ColumnPropNameInTable="quoted_qudate1Column" msprop:Generator_UserColumnName="quoted_qudate1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="quoted_qudate2" msprop:Generator_ColumnVarNameInTable="columnquoted_qudate2" msprop:Generator_ColumnPropNameInRow="quoted_qudate2" msprop:Generator_ColumnPropNameInTable="quoted_qudate2Column" msprop:Generator_UserColumnName="quoted_qudate2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="quoted_qudates1" msprop:Generator_ColumnVarNameInTable="columnquoted_qudates1" msprop:Generator_ColumnPropNameInRow="quoted_qudates1" msprop:Generator_ColumnPropNameInTable="quoted_qudates1Column" msprop:Generator_UserColumnName="quoted_qudates1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="quoted_qudates2" msprop:Generator_ColumnVarNameInTable="columnquoted_qudates2" msprop:Generator_ColumnPropNameInRow="quoted_qudates2" msprop:Generator_ColumnPropNameInTable="quoted_qudates2Column" msprop:Generator_UserColumnName="quoted_qudates2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="quoted_cuno" msprop:Generator_ColumnVarNameInTable="columnquoted_cuno" msprop:Generator_ColumnPropNameInRow="quoted_cuno" msprop:Generator_ColumnPropNameInTable="quoted_cunoColumn" msprop:Generator_UserColumnName="quoted_cuno" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="quoted_emno" msprop:Generator_ColumnVarNameInTable="columnquoted_emno" msprop:Generator_ColumnPropNameInRow="quoted_emno" msprop:Generator_ColumnPropNameInTable="quoted_emnoColumn" msprop:Generator_UserColumnName="quoted_emno" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="quoted_xa1no" msprop:Generator_ColumnVarNameInTable="columnquoted_xa1no" msprop:Generator_ColumnPropNameInRow="quoted_xa1no" msprop:Generator_ColumnPropNameInTable="quoted_xa1noColumn" msprop:Generator_UserColumnName="quoted_xa1no" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="quoted_xa1par" msprop:Generator_ColumnVarNameInTable="columnquoted_xa1par" msprop:Generator_ColumnPropNameInRow="quoted_xa1par" msprop:Generator_ColumnPropNameInTable="quoted_xa1parColumn" msprop:Generator_UserColumnName="quoted_xa1par" type="xs:decimal" minOccurs="0" />
+              <xs:element name="quoted_trno" msprop:Generator_ColumnVarNameInTable="columnquoted_trno" msprop:Generator_ColumnPropNameInRow="quoted_trno" msprop:Generator_ColumnPropNameInTable="quoted_trnoColumn" msprop:Generator_UserColumnName="quoted_trno" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="quoted_itno" msprop:Generator_ColumnVarNameInTable="columnquoted_itno" msprop:Generator_ColumnPropNameInRow="quoted_itno" msprop:Generator_ColumnPropNameInTable="quoted_itnoColumn" msprop:Generator_UserColumnName="quoted_itno" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="quoted_itname" msprop:Generator_ColumnVarNameInTable="columnquoted_itname" msprop:Generator_ColumnPropNameInRow="quoted_itname" msprop:Generator_ColumnPropNameInTable="quoted_itnameColumn" msprop:Generator_UserColumnName="quoted_itname" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="quoted_ittrait" msprop:Generator_ColumnVarNameInTable="columnquoted_ittrait" msprop:Generator_ColumnPropNameInRow="quoted_ittrait" msprop:Generator_ColumnPropNameInTable="quoted_ittraitColumn" msprop:Generator_UserColumnName="quoted_ittrait" type="xs:decimal" minOccurs="0" />
+              <xs:element name="quoted_itunit" msprop:Generator_ColumnVarNameInTable="columnquoted_itunit" msprop:Generator_ColumnPropNameInRow="quoted_itunit" msprop:Generator_ColumnPropNameInTable="quoted_itunitColumn" msprop:Generator_UserColumnName="quoted_itunit" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="quoted_itpkgqty" msprop:Generator_ColumnVarNameInTable="columnquoted_itpkgqty" msprop:Generator_ColumnPropNameInRow="quoted_itpkgqty" msprop:Generator_ColumnPropNameInTable="quoted_itpkgqtyColumn" msprop:Generator_UserColumnName="quoted_itpkgqty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="quoted_qty" msprop:Generator_ColumnVarNameInTable="columnquoted_qty" msprop:Generator_ColumnPropNameInRow="quoted_qty" msprop:Generator_ColumnPropNameInTable="quoted_qtyColumn" msprop:Generator_UserColumnName="quoted_qty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="quoted_price" msprop:Generator_ColumnVarNameInTable="columnquoted_price" msprop:Generator_ColumnPropNameInRow="quoted_price" msprop:Generator_ColumnPropNameInTable="quoted_priceColumn" msprop:Generator_UserColumnName="quoted_price" type="xs:decimal" minOccurs="0" />
+              <xs:element name="quoted_prs" msprop:Generator_ColumnVarNameInTable="columnquoted_prs" msprop:Generator_ColumnPropNameInRow="quoted_prs" msprop:Generator_ColumnPropNameInTable="quoted_prsColumn" msprop:Generator_UserColumnName="quoted_prs" type="xs:decimal" minOccurs="0" />
+              <xs:element name="quoted_rate" msprop:Generator_ColumnVarNameInTable="columnquoted_rate" msprop:Generator_ColumnPropNameInRow="quoted_rate" msprop:Generator_ColumnPropNameInTable="quoted_rateColumn" msprop:Generator_UserColumnName="quoted_rate" type="xs:decimal" minOccurs="0" />
+              <xs:element name="quoted_taxprice" msprop:Generator_ColumnVarNameInTable="columnquoted_taxprice" msprop:Generator_ColumnPropNameInRow="quoted_taxprice" msprop:Generator_ColumnPropNameInTable="quoted_taxpriceColumn" msprop:Generator_UserColumnName="quoted_taxprice" type="xs:decimal" minOccurs="0" />
+              <xs:element name="quoted_mny" msprop:Generator_ColumnVarNameInTable="columnquoted_mny" msprop:Generator_ColumnPropNameInRow="quoted_mny" msprop:Generator_ColumnPropNameInTable="quoted_mnyColumn" msprop:Generator_UserColumnName="quoted_mny" type="xs:decimal" minOccurs="0" />
+              <xs:element name="quoted_priceb" msprop:Generator_ColumnVarNameInTable="columnquoted_priceb" msprop:Generator_ColumnPropNameInRow="quoted_priceb" msprop:Generator_ColumnPropNameInTable="quoted_pricebColumn" msprop:Generator_UserColumnName="quoted_priceb" type="xs:decimal" minOccurs="0" />
+              <xs:element name="quoted_taxpriceb" msprop:Generator_ColumnVarNameInTable="columnquoted_taxpriceb" msprop:Generator_ColumnPropNameInRow="quoted_taxpriceb" msprop:Generator_ColumnPropNameInTable="quoted_taxpricebColumn" msprop:Generator_UserColumnName="quoted_taxpriceb" type="xs:decimal" minOccurs="0" />
+              <xs:element name="quoted_mnyb" msprop:Generator_ColumnVarNameInTable="columnquoted_mnyb" msprop:Generator_ColumnPropNameInRow="quoted_mnyb" msprop:Generator_ColumnPropNameInTable="quoted_mnybColumn" msprop:Generator_UserColumnName="quoted_mnyb" type="xs:decimal" minOccurs="0" />
+              <xs:element name="quoted_memo" msprop:Generator_ColumnVarNameInTable="columnquoted_memo" msprop:Generator_ColumnPropNameInRow="quoted_memo" msprop:Generator_ColumnPropNameInTable="quoted_memoColumn" msprop:Generator_UserColumnName="quoted_memo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="quoted_lowzero" msprop:Generator_ColumnVarNameInTable="columnquoted_lowzero" msprop:Generator_ColumnPropNameInRow="quoted_lowzero" msprop:Generator_ColumnPropNameInTable="quoted_lowzeroColumn" msprop:Generator_UserColumnName="quoted_lowzero" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="quoted_bomid" msprop:Generator_ColumnVarNameInTable="columnquoted_bomid" msprop:Generator_ColumnPropNameInRow="quoted_bomid" msprop:Generator_ColumnPropNameInTable="quoted_bomidColumn" msprop:Generator_UserColumnName="quoted_bomid" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="quoted_bomrec" msprop:Generator_ColumnVarNameInTable="columnquoted_bomrec" msprop:Generator_ColumnPropNameInRow="quoted_bomrec" msprop:Generator_ColumnPropNameInTable="quoted_bomrecColumn" msprop:Generator_UserColumnName="quoted_bomrec" type="xs:decimal" minOccurs="0" />
+              <xs:element name="quoted_recordno" msprop:Generator_ColumnVarNameInTable="columnquoted_recordno" msprop:Generator_ColumnPropNameInRow="quoted_recordno" msprop:Generator_ColumnPropNameInTable="quoted_recordnoColumn" msprop:Generator_UserColumnName="quoted_recordno" type="xs:decimal" minOccurs="0" />
+              <xs:element name="quoted_sltflag" msprop:Generator_ColumnVarNameInTable="columnquoted_sltflag" msprop:Generator_ColumnPropNameInRow="quoted_sltflag" msprop:Generator_ColumnPropNameInTable="quoted_sltflagColumn" msprop:Generator_UserColumnName="quoted_sltflag" type="xs:boolean" minOccurs="0" />
+              <xs:element name="quoted_extflag" msprop:Generator_ColumnVarNameInTable="columnquoted_extflag" msprop:Generator_ColumnPropNameInRow="quoted_extflag" msprop:Generator_ColumnPropNameInTable="quoted_extflagColumn" msprop:Generator_UserColumnName="quoted_extflag" type="xs:boolean" minOccurs="0" />
+              <xs:element name="quoted_itdesp1" msprop:Generator_ColumnVarNameInTable="columnquoted_itdesp1" msprop:Generator_ColumnPropNameInRow="quoted_itdesp1" msprop:Generator_ColumnPropNameInTable="quoted_itdesp1Column" msprop:Generator_UserColumnName="quoted_itdesp1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="quoted_itdesp2" msprop:Generator_ColumnVarNameInTable="columnquoted_itdesp2" msprop:Generator_ColumnPropNameInRow="quoted_itdesp2" msprop:Generator_ColumnPropNameInTable="quoted_itdesp2Column" msprop:Generator_UserColumnName="quoted_itdesp2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="quoted_itdesp3" msprop:Generator_ColumnVarNameInTable="columnquoted_itdesp3" msprop:Generator_ColumnPropNameInRow="quoted_itdesp3" msprop:Generator_ColumnPropNameInTable="quoted_itdesp3Column" msprop:Generator_UserColumnName="quoted_itdesp3" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="quoted_itdesp4" msprop:Generator_ColumnVarNameInTable="columnquoted_itdesp4" msprop:Generator_ColumnPropNameInRow="quoted_itdesp4" msprop:Generator_ColumnPropNameInTable="quoted_itdesp4Column" msprop:Generator_UserColumnName="quoted_itdesp4" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="quoted_itdesp5" msprop:Generator_ColumnVarNameInTable="columnquoted_itdesp5" msprop:Generator_ColumnPropNameInRow="quoted_itdesp5" msprop:Generator_ColumnPropNameInTable="quoted_itdesp5Column" msprop:Generator_UserColumnName="quoted_itdesp5" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="quoted_itdesp6" msprop:Generator_ColumnVarNameInTable="columnquoted_itdesp6" msprop:Generator_ColumnPropNameInRow="quoted_itdesp6" msprop:Generator_ColumnPropNameInTable="quoted_itdesp6Column" msprop:Generator_UserColumnName="quoted_itdesp6" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="quoted_itdesp7" msprop:Generator_ColumnVarNameInTable="columnquoted_itdesp7" msprop:Generator_ColumnPropNameInRow="quoted_itdesp7" msprop:Generator_ColumnPropNameInTable="quoted_itdesp7Column" msprop:Generator_UserColumnName="quoted_itdesp7" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="quoted_itdesp8" msprop:Generator_ColumnVarNameInTable="columnquoted_itdesp8" msprop:Generator_ColumnPropNameInRow="quoted_itdesp8" msprop:Generator_ColumnPropNameInTable="quoted_itdesp8Column" msprop:Generator_UserColumnName="quoted_itdesp8" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="quoted_itdesp9" msprop:Generator_ColumnVarNameInTable="columnquoted_itdesp9" msprop:Generator_ColumnPropNameInRow="quoted_itdesp9" msprop:Generator_ColumnPropNameInTable="quoted_itdesp9Column" msprop:Generator_UserColumnName="quoted_itdesp9" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="quoted_itdesp10" msprop:Generator_ColumnVarNameInTable="columnquoted_itdesp10" msprop:Generator_ColumnPropNameInRow="quoted_itdesp10" msprop:Generator_ColumnPropNameInTable="quoted_itdesp10Column" msprop:Generator_UserColumnName="quoted_itdesp10" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="quoted_stName" msprop:Generator_ColumnVarNameInTable="columnquoted_stName" msprop:Generator_ColumnPropNameInRow="quoted_stName" msprop:Generator_ColumnPropNameInTable="quoted_stNameColumn" msprop:Generator_UserColumnName="quoted_stName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="quoted_QuDate" msprop:Generator_ColumnVarNameInTable="columnquoted_QuDate" msprop:Generator_ColumnPropNameInRow="quoted_QuDate" msprop:Generator_ColumnPropNameInTable="quoted_QuDateColumn" msprop:Generator_UserColumnName="quoted_QuDate" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="quoted_QuDates" msprop:Generator_ColumnVarNameInTable="columnquoted_QuDates" msprop:Generator_ColumnPropNameInRow="quoted_QuDates" msprop:Generator_ColumnPropNameInTable="quoted_QuDatesColumn" msprop:Generator_UserColumnName="quoted_QuDates" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cust_cufax1" msprop:Generator_ColumnVarNameInTable="columncust_cufax1" msprop:Generator_ColumnPropNameInRow="cust_cufax1" msprop:Generator_ColumnPropNameInTable="cust_cufax1Column" msprop:Generator_UserColumnName="cust_cufax1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cust_cuaddr1" msprop:Generator_ColumnVarNameInTable="columncust_cuaddr1" msprop:Generator_ColumnPropNameInRow="cust_cuaddr1" msprop:Generator_ColumnPropNameInTable="cust_cuaddr1Column" msprop:Generator_UserColumnName="cust_cuaddr1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cust_cuuno" msprop:Generator_ColumnVarNameInTable="columncust_cuuno" msprop:Generator_ColumnPropNameInRow="cust_cuuno" msprop:Generator_ColumnPropNameInTable="cust_cuunoColumn" msprop:Generator_UserColumnName="cust_cuuno" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cust_cuname2" msprop:Generator_ColumnVarNameInTable="columncust_cuname2" msprop:Generator_ColumnPropNameInRow="cust_cuname2" msprop:Generator_ColumnPropNameInTable="cust_cuname2Column" msprop:Generator_UserColumnName="cust_cuname2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="item_itpicture" msprop:Generator_ColumnVarNameInTable="columnitem_itpicture" msprop:Generator_ColumnPropNameInRow="item_itpicture" msprop:Generator_ColumnPropNameInTable="item_itpictureColumn" msprop:Generator_UserColumnName="item_itpicture" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="item_pic" msprop:Generator_ColumnVarNameInTable="columnitem_pic" msprop:Generator_ColumnPropNameInRow="item_pic" msprop:Generator_ColumnPropNameInTable="item_picColumn" msprop:Generator_UserColumnName="item_pic" type="xs:base64Binary" minOccurs="0" />
+              <xs:element name="quote_AppScNo" msprop:Generator_ColumnVarNameInTable="columnquote_AppScNo" msprop:Generator_ColumnPropNameInRow="quote_AppScNo" msprop:Generator_ColumnPropNameInTable="quote_AppScNoColumn" msprop:Generator_UserColumnName="quote_AppScNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="quote_AppDate" msprop:Generator_ColumnVarNameInTable="columnquote_AppDate" msprop:Generator_ColumnPropNameInRow="quote_AppDate" msprop:Generator_ColumnPropNameInTable="quote_AppDateColumn" msprop:Generator_UserColumnName="quote_AppDate" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="quote_EdtScNo" msprop:Generator_ColumnVarNameInTable="columnquote_EdtScNo" msprop:Generator_ColumnPropNameInRow="quote_EdtScNo" msprop:Generator_ColumnPropNameInTable="quote_EdtScNoColumn" msprop:Generator_UserColumnName="quote_EdtScNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="quote_EdtDate" msprop:Generator_ColumnVarNameInTable="columnquote_EdtDate" msprop:Generator_ColumnPropNameInRow="quote_EdtDate" msprop:Generator_ColumnPropNameInTable="quote_EdtDateColumn" msprop:Generator_UserColumnName="quote_EdtDate" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="quote_qumemo1" msprop:Generator_ColumnVarNameInTable="columnquote_qumemo1" msprop:Generator_ColumnPropNameInRow="quote_qumemo1" msprop:Generator_ColumnPropNameInTable="quote_qumemo1Column" msprop:Generator_UserColumnName="quote_qumemo1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="item_itnote" msprop:Generator_ColumnVarNameInTable="columnitem_itnote" msprop:Generator_ColumnPropNameInRow="item_itnote" msprop:Generator_ColumnPropNameInTable="item_itnoteColumn" msprop:Generator_UserColumnName="item_itnote" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="kino" msprop:Generator_ColumnVarNameInTable="columnkino" msprop:Generator_ColumnPropNameInRow="kino" msprop:Generator_ColumnPropNameInTable="kinoColumn" msprop:Generator_UserColumnName="kino" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="kiname" msprop:Generator_ColumnVarNameInTable="columnkiname" msprop:Generator_ColumnPropNameInRow="kiname" msprop:Generator_ColumnPropNameInTable="kinameColumn" msprop:Generator_UserColumnName="kiname" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="scname" msprop:Generator_ColumnVarNameInTable="columnscname" msprop:Generator_ColumnPropNameInRow="scname" msprop:Generator_ColumnPropNameInTable="scnameColumn" msprop:Generator_UserColumnName="scname" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="scname1" msprop:Generator_ColumnVarNameInTable="columnscname1" msprop:Generator_ColumnPropNameInRow="scname1" msprop:Generator_ColumnPropNameInTable="scname1Column" msprop:Generator_UserColumnName="scname1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="pqty" msprop:Generator_ColumnVarNameInTable="columnpqty" msprop:Generator_ColumnPropNameInRow="pqty" msprop:Generator_ColumnPropNameInTable="pqtyColumn" msprop:Generator_UserColumnName="pqty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="punit" msprop:Generator_ColumnVarNameInTable="columnpunit" msprop:Generator_ColumnPropNameInRow="punit" msprop:Generator_ColumnPropNameInTable="punitColumn" msprop:Generator_UserColumnName="punit" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cust_cuatel1" msprop:Generator_ColumnVarNameInTable="columncust_cuatel1" msprop:Generator_ColumnPropNameInRow="cust_cuatel1" msprop:Generator_ColumnPropNameInTable="cust_cuatel1Column" msprop:Generator_UserColumnName="cust_cuatel1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="16" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="itnoudf" msprop:Generator_ColumnVarNameInTable="columnitnoudf" msprop:Generator_ColumnPropNameInRow="itnoudf" msprop:Generator_ColumnPropNameInTable="itnoudfColumn" msprop:Generator_UserColumnName="itnoudf" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="長度" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="column長度" msprop:Generator_ColumnPropNameInRow="長度" msprop:Generator_ColumnPropNameInTable="長度Column" msprop:Generator_UserColumnName="長度" type="xs:int" minOccurs="0" />
+              <xs:element name="quoted_standard" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnquoted_standard" msprop:Generator_ColumnPropNameInRow="quoted_standard" msprop:Generator_ColumnPropNameInTable="quoted_standardColumn" msprop:Generator_UserColumnName="quoted_standard" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="quote_ischeck" msprop:Generator_ColumnVarNameInTable="columnquote_ischeck" msprop:Generator_ColumnPropNameInRow="quote_ischeck" msprop:Generator_ColumnPropNameInTable="quote_ischeckColumn" msprop:Generator_UserColumnName="quote_ischeck" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="EmAtel1" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnEmAtel1" msprop:Generator_ColumnPropNameInRow="EmAtel1" msprop:Generator_ColumnPropNameInTable="EmAtel1Column" msprop:Generator_UserColumnName="EmAtel1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="EmEmail" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnEmEmail" msprop:Generator_ColumnPropNameInRow="EmEmail" msprop:Generator_ColumnPropNameInTable="EmEmailColumn" msprop:Generator_UserColumnName="EmEmail" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

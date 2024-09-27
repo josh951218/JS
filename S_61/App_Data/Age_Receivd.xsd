@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="Age_Receivd" targetNamespace="http://tempuri.org/Age_Receivd.xsd" xmlns:mstns="http://tempuri.org/Age_Receivd.xsd" xmlns="http://tempuri.org/Age_Receivd.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="1" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="_74ConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="_74ConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.S_61.Properties.Settings.GlobalReference.Default._74ConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="LONGConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="LONGConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.S_61.Properties.Settings.GlobalReference.Default.LONGConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="receivTableAdapter" GeneratorDataComponentClassName="receivTableAdapter" Name="receiv" UserDataComponentName="receivTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="LONGConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>select RuleLv1=0.0,RuleLv2=0.0,RuleLv3=0.0,RuleLv4=0.0,RuleLv5=0.0
+,筆數='',cuno='',cuname1='',fano='',faname1=''  from receiv</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="cuno" DataSetColumn="cuno" />
+              <Mapping SourceColumn="cuname1" DataSetColumn="cuname1" />
+              <Mapping SourceColumn="RuleLv1" DataSetColumn="RuleLv1" />
+              <Mapping SourceColumn="RuleLv2" DataSetColumn="RuleLv2" />
+              <Mapping SourceColumn="RuleLv3" DataSetColumn="RuleLv3" />
+              <Mapping SourceColumn="RuleLv4" DataSetColumn="RuleLv4" />
+              <Mapping SourceColumn="RuleLv5" DataSetColumn="RuleLv5" />
+              <Mapping SourceColumn="筆數" DataSetColumn="筆數" />
+              <Mapping SourceColumn="fano" DataSetColumn="fano" />
+              <Mapping SourceColumn="faname1" DataSetColumn="faname1" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="Age_Receivd" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="Age_Receivd" msprop:Generator_UserDSName="Age_Receivd">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="receiv" msprop:Generator_TableClassName="receivDataTable" msprop:Generator_TableVarName="tablereceiv" msprop:Generator_RowChangedName="receivRowChanged" msprop:Generator_TablePropName="receiv" msprop:Generator_RowDeletingName="receivRowDeleting" msprop:Generator_RowChangingName="receivRowChanging" msprop:Generator_RowEvHandlerName="receivRowChangeEventHandler" msprop:Generator_RowDeletedName="receivRowDeleted" msprop:Generator_RowClassName="receivRow" msprop:Generator_UserTableName="receiv" msprop:Generator_RowEvArgName="receivRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="cuno" msprop:Generator_ColumnVarNameInTable="columncuno" msprop:Generator_ColumnPropNameInRow="cuno" msprop:Generator_ColumnPropNameInTable="cunoColumn" msprop:Generator_UserColumnName="cuno" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cuname1" msprop:Generator_ColumnVarNameInTable="columncuname1" msprop:Generator_ColumnPropNameInRow="cuname1" msprop:Generator_ColumnPropNameInTable="cuname1Column" msprop:Generator_UserColumnName="cuname1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="RuleLv1" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnRuleLv1" msprop:Generator_ColumnPropNameInRow="RuleLv1" msprop:Generator_ColumnPropNameInTable="RuleLv1Column" msprop:Generator_UserColumnName="RuleLv1" type="xs:decimal" minOccurs="0" />
+              <xs:element name="RuleLv2" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnRuleLv2" msprop:Generator_ColumnPropNameInRow="RuleLv2" msprop:Generator_ColumnPropNameInTable="RuleLv2Column" msprop:Generator_UserColumnName="RuleLv2" type="xs:decimal" minOccurs="0" />
+              <xs:element name="RuleLv3" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnRuleLv3" msprop:Generator_ColumnPropNameInRow="RuleLv3" msprop:Generator_ColumnPropNameInTable="RuleLv3Column" msprop:Generator_UserColumnName="RuleLv3" type="xs:decimal" minOccurs="0" />
+              <xs:element name="RuleLv4" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnRuleLv4" msprop:Generator_ColumnPropNameInRow="RuleLv4" msprop:Generator_ColumnPropNameInTable="RuleLv4Column" msprop:Generator_UserColumnName="RuleLv4" type="xs:decimal" minOccurs="0" />
+              <xs:element name="RuleLv5" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnRuleLv5" msprop:Generator_ColumnPropNameInRow="RuleLv5" msprop:Generator_ColumnPropNameInTable="RuleLv5Column" msprop:Generator_UserColumnName="RuleLv5" type="xs:decimal" minOccurs="0" />
+              <xs:element name="筆數" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="column筆數" msprop:Generator_ColumnPropNameInRow="筆數" msprop:Generator_ColumnPropNameInTable="筆數Column" msprop:Generator_UserColumnName="筆數" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fano" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnfano" msprop:Generator_ColumnPropNameInRow="fano" msprop:Generator_ColumnPropNameInTable="fanoColumn" msprop:Generator_UserColumnName="fano" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="faname1" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnfaname1" msprop:Generator_ColumnPropNameInRow="faname1" msprop:Generator_ColumnPropNameInTable="faname1Column" msprop:Generator_UserColumnName="faname1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,297 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" DoublePass="true" ReportInfo.Created="03/11/2015 18:35:11" ReportInfo.Modified="10/06/2016 16:20:01" ReportInfo.CreatorVersion="2013.2.5.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {         
+    
+    private void Text123_BeforePrint(object sender, EventArgs e)
+    {
+      if (((Int32)Report.GetVariableValue(&quot;Page&quot;))==((Int32)Report.GetVariableValue(&quot;TotalPages&quot;)))
+      {
+        Text123.Text=&quot;*****以下空白*****&quot;;
+      }
+      else
+      {
+        Text123.Text=&quot;*****續 下 頁*****&quot;;
+      }
+    }
+
+    private void Text9_BeforePrint(object sender, EventArgs e)
+    {
+      //數量
+      string formet = &quot;f&quot;+((String)Report.GetParameterValue(&quot;庫存數量小數&quot;));
+      Text9.Text = ((Decimal)Report.GetColumnValue(&quot;QUOTE_.數量&quot;)).ToString(formet);
+    }
+
+    private void Text15_BeforePrint(object sender, EventArgs e)
+    {
+     //稅前單價
+      string formet = &quot;f&quot;+((String)Report.GetParameterValue(&quot;銷貨單價小數&quot;));
+      Text15.Text = ((Decimal)Report.GetColumnValue(&quot;QUOTE_.稅前單價&quot;)).ToString(formet);
+      Text15.Visible = ((Boolean)Report.GetParameterValue(&quot;price&quot;));
+    }
+
+    private void Text13_BeforePrint(object sender, EventArgs e)
+    {
+     //稅前小計
+      string formet = &quot;f&quot;+((String)Report.GetParameterValue(&quot;銷項金額小數&quot;));
+      Text13.Text = ((Decimal)Report.GetColumnValue(&quot;QUOTE_.稅前小計&quot;)).ToString(formet);
+      Text13.Visible = ((Boolean)Report.GetParameterValue(&quot;price&quot;));
+      
+    }
+
+    private void Text18_BeforePrint(object sender, EventArgs e)
+    {
+    //數量合計
+      string formet = &quot;f&quot;+((String)Report.GetParameterValue(&quot;庫存數量小數&quot;));
+      Text18.Text = ((Decimal)Report.GetTotalValue(&quot;數量合計&quot;)).ToString(formet);  
+    }
+
+    private void Text19_BeforePrint(object sender, EventArgs e)
+    {
+      //小計合計
+      string formet = &quot;f&quot;+((String)Report.GetParameterValue(&quot;銷項金額小數&quot;));
+      Text19.Text = ((Decimal)Report.GetTotalValue(&quot;小計合計&quot;)).ToString(formet);
+      Text19.Visible = ((Boolean)Report.GetParameterValue(&quot;price&quot;));
+    }
+
+    private void Text21_BeforePrint(object sender, EventArgs e)
+    {
+      //數量總計
+      string formet = &quot;f&quot;+((String)Report.GetParameterValue(&quot;庫存數量小數&quot;));
+      Text21.Text = ((Decimal)Report.GetTotalValue(&quot;數量總計&quot;)).ToString(formet);  
+    }
+
+    private void Text20_BeforePrint(object sender, EventArgs e)
+    {
+      //小計總計
+      string formet = &quot;f&quot;+((String)Report.GetParameterValue(&quot;銷項金額小數&quot;));
+      Text20.Text = ((Decimal)Report.GetTotalValue(&quot;小計總計&quot;)).ToString(formet);
+      Text20.Visible = ((Boolean)Report.GetParameterValue(&quot;price&quot;));
+    }
+
+    private void PageFooter1_BeforePrint(object sender, EventArgs e)
+    {
+      //頁腳
+      if (((Int32)Report.GetVariableValue(&quot;Page&quot;))==((Int32)Report.GetVariableValue(&quot;TotalPages&quot;)))
+      {
+        PageFooter1.Visible = true;
+      }
+      else
+      {
+        PageFooter1.Visible =false;
+      }
+    }
+
+    
+
+    private void Text23_BeforePrint(object sender, EventArgs e)
+    {
+     //BOM數量
+      string formet = &quot;f&quot;+((String)Report.GetParameterValue(&quot;庫存數量小數&quot;));
+      Text23.Text = ((Decimal)Report.GetColumnValue(&quot;QUOTE_.BOM_數量&quot;)).ToString(formet); 
+    }
+
+    private void Data1_BeforePrint(object sender, EventArgs e)
+    {
+      if(((String)Report.GetColumnValue(&quot;QUOTE_.BOM_品名規格&quot;))==&quot;&quot;)
+      {
+        Data1.Visible=false;
+      }
+      else
+      {
+        Data1.Visible=true;
+      }
+    }
+
+    
+
+    private void Text94_BeforePrint(object sender, EventArgs e)
+    {
+      //售價抬頭
+      Text94.Visible = ((Boolean)Report.GetParameterValue(&quot;price&quot;));
+    }
+
+    private void Text95_BeforePrint(object sender, EventArgs e)
+    {
+      //稅前小計抬頭
+      Text95.Visible = ((Boolean)Report.GetParameterValue(&quot;price&quot;));
+    }
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <MsSqlDataConnection Name="Connection" ConnectionString="rijcmlq+rW0RkboK+/8CKGGYUID3ctBV8q9SvKYxl3iiE7vBnh7Tgou0+4WFf3NfmPSvHVFX/S2Yvz0Ibm2enAAh/bj5IwCF1OGDq6mzCDV0cmqq5lzdq8B2h44YdiG1MkNRxzZmCUdOqUj+K3AG9XjPOZ10sOFaWAAndq6xKRwMzBV/i4=">
+      <TableDataSource Name="Table" Alias="QUOTE_" DataType="System.Int32" Enabled="true" SelectCommand="select cu.cufax1,b.*,a.cuname1,a.emname,a.cuno,a.emno,a.cuper1,a.cutel1,報價日期='',預交日期='',序號='', c.itpareprs as bomitpareprs,c.itpkgqty as bomitpkgqty,c.itname as bomitname,c.itunit as bomitunit,c.itqty as bomqty ,c.itrec from quoted as b left join quote as a on b.quno=a.quno left join cust as cu on cu.cuno = b.cuno  left join quotebom as c on c.bomid = b.bomid&#13;&#10;&#13;&#10;">
+        <Column Name="cufax1" Alias="客戶傳真" DataType="System.String"/>
+        <Column Name="quid" DataType="System.Int32"/>
+        <Column Name="quno" Alias="報價單號" DataType="System.String"/>
+        <Column Name="qudate1" Alias="報價西元日期" DataType="System.String"/>
+        <Column Name="qudate2" DataType="System.String"/>
+        <Column Name="qudates1" Alias="西元預計交期" DataType="System.String"/>
+        <Column Name="qudates2" DataType="System.String"/>
+        <Column Name="cuno" Alias="quoted_客戶編號" DataType="System.String"/>
+        <Column Name="emno" Alias="quoted_業務編號" DataType="System.String"/>
+        <Column Name="xa1no" Alias="幣別編號" DataType="System.String"/>
+        <Column Name="xa1par" Alias="匯率" DataType="System.Decimal"/>
+        <Column Name="trno" Alias="報價類別編號" DataType="System.String"/>
+        <Column Name="itno" Alias="產品編號" DataType="System.String"/>
+        <Column Name="itname" Alias="品名規格" DataType="System.String"/>
+        <Column Name="ittrait" Alias="產品組成" DataType="System.Decimal"/>
+        <Column Name="itunit" Alias="單位" DataType="System.String"/>
+        <Column Name="itpkgqty" Alias="包裝數量" DataType="System.Decimal"/>
+        <Column Name="qty" Alias="數量" DataType="System.Decimal"/>
+        <Column Name="price" Alias="單價" DataType="System.Decimal"/>
+        <Column Name="prs" Alias="折數" DataType="System.Decimal"/>
+        <Column Name="rate" Alias="稅率" DataType="System.Decimal"/>
+        <Column Name="taxprice" Alias="稅前單價" DataType="System.Decimal"/>
+        <Column Name="mny" Alias="稅前小計" DataType="System.Decimal"/>
+        <Column Name="priceb" Alias="本幣單價" DataType="System.Decimal"/>
+        <Column Name="taxpriceb" Alias="本幣稅前單價" DataType="System.Decimal"/>
+        <Column Name="mnyb" Alias="本幣稅前小計" DataType="System.Decimal"/>
+        <Column Name="memo" Alias="說明" DataType="System.String"/>
+        <Column Name="lowzero" Alias="庫存量不足" DataType="System.String"/>
+        <Column Name="bomid" DataType="System.String"/>
+        <Column Name="bomrec" DataType="System.Decimal"/>
+        <Column Name="recordno" DataType="System.Decimal"/>
+        <Column Name="sltflag" DataType="System.Boolean" BindableControl="CheckBox"/>
+        <Column Name="extflag" DataType="System.Boolean" BindableControl="CheckBox"/>
+        <Column Name="itdesp1" Alias="規格說明1" DataType="System.String"/>
+        <Column Name="itdesp2" Alias="規格說明2" DataType="System.String"/>
+        <Column Name="itdesp3" Alias="規格說明3" DataType="System.String"/>
+        <Column Name="itdesp4" Alias="規格說明4" DataType="System.String"/>
+        <Column Name="itdesp5" Alias="規格說明5" DataType="System.String"/>
+        <Column Name="itdesp6" Alias="規格說明6" DataType="System.String"/>
+        <Column Name="itdesp7" Alias="規格說明7" DataType="System.String"/>
+        <Column Name="itdesp8" Alias="規格說明8" DataType="System.String"/>
+        <Column Name="itdesp9" Alias="規格說明9" DataType="System.String"/>
+        <Column Name="itdesp10" Alias="規格說明10" DataType="System.String"/>
+        <Column Name="stName" DataType="System.String"/>
+        <Column Name="QuDate" Alias="報價民國日期" DataType="System.String"/>
+        <Column Name="QuDates" Alias="民國預計交期" DataType="System.String"/>
+        <Column Name="Punit" DataType="System.String"/>
+        <Column Name="Pqty" DataType="System.Decimal"/>
+        <Column Name="mwidth1" DataType="System.Decimal"/>
+        <Column Name="mwidth2" DataType="System.Decimal"/>
+        <Column Name="mwidth3" DataType="System.Decimal"/>
+        <Column Name="mwidth4" DataType="System.Decimal"/>
+        <Column Name="Pformula" DataType="System.String"/>
+        <Column Name="standard" DataType="System.String"/>
+        <Column Name="cuname1" Alias="客戶簡稱" DataType="System.String"/>
+        <Column Name="emname" Alias="業務姓名" DataType="System.String"/>
+        <Column Name="cuno1" Alias="quote_客戶編號" DataType="System.String"/>
+        <Column Name="emno1" Alias="quote_業務編號" DataType="System.String"/>
+        <Column Name="cuper1" Alias="客戶聯絡人" DataType="System.String"/>
+        <Column Name="cutel1" Alias="客戶電話" DataType="System.String"/>
+        <Column Name="報價日期" DataType="System.String"/>
+        <Column Name="預交日期" DataType="System.String"/>
+        <Column Name="序號" Alias="判斷BOM行數" DataType="System.String"/>
+        <Column Name="bomitpareprs" Alias="BOM_母件比率" DataType="System.Decimal"/>
+        <Column Name="bomitpkgqty" Alias="BOM_包裝數量" DataType="System.Decimal"/>
+        <Column Name="bomitname" Alias="BOM_品名規格" DataType="System.String"/>
+        <Column Name="bomitunit" Alias="BOM_單位" DataType="System.String"/>
+        <Column Name="bomqty" Alias="BOM_數量" DataType="System.Decimal"/>
+        <Column Name="itrec" DataType="System.Decimal"/>
+      </TableDataSource>
+    </MsSqlDataConnection>
+    <Parameter Name="txtstart" DataType="System.String"/>
+    <Parameter Name="txtend" DataType="System.String"/>
+    <Parameter Name="銷項金額小數" DataType="System.String"/>
+    <Parameter Name="txtaddress" DataType="System.String"/>
+    <Parameter Name="txttel" DataType="System.String"/>
+    <Parameter Name="銷貨單價小數" DataType="System.String"/>
+    <Parameter Name="銷貨單據小數" DataType="System.String"/>
+    <Parameter Name="銷項稅額小數" DataType="System.String"/>
+    <Parameter Name="庫存數量小數" DataType="System.String"/>
+    <Parameter Name="txtRange" DataType="System.String"/>
+    <Parameter Name="txttoday" DataType="System.String"/>
+    <Parameter Name="date" DataType="System.String"/>
+    <Parameter Name="製表日期" DataType="System.String"/>
+    <Parameter Name="price" DataType="System.Boolean"/>
+    <Total Name="數量合計" Expression="[QUOTE_.數量]" Evaluator="Data1" PrintOn="GroupFooter1" EvaluateCondition="[QUOTE_.判斷BOM行數] == &quot;V&quot;"/>
+    <Total Name="小計合計" Expression="[QUOTE_.稅前小計]" Evaluator="Data1" PrintOn="GroupFooter1" EvaluateCondition="[QUOTE_.判斷BOM行數] == &quot;V&quot;"/>
+    <Total Name="數量總計" Expression="[QUOTE_.數量]" Evaluator="Data1" ResetAfterPrint="false" EvaluateCondition="[QUOTE_.判斷BOM行數] == &quot;V&quot;"/>
+    <Total Name="小計總計" Expression="[QUOTE_.稅前小計]" Evaluator="Data1" ResetAfterPrint="false" EvaluateCondition="[QUOTE_.判斷BOM行數] == &quot;V&quot;"/>
+  </Dictionary>
+  <ReportPage Name="Page1" PaperWidth="215.9" PaperHeight="279.4" RawPaperSize="1" LeftMargin="2.5" TopMargin="2.5" RightMargin="2.5" BottomMargin="2.5" FirstPageSource="15" OtherPagesSource="15" Guides="378,757.89">
+    <PageHeaderBand Name="PageHeader1" Width="797.2" Height="127.92" CanShrink="true">
+      <TextObject Name="Text11" Top="55.81" Width="757.89" Height="22.3" CanGrow="true" CanShrink="true" Text="日期別報價明細表" HorzAlign="Center" WordWrap="false" Font="細明體, 14pt, style=Bold"/>
+      <TextObject Name="Text14" Top="83.16" Width="79.01" Height="18.9" CanGrow="true" CanShrink="true" Text="帳款區間:" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text1" Left="82.98" Top="83.16" Width="211.68" Height="18.9" CanGrow="true" CanShrink="true" Text="[txtRange]" Font="新細明體, 12pt"/>
+      <TextObject Name="Text2" Left="298.62" Top="83.16" Width="79.01" Height="18.9" CanGrow="true" CanShrink="true" Text="製表日期:" WordWrap="false" Font="新細明體, 12pt"/>
+      <TextObject Name="Text67" Left="381.78" Top="83.16" Width="147.42" Height="18.9" CanGrow="true" CanShrink="true" Text="[製表日期]" Font="新細明體, 12pt"/>
+      <TextObject Name="Text69" Left="616.48" Top="83.16" Width="79.01" Height="18.9" CanGrow="true" CanShrink="true" Text="頁    次:" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text6" Left="699.61" Top="83.16" Width="58.28" Height="18.9" CanGrow="true" CanShrink="true" Text="[Page]" HorzAlign="Right" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text27" Left="1.79" Top="110.98" Width="116.05" Height="15.49" CanGrow="true" CanShrink="true" Text="報價憑證" WordWrap="false" Font="細明體, 10pt"/>
+      <TextObject Name="Text74" Left="117.84" Top="110.98" Width="74.84" Height="15.49" CanGrow="true" CanShrink="true" Text="交期/客戶" WordWrap="false" Font="細明體, 10pt"/>
+      <TextObject Name="Text90" Left="192.68" Top="110.98" Width="143.64" Height="15.49" CanGrow="true" CanShrink="true" Text="產品編號/品名規格" WordWrap="false" Font="細明體, 10pt"/>
+      <TextObject Name="Text91" Left="336.32" Top="110.98" Width="80.51" Height="15.49" CanGrow="true" CanShrink="true" Text="報價數量" HorzAlign="Right" WordWrap="false" Font="細明體, 10pt"/>
+      <TextObject Name="Text93" Left="416.83" Top="110.98" Width="32.89" Height="15.49" CanGrow="true" CanShrink="true" Text="單位" WordWrap="false" Font="細明體, 10pt"/>
+      <TextObject Name="Text94" Left="449.72" Top="110.98" Width="74.89" Height="15.49" CanGrow="true" CanShrink="true" BeforePrintEvent="Text94_BeforePrint" Text="售價" HorzAlign="Right" WordWrap="false" Font="細明體, 10pt"/>
+      <TextObject Name="Text95" Left="524.61" Top="110.98" Width="74.89" Height="15.49" CanGrow="true" CanShrink="true" BeforePrintEvent="Text95_BeforePrint" Text="小計" HorzAlign="Right" WordWrap="false" Font="細明體, 10pt"/>
+      <TextObject Name="Text83" Left="599.5" Top="110.98" Width="157.27" Height="15.49" CanGrow="true" CanShrink="true" Text="備註說明" WordWrap="false" Font="細明體, 10pt"/>
+      <LineObject Name="Line1" Top="107.88" Width="757.89" Border.Width="2" CanGrow="true" CanShrink="true"/>
+      <TextObject Name="Text124" Left="0.38" Width="757.51" Height="55.16" CanGrow="true" CanShrink="true" Text="[txtstart]" HorzAlign="Center" WordWrap="false" Font="細明體, 16pt, style=Bold"/>
+      <LineObject Name="Line2" Top="126.22" Width="757.89" Border.Width="2" CanGrow="true" CanShrink="true"/>
+    </PageHeaderBand>
+    <GroupHeaderBand Name="GroupHeader1" Top="131.92" Width="797.2" Height="21.95" KeepWithData="true" Condition="[QUOTE_.報價民國日期]">
+      <TextObject Name="Text121" Left="1.79" Top="5.78" Width="65.28" Height="15.49" CanGrow="true" CanShrink="true" Text="報價日期:" WordWrap="false" Font="細明體, 10pt"/>
+      <TextObject Name="Text4" Left="71.56" Top="6.46" Width="170.1" Height="15.49" Text="[QUOTE_.報價日期]" WordWrap="false" Font="細明體, 10pt"/>
+      <GroupHeaderBand Name="GroupHeader2" Top="157.87" Width="797.2" Condition="[QUOTE_.報價單號]">
+        <LineObject Name="Line4" Width="757.89" CanGrow="true" CanShrink="true"/>
+        <GroupHeaderBand Name="GroupHeader3" Top="161.87" Width="797.2" Height="39.17" Condition="[QUOTE_.bomid]">
+          <TextObject Name="Text5" Left="1.79" Top="2.74" Width="116.05" Height="15.49" Text="[QUOTE_.報價單號]" WordWrap="false" Font="細明體, 10pt"/>
+          <TextObject Name="Text7" Left="117.84" Top="3.42" Width="74.84" Height="15.49" Text="[QUOTE_.預交日期]" WordWrap="false" Font="細明體, 10pt"/>
+          <TextObject Name="Text8" Left="192.68" Top="3.42" Width="143.64" Height="15.49" Text="[QUOTE_.產品編號]" WordWrap="false" Font="細明體, 10pt"/>
+          <TextObject Name="Text9" Left="336.32" Top="3.42" Width="80.51" Height="15.49" BeforePrintEvent="Text9_BeforePrint" Text="[QUOTE_.數量]" HorzAlign="Right" WordWrap="false" Font="細明體, 10pt"/>
+          <TextObject Name="Text12" Left="416.83" Top="3.42" Width="32.89" Height="15.49" Text="[QUOTE_.單位]" WordWrap="false" Font="細明體, 10pt"/>
+          <TextObject Name="Text13" Left="524.61" Top="3.42" Width="74.89" Height="15.49" BeforePrintEvent="Text13_BeforePrint" Text="[QUOTE_.稅前小計]" HorzAlign="Right" WordWrap="false" Font="細明體, 10pt"/>
+          <TextObject Name="Text15" Left="449.72" Top="3.42" Width="74.89" Height="15.49" BeforePrintEvent="Text15_BeforePrint" Text="[QUOTE_.稅前單價]" HorzAlign="Right" WordWrap="false" Font="細明體, 10pt"/>
+          <TextObject Name="Text17" Left="599.5" Top="3.42" Width="157.27" Height="15.49" Text="[QUOTE_.說明]" WordWrap="false" Font="細明體, 10pt"/>
+          <TextObject Name="Text10" Left="117.84" Top="20.28" Width="74.84" Height="15.49" Text="[QUOTE_.客戶簡稱]" WordWrap="false" Font="細明體, 10pt"/>
+          <TextObject Name="Text16" Left="192.68" Top="20.28" Width="565.21" Height="15.49" Text="[QUOTE_.品名規格]" WordWrap="false" Font="細明體, 10pt"/>
+          <DataBand Name="Data1" Top="205.04" Width="797.2" Height="16.16" BeforePrintEvent="Data1_BeforePrint" DataSource="Table">
+            <TextObject Name="Text22" Left="192.68" Top="0.67" Width="203.34" Height="15.49" Text="[QUOTE_.BOM_品名規格]" WordWrap="false" Font="宋体, 9pt"/>
+            <TextObject Name="Text23" Left="396.02" Top="0.67" Width="80.51" Height="15.49" BeforePrintEvent="Text23_BeforePrint" Text="[QUOTE_.BOM_數量]" HorzAlign="Right" WordWrap="false" Font="細明體, 10pt"/>
+            <TextObject Name="Text24" Left="476.53" Top="0.67" Width="32.89" Height="15.49" Text="[QUOTE_.BOM_單位]" WordWrap="false" Font="宋体, 9pt"/>
+          </DataBand>
+          <GroupFooterBand Name="GroupFooter3" Top="225.2" Width="797.2"/>
+        </GroupHeaderBand>
+        <GroupFooterBand Name="GroupFooter2" Top="229.2" Width="797.2">
+          <LineObject Name="Line3" Width="757.89" CanGrow="true" CanShrink="true"/>
+        </GroupFooterBand>
+      </GroupHeaderBand>
+      <GroupFooterBand Name="GroupFooter1" Top="233.2" Width="797.2" Height="20.85" KeepWithData="true">
+        <TextObject Name="Text122" Left="1.79" Top="0.68" Width="37" Height="15.49" CanGrow="true" CanShrink="true" Text="合計:" WordWrap="false" Font="細明體, 10pt"/>
+        <TextObject Name="Text18" Left="186.49" Top="1.36" Width="230.34" Height="15.49" BeforePrintEvent="Text18_BeforePrint" Text="[數量合計]" HorzAlign="Right" WordWrap="false" Font="細明體, 10pt"/>
+        <TextObject Name="Text19" Left="417.81" Top="1.36" Width="181.69" Height="15.49" BeforePrintEvent="Text19_BeforePrint" Text="[小計合計]" HorzAlign="Right" WordWrap="false" Font="細明體, 10pt"/>
+      </GroupFooterBand>
+    </GroupHeaderBand>
+    <ColumnFooterBand Name="ColumnFooter1" Top="258.05" Width="797.2" Height="14.07">
+      <TextObject Name="Text123" Top="0.47" Width="757.89" Height="13.6" CanGrow="true" CanShrink="true" BeforePrintEvent="Text123_BeforePrint" Text="*****以下空白*****" HorzAlign="Center" WordWrap="false" Font="細明體, 10pt"/>
+    </ColumnFooterBand>
+    <PageFooterBand Name="PageFooter1" Top="276.12" Width="797.2" Height="40.58" BeforePrintEvent="PageFooter1_BeforePrint">
+      <TextObject Name="Text120" Left="1.79" Top="2.72" Width="37" Height="15.49" CanGrow="true" CanShrink="true" Text="總計:" WordWrap="false" Font="細明體, 10pt"/>
+      <TextObject Name="Text3" Left="0.38" Top="18.65" Width="757.51" Height="21.93" CanGrow="true" CanShrink="true" Text="[txtend]" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text20" Left="419.51" Top="2.72" Width="179.99" Height="15.49" BeforePrintEvent="Text20_BeforePrint" Text="[小計總計]" HorzAlign="Right" WordWrap="false" Font="細明體, 10pt"/>
+      <TextObject Name="Text21" Left="188.19" Top="2.72" Width="228.64" Height="15.49" BeforePrintEvent="Text21_BeforePrint" Text="[數量總計]" HorzAlign="Right" WordWrap="false" Font="細明體, 10pt"/>
+      <LineObject Name="Line5" Top="0.64" Width="757.89" Border.Width="2" CanGrow="true" CanShrink="true"/>
+      <LineObject Name="Line6" Top="17.7" Width="757.89" Border.Width="2" CanGrow="true" CanShrink="true"/>
+    </PageFooterBand>
+  </ReportPage>
+</Report>

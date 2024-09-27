@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="01/19/2016 09:50:36" ReportInfo.Modified="03/03/2016 15:24:55" ReportInfo.CreatorVersion="2013.2.5.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+    private void Text34_BeforePrint(object sender, EventArgs e)
+    {    
+      
+        Text34.Text =
+        ( ((Decimal)Report.GetColumnValue(&quot;Data.01&quot;)) 
+        + ((Decimal)Report.GetColumnValue(&quot;Data.02&quot;))
+        + ((Decimal)Report.GetColumnValue(&quot;Data.03&quot;))
+        + ((Decimal)Report.GetColumnValue(&quot;Data.04&quot;))
+        + ((Decimal)Report.GetColumnValue(&quot;Data.05&quot;))
+        + ((Decimal)Report.GetColumnValue(&quot;Data.06&quot;))
+        + ((Decimal)Report.GetColumnValue(&quot;Data.07&quot;))
+        + ((Decimal)Report.GetColumnValue(&quot;Data.08&quot;))
+        + ((Decimal)Report.GetColumnValue(&quot;Data.09&quot;))                                                   
+        + ((Decimal)Report.GetColumnValue(&quot;Data.10&quot;))
+        + ((Decimal)Report.GetColumnValue(&quot;Data.11&quot;)) 
+        + ((Decimal)Report.GetColumnValue(&quot;Data.12&quot;))).ToString();
+        Text34.Text = FormatNumber(Text34.Text )  ;
+     
+    }
+    
+    
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <MsSqlDataConnection Name="Connection" ConnectionString="rijcmlq+rW0RkboK+/8CKGGYUID3ctBV8q9SvKYxl3iiE7vBnh7Tgou0+4WFf3NfmPSvHVFX/S2Yvz0Ibm2enAAh/bj5IwCF1OGDq6mzCDV0cmqq5lzdq8B2h44YdiG1MkNRxzZmCUdOqUj+K3AG9XjPOZ10lVvSqW9+TPZR3CvCENelGc=">
+      <TableDataSource Name="Table" Alias="Data" DataType="System.Int32" Enabled="true" SelectCommand="select 客戶編號='',客戶簡稱='',產品編號='',品名規格='','01'   = 0.0,'02'   = 0.0,'03'   = 0.0,'04'   = 0.0,'05'   = 0.0,'06'   = 0.0,'07'   = 0.0,'08'   = 0.0,'09'   = 0.0,'10'   = 0.0,'11' = 0.0,'12' = 0.0,總數   = 0.0 from  item where 1=0">
+        <Column Name="客戶編號" DataType="System.String"/>
+        <Column Name="客戶簡稱" DataType="System.String"/>
+        <Column Name="產品編號" DataType="System.String"/>
+        <Column Name="品名規格" DataType="System.String"/>
+        <Column Name="01" DataType="System.Decimal"/>
+        <Column Name="02" DataType="System.Decimal"/>
+        <Column Name="03" DataType="System.Decimal"/>
+        <Column Name="04" DataType="System.Decimal"/>
+        <Column Name="05" DataType="System.Decimal"/>
+        <Column Name="06" DataType="System.Decimal"/>
+        <Column Name="07" DataType="System.Decimal"/>
+        <Column Name="08" DataType="System.Decimal"/>
+        <Column Name="09" DataType="System.Decimal"/>
+        <Column Name="10" DataType="System.Decimal"/>
+        <Column Name="11" DataType="System.Decimal"/>
+        <Column Name="12" DataType="System.Decimal"/>
+        <Column Name="總數" DataType="System.Decimal"/>
+      </TableDataSource>
+    </MsSqlDataConnection>
+    <Parameter Name="年度" DataType="System.String"/>
+    <Parameter Name="庫存數量小數" DataType="System.Int32"/>
+  </Dictionary>
+  <ReportPage Name="Page1" Landscape="true" PaperWidth="297" PaperHeight="210.01" RawPaperSize="9" LeftMargin="10.01" TopMargin="10.01" RightMargin="10.01" BottomMargin="10.01" FirstPageSource="15" OtherPagesSource="15">
+    <ReportTitleBand Name="ReportTitle1" Width="1046.98"/>
+    <PageHeaderBand Name="PageHeader1" Top="3.2" Width="1046.98" Height="28.8">
+      <TextObject Name="Text37" Width="1046.4" Height="28.8" Text="客戶年度銷售報表" HorzAlign="Center" Font="細明體, 16pt, style=Bold"/>
+      <TextObject Name="Text1" Left="854.4" Width="192" Height="19.2" Text="年    度:   [年度] 年" Font="細明體, 9.75pt"/>
+      <TextObject Name="Text40" Left="854.33" Top="16.04" Width="522.25" Height="12.76" BeforePrintEvent="Text11_BeforePrint" Text="頁    次:   [Page#] / [TotalPages#]" Font="細明體, 9.75pt"/>
+    </PageHeaderBand>
+    <GroupHeaderBand Name="GroupHeader1" Top="35.2" Width="1046.98" Height="57.6" RepeatOnEveryPage="true" Condition="[Data.客戶編號]">
+      <TextObject Name="Text21" Left="172.8" Top="38.4" Width="67.2" Height="19.2" Border.Lines="Left, Right, Top" Text="一月" Padding="0, 4, 0, 0" Format="Currency" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="細明體, 8pt" Trimming="EllipsisCharacter"/>
+      <TextObject Name="Text22" Left="240" Top="38.4" Width="67.2" Height="19.2" Border.Lines="Left, Right, Top" Text="二月" Padding="0, 4, 0, 0" Format="Currency" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="細明體, 8pt" Trimming="EllipsisCharacter"/>
+      <TextObject Name="Text23" Left="307.2" Top="38.4" Width="67.2" Height="19.2" Border.Lines="Left, Right, Top" Text="三月" Padding="0, 4, 0, 0" Format="Currency" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="細明體, 8pt" Trimming="EllipsisCharacter"/>
+      <TextObject Name="Text24" Left="374.4" Top="38.4" Width="67.2" Height="19.2" Border.Lines="Left, Right, Top" Text="四月" Padding="0, 4, 0, 0" Format="Currency" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="細明體, 8pt" Trimming="EllipsisCharacter"/>
+      <TextObject Name="Text25" Left="441.6" Top="38.4" Width="67.2" Height="19.2" Border.Lines="Left, Right, Top" Text="五月" Padding="0, 4, 0, 0" Format="Currency" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="細明體, 8pt" Trimming="EllipsisCharacter"/>
+      <TextObject Name="Text26" Left="508.8" Top="38.4" Width="67.2" Height="19.2" Border.Lines="Left, Right, Top" Text="六月" Padding="0, 4, 0, 0" Format="Currency" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="細明體, 8pt" Trimming="EllipsisCharacter"/>
+      <TextObject Name="Text27" Left="576" Top="38.4" Width="67.2" Height="19.2" Border.Lines="Left, Right, Top" Text="七月" Padding="0, 4, 0, 0" Format="Currency" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="細明體, 8pt" Trimming="EllipsisCharacter"/>
+      <TextObject Name="Text28" Left="643.2" Top="38.4" Width="67.2" Height="19.2" Border.Lines="Left, Right, Top" Text="八月" Padding="0, 4, 0, 0" Format="Currency" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="細明體, 8pt" Trimming="EllipsisCharacter"/>
+      <TextObject Name="Text29" Left="710.4" Top="38.4" Width="67.2" Height="19.2" Border.Lines="Left, Right, Top" Text="九月" Padding="0, 4, 0, 0" Format="Currency" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="細明體, 8pt" Trimming="EllipsisCharacter"/>
+      <TextObject Name="Text30" Left="777.6" Top="38.4" Width="67.2" Height="19.2" Border.Lines="Left, Right, Top" Text="十月" Padding="0, 4, 0, 0" Format="Currency" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="細明體, 8pt" Trimming="EllipsisCharacter"/>
+      <TextObject Name="Text31" Left="844.8" Top="38.4" Width="67.2" Height="19.2" Border.Lines="Left, Right, Top" Text="十一月" Padding="0, 4, 0, 0" Format="Currency" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="細明體, 8pt" Trimming="EllipsisCharacter"/>
+      <TextObject Name="Text32" Left="912" Top="38.4" Width="67.2" Height="19.2" Border.Lines="Left, Right, Top" Text="十二月" Padding="0, 4, 0, 0" Format="Currency" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="細明體, 8pt" Trimming="EllipsisCharacter"/>
+      <TextObject Name="Text33" Left="979.2" Top="38.4" Width="67.2" Height="19.2" Border.Lines="Left, Right, Top" Text="總計" Padding="0, 4, 0, 0" Format="Currency" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="細明體, 8pt" Trimming="EllipsisCharacter"/>
+      <TextObject Name="Text35" Top="38.4" Width="172.8" Height="19.2" Border.Lines="Left, Right, Top" Text="品名規格" Padding="0, 4, 0, 0" Font="細明體, 8pt"/>
+      <TextObject Name="Text2" Left="220.8" Top="19.2" Width="76.8" Height="19.2" Text="[Data.客戶簡稱]" Font="細明體, 9.75pt"/>
+      <TextObject Name="Text36" Left="76.8" Top="19.2" Width="76.8" Height="19.2" Text="[Data.客戶編號]" Font="細明體, 9.75pt"/>
+      <TextObject Name="Text38" Top="19.2" Width="76.8" Height="19.2" Text="客戶編號:&#13;&#10;" Padding="0, 0, 0, 0" Font="細明體, 9.75pt"/>
+      <TextObject Name="Text39" Left="153.6" Top="19.2" Width="67.2" Height="19.2" Text="客戶簡稱:&#13;&#10;" Padding="0, 0, 0, 0" Font="細明體, 9.75pt"/>
+      <DataBand Name="Data1" Top="96" Width="1046.98" Height="19.2" DataSource="Table">
+        <TextObject Name="Text3" Left="172.8" Width="67.2" Height="19.2" Border.Lines="All" Text="[FormatNumber([Data.01],ToInt32([庫存數量小數]))]" Padding="0, 4, 0, 0" Format="Currency" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="細明體, 8pt" Trimming="EllipsisCharacter"/>
+        <TextObject Name="Text5" Left="240" Width="67.2" Height="19.2" Border.Lines="All" Text="[FormatNumber([Data.02],ToInt32([庫存數量小數]))]" Padding="0, 4, 0, 0" Format="Currency" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="細明體, 8pt" Trimming="EllipsisCharacter"/>
+        <TextObject Name="Text6" Left="307.2" Width="67.2" Height="19.2" Border.Lines="All" Text="[FormatNumber([Data.03],ToInt32([庫存數量小數]))]" Padding="0, 4, 0, 0" Format="Currency" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="細明體, 8pt" Trimming="EllipsisCharacter"/>
+        <TextObject Name="Text7" Left="374.4" Width="67.2" Height="19.2" Border.Lines="All" Text="[FormatNumber([Data.04],ToInt32([庫存數量小數]))]" Padding="0, 4, 0, 0" Format="Currency" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="細明體, 8pt" Trimming="EllipsisCharacter"/>
+        <TextObject Name="Text8" Left="441.6" Width="67.2" Height="19.2" Border.Lines="All" Text="[FormatNumber([Data.05],ToInt32([庫存數量小數]))]" Padding="0, 4, 0, 0" Format="Currency" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="細明體, 8pt" Trimming="EllipsisCharacter"/>
+        <TextObject Name="Text11" Left="508.8" Width="67.2" Height="19.2" Border.Lines="All" Text="[FormatNumber([Data.06],ToInt32([庫存數量小數]))]" Padding="0, 4, 0, 0" Format="Currency" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="宋体, 9pt" Trimming="EllipsisCharacter"/>
+        <TextObject Name="Text9" Left="576" Width="67.2" Height="19.2" Border.Lines="All" Text="[FormatNumber([Data.07],ToInt32([庫存數量小數]))]" Padding="0, 4, 0, 0" Format="Currency" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="細明體, 8pt" Trimming="EllipsisCharacter"/>
+        <TextObject Name="Text13" Left="643.2" Width="67.2" Height="19.2" Border.Lines="All" Text="[FormatNumber([Data.08],ToInt32([庫存數量小數]))]" Padding="0, 4, 0, 0" Format="Currency" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="細明體, 8pt" Trimming="EllipsisCharacter"/>
+        <TextObject Name="Text15" Left="710.4" Width="67.2" Height="19.2" Border.Lines="All" Text="[FormatNumber([Data.09],ToInt32([庫存數量小數]))]" Padding="0, 4, 0, 0" Format="Currency" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="細明體, 8pt" Trimming="EllipsisCharacter"/>
+        <TextObject Name="Text17" Left="777.6" Width="67.2" Height="19.2" Border.Lines="All" Text="[FormatNumber([Data.10],ToInt32([庫存數量小數]))]" Padding="0, 4, 0, 0" Format="Currency" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="細明體, 8pt" Trimming="EllipsisCharacter"/>
+        <TextObject Name="Text19" Left="844.8" Width="67.2" Height="19.2" Border.Lines="All" Text="[FormatNumber([Data.11],ToInt32([庫存數量小數]))]" Padding="0, 4, 0, 0" Format="Currency" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="細明體, 8pt" Trimming="EllipsisCharacter"/>
+        <TextObject Name="Text20" Left="912" Width="67.2" Height="19.2" Border.Lines="All" Text="[FormatNumber([Data.12],ToInt32([庫存數量小數]))]" Padding="0, 4, 0, 0" Format="Currency" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="細明體, 8pt" Trimming="EllipsisCharacter"/>
+        <TextObject Name="Text34" Left="979.2" Width="67.2" Height="19.2" Border.Lines="All" BeforePrintEvent="Text34_BeforePrint" Text="總計" Padding="0, 4, 0, 0" Format="Currency" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="細明體, 8pt" Trimming="EllipsisCharacter"/>
+        <TextObject Name="Text4" Width="172.8" Height="19.2" Border.Lines="All" Text="[Data.品名規格]" Padding="0, 4, 0, 0" Font="細明體, 8pt"/>
+      </DataBand>
+      <GroupFooterBand Name="GroupFooter1" Top="118.4" Width="1046.98" Border.Lines="All"/>
+    </GroupHeaderBand>
+    <PageFooterBand Name="PageFooter1" Top="121.6" Width="1046.98"/>
+  </ReportPage>
+</Report>

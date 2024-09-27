@@ -1,0 +1,469 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" DoublePass="true" ReportInfo.Created="03/11/2015 18:35:11" ReportInfo.Modified="10/06/2016 16:31:23" ReportInfo.CreatorVersion="2013.2.5.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  { 
+    int  CurrentRecCounter,TotalRecs;
+
+
+    private void Text123_BeforePrint(object sender, EventArgs e)
+    {
+      if (((Int32)Report.GetVariableValue(&quot;Page&quot;))!=((Int32)Report.GetVariableValue(&quot;TotalPages&quot;)))
+      {
+        Text123.Text=&quot;*****續下頁*****&quot;;
+      }
+      else
+      {
+        Text123.Text=&quot;*****以下空白*****&quot;;
+      }
+    }
+
+    private void PageFooter1_BeforePrint(object sender, EventArgs e)
+    {
+      //頁腳
+      if (((Int32)Report.GetVariableValue(&quot;Page&quot;))==((Int32)Report.GetVariableValue(&quot;TotalPages&quot;)))
+      {
+        
+        PageFooter1.Visible = true;
+      }
+      else
+      {
+        PageFooter1.Visible =false;
+      }
+    }
+
+    private void Text132_BeforePrint(object sender, EventArgs e)
+    {
+      //訂單數量
+      string formet = &quot;f&quot;+ ((String)Report.GetParameterValue(&quot;庫存數量小數&quot;));
+      Text132.Text = ((Decimal)Report.GetColumnValue(&quot;ORDER_.ORDERD_數量&quot;)).ToString(formet);
+    }
+
+    private void Text134_BeforePrint(object sender, EventArgs e)
+    {
+      //單價
+      string formet = &quot;f&quot;+ ((String)Report.GetParameterValue(&quot;銷貨單價小數&quot;));
+      Text134.Text = ((Decimal)Report.GetColumnValue(&quot;ORDER_.ORDERD_單價&quot;)).ToString(formet);
+      Text134.Visible = ((Boolean)Report.GetParameterValue(&quot;price&quot;));
+      
+    }
+
+    private void Text135_BeforePrint(object sender, EventArgs e)
+    {
+      //稅前小計
+      String formet = &quot;f&quot;+((String)Report.GetParameterValue(&quot;銷項金額小數&quot;));
+      Text135.Text = ((Decimal)Report.GetColumnValue(&quot;ORDER_.ORDERD_稅前小計&quot;)).ToString(formet);
+      Text135.Visible = ((Boolean)Report.GetParameterValue(&quot;price&quot;));
+    }  
+
+    private void Text136_BeforePrint(object sender, EventArgs e)
+    {
+      //未交量
+      string formet = &quot;f&quot;+ ((String)Report.GetParameterValue(&quot;庫存數量小數&quot;));
+      Text136.Text = ((Decimal)Report.GetColumnValue(&quot;ORDER_.ORDERD_未交量&quot;)).ToString(formet);
+    }
+
+    private void Text18_BeforePrint(object sender, EventArgs e)
+    {
+      //數量合計
+      string formet = &quot;f&quot;+ ((String)Report.GetParameterValue(&quot;庫存數量小數&quot;));
+      Text18.Text =  ((Decimal)Report.GetTotalValue(&quot;數量合計&quot;)).ToString(formet);
+    }
+
+    private void Text19_BeforePrint(object sender, EventArgs e)
+    {
+      //小計合計
+      String formet = &quot;f&quot;+((String)Report.GetParameterValue(&quot;銷項金額小數&quot;));
+      Text19.Text =  ((Decimal)Report.GetTotalValue(&quot;小計合計&quot;)).ToString(formet);
+      Text19.Visible = ((Boolean)Report.GetParameterValue(&quot;price&quot;));
+    }
+
+    private void Text21_BeforePrint(object sender, EventArgs e)
+    {
+      //數量總計
+      string formet = &quot;f&quot;+ ((String)Report.GetParameterValue(&quot;庫存數量小數&quot;));
+      Text21.Text =  ((Decimal)Report.GetTotalValue(&quot;數量總計&quot;)).ToString(formet);
+    }
+
+    private void Text20_BeforePrint(object sender, EventArgs e)
+    {
+     //小計總計
+      String formet = &quot;f&quot;+((String)Report.GetParameterValue(&quot;銷項金額小數&quot;));
+      Text20.Text =  ((Decimal)Report.GetTotalValue(&quot;小計總計&quot;)).ToString(formet);
+      Text20.Visible = ((Boolean)Report.GetParameterValue(&quot;price&quot;));
+    }
+
+    private void Text138_BeforePrint(object sender, EventArgs e)
+    {
+      //未交量合計
+      string formet = &quot;f&quot;+ ((String)Report.GetParameterValue(&quot;庫存數量小數&quot;));
+      Text138.Text =  ((Decimal)Report.GetTotalValue(&quot;未交量合計&quot;)).ToString(formet); 
+    }
+
+    private void Text139_BeforePrint(object sender, EventArgs e)
+    {
+      //未交量總計
+      string formet = &quot;f&quot;+ ((String)Report.GetParameterValue(&quot;庫存數量小數&quot;));
+      Text139.Text =  ((Decimal)Report.GetTotalValue(&quot;未交量總計&quot;)).ToString(formet);
+    }
+
+    private void Text141_BeforePrint(object sender, EventArgs e)
+    {
+      //折數
+      string formet = &quot;f&quot;+ ((String)Report.GetParameterValue(&quot;庫存數量小數&quot;));
+      Text141.Text =  ((Decimal)Report.GetColumnValue(&quot;ORDER_.ORDERD_折數&quot;)).ToString(formet);
+    }
+
+    private void Data1_BeforePrint(object sender, EventArgs e)
+    {
+      //Data
+      if(((String)Report.GetColumnValue(&quot;ORDER_.BOM_產品編號&quot;))==&quot;&quot;)
+      {
+       Data1.Visible = false;
+      }
+      else
+      {
+       Data1.Visible = true;
+      }
+    }
+    
+    private void Text143_BeforePrint(object sender, EventArgs e)
+    {
+     //BOM_數量
+     string formet = &quot;f&quot;+ ((String)Report.GetParameterValue(&quot;庫存數量小數&quot;));
+     Text143.Text = ((Decimal)Report.GetColumnValue(&quot;ORDER_.BOM_標準用量&quot;)).ToString(formet);
+    }
+
+    private void Text94_BeforePrint(object sender, EventArgs e)
+    {
+      //售價抬頭
+      Text94.Visible = ((Boolean)Report.GetParameterValue(&quot;price&quot;));
+    }
+
+    private void Text95_BeforePrint(object sender, EventArgs e)
+    {
+      //稅前小計抬頭
+      Text95.Visible = ((Boolean)Report.GetParameterValue(&quot;price&quot;));
+    }
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <MsSqlDataConnection Name="Connection" ConnectionString="rijcmlq+rW0RkboK+/8CKGGYUID3ctBV8q9SvKYxl3iiE7vBnh7Tgou0+4WFf3NfmPSvHVFX/S2Yvz0Ibm2enAAh/bj5IwCF1OGDq6mzCDV0cmqq5lzdq8B2h44YdiG1MkNRxzZmCUdOqUj+K3AG9XjPOZ10tJ9XEoaN2lS1hX0evFs2dg=">
+      <TableDataSource Name="Table" Alias="ORDER_" DataType="System.Int32" Enabled="true" SelectCommand="SELECT 判斷BOM行數='',訂單日期='',交貨日期='',a.orno AS order_orno, a.ordate AS order_ordate, a.ordate1 AS order_ordate1, a.ordate2 AS order_ordate2, a.quno AS order_quno, a.ortrnflag AS order_ortrnflag, a.oroverflag AS order_oroverflag, a.cono AS order_cono, a.coname1 AS order_coname1, a.coname2 AS order_coname2, a.cuno AS order_cuno, a.cuname2 AS order_cuname2, a.cuname1 AS order_cuname1, a.cutel1 AS order_cutel1, a.cuper1 AS order_cuper1, a.emno AS order_emno, a.emname AS order_emname, a.xa1no AS order_xa1no, a.xa1name AS order_xa1name, a.xa1par AS order_xa1par, a.trno AS order_trno, a.trname AS order_trname, a.taxmnyf AS order_taxmnyf, a.taxmnyb AS order_taxmnyb, a.taxmny AS order_taxmny, a.x3no AS order_x3no, a.rate AS order_rate, a.tax AS order_tax, a.totmny AS order_totmny, a.taxb AS order_taxb, a.totmnyb AS order_totmnyb, a.orpayment AS order_orpayment, a.orperiod AS order_orperiod, a.ormemo AS order_ormemo, a.ormemo1 AS order_ormemo1, a.recordno AS order_recordno, a.RevMoney AS order_RevMoney, a.UsrNo AS order_UsrNo, a.MeMain AS order_MeMain, a.MeOther AS order_MeOther, a.MePrint AS order_MePrint, a.MeSize AS order_MeSize, a.MeSize2 AS order_MeSize2, a.AppDate AS order_AppDate, a.EdtDate AS order_EdtDate, a.AppScNo AS order_AppScNo, a.EdtScNo AS order_EdtScNo, c.BomID AS orderbom_BomID, c.BomRec AS orderbom_BomRec, c.itno AS orderbom_itno, c.OrNo AS orderbom_OrNo, c.itname AS orderbom_itname, c.itunit AS orderbom_itunit, c.itqty AS orderbom_itqty, c.itpareprs AS orderbom_itpareprs, c.itpkgqty AS orderbom_itpkgqty, c.itrec AS orderbom_itrec, c.itprice AS orderbom_itprice, c.itprs AS orderbom_itprs, c.itmny AS orderbom_itmny, c.itnote AS orderbom_itnote, c.ItSource AS orderbom_ItSource, c.ItBuyPri AS orderbom_ItBuyPri, c.ItBuyMny AS orderbom_ItBuyMny, b.OrID AS orderd_OrID, b.orno AS orderd_orno, b.ordate AS orderd_ordate, b.ordate1 AS orderd_ordate1, b.ordate2 AS orderd_ordate2, b.quno AS orderd_quno, b.ortrnflag AS orderd_ortrnflag, b.cuno AS orderd_cuno, b.emno AS orderd_emno, b.xa1no AS orderd_xa1no, b.xa1par AS orderd_xa1par, b.trno AS orderd_trno, b.itno AS orderd_itno, b.itname AS orderd_itname, b.ittrait AS orderd_ittrait, b.itunit AS orderd_itunit, b.itpkgqty AS orderd_itpkgqty, b.qty AS orderd_qty,b.Pqty AS orderd_Pqty,b.Punit AS orderd_Punit, b.price AS orderd_price, b.prs AS orderd_prs, b.rate AS orderd_rate, b.taxprice AS orderd_taxprice, b.mny AS orderd_mny, b.priceb AS orderd_priceb, b.taxpriceb AS orderd_taxpriceb, b.mnyb AS orderd_mnyb, b.qtyout AS orderd_qtyout, b.qtyin AS orderd_qtyin, b.esdate AS orderd_esdate, b.esdate1 AS orderd_esdate1, b.esdate2 AS orderd_esdate2, b.stkqtyflag AS orderd_stkqtyflag, b.memo AS orderd_memo, b.lowzero AS orderd_lowzero, b.bomid AS orderd_bomid, b.bomrec AS orderd_bomrec, b.recordno AS orderd_recordno, b.sltflag AS orderd_sltflag, b.extflag AS orderd_extflag, b.itdesp1 AS orderd_itdesp1, b.itdesp2 AS orderd_itdesp2, b.itdesp3 AS orderd_itdesp3, b.itdesp4 AS orderd_itdesp4, b.itdesp5 AS orderd_itdesp5, b.itdesp6 AS orderd_itdesp6, b.itdesp7 AS orderd_itdesp7, b.itdesp8 AS orderd_itdesp8, b.itdesp9 AS orderd_itdesp9, b.itdesp10 AS orderd_itdesp10, b.stName AS orderd_stName, b.qtyNotOut AS orderd_qtyNotOut, b.qtyNotInStk AS orderd_qtyNotInStk, d.cuno AS cust_cuno, d.cuname2 AS cust_cuname2, d.cutel1 AS cust_cutel1, d.cufax1 AS cust_cufax1, d.cuatel1 AS cust_cuatel1, d.cuaddr1 AS cust_cuaddr1, d.cuuno AS cust_cuuno ,i.* FROM orderd AS b LEFT JOIN [order] AS a ON a.orno = b.orno LEFT JOIN cust AS d ON d.cuno = a.cuno LEFT JOIN OrderBom AS c ON b.bomid = c.BomID  LEFT JOIN item as i  on i.itno = b.itno">
+        <Column Name="交貨日期" DataType="System.String"/>
+        <Column Name="訂單日期" DataType="System.String"/>
+        <Column Name="itno" Alias="產品編號" DataType="System.String"/>
+        <Column Name="itname" Alias="品名規格" DataType="System.String"/>
+        <Column Name="ittrait" Alias="產品組成" DataType="System.Decimal"/>
+        <Column Name="itunit" Alias="單位" DataType="System.String"/>
+        <Column Name="itpkgqty" Alias="包裝數量" DataType="System.Decimal"/>
+        <Column Name="itdesp1" Alias="規格說明1" DataType="System.String"/>
+        <Column Name="itdesp2" Alias="規格說明2" DataType="System.String"/>
+        <Column Name="itdesp3" Alias="規格說明3" DataType="System.String"/>
+        <Column Name="itdesp4" Alias="規格說明4" DataType="System.String"/>
+        <Column Name="itdesp5" Alias="規格說明5" DataType="System.String"/>
+        <Column Name="itdesp6" Alias="規格說明6" DataType="System.String"/>
+        <Column Name="itdesp7" Alias="規格說明7" DataType="System.String"/>
+        <Column Name="itdesp8" Alias="規格說明8" DataType="System.String"/>
+        <Column Name="itdesp9" Alias="規格說明9" DataType="System.String"/>
+        <Column Name="itdesp10" Alias="規格說明10" DataType="System.String"/>
+        <Column Name="Punit" DataType="System.String"/>
+        <Column Name="order_orno" Alias="訂單編號" DataType="System.String"/>
+        <Column Name="order_ordate" Alias="訂單日期_民國" DataType="System.String"/>
+        <Column Name="order_ordate1" Alias="訂單日期_西元" DataType="System.String"/>
+        <Column Name="order_ordate2" DataType="System.String"/>
+        <Column Name="order_quno" Alias="報價單號" DataType="System.String"/>
+        <Column Name="order_ortrnflag" DataType="System.Boolean" BindableControl="CheckBox"/>
+        <Column Name="order_oroverflag" DataType="System.Boolean" BindableControl="CheckBox"/>
+        <Column Name="order_cono" Alias="公司編號" DataType="System.String"/>
+        <Column Name="order_coname1" Alias="公司簡稱" DataType="System.String"/>
+        <Column Name="order_coname2" Alias="公司名稱" DataType="System.String"/>
+        <Column Name="order_cuno" Alias="客戶編號" DataType="System.String"/>
+        <Column Name="order_cuname2" Alias="客戶名稱" DataType="System.String"/>
+        <Column Name="order_cuname1" Alias="客戶簡稱" DataType="System.String"/>
+        <Column Name="order_cutel1" Alias="客戶電話" DataType="System.String"/>
+        <Column Name="order_cuper1" Alias="客戶聯絡人" DataType="System.String"/>
+        <Column Name="order_emno" Alias="業務編號" DataType="System.String"/>
+        <Column Name="order_emname" Alias="業務名稱" DataType="System.String"/>
+        <Column Name="order_xa1no" Alias="幣別編號" DataType="System.String"/>
+        <Column Name="order_xa1name" Alias="幣別名稱" DataType="System.String"/>
+        <Column Name="order_xa1par" Alias="匯率" DataType="System.Decimal"/>
+        <Column Name="order_trno" Alias="報價類別編號" DataType="System.String"/>
+        <Column Name="order_trname" Alias="報價類別名稱" DataType="System.String"/>
+        <Column Name="order_taxmnyf" Alias="外幣合計" DataType="System.Decimal"/>
+        <Column Name="order_taxmnyb" Alias="本幣合計" DataType="System.Decimal"/>
+        <Column Name="order_taxmny" Alias="稅前合計" DataType="System.Decimal"/>
+        <Column Name="order_x3no" Alias="稅別編號" DataType="System.Decimal"/>
+        <Column Name="order_rate" Alias="稅率" DataType="System.Decimal"/>
+        <Column Name="order_tax" Alias="外幣營業稅額" DataType="System.Decimal"/>
+        <Column Name="order_totmny" Alias="外幣報價總額" DataType="System.Decimal"/>
+        <Column Name="order_taxb" Alias="本幣營業稅額" DataType="System.Decimal"/>
+        <Column Name="order_totmnyb" Alias="本幣報價總額" DataType="System.Decimal"/>
+        <Column Name="order_orpayment" Alias="付款條件" DataType="System.String"/>
+        <Column Name="order_orperiod" Alias="有效期限" DataType="System.String"/>
+        <Column Name="order_ormemo" Alias="備註" DataType="System.String"/>
+        <Column Name="order_ormemo1" Alias="備註一" DataType="System.String"/>
+        <Column Name="order_recordno" DataType="System.Decimal"/>
+        <Column Name="order_RevMoney" DataType="System.Decimal"/>
+        <Column Name="order_UsrNo" DataType="System.String"/>
+        <Column Name="order_MeMain" DataType="System.String"/>
+        <Column Name="order_MeOther" DataType="System.String"/>
+        <Column Name="order_MePrint" DataType="System.String"/>
+        <Column Name="order_MeSize" DataType="System.String"/>
+        <Column Name="order_MeSize2" DataType="System.String"/>
+        <Column Name="order_AppDate" DataType="System.String"/>
+        <Column Name="order_EdtDate" DataType="System.String"/>
+        <Column Name="order_AppScNo" DataType="System.String"/>
+        <Column Name="order_EdtScNo" DataType="System.String"/>
+        <Column Name="orderbom_BomID" DataType="System.String"/>
+        <Column Name="orderbom_BomRec" DataType="System.String"/>
+        <Column Name="orderbom_itno" Alias="BOM_產品編號" DataType="System.String"/>
+        <Column Name="orderbom_OrNo" Alias="BOM_訂單編號" DataType="System.String"/>
+        <Column Name="orderbom_itname" Alias="BOM_品名規格" DataType="System.String"/>
+        <Column Name="orderbom_itunit" Alias="BOM_單位" DataType="System.String"/>
+        <Column Name="orderbom_itqty" Alias="BOM_標準用量" DataType="System.Decimal"/>
+        <Column Name="orderbom_itpareprs" Alias="BOM_母件比例" DataType="System.Decimal"/>
+        <Column Name="orderbom_itpkgqty" Alias="BOM_包裝數量" DataType="System.Decimal"/>
+        <Column Name="orderbom_itrec" DataType="System.Decimal"/>
+        <Column Name="orderbom_itprice" Alias="BOM_單價" DataType="System.Decimal"/>
+        <Column Name="orderbom_itprs" Alias="BOM_折數" DataType="System.Decimal"/>
+        <Column Name="orderbom_itmny" DataType="System.Decimal"/>
+        <Column Name="orderbom_itnote" DataType="System.String"/>
+        <Column Name="orderbom_ItSource" DataType="System.Decimal"/>
+        <Column Name="orderbom_ItBuyPri" DataType="System.Decimal"/>
+        <Column Name="orderbom_ItBuyMny" DataType="System.Decimal"/>
+        <Column Name="orderd_OrID" DataType="System.Int32"/>
+        <Column Name="orderd_orno" Alias="ORDERD_訂單編號" DataType="System.String"/>
+        <Column Name="orderd_ordate" Alias="ORDERD_訂單編號_民國" DataType="System.String"/>
+        <Column Name="orderd_ordate1" Alias="ORDERD_訂單編號_西元" DataType="System.String"/>
+        <Column Name="orderd_ordate2" DataType="System.String"/>
+        <Column Name="orderd_quno" Alias="ORDERD_報價編號" DataType="System.String"/>
+        <Column Name="orderd_ortrnflag" DataType="System.Boolean" BindableControl="CheckBox"/>
+        <Column Name="orderd_cuno" Alias="ORDERD_客戶編號" DataType="System.String"/>
+        <Column Name="orderd_emno" Alias="ORDERD_業務編號" DataType="System.String"/>
+        <Column Name="orderd_xa1no" Alias="ORDERD_幣別編號" DataType="System.String"/>
+        <Column Name="orderd_xa1par" Alias="ORDERD_匯率" DataType="System.Decimal"/>
+        <Column Name="orderd_trno" Alias="ORDERD_報價類別編號" DataType="System.String"/>
+        <Column Name="orderd_itno" Alias="ORDERD_產品編號" DataType="System.String"/>
+        <Column Name="orderd_itname" Alias="ORDERD_品名規格" DataType="System.String"/>
+        <Column Name="orderd_ittrait" Alias="ORDERD_產品組成" DataType="System.Decimal"/>
+        <Column Name="orderd_itunit" Alias="ORDERD_單位" DataType="System.String"/>
+        <Column Name="orderd_itpkgqty" Alias="ORDERD_包裝數量" DataType="System.Decimal"/>
+        <Column Name="orderd_qty" Alias="ORDERD_數量" DataType="System.Decimal"/>
+        <Column Name="orderd_Pqty" DataType="System.Decimal"/>
+        <Column Name="orderd_Punit" DataType="System.String"/>
+        <Column Name="orderd_price" Alias="ORDERD_單價" DataType="System.Decimal"/>
+        <Column Name="orderd_prs" Alias="ORDERD_折數" DataType="System.Decimal"/>
+        <Column Name="orderd_rate" Alias="ORDERD_稅率" DataType="System.Decimal"/>
+        <Column Name="orderd_taxprice" Alias="ORDERD_稅前單價" DataType="System.Decimal"/>
+        <Column Name="orderd_mny" Alias="ORDERD_稅前小計" DataType="System.Decimal"/>
+        <Column Name="orderd_priceb" Alias="ORDERD_本幣單價" DataType="System.Decimal"/>
+        <Column Name="orderd_taxpriceb" Alias="ORDERD_本幣稅前單價" DataType="System.Decimal"/>
+        <Column Name="orderd_mnyb" Alias="ORDERD_本幣稅前小計" DataType="System.Decimal"/>
+        <Column Name="orderd_qtyout" Alias="ORDERD_訂單已交量" DataType="System.Decimal"/>
+        <Column Name="orderd_qtyin" Alias="ORDERD_已入庫數量" DataType="System.Decimal"/>
+        <Column Name="orderd_esdate" Alias="ORDERD_交貨日期_民國" DataType="System.String"/>
+        <Column Name="orderd_esdate1" Alias="ORDERD_交貨日期_西元" DataType="System.String"/>
+        <Column Name="orderd_esdate2" DataType="System.String"/>
+        <Column Name="orderd_stkqtyflag" DataType="System.Decimal"/>
+        <Column Name="orderd_memo" Alias="ORDERD_說明" DataType="System.String"/>
+        <Column Name="orderd_lowzero" DataType="System.String"/>
+        <Column Name="orderd_bomid" DataType="System.String"/>
+        <Column Name="orderd_bomrec" DataType="System.Decimal"/>
+        <Column Name="orderd_recordno" DataType="System.Decimal"/>
+        <Column Name="orderd_sltflag" DataType="System.Boolean" BindableControl="CheckBox"/>
+        <Column Name="orderd_extflag" DataType="System.Boolean" BindableControl="CheckBox"/>
+        <Column Name="orderd_itdesp1" Alias="ORDERD_規格說明1" DataType="System.String"/>
+        <Column Name="orderd_itdesp2" Alias="ORDERD_規格說明2" DataType="System.String"/>
+        <Column Name="orderd_itdesp3" Alias="ORDERD_規格說明3" DataType="System.String"/>
+        <Column Name="orderd_itdesp4" Alias="ORDERD_規格說明4" DataType="System.String"/>
+        <Column Name="orderd_itdesp5" Alias="ORDERD_規格說明5" DataType="System.String"/>
+        <Column Name="orderd_itdesp6" Alias="ORDERD_規格說明6" DataType="System.String"/>
+        <Column Name="orderd_itdesp7" Alias="ORDERD_規格說明7" DataType="System.String"/>
+        <Column Name="orderd_itdesp8" Alias="ORDERD_規格說明8" DataType="System.String"/>
+        <Column Name="orderd_itdesp9" Alias="ORDERD_規格說明9" DataType="System.String"/>
+        <Column Name="orderd_itdesp10" Alias="ORDERD_規格說明10" DataType="System.String"/>
+        <Column Name="orderd_stName" Alias="ORDERD_倉庫名稱" DataType="System.String"/>
+        <Column Name="orderd_qtyNotOut" Alias="ORDERD_未交量" DataType="System.Decimal"/>
+        <Column Name="orderd_qtyNotInStk" DataType="System.Decimal"/>
+        <Column Name="cust_cuno" Alias="CUST_客戶編號" DataType="System.String"/>
+        <Column Name="cust_cuname2" DataType="System.String"/>
+        <Column Name="cust_cutel1" DataType="System.String"/>
+        <Column Name="cust_cufax1" DataType="System.String"/>
+        <Column Name="cust_cuatel1" DataType="System.String"/>
+        <Column Name="cust_cuaddr1" DataType="System.String"/>
+        <Column Name="cust_cuuno" DataType="System.String"/>
+        <Column Name="itnoudf" DataType="System.String"/>
+        <Column Name="kino" DataType="System.String"/>
+        <Column Name="itime" DataType="System.String"/>
+        <Column Name="itunitp" DataType="System.String"/>
+        <Column Name="itbuypri" DataType="System.Decimal"/>
+        <Column Name="itprice" DataType="System.Decimal"/>
+        <Column Name="itprice1" DataType="System.Decimal"/>
+        <Column Name="itprice2" DataType="System.Decimal"/>
+        <Column Name="itprice3" DataType="System.Decimal"/>
+        <Column Name="itprice4" DataType="System.Decimal"/>
+        <Column Name="itprice5" DataType="System.Decimal"/>
+        <Column Name="itcost" DataType="System.Decimal"/>
+        <Column Name="itbuyprip" DataType="System.Decimal"/>
+        <Column Name="itpricep" DataType="System.Decimal"/>
+        <Column Name="itpricep1" DataType="System.Decimal"/>
+        <Column Name="itpricep2" DataType="System.Decimal"/>
+        <Column Name="itpricep3" DataType="System.Decimal"/>
+        <Column Name="itpricep4" DataType="System.Decimal"/>
+        <Column Name="itpricep5" DataType="System.Decimal"/>
+        <Column Name="itcostp" DataType="System.Decimal"/>
+        <Column Name="itbuyunit" DataType="System.Decimal"/>
+        <Column Name="itsalunit" DataType="System.Decimal"/>
+        <Column Name="itsafeqty" DataType="System.Decimal"/>
+        <Column Name="itlastqty" DataType="System.Decimal"/>
+        <Column Name="itnw" DataType="System.Decimal"/>
+        <Column Name="itnwunit" DataType="System.String"/>
+        <Column Name="itcostslt" DataType="System.Decimal"/>
+        <Column Name="itcodeslt" DataType="System.Decimal"/>
+        <Column Name="itcodeno" DataType="System.Decimal"/>
+        <Column Name="itdate" DataType="System.String"/>
+        <Column Name="itdate1" DataType="System.String"/>
+        <Column Name="itdate2" DataType="System.String"/>
+        <Column Name="itbuydate" DataType="System.String"/>
+        <Column Name="itbuydate1" DataType="System.String"/>
+        <Column Name="itbuydate2" DataType="System.String"/>
+        <Column Name="itsaldate" DataType="System.String"/>
+        <Column Name="itsaldate1" DataType="System.String"/>
+        <Column Name="itSaldate2" DataType="System.String"/>
+        <Column Name="itfircost" DataType="System.Decimal"/>
+        <Column Name="itfirtqty" DataType="System.Decimal"/>
+        <Column Name="itfirtcost" DataType="System.Decimal"/>
+        <Column Name="itstockqty" DataType="System.Decimal"/>
+        <Column Name="itnote" DataType="System.String"/>
+        <Column Name="itudf1" DataType="System.String"/>
+        <Column Name="itudf2" DataType="System.String"/>
+        <Column Name="itudf3" DataType="System.String"/>
+        <Column Name="itudf4" DataType="System.String"/>
+        <Column Name="itudf5" DataType="System.String"/>
+        <Column Name="itweblist" DataType="System.Decimal"/>
+        <Column Name="itwebpic" DataType="System.String"/>
+        <Column Name="itwebctl1" DataType="System.Decimal"/>
+        <Column Name="itwebctl2" DataType="System.Decimal"/>
+        <Column Name="IsUse" DataType="System.Boolean" BindableControl="CheckBox"/>
+        <Column Name="ItSource" DataType="System.Decimal"/>
+        <Column Name="pic" DataType="System.Byte[]" BindableControl="Picture"/>
+        <Column Name="itpicture" DataType="System.String"/>
+        <Column Name="IsEnable" DataType="System.Decimal"/>
+        <Column Name="fano" DataType="System.String"/>
+        <Column Name="ScNo" DataType="System.String"/>
+        <Column Name="ItBarName1" DataType="System.String"/>
+        <Column Name="ItBarName2" DataType="System.String"/>
+        <Column Name="itdisc" DataType="System.Decimal"/>
+        <Column Name="StNo" DataType="System.String"/>
+        <Column Name="判斷BOM行數" DataType="System.String"/>
+      </TableDataSource>
+    </MsSqlDataConnection>
+    <Parameter Name="txtstart" DataType="System.String"/>
+    <Parameter Name="txtend" DataType="System.String"/>
+    <Parameter Name="銷項金額小數" DataType="System.String"/>
+    <Parameter Name="txtaddress" DataType="System.String"/>
+    <Parameter Name="txttel" DataType="System.String"/>
+    <Parameter Name="銷貨單價小數" DataType="System.String"/>
+    <Parameter Name="銷貨單據小數" DataType="System.String"/>
+    <Parameter Name="銷項稅額小數" DataType="System.String"/>
+    <Parameter Name="庫存數量小數" DataType="System.String"/>
+    <Parameter Name="txtRange" DataType="System.String"/>
+    <Parameter Name="txttoday" DataType="System.String"/>
+    <Parameter Name="date" DataType="System.String"/>
+    <Parameter Name="製表日期" DataType="System.String"/>
+    <Parameter Name="price" DataType="System.Boolean"/>
+    <Total Name="數量合計" Expression="[ORDER_.ORDERD_數量]" Evaluator="Data1" PrintOn="GroupFooter1" EvaluateCondition="[ORDER_.判斷BOM行數]==&quot;V&quot;"/>
+    <Total Name="小計合計" Expression="[ORDER_.ORDERD_稅前小計]" Evaluator="Data1" PrintOn="GroupFooter1" EvaluateCondition="[ORDER_.判斷BOM行數]==&quot;V&quot;"/>
+    <Total Name="數量總計" Expression="[ORDER_.ORDERD_數量]" Evaluator="Data1" ResetAfterPrint="false" EvaluateCondition="[ORDER_.判斷BOM行數]==&quot;V&quot;"/>
+    <Total Name="小計總計" Expression="[ORDER_.ORDERD_稅前小計]" Evaluator="Data1" ResetAfterPrint="false" EvaluateCondition="[ORDER_.判斷BOM行數]==&quot;V&quot;"/>
+    <Total Name="未交量合計" Expression="[ORDER_.ORDERD_未交量]" Evaluator="Data1" PrintOn="GroupFooter1" EvaluateCondition="[ORDER_.判斷BOM行數]==&quot;V&quot;"/>
+    <Total Name="未交量總計" Expression="[ORDER_.ORDERD_未交量]" Evaluator="Data1" ResetAfterPrint="false" EvaluateCondition="[ORDER_.判斷BOM行數]==&quot;V&quot;"/>
+  </Dictionary>
+  <ReportPage Name="Page1" PaperWidth="215.9" PaperHeight="279.4" RawPaperSize="1" LeftMargin="2.5" TopMargin="2.5" RightMargin="2.5" BottomMargin="2.5" FirstPageSource="15" OtherPagesSource="15" Guides="378,757.89">
+    <PageHeaderBand Name="PageHeader1" Width="797.2" Height="118.66">
+      <TextObject Name="Text11" Top="35.75" Width="756" Height="22.3" CanGrow="true" CanShrink="true" Text="交貨日期別-訂單明細表" HorzAlign="Center" WordWrap="false" Font="細明體, 14pt, style=Bold"/>
+      <TextObject Name="Text14" Top="63.1" Width="79.01" Height="18.9" CanGrow="true" CanShrink="true" Text="帳款區間:" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text1" Left="82.98" Top="63.1" Width="211.68" Height="18.9" CanGrow="true" CanShrink="true" Text="[txtRange]" Font="新細明體, 12pt"/>
+      <TextObject Name="Text2" Left="298.62" Top="63.1" Width="79.01" Height="18.9" CanGrow="true" CanShrink="true" Text="製表日期:" WordWrap="false" Font="新細明體, 12pt"/>
+      <TextObject Name="Text67" Left="381.78" Top="63.1" Width="147.42" Height="18.9" CanGrow="true" CanShrink="true" Text="[製表日期]" Font="新細明體, 12pt"/>
+      <TextObject Name="Text69" Left="619.92" Top="63.1" Width="79.01" Height="18.9" CanGrow="true" CanShrink="true" Text="頁    次:" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text6" Left="703.7" Top="62.42" Width="54.87" Height="18.9" CanGrow="true" CanShrink="true" Text="[Page]" HorzAlign="Right" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text27" Left="1.79" Top="91.45" Width="116.05" Height="13.6" CanGrow="true" CanShrink="true" Text="訂單憑證" WordWrap="false" Font="細明體, 10pt"/>
+      <TextObject Name="Text74" Left="117.84" Top="91.45" Width="74.84" Height="13.6" CanGrow="true" CanShrink="true" Text="訂單日期" WordWrap="false" Font="細明體, 10pt"/>
+      <TextObject Name="Text90" Left="267.52" Top="91.45" Width="143.64" Height="13.6" CanGrow="true" CanShrink="true" Text="產品編號/品名規格" WordWrap="false" Font="細明體, 10pt"/>
+      <TextObject Name="Text91" Left="411.16" Top="91.45" Width="67.66" Height="13.6" CanGrow="true" CanShrink="true" Text="訂單數量" HorzAlign="Right" WordWrap="false" Font="細明體, 10pt"/>
+      <TextObject Name="Text93" Left="478.82" Top="91.45" Width="32.89" Height="13.6" CanGrow="true" CanShrink="true" Text="單位" WordWrap="false" Font="細明體, 10pt"/>
+      <TextObject Name="Text94" Left="555.18" Top="91.45" Width="67.66" Height="13.6" CanGrow="true" CanShrink="true" BeforePrintEvent="Text94_BeforePrint" Text="售價" HorzAlign="Right" WordWrap="false" Font="細明體, 10pt"/>
+      <TextObject Name="Text95" Left="622.84" Top="91.45" Width="67.66" Height="13.6" CanGrow="true" CanShrink="true" BeforePrintEvent="Text95_BeforePrint" Text="小計" HorzAlign="Right" WordWrap="false" Font="細明體, 10pt"/>
+      <TextObject Name="Text83" Left="690.5" Top="91.45" Width="67.66" Height="13.6" CanGrow="true" CanShrink="true" Text="未交量" HorzAlign="Right" WordWrap="false" Font="細明體, 10pt"/>
+      <LineObject Name="Line1" Top="87.14" Width="757.89" Border.Width="2" CanGrow="true" CanShrink="true"/>
+      <LineObject Name="Line2" Top="105.17" Width="757.89" Border.Width="2" CanGrow="true" CanShrink="true"/>
+      <TextObject Name="Text124" Left="0.38" Width="757.51" Height="30.33" CanGrow="true" CanShrink="true" Text="[txtstart]" HorzAlign="Center" WordWrap="false" Font="細明體, 18pt, style=Bold"/>
+      <TextObject Name="Text125" Left="192.68" Top="91.45" Width="74.84" Height="13.6" CanGrow="true" CanShrink="true" Text="客戶簡稱" WordWrap="false" Font="細明體, 10pt"/>
+      <TextObject Name="Text140" Left="511.71" Top="91.45" Width="43.47" Height="13.6" CanGrow="true" CanShrink="true" Text="折數" HorzAlign="Right" WordWrap="false" Font="細明體, 10pt"/>
+    </PageHeaderBand>
+    <GroupHeaderBand Name="GroupHeader1" Top="122.66" Width="797.2" Height="32.53" KeepWithData="true" Condition="[ORDER_.交貨日期]">
+      <TextObject Name="Text121" Left="1.79" Top="7.18" Width="66.98" Height="13.6" CanGrow="true" CanShrink="true" Text="交貨日期:" WordWrap="false" Font="細明體, 10pt"/>
+      <LineObject Name="Line4" Top="22.65" Width="757.89" CanGrow="true" CanShrink="true"/>
+      <TextObject Name="Text129" Left="72.17" Top="7.18" Width="145.88" Height="13.6" Text="[ORDER_.交貨日期]" WordWrap="false" Font="細明體, 10pt"/>
+      <GroupHeaderBand Name="GroupHeader2" Top="159.19" Width="797.2" Condition="[ORDER_.訂單編號]">
+        <GroupHeaderBand Name="GroupHeader3" Top="163.19" Width="797.2" Height="30.64" Condition="[ORDER_.orderbom_BomID]">
+          <TextObject Name="Text128" Left="1.79" Top="3.12" Width="116.05" Height="13.6" Text="[ORDER_.訂單編號]" WordWrap="false" Font="細明體, 10pt"/>
+          <TextObject Name="Text130" Left="192.68" Top="3.12" Width="74.84" Height="13.6" Text="[ORDER_.客戶簡稱]" WordWrap="false" Font="細明體, 10pt"/>
+          <TextObject Name="Text131" Left="267.52" Top="3.12" Width="143.64" Height="13.6" Text="[ORDER_.產品編號]" WordWrap="false" Font="細明體, 10pt"/>
+          <TextObject Name="Text132" Left="411.16" Top="3.12" Width="67.66" Height="13.6" BeforePrintEvent="Text132_BeforePrint" Text="[ORDER_.ORDERD_數量]" HorzAlign="Right" WordWrap="false" Font="細明體, 10pt"/>
+          <TextObject Name="Text133" Left="478.82" Top="3.12" Width="32.89" Height="13.6" Text="[ORDER_.單位]" WordWrap="false" Font="細明體, 10pt"/>
+          <TextObject Name="Text134" Left="555.18" Top="3.12" Width="67.66" Height="13.6" BeforePrintEvent="Text134_BeforePrint" Text="[ORDER_.ORDERD_單價]" HorzAlign="Right" WordWrap="false" Font="細明體, 10pt"/>
+          <TextObject Name="Text135" Left="622.84" Top="3.12" Width="67.66" Height="13.6" BeforePrintEvent="Text135_BeforePrint" Text="[ORDER_.ORDERD_稅前小計]" HorzAlign="Right" WordWrap="false" Font="細明體, 10pt"/>
+          <TextObject Name="Text136" Left="690.5" Top="3.12" Width="67.66" Height="13.6" BeforePrintEvent="Text136_BeforePrint" Text="[ORDER_.ORDERD_未交量]" HorzAlign="Right" WordWrap="false" Font="細明體, 10pt"/>
+          <TextObject Name="Text141" Left="511.71" Top="3.12" Width="43.47" Height="13.6" CanGrow="true" CanShrink="true" BeforePrintEvent="Text141_BeforePrint" Text="[ORDER_.ORDERD_折數]" HorzAlign="Right" WordWrap="false" Font="細明體, 10pt"/>
+          <TextObject Name="Text137" Left="267.52" Top="17.04" Width="490.37" Height="13.6" Text="[ORDER_.品名規格]" WordWrap="false" Font="細明體, 10pt"/>
+          <TextObject Name="Text127" Left="117.84" Top="3.12" Width="74.84" Height="13.6" CanGrow="true" CanShrink="true" Text="[ORDER_.訂單日期]" WordWrap="false" Font="細明體, 10pt"/>
+          <DataBand Name="Data1" Top="197.83" Width="797.2" Height="14.97" BeforePrintEvent="Data1_BeforePrint" DataSource="Table">
+            <TextObject Name="Text142" Left="267.52" Top="1.04" Width="198.81" Height="13.6" Text="[ORDER_.BOM_品名規格]" WordWrap="false" Font="細明體, 10pt"/>
+            <TextObject Name="Text143" Left="466.33" Top="1.04" Width="61.66" Height="13.6" BeforePrintEvent="Text143_BeforePrint" Text="[ORDER_.BOM_標準用量]" HorzAlign="Right" WordWrap="false" Font="細明體, 10pt"/>
+            <TextObject Name="Text144" Left="527.99" Top="1.04" Width="33.73" Height="13.6" Text="[ORDER_.BOM_單位]" WordWrap="false" Font="細明體, 10pt"/>
+          </DataBand>
+          <GroupFooterBand Name="GroupFooter3" Top="216.8" Width="797.2"/>
+        </GroupHeaderBand>
+        <GroupFooterBand Name="GroupFooter2" Top="220.8" Width="797.2"/>
+      </GroupHeaderBand>
+      <GroupFooterBand Name="GroupFooter1" Top="224.8" Width="797.2" Height="33.02" KeepWithData="true">
+        <TextObject Name="Text122" Left="1.79" Top="10.05" Width="37" Height="15.49" CanGrow="true" CanShrink="true" Text="合計:" WordWrap="false" Font="細明體, 10pt"/>
+        <TextObject Name="Text18" Left="81.43" Top="10.05" Width="397.39" Height="15.49" BeforePrintEvent="Text18_BeforePrint" Text="[數量合計]" HorzAlign="Right" WordWrap="false" Font="細明體, 10pt"/>
+        <TextObject Name="Text19" Left="482.31" Top="10.05" Width="208.19" Height="15.49" BeforePrintEvent="Text19_BeforePrint" Text="[小計合計]" HorzAlign="Right" WordWrap="false" Font="細明體, 10pt"/>
+        <LineObject Name="Line3" Top="4.08" Width="757.89" CanGrow="true" CanShrink="true"/>
+        <TextObject Name="Text138" Left="690.5" Top="10.05" Width="67.66" Height="15.49" BeforePrintEvent="Text138_BeforePrint" Text="[未交量合計]" HorzAlign="Right" WordWrap="false" Font="細明體, 10pt"/>
+      </GroupFooterBand>
+    </GroupHeaderBand>
+    <ColumnFooterBand Name="ColumnFooter1" Top="261.82" Width="797.2" Height="18.59" CanShrink="true">
+      <TextObject Name="Text123" Left="1.89" Top="4.99" Width="756" Height="13.6" CanShrink="true" BeforePrintEvent="Text123_BeforePrint" Text="*****以下空白*****" HorzAlign="Center" WordWrap="false" Font="細明體, 10pt"/>
+    </ColumnFooterBand>
+    <PageFooterBand Name="PageFooter1" Top="284.41" Width="797.2" Height="42.46" CanShrink="true" BeforePrintEvent="PageFooter1_BeforePrint">
+      <TextObject Name="Text120" Left="1.79" Top="2.42" Width="37" Height="15.49" CanShrink="true" Text="總計:" WordWrap="false" Font="細明體, 10pt"/>
+      <TextObject Name="Text3" Left="0.38" Top="21.32" Width="757.51" Height="21.14" CanShrink="true" Text="[txtend]" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text20" Left="480.93" Top="2.42" Width="209.57" Height="15.49" BeforePrintEvent="Text20_BeforePrint" Text="[小計總計]" HorzAlign="Right" WordWrap="false" Font="細明體, 10pt"/>
+      <TextObject Name="Text21" Left="81.43" Top="2.42" Width="397.39" Height="15.49" BeforePrintEvent="Text21_BeforePrint" Text="[數量總計]" HorzAlign="Right" WordWrap="false" Font="細明體, 10pt"/>
+      <LineObject Name="Line5" Top="0.43" Width="757.89" Border.Width="2" CanGrow="true" CanShrink="true"/>
+      <LineObject Name="Line6" Top="17.36" Width="757.89" Border.Width="2" CanGrow="true" CanShrink="true"/>
+      <TextObject Name="Text139" Left="690.5" Top="2.42" Width="67.66" Height="15.49" BeforePrintEvent="Text139_BeforePrint" Text="[未交量總計]" HorzAlign="Right" WordWrap="false" Font="細明體, 10pt"/>
+    </PageFooterBand>
+  </ReportPage>
+</Report>

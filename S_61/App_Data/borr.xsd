@@ -1,0 +1,645 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="borr" targetNamespace="http://tempuri.org/borr.xsd" xmlns:mstns="http://tempuri.org/borr.xsd" xmlns="http://tempuri.org/borr.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="1" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="_71ConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="_71ConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.S_61.Properties.Settings.GlobalReference.Default._71ConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="LONGConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="LONGConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.S_61.Properties.Settings.GlobalReference.Default.LONGConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="borrTableAdapter" GeneratorDataComponentClassName="borrTableAdapter" Name="borr" UserDataComponentName="borrTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="LONGConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT             borr.bono AS borr_bono, borr.bodate AS borr_bodate, borr.bodate1 AS borr_bodate1, borr.bodate2 AS borr_bodate2, 
+                              borr.cono AS borr_cono, borr.coname1 AS borr_coname1, borr.coname2 AS borr_coname2, borr.fano AS borr_fano, 
+                              borr.faname1 AS borr_faname1, borr.faname2 AS borr_faname2, borr.fatel AS borr_fatel, borr.faper1 AS borr_faper1, 
+                              borr.stno AS borr_stno, borr.stname AS borr_stname, borr.emno AS borr_emno, borr.emname AS borr_emname, 
+                              borr.xa1no AS borr_xa1no, borr.xa1name AS borr_xa1name, borr.xa1par AS borr_xa1par, borr.taxmnyf AS borr_taxmnyf, 
+                              borr.taxmny AS borr_taxmny, borr.taxmnyb AS borr_taxmnyb, borr.x3no AS borr_x3no, borr.rate AS borr_rate, borr.tax AS borr_tax, 
+                              borr.totmny AS borr_totmny, borr.taxb AS borr_taxb, borr.totmnyb AS borr_totmnyb, borr.recordno AS borr_recordno, 
+                              borr.bomemo AS borr_bomemo, borr.bomemo1 AS borr_bomemo1, borr.AppScNo AS borr_AppScNo, borr.AppDate AS borr_AppDate, 
+                              borr.EdtScNo AS borr_EdtScNo, borr.EdtDate AS borr_EdtDate, borrd.boid AS borrd_boid, borrd.bono AS borrd_bono, 
+                              borrd.bodate AS borrd_bodate, borrd.bodate1 AS borrd_bodate1, borrd.bodate2 AS borrd_bodate2, borrd.cono AS borrd_cono, 
+                              borrd.fano AS borrd_fano, borrd.stno AS borrd_stno, borrd.emno AS borrd_emno, borrd.xa1no AS borrd_xa1no, 
+                              borrd.xa1par AS borrd_xa1par, borrd.itno AS borrd_itno, borrd.itname AS borrd_itname, borrd.ittrait AS borrd_ittrait, 
+                              borrd.itunit AS borrd_itunit, borrd.itpkgqty AS borrd_itpkgqty, borrd.qty AS borrd_qty, borrd.price AS borrd_price, 
+                              borrd.prs AS borrd_prs, borrd.rate AS borrd_rate, borrd.taxprice AS borrd_taxprice, borrd.mny AS borrd_mny, 
+                              borrd.priceb AS borrd_priceb, borrd.taxpriceb AS borrd_taxpriceb, borrd.mnyb AS borrd_mnyb, borrd.memo AS borrd_memo, 
+                              borrd.lowzero AS borrd_lowzero, borrd.bomid AS borrd_bomid, borrd.bomrec AS borrd_bomrec, borrd.recordno AS borrd_recordno, 
+                              borrd.sltflag AS borrd_sltflag, borrd.extflag AS borrd_extflag, borrd.itdesp1 AS borrd_itdesp1, borrd.itdesp2 AS borrd_itdesp2, 
+                              borrd.itdesp3 AS borrd_itdesp3, borrd.itdesp4 AS borrd_itdesp4, borrd.itdesp5 AS borrd_itdesp5, borrd.itdesp6 AS borrd_itdesp6, 
+                              borrd.itdesp7 AS borrd_itdesp7, borrd.itdesp8 AS borrd_itdesp8, borrd.itdesp9 AS borrd_itdesp9, borrd.itdesp10 AS borrd_itdesp10, 
+                              borrd.stname AS borrd_stname, borrbom.bono AS borrbom_bono, borrbom.bomid AS borrbom_bomid, 
+                              borrbom.bomrec AS borrbom_bomrec, borrbom.itno AS borrbom_itno, borrbom.itname AS borrbom_itname, 
+                              borrbom.itqty AS borrbom_itqty, borrbom.itunit AS borrbom_itunit, borrbom.itpareprs AS borrbom_itpareprs, 
+                              borrbom.itpkgqty AS borrbom_itpkgqty, borrbom.itrec AS borrbom_itrec, borrbom.itprice AS borrbom_itprice, 
+                              borrbom.itprs AS borrbom_itprs, borrbom.itmny AS borrbom_itmny, borrbom.itnote AS borrbom_itnote, 
+                              borrbom.itsource AS borrbom_itsource, borrbom.itbuypri AS borrbom_itbuypri, borrbom.itbuymny AS borrbom_itbuymny, 
+                              fact.faper1 AS fact_faper1, fact.fatel1 AS fact_fatel1, fact.fafax1 AS fact_fafax1, fact.faaddr1 AS fact_faaddr1, 
+                              fact.fauno AS fact_fauno
+FROM                 borr INNER JOIN
+                              fact ON borr.fano COLLATE Chinese_Taiwan_Stroke_BIN = fact.fano LEFT OUTER JOIN
+                              borrd ON borr.bono = borrd.bono LEFT OUTER JOIN
+                              borrbom ON borr.bono = borrbom.bono</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="borr_bono" DataSetColumn="borr_bono" />
+              <Mapping SourceColumn="borr_bodate" DataSetColumn="borr_bodate" />
+              <Mapping SourceColumn="borr_bodate1" DataSetColumn="borr_bodate1" />
+              <Mapping SourceColumn="borr_bodate2" DataSetColumn="borr_bodate2" />
+              <Mapping SourceColumn="borr_cono" DataSetColumn="borr_cono" />
+              <Mapping SourceColumn="borr_coname1" DataSetColumn="borr_coname1" />
+              <Mapping SourceColumn="borr_coname2" DataSetColumn="borr_coname2" />
+              <Mapping SourceColumn="borr_fano" DataSetColumn="borr_fano" />
+              <Mapping SourceColumn="borr_faname1" DataSetColumn="borr_faname1" />
+              <Mapping SourceColumn="borr_faname2" DataSetColumn="borr_faname2" />
+              <Mapping SourceColumn="borr_fatel" DataSetColumn="borr_fatel" />
+              <Mapping SourceColumn="borr_faper1" DataSetColumn="borr_faper1" />
+              <Mapping SourceColumn="borr_stno" DataSetColumn="borr_stno" />
+              <Mapping SourceColumn="borr_stname" DataSetColumn="borr_stname" />
+              <Mapping SourceColumn="borr_emno" DataSetColumn="borr_emno" />
+              <Mapping SourceColumn="borr_emname" DataSetColumn="borr_emname" />
+              <Mapping SourceColumn="borr_xa1no" DataSetColumn="borr_xa1no" />
+              <Mapping SourceColumn="borr_xa1name" DataSetColumn="borr_xa1name" />
+              <Mapping SourceColumn="borr_xa1par" DataSetColumn="borr_xa1par" />
+              <Mapping SourceColumn="borr_taxmnyf" DataSetColumn="borr_taxmnyf" />
+              <Mapping SourceColumn="borr_taxmny" DataSetColumn="borr_taxmny" />
+              <Mapping SourceColumn="borr_taxmnyb" DataSetColumn="borr_taxmnyb" />
+              <Mapping SourceColumn="borr_x3no" DataSetColumn="borr_x3no" />
+              <Mapping SourceColumn="borr_rate" DataSetColumn="borr_rate" />
+              <Mapping SourceColumn="borr_tax" DataSetColumn="borr_tax" />
+              <Mapping SourceColumn="borr_totmny" DataSetColumn="borr_totmny" />
+              <Mapping SourceColumn="borr_taxb" DataSetColumn="borr_taxb" />
+              <Mapping SourceColumn="borr_totmnyb" DataSetColumn="borr_totmnyb" />
+              <Mapping SourceColumn="borr_recordno" DataSetColumn="borr_recordno" />
+              <Mapping SourceColumn="borr_bomemo" DataSetColumn="borr_bomemo" />
+              <Mapping SourceColumn="borr_bomemo1" DataSetColumn="borr_bomemo1" />
+              <Mapping SourceColumn="borr_AppScNo" DataSetColumn="borr_AppScNo" />
+              <Mapping SourceColumn="borr_AppDate" DataSetColumn="borr_AppDate" />
+              <Mapping SourceColumn="borr_EdtScNo" DataSetColumn="borr_EdtScNo" />
+              <Mapping SourceColumn="borr_EdtDate" DataSetColumn="borr_EdtDate" />
+              <Mapping SourceColumn="borrd_boid" DataSetColumn="borrd_boid" />
+              <Mapping SourceColumn="borrd_bono" DataSetColumn="borrd_bono" />
+              <Mapping SourceColumn="borrd_bodate" DataSetColumn="borrd_bodate" />
+              <Mapping SourceColumn="borrd_bodate1" DataSetColumn="borrd_bodate1" />
+              <Mapping SourceColumn="borrd_bodate2" DataSetColumn="borrd_bodate2" />
+              <Mapping SourceColumn="borrd_cono" DataSetColumn="borrd_cono" />
+              <Mapping SourceColumn="borrd_fano" DataSetColumn="borrd_fano" />
+              <Mapping SourceColumn="borrd_stno" DataSetColumn="borrd_stno" />
+              <Mapping SourceColumn="borrd_emno" DataSetColumn="borrd_emno" />
+              <Mapping SourceColumn="borrd_xa1no" DataSetColumn="borrd_xa1no" />
+              <Mapping SourceColumn="borrd_xa1par" DataSetColumn="borrd_xa1par" />
+              <Mapping SourceColumn="borrd_itno" DataSetColumn="borrd_itno" />
+              <Mapping SourceColumn="borrd_itname" DataSetColumn="borrd_itname" />
+              <Mapping SourceColumn="borrd_ittrait" DataSetColumn="borrd_ittrait" />
+              <Mapping SourceColumn="borrd_itunit" DataSetColumn="borrd_itunit" />
+              <Mapping SourceColumn="borrd_itpkgqty" DataSetColumn="borrd_itpkgqty" />
+              <Mapping SourceColumn="borrd_qty" DataSetColumn="borrd_qty" />
+              <Mapping SourceColumn="borrd_price" DataSetColumn="borrd_price" />
+              <Mapping SourceColumn="borrd_prs" DataSetColumn="borrd_prs" />
+              <Mapping SourceColumn="borrd_rate" DataSetColumn="borrd_rate" />
+              <Mapping SourceColumn="borrd_taxprice" DataSetColumn="borrd_taxprice" />
+              <Mapping SourceColumn="borrd_mny" DataSetColumn="borrd_mny" />
+              <Mapping SourceColumn="borrd_priceb" DataSetColumn="borrd_priceb" />
+              <Mapping SourceColumn="borrd_taxpriceb" DataSetColumn="borrd_taxpriceb" />
+              <Mapping SourceColumn="borrd_mnyb" DataSetColumn="borrd_mnyb" />
+              <Mapping SourceColumn="borrd_memo" DataSetColumn="borrd_memo" />
+              <Mapping SourceColumn="borrd_lowzero" DataSetColumn="borrd_lowzero" />
+              <Mapping SourceColumn="borrd_bomid" DataSetColumn="borrd_bomid" />
+              <Mapping SourceColumn="borrd_bomrec" DataSetColumn="borrd_bomrec" />
+              <Mapping SourceColumn="borrd_recordno" DataSetColumn="borrd_recordno" />
+              <Mapping SourceColumn="borrd_sltflag" DataSetColumn="borrd_sltflag" />
+              <Mapping SourceColumn="borrd_extflag" DataSetColumn="borrd_extflag" />
+              <Mapping SourceColumn="borrd_itdesp1" DataSetColumn="borrd_itdesp1" />
+              <Mapping SourceColumn="borrd_itdesp2" DataSetColumn="borrd_itdesp2" />
+              <Mapping SourceColumn="borrd_itdesp3" DataSetColumn="borrd_itdesp3" />
+              <Mapping SourceColumn="borrd_itdesp4" DataSetColumn="borrd_itdesp4" />
+              <Mapping SourceColumn="borrd_itdesp5" DataSetColumn="borrd_itdesp5" />
+              <Mapping SourceColumn="borrd_itdesp6" DataSetColumn="borrd_itdesp6" />
+              <Mapping SourceColumn="borrd_itdesp7" DataSetColumn="borrd_itdesp7" />
+              <Mapping SourceColumn="borrd_itdesp8" DataSetColumn="borrd_itdesp8" />
+              <Mapping SourceColumn="borrd_itdesp9" DataSetColumn="borrd_itdesp9" />
+              <Mapping SourceColumn="borrd_itdesp10" DataSetColumn="borrd_itdesp10" />
+              <Mapping SourceColumn="borrd_stname" DataSetColumn="borrd_stname" />
+              <Mapping SourceColumn="borrbom_bono" DataSetColumn="borrbom_bono" />
+              <Mapping SourceColumn="borrbom_bomid" DataSetColumn="borrbom_bomid" />
+              <Mapping SourceColumn="borrbom_bomrec" DataSetColumn="borrbom_bomrec" />
+              <Mapping SourceColumn="borrbom_itno" DataSetColumn="borrbom_itno" />
+              <Mapping SourceColumn="borrbom_itname" DataSetColumn="borrbom_itname" />
+              <Mapping SourceColumn="borrbom_itqty" DataSetColumn="borrbom_itqty" />
+              <Mapping SourceColumn="borrbom_itunit" DataSetColumn="borrbom_itunit" />
+              <Mapping SourceColumn="borrbom_itpareprs" DataSetColumn="borrbom_itpareprs" />
+              <Mapping SourceColumn="borrbom_itpkgqty" DataSetColumn="borrbom_itpkgqty" />
+              <Mapping SourceColumn="borrbom_itrec" DataSetColumn="borrbom_itrec" />
+              <Mapping SourceColumn="borrbom_itprice" DataSetColumn="borrbom_itprice" />
+              <Mapping SourceColumn="borrbom_itprs" DataSetColumn="borrbom_itprs" />
+              <Mapping SourceColumn="borrbom_itmny" DataSetColumn="borrbom_itmny" />
+              <Mapping SourceColumn="borrbom_itnote" DataSetColumn="borrbom_itnote" />
+              <Mapping SourceColumn="borrbom_itsource" DataSetColumn="borrbom_itsource" />
+              <Mapping SourceColumn="borrbom_itbuypri" DataSetColumn="borrbom_itbuypri" />
+              <Mapping SourceColumn="borrbom_itbuymny" DataSetColumn="borrbom_itbuymny" />
+              <Mapping SourceColumn="fact_faper1" DataSetColumn="fact_faper1" />
+              <Mapping SourceColumn="fact_fatel1" DataSetColumn="fact_fatel1" />
+              <Mapping SourceColumn="fact_fafax1" DataSetColumn="fact_fafax1" />
+              <Mapping SourceColumn="fact_faaddr1" DataSetColumn="fact_faaddr1" />
+              <Mapping SourceColumn="fact_fauno" DataSetColumn="fact_fauno" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="borr" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="borr" msprop:Generator_UserDSName="borr">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="borr" msprop:Generator_TableClassName="borrDataTable" msprop:Generator_TableVarName="tableborr" msprop:Generator_RowChangedName="borrRowChanged" msprop:Generator_TablePropName="_borr" msprop:Generator_RowDeletingName="borrRowDeleting" msprop:Generator_RowChangingName="borrRowChanging" msprop:Generator_RowEvHandlerName="borrRowChangeEventHandler" msprop:Generator_RowDeletedName="borrRowDeleted" msprop:Generator_RowClassName="borrRow" msprop:Generator_UserTableName="borr" msprop:Generator_RowEvArgName="borrRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="borr_bono" msprop:Generator_ColumnVarNameInTable="columnborr_bono" msprop:Generator_ColumnPropNameInRow="borr_bono" msprop:Generator_ColumnPropNameInTable="borr_bonoColumn" msprop:Generator_UserColumnName="borr_bono">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="borr_bodate" msprop:Generator_ColumnVarNameInTable="columnborr_bodate" msprop:Generator_ColumnPropNameInRow="borr_bodate" msprop:Generator_ColumnPropNameInTable="borr_bodateColumn" msprop:Generator_UserColumnName="borr_bodate" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="borr_bodate1" msprop:Generator_ColumnVarNameInTable="columnborr_bodate1" msprop:Generator_ColumnPropNameInRow="borr_bodate1" msprop:Generator_ColumnPropNameInTable="borr_bodate1Column" msprop:Generator_UserColumnName="borr_bodate1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="borr_bodate2" msprop:Generator_ColumnVarNameInTable="columnborr_bodate2" msprop:Generator_ColumnPropNameInRow="borr_bodate2" msprop:Generator_ColumnPropNameInTable="borr_bodate2Column" msprop:Generator_UserColumnName="borr_bodate2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="borr_cono" msprop:Generator_ColumnVarNameInTable="columnborr_cono" msprop:Generator_ColumnPropNameInRow="borr_cono" msprop:Generator_ColumnPropNameInTable="borr_conoColumn" msprop:Generator_UserColumnName="borr_cono" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="borr_coname1" msprop:Generator_ColumnVarNameInTable="columnborr_coname1" msprop:Generator_ColumnPropNameInRow="borr_coname1" msprop:Generator_ColumnPropNameInTable="borr_coname1Column" msprop:Generator_UserColumnName="borr_coname1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="borr_coname2" msprop:Generator_ColumnVarNameInTable="columnborr_coname2" msprop:Generator_ColumnPropNameInRow="borr_coname2" msprop:Generator_ColumnPropNameInTable="borr_coname2Column" msprop:Generator_UserColumnName="borr_coname2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="borr_fano" msprop:Generator_ColumnVarNameInTable="columnborr_fano" msprop:Generator_ColumnPropNameInRow="borr_fano" msprop:Generator_ColumnPropNameInTable="borr_fanoColumn" msprop:Generator_UserColumnName="borr_fano" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="borr_faname1" msprop:Generator_ColumnVarNameInTable="columnborr_faname1" msprop:Generator_ColumnPropNameInRow="borr_faname1" msprop:Generator_ColumnPropNameInTable="borr_faname1Column" msprop:Generator_UserColumnName="borr_faname1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="borr_faname2" msprop:Generator_ColumnVarNameInTable="columnborr_faname2" msprop:Generator_ColumnPropNameInRow="borr_faname2" msprop:Generator_ColumnPropNameInTable="borr_faname2Column" msprop:Generator_UserColumnName="borr_faname2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="borr_fatel" msprop:Generator_ColumnVarNameInTable="columnborr_fatel" msprop:Generator_ColumnPropNameInRow="borr_fatel" msprop:Generator_ColumnPropNameInTable="borr_fatelColumn" msprop:Generator_UserColumnName="borr_fatel" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="borr_faper1" msprop:Generator_ColumnVarNameInTable="columnborr_faper1" msprop:Generator_ColumnPropNameInRow="borr_faper1" msprop:Generator_ColumnPropNameInTable="borr_faper1Column" msprop:Generator_UserColumnName="borr_faper1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="borr_stno" msprop:Generator_ColumnVarNameInTable="columnborr_stno" msprop:Generator_ColumnPropNameInRow="borr_stno" msprop:Generator_ColumnPropNameInTable="borr_stnoColumn" msprop:Generator_UserColumnName="borr_stno" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="borr_stname" msprop:Generator_ColumnVarNameInTable="columnborr_stname" msprop:Generator_ColumnPropNameInRow="borr_stname" msprop:Generator_ColumnPropNameInTable="borr_stnameColumn" msprop:Generator_UserColumnName="borr_stname" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="borr_emno" msprop:Generator_ColumnVarNameInTable="columnborr_emno" msprop:Generator_ColumnPropNameInRow="borr_emno" msprop:Generator_ColumnPropNameInTable="borr_emnoColumn" msprop:Generator_UserColumnName="borr_emno" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="borr_emname" msprop:Generator_ColumnVarNameInTable="columnborr_emname" msprop:Generator_ColumnPropNameInRow="borr_emname" msprop:Generator_ColumnPropNameInTable="borr_emnameColumn" msprop:Generator_UserColumnName="borr_emname" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="borr_xa1no" msprop:Generator_ColumnVarNameInTable="columnborr_xa1no" msprop:Generator_ColumnPropNameInRow="borr_xa1no" msprop:Generator_ColumnPropNameInTable="borr_xa1noColumn" msprop:Generator_UserColumnName="borr_xa1no" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="borr_xa1name" msprop:Generator_ColumnVarNameInTable="columnborr_xa1name" msprop:Generator_ColumnPropNameInRow="borr_xa1name" msprop:Generator_ColumnPropNameInTable="borr_xa1nameColumn" msprop:Generator_UserColumnName="borr_xa1name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="12" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="borr_xa1par" msprop:Generator_ColumnVarNameInTable="columnborr_xa1par" msprop:Generator_ColumnPropNameInRow="borr_xa1par" msprop:Generator_ColumnPropNameInTable="borr_xa1parColumn" msprop:Generator_UserColumnName="borr_xa1par" type="xs:decimal" minOccurs="0" />
+              <xs:element name="borr_taxmnyf" msprop:Generator_ColumnVarNameInTable="columnborr_taxmnyf" msprop:Generator_ColumnPropNameInRow="borr_taxmnyf" msprop:Generator_ColumnPropNameInTable="borr_taxmnyfColumn" msprop:Generator_UserColumnName="borr_taxmnyf" type="xs:decimal" minOccurs="0" />
+              <xs:element name="borr_taxmny" msprop:Generator_ColumnVarNameInTable="columnborr_taxmny" msprop:Generator_ColumnPropNameInRow="borr_taxmny" msprop:Generator_ColumnPropNameInTable="borr_taxmnyColumn" msprop:Generator_UserColumnName="borr_taxmny" type="xs:decimal" minOccurs="0" />
+              <xs:element name="borr_taxmnyb" msprop:Generator_ColumnVarNameInTable="columnborr_taxmnyb" msprop:Generator_ColumnPropNameInRow="borr_taxmnyb" msprop:Generator_ColumnPropNameInTable="borr_taxmnybColumn" msprop:Generator_UserColumnName="borr_taxmnyb" type="xs:decimal" minOccurs="0" />
+              <xs:element name="borr_x3no" msprop:Generator_ColumnVarNameInTable="columnborr_x3no" msprop:Generator_ColumnPropNameInRow="borr_x3no" msprop:Generator_ColumnPropNameInTable="borr_x3noColumn" msprop:Generator_UserColumnName="borr_x3no" type="xs:decimal" minOccurs="0" />
+              <xs:element name="borr_rate" msprop:Generator_ColumnVarNameInTable="columnborr_rate" msprop:Generator_ColumnPropNameInRow="borr_rate" msprop:Generator_ColumnPropNameInTable="borr_rateColumn" msprop:Generator_UserColumnName="borr_rate" type="xs:decimal" minOccurs="0" />
+              <xs:element name="borr_tax" msprop:Generator_ColumnVarNameInTable="columnborr_tax" msprop:Generator_ColumnPropNameInRow="borr_tax" msprop:Generator_ColumnPropNameInTable="borr_taxColumn" msprop:Generator_UserColumnName="borr_tax" type="xs:decimal" minOccurs="0" />
+              <xs:element name="borr_totmny" msprop:Generator_ColumnVarNameInTable="columnborr_totmny" msprop:Generator_ColumnPropNameInRow="borr_totmny" msprop:Generator_ColumnPropNameInTable="borr_totmnyColumn" msprop:Generator_UserColumnName="borr_totmny" type="xs:decimal" minOccurs="0" />
+              <xs:element name="borr_taxb" msprop:Generator_ColumnVarNameInTable="columnborr_taxb" msprop:Generator_ColumnPropNameInRow="borr_taxb" msprop:Generator_ColumnPropNameInTable="borr_taxbColumn" msprop:Generator_UserColumnName="borr_taxb" type="xs:decimal" minOccurs="0" />
+              <xs:element name="borr_totmnyb" msprop:Generator_ColumnVarNameInTable="columnborr_totmnyb" msprop:Generator_ColumnPropNameInRow="borr_totmnyb" msprop:Generator_ColumnPropNameInTable="borr_totmnybColumn" msprop:Generator_UserColumnName="borr_totmnyb" type="xs:decimal" minOccurs="0" />
+              <xs:element name="borr_recordno" msprop:Generator_ColumnVarNameInTable="columnborr_recordno" msprop:Generator_ColumnPropNameInRow="borr_recordno" msprop:Generator_ColumnPropNameInTable="borr_recordnoColumn" msprop:Generator_UserColumnName="borr_recordno" type="xs:decimal" minOccurs="0" />
+              <xs:element name="borr_bomemo" msprop:Generator_ColumnVarNameInTable="columnborr_bomemo" msprop:Generator_ColumnPropNameInRow="borr_bomemo" msprop:Generator_ColumnPropNameInTable="borr_bomemoColumn" msprop:Generator_UserColumnName="borr_bomemo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="borr_bomemo1" msprop:Generator_ColumnVarNameInTable="columnborr_bomemo1" msprop:Generator_ColumnPropNameInRow="borr_bomemo1" msprop:Generator_ColumnPropNameInTable="borr_bomemo1Column" msprop:Generator_UserColumnName="borr_bomemo1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="borr_AppScNo" msprop:Generator_ColumnVarNameInTable="columnborr_AppScNo" msprop:Generator_ColumnPropNameInRow="borr_AppScNo" msprop:Generator_ColumnPropNameInTable="borr_AppScNoColumn" msprop:Generator_UserColumnName="borr_AppScNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="borr_AppDate" msprop:Generator_ColumnVarNameInTable="columnborr_AppDate" msprop:Generator_ColumnPropNameInRow="borr_AppDate" msprop:Generator_ColumnPropNameInTable="borr_AppDateColumn" msprop:Generator_UserColumnName="borr_AppDate" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="borr_EdtScNo" msprop:Generator_ColumnVarNameInTable="columnborr_EdtScNo" msprop:Generator_ColumnPropNameInRow="borr_EdtScNo" msprop:Generator_ColumnPropNameInTable="borr_EdtScNoColumn" msprop:Generator_UserColumnName="borr_EdtScNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="borr_EdtDate" msprop:Generator_ColumnVarNameInTable="columnborr_EdtDate" msprop:Generator_ColumnPropNameInRow="borr_EdtDate" msprop:Generator_ColumnPropNameInTable="borr_EdtDateColumn" msprop:Generator_UserColumnName="borr_EdtDate" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="borrd_boid" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnborrd_boid" msprop:Generator_ColumnPropNameInRow="borrd_boid" msprop:Generator_ColumnPropNameInTable="borrd_boidColumn" msprop:Generator_UserColumnName="borrd_boid" type="xs:int" minOccurs="0" />
+              <xs:element name="borrd_bono" msprop:Generator_ColumnVarNameInTable="columnborrd_bono" msprop:Generator_ColumnPropNameInRow="borrd_bono" msprop:Generator_ColumnPropNameInTable="borrd_bonoColumn" msprop:Generator_UserColumnName="borrd_bono" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="borrd_bodate" msprop:Generator_ColumnVarNameInTable="columnborrd_bodate" msprop:Generator_ColumnPropNameInRow="borrd_bodate" msprop:Generator_ColumnPropNameInTable="borrd_bodateColumn" msprop:Generator_UserColumnName="borrd_bodate" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="borrd_bodate1" msprop:Generator_ColumnVarNameInTable="columnborrd_bodate1" msprop:Generator_ColumnPropNameInRow="borrd_bodate1" msprop:Generator_ColumnPropNameInTable="borrd_bodate1Column" msprop:Generator_UserColumnName="borrd_bodate1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="borrd_bodate2" msprop:Generator_ColumnVarNameInTable="columnborrd_bodate2" msprop:Generator_ColumnPropNameInRow="borrd_bodate2" msprop:Generator_ColumnPropNameInTable="borrd_bodate2Column" msprop:Generator_UserColumnName="borrd_bodate2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="borrd_cono" msprop:Generator_ColumnVarNameInTable="columnborrd_cono" msprop:Generator_ColumnPropNameInRow="borrd_cono" msprop:Generator_ColumnPropNameInTable="borrd_conoColumn" msprop:Generator_UserColumnName="borrd_cono" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="borrd_fano" msprop:Generator_ColumnVarNameInTable="columnborrd_fano" msprop:Generator_ColumnPropNameInRow="borrd_fano" msprop:Generator_ColumnPropNameInTable="borrd_fanoColumn" msprop:Generator_UserColumnName="borrd_fano" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="borrd_stno" msprop:Generator_ColumnVarNameInTable="columnborrd_stno" msprop:Generator_ColumnPropNameInRow="borrd_stno" msprop:Generator_ColumnPropNameInTable="borrd_stnoColumn" msprop:Generator_UserColumnName="borrd_stno" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="borrd_emno" msprop:Generator_ColumnVarNameInTable="columnborrd_emno" msprop:Generator_ColumnPropNameInRow="borrd_emno" msprop:Generator_ColumnPropNameInTable="borrd_emnoColumn" msprop:Generator_UserColumnName="borrd_emno" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="borrd_xa1no" msprop:Generator_ColumnVarNameInTable="columnborrd_xa1no" msprop:Generator_ColumnPropNameInRow="borrd_xa1no" msprop:Generator_ColumnPropNameInTable="borrd_xa1noColumn" msprop:Generator_UserColumnName="borrd_xa1no" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="borrd_xa1par" msprop:Generator_ColumnVarNameInTable="columnborrd_xa1par" msprop:Generator_ColumnPropNameInRow="borrd_xa1par" msprop:Generator_ColumnPropNameInTable="borrd_xa1parColumn" msprop:Generator_UserColumnName="borrd_xa1par" type="xs:decimal" minOccurs="0" />
+              <xs:element name="borrd_itno" msprop:Generator_ColumnVarNameInTable="columnborrd_itno" msprop:Generator_ColumnPropNameInRow="borrd_itno" msprop:Generator_ColumnPropNameInTable="borrd_itnoColumn" msprop:Generator_UserColumnName="borrd_itno" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="borrd_itname" msprop:Generator_ColumnVarNameInTable="columnborrd_itname" msprop:Generator_ColumnPropNameInRow="borrd_itname" msprop:Generator_ColumnPropNameInTable="borrd_itnameColumn" msprop:Generator_UserColumnName="borrd_itname" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="borrd_ittrait" msprop:Generator_ColumnVarNameInTable="columnborrd_ittrait" msprop:Generator_ColumnPropNameInRow="borrd_ittrait" msprop:Generator_ColumnPropNameInTable="borrd_ittraitColumn" msprop:Generator_UserColumnName="borrd_ittrait" type="xs:decimal" minOccurs="0" />
+              <xs:element name="borrd_itunit" msprop:Generator_ColumnVarNameInTable="columnborrd_itunit" msprop:Generator_ColumnPropNameInRow="borrd_itunit" msprop:Generator_ColumnPropNameInTable="borrd_itunitColumn" msprop:Generator_UserColumnName="borrd_itunit" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="borrd_itpkgqty" msprop:Generator_ColumnVarNameInTable="columnborrd_itpkgqty" msprop:Generator_ColumnPropNameInRow="borrd_itpkgqty" msprop:Generator_ColumnPropNameInTable="borrd_itpkgqtyColumn" msprop:Generator_UserColumnName="borrd_itpkgqty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="borrd_qty" msprop:Generator_ColumnVarNameInTable="columnborrd_qty" msprop:Generator_ColumnPropNameInRow="borrd_qty" msprop:Generator_ColumnPropNameInTable="borrd_qtyColumn" msprop:Generator_UserColumnName="borrd_qty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="borrd_price" msprop:Generator_ColumnVarNameInTable="columnborrd_price" msprop:Generator_ColumnPropNameInRow="borrd_price" msprop:Generator_ColumnPropNameInTable="borrd_priceColumn" msprop:Generator_UserColumnName="borrd_price" type="xs:decimal" minOccurs="0" />
+              <xs:element name="borrd_prs" msprop:Generator_ColumnVarNameInTable="columnborrd_prs" msprop:Generator_ColumnPropNameInRow="borrd_prs" msprop:Generator_ColumnPropNameInTable="borrd_prsColumn" msprop:Generator_UserColumnName="borrd_prs" type="xs:decimal" minOccurs="0" />
+              <xs:element name="borrd_rate" msprop:Generator_ColumnVarNameInTable="columnborrd_rate" msprop:Generator_ColumnPropNameInRow="borrd_rate" msprop:Generator_ColumnPropNameInTable="borrd_rateColumn" msprop:Generator_UserColumnName="borrd_rate" type="xs:decimal" minOccurs="0" />
+              <xs:element name="borrd_taxprice" msprop:Generator_ColumnVarNameInTable="columnborrd_taxprice" msprop:Generator_ColumnPropNameInRow="borrd_taxprice" msprop:Generator_ColumnPropNameInTable="borrd_taxpriceColumn" msprop:Generator_UserColumnName="borrd_taxprice" type="xs:decimal" minOccurs="0" />
+              <xs:element name="borrd_mny" msprop:Generator_ColumnVarNameInTable="columnborrd_mny" msprop:Generator_ColumnPropNameInRow="borrd_mny" msprop:Generator_ColumnPropNameInTable="borrd_mnyColumn" msprop:Generator_UserColumnName="borrd_mny" type="xs:decimal" minOccurs="0" />
+              <xs:element name="borrd_priceb" msprop:Generator_ColumnVarNameInTable="columnborrd_priceb" msprop:Generator_ColumnPropNameInRow="borrd_priceb" msprop:Generator_ColumnPropNameInTable="borrd_pricebColumn" msprop:Generator_UserColumnName="borrd_priceb" type="xs:decimal" minOccurs="0" />
+              <xs:element name="borrd_taxpriceb" msprop:Generator_ColumnVarNameInTable="columnborrd_taxpriceb" msprop:Generator_ColumnPropNameInRow="borrd_taxpriceb" msprop:Generator_ColumnPropNameInTable="borrd_taxpricebColumn" msprop:Generator_UserColumnName="borrd_taxpriceb" type="xs:decimal" minOccurs="0" />
+              <xs:element name="borrd_mnyb" msprop:Generator_ColumnVarNameInTable="columnborrd_mnyb" msprop:Generator_ColumnPropNameInRow="borrd_mnyb" msprop:Generator_ColumnPropNameInTable="borrd_mnybColumn" msprop:Generator_UserColumnName="borrd_mnyb" type="xs:decimal" minOccurs="0" />
+              <xs:element name="borrd_memo" msprop:Generator_ColumnVarNameInTable="columnborrd_memo" msprop:Generator_ColumnPropNameInRow="borrd_memo" msprop:Generator_ColumnPropNameInTable="borrd_memoColumn" msprop:Generator_UserColumnName="borrd_memo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="borrd_lowzero" msprop:Generator_ColumnVarNameInTable="columnborrd_lowzero" msprop:Generator_ColumnPropNameInRow="borrd_lowzero" msprop:Generator_ColumnPropNameInTable="borrd_lowzeroColumn" msprop:Generator_UserColumnName="borrd_lowzero" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="borrd_bomid" msprop:Generator_ColumnVarNameInTable="columnborrd_bomid" msprop:Generator_ColumnPropNameInRow="borrd_bomid" msprop:Generator_ColumnPropNameInTable="borrd_bomidColumn" msprop:Generator_UserColumnName="borrd_bomid" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="borrd_bomrec" msprop:Generator_ColumnVarNameInTable="columnborrd_bomrec" msprop:Generator_ColumnPropNameInRow="borrd_bomrec" msprop:Generator_ColumnPropNameInTable="borrd_bomrecColumn" msprop:Generator_UserColumnName="borrd_bomrec" type="xs:decimal" minOccurs="0" />
+              <xs:element name="borrd_recordno" msprop:Generator_ColumnVarNameInTable="columnborrd_recordno" msprop:Generator_ColumnPropNameInRow="borrd_recordno" msprop:Generator_ColumnPropNameInTable="borrd_recordnoColumn" msprop:Generator_UserColumnName="borrd_recordno" type="xs:decimal" minOccurs="0" />
+              <xs:element name="borrd_sltflag" msprop:Generator_ColumnVarNameInTable="columnborrd_sltflag" msprop:Generator_ColumnPropNameInRow="borrd_sltflag" msprop:Generator_ColumnPropNameInTable="borrd_sltflagColumn" msprop:Generator_UserColumnName="borrd_sltflag" type="xs:boolean" minOccurs="0" />
+              <xs:element name="borrd_extflag" msprop:Generator_ColumnVarNameInTable="columnborrd_extflag" msprop:Generator_ColumnPropNameInRow="borrd_extflag" msprop:Generator_ColumnPropNameInTable="borrd_extflagColumn" msprop:Generator_UserColumnName="borrd_extflag" type="xs:boolean" minOccurs="0" />
+              <xs:element name="borrd_itdesp1" msprop:Generator_ColumnVarNameInTable="columnborrd_itdesp1" msprop:Generator_ColumnPropNameInRow="borrd_itdesp1" msprop:Generator_ColumnPropNameInTable="borrd_itdesp1Column" msprop:Generator_UserColumnName="borrd_itdesp1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="borrd_itdesp2" msprop:Generator_ColumnVarNameInTable="columnborrd_itdesp2" msprop:Generator_ColumnPropNameInRow="borrd_itdesp2" msprop:Generator_ColumnPropNameInTable="borrd_itdesp2Column" msprop:Generator_UserColumnName="borrd_itdesp2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="borrd_itdesp3" msprop:Generator_ColumnVarNameInTable="columnborrd_itdesp3" msprop:Generator_ColumnPropNameInRow="borrd_itdesp3" msprop:Generator_ColumnPropNameInTable="borrd_itdesp3Column" msprop:Generator_UserColumnName="borrd_itdesp3" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="borrd_itdesp4" msprop:Generator_ColumnVarNameInTable="columnborrd_itdesp4" msprop:Generator_ColumnPropNameInRow="borrd_itdesp4" msprop:Generator_ColumnPropNameInTable="borrd_itdesp4Column" msprop:Generator_UserColumnName="borrd_itdesp4" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="borrd_itdesp5" msprop:Generator_ColumnVarNameInTable="columnborrd_itdesp5" msprop:Generator_ColumnPropNameInRow="borrd_itdesp5" msprop:Generator_ColumnPropNameInTable="borrd_itdesp5Column" msprop:Generator_UserColumnName="borrd_itdesp5" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="borrd_itdesp6" msprop:Generator_ColumnVarNameInTable="columnborrd_itdesp6" msprop:Generator_ColumnPropNameInRow="borrd_itdesp6" msprop:Generator_ColumnPropNameInTable="borrd_itdesp6Column" msprop:Generator_UserColumnName="borrd_itdesp6" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="borrd_itdesp7" msprop:Generator_ColumnVarNameInTable="columnborrd_itdesp7" msprop:Generator_ColumnPropNameInRow="borrd_itdesp7" msprop:Generator_ColumnPropNameInTable="borrd_itdesp7Column" msprop:Generator_UserColumnName="borrd_itdesp7" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="borrd_itdesp8" msprop:Generator_ColumnVarNameInTable="columnborrd_itdesp8" msprop:Generator_ColumnPropNameInRow="borrd_itdesp8" msprop:Generator_ColumnPropNameInTable="borrd_itdesp8Column" msprop:Generator_UserColumnName="borrd_itdesp8" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="borrd_itdesp9" msprop:Generator_ColumnVarNameInTable="columnborrd_itdesp9" msprop:Generator_ColumnPropNameInRow="borrd_itdesp9" msprop:Generator_ColumnPropNameInTable="borrd_itdesp9Column" msprop:Generator_UserColumnName="borrd_itdesp9" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="borrd_itdesp10" msprop:Generator_ColumnVarNameInTable="columnborrd_itdesp10" msprop:Generator_ColumnPropNameInRow="borrd_itdesp10" msprop:Generator_ColumnPropNameInTable="borrd_itdesp10Column" msprop:Generator_UserColumnName="borrd_itdesp10" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="borrd_stname" msprop:Generator_ColumnVarNameInTable="columnborrd_stname" msprop:Generator_ColumnPropNameInRow="borrd_stname" msprop:Generator_ColumnPropNameInTable="borrd_stnameColumn" msprop:Generator_UserColumnName="borrd_stname" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="borrbom_bono" msprop:Generator_ColumnVarNameInTable="columnborrbom_bono" msprop:Generator_ColumnPropNameInRow="borrbom_bono" msprop:Generator_ColumnPropNameInTable="borrbom_bonoColumn" msprop:Generator_UserColumnName="borrbom_bono" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="borrbom_bomid" msprop:Generator_ColumnVarNameInTable="columnborrbom_bomid" msprop:Generator_ColumnPropNameInRow="borrbom_bomid" msprop:Generator_ColumnPropNameInTable="borrbom_bomidColumn" msprop:Generator_UserColumnName="borrbom_bomid" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="borrbom_bomrec" msprop:Generator_ColumnVarNameInTable="columnborrbom_bomrec" msprop:Generator_ColumnPropNameInRow="borrbom_bomrec" msprop:Generator_ColumnPropNameInTable="borrbom_bomrecColumn" msprop:Generator_UserColumnName="borrbom_bomrec" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="borrbom_itno" msprop:Generator_ColumnVarNameInTable="columnborrbom_itno" msprop:Generator_ColumnPropNameInRow="borrbom_itno" msprop:Generator_ColumnPropNameInTable="borrbom_itnoColumn" msprop:Generator_UserColumnName="borrbom_itno" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="borrbom_itname" msprop:Generator_ColumnVarNameInTable="columnborrbom_itname" msprop:Generator_ColumnPropNameInRow="borrbom_itname" msprop:Generator_ColumnPropNameInTable="borrbom_itnameColumn" msprop:Generator_UserColumnName="borrbom_itname" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="borrbom_itqty" msprop:Generator_ColumnVarNameInTable="columnborrbom_itqty" msprop:Generator_ColumnPropNameInRow="borrbom_itqty" msprop:Generator_ColumnPropNameInTable="borrbom_itqtyColumn" msprop:Generator_UserColumnName="borrbom_itqty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="borrbom_itunit" msprop:Generator_ColumnVarNameInTable="columnborrbom_itunit" msprop:Generator_ColumnPropNameInRow="borrbom_itunit" msprop:Generator_ColumnPropNameInTable="borrbom_itunitColumn" msprop:Generator_UserColumnName="borrbom_itunit" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="borrbom_itpareprs" msprop:Generator_ColumnVarNameInTable="columnborrbom_itpareprs" msprop:Generator_ColumnPropNameInRow="borrbom_itpareprs" msprop:Generator_ColumnPropNameInTable="borrbom_itpareprsColumn" msprop:Generator_UserColumnName="borrbom_itpareprs" type="xs:decimal" minOccurs="0" />
+              <xs:element name="borrbom_itpkgqty" msprop:Generator_ColumnVarNameInTable="columnborrbom_itpkgqty" msprop:Generator_ColumnPropNameInRow="borrbom_itpkgqty" msprop:Generator_ColumnPropNameInTable="borrbom_itpkgqtyColumn" msprop:Generator_UserColumnName="borrbom_itpkgqty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="borrbom_itrec" msprop:Generator_ColumnVarNameInTable="columnborrbom_itrec" msprop:Generator_ColumnPropNameInRow="borrbom_itrec" msprop:Generator_ColumnPropNameInTable="borrbom_itrecColumn" msprop:Generator_UserColumnName="borrbom_itrec" type="xs:decimal" minOccurs="0" />
+              <xs:element name="borrbom_itprice" msprop:Generator_ColumnVarNameInTable="columnborrbom_itprice" msprop:Generator_ColumnPropNameInRow="borrbom_itprice" msprop:Generator_ColumnPropNameInTable="borrbom_itpriceColumn" msprop:Generator_UserColumnName="borrbom_itprice" type="xs:decimal" minOccurs="0" />
+              <xs:element name="borrbom_itprs" msprop:Generator_ColumnVarNameInTable="columnborrbom_itprs" msprop:Generator_ColumnPropNameInRow="borrbom_itprs" msprop:Generator_ColumnPropNameInTable="borrbom_itprsColumn" msprop:Generator_UserColumnName="borrbom_itprs" type="xs:decimal" minOccurs="0" />
+              <xs:element name="borrbom_itmny" msprop:Generator_ColumnVarNameInTable="columnborrbom_itmny" msprop:Generator_ColumnPropNameInRow="borrbom_itmny" msprop:Generator_ColumnPropNameInTable="borrbom_itmnyColumn" msprop:Generator_UserColumnName="borrbom_itmny" type="xs:decimal" minOccurs="0" />
+              <xs:element name="borrbom_itnote" msprop:Generator_ColumnVarNameInTable="columnborrbom_itnote" msprop:Generator_ColumnPropNameInRow="borrbom_itnote" msprop:Generator_ColumnPropNameInTable="borrbom_itnoteColumn" msprop:Generator_UserColumnName="borrbom_itnote" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="borrbom_itsource" msprop:Generator_ColumnVarNameInTable="columnborrbom_itsource" msprop:Generator_ColumnPropNameInRow="borrbom_itsource" msprop:Generator_ColumnPropNameInTable="borrbom_itsourceColumn" msprop:Generator_UserColumnName="borrbom_itsource" type="xs:decimal" minOccurs="0" />
+              <xs:element name="borrbom_itbuypri" msprop:Generator_ColumnVarNameInTable="columnborrbom_itbuypri" msprop:Generator_ColumnPropNameInRow="borrbom_itbuypri" msprop:Generator_ColumnPropNameInTable="borrbom_itbuypriColumn" msprop:Generator_UserColumnName="borrbom_itbuypri" type="xs:decimal" minOccurs="0" />
+              <xs:element name="borrbom_itbuymny" msprop:Generator_ColumnVarNameInTable="columnborrbom_itbuymny" msprop:Generator_ColumnPropNameInRow="borrbom_itbuymny" msprop:Generator_ColumnPropNameInTable="borrbom_itbuymnyColumn" msprop:Generator_UserColumnName="borrbom_itbuymny" type="xs:decimal" minOccurs="0" />
+              <xs:element name="fact_faper1" msprop:Generator_ColumnVarNameInTable="columnfact_faper1" msprop:Generator_ColumnPropNameInRow="fact_faper1" msprop:Generator_ColumnPropNameInTable="fact_faper1Column" msprop:Generator_UserColumnName="fact_faper1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fact_fatel1" msprop:Generator_ColumnVarNameInTable="columnfact_fatel1" msprop:Generator_ColumnPropNameInRow="fact_fatel1" msprop:Generator_ColumnPropNameInTable="fact_fatel1Column" msprop:Generator_UserColumnName="fact_fatel1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fact_fafax1" msprop:Generator_ColumnVarNameInTable="columnfact_fafax1" msprop:Generator_ColumnPropNameInRow="fact_fafax1" msprop:Generator_ColumnPropNameInTable="fact_fafax1Column" msprop:Generator_UserColumnName="fact_fafax1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fact_faaddr1" msprop:Generator_ColumnVarNameInTable="columnfact_faaddr1" msprop:Generator_ColumnPropNameInRow="fact_faaddr1" msprop:Generator_ColumnPropNameInTable="fact_faaddr1Column" msprop:Generator_UserColumnName="fact_faaddr1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fact_fauno" msprop:Generator_ColumnVarNameInTable="columnfact_fauno" msprop:Generator_ColumnPropNameInRow="fact_fauno" msprop:Generator_ColumnPropNameInTable="fact_faunoColumn" msprop:Generator_UserColumnName="fact_fauno" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="BShop_Rptb" targetNamespace="http://tempuri.org/BShop_Rptb.xsd" xmlns:mstns="http://tempuri.org/BShop_Rptb.xsd" xmlns="http://tempuri.org/BShop_Rptb.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="2" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="webConnectionString" IsAppSettingsProperty="true" Modifier="Assembly" Name="webConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.S_61.Properties.Settings.GlobalReference.Default.webConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="LONGConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="LONGConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.S_61.Properties.Settings.GlobalReference.Default.LONGConnectionString" Provider="System.Data.SqlClient" />
+          <Connection ConnectionStringObject="Data Source=.;Initial Catalog=TestSTOCK;Integrated Security=True" IsAppSettingsProperty="false" Modifier="Assembly" Name="wang_weiren.TestSTOCK.dbo" ParameterPrefix="@" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="bshopTableAdapter" GeneratorDataComponentClassName="bshopTableAdapter" Name="bshop" UserDataComponentName="bshopTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="wang_weiren.TestSTOCK.dbo" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>select sum(D.qty) AS 進貨數量, sum(D.mnyb) AS 進貨金額,sum(R.qty) AS 退貨數量,sum(R.mnyb) AS 退貨金額,單據='進貨',sum(D.mnyb)-SUM(R.mnyb) AS 進貨淨額,重複='N',D.fano,D.itno,D.itname,B.faname1 
+from bshopd as D 
+left join bshop as B on D.bsno = B.bsno
+left join rshopd as R on D.fano = R.fano and D.itno = R.itno 
+group by D.fano,D.itno,D.itname,B.faname1 
+order by D.fano,D.itname
+</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="fano" DataSetColumn="fano" />
+              <Mapping SourceColumn="faname1" DataSetColumn="faname1" />
+              <Mapping SourceColumn="進貨數量" DataSetColumn="進貨數量" />
+              <Mapping SourceColumn="進貨金額" DataSetColumn="進貨金額" />
+              <Mapping SourceColumn="退貨數量" DataSetColumn="退貨數量" />
+              <Mapping SourceColumn="退貨金額" DataSetColumn="退貨金額" />
+              <Mapping SourceColumn="單據" DataSetColumn="單據" />
+              <Mapping SourceColumn="進貨淨額" DataSetColumn="進貨淨額" />
+              <Mapping SourceColumn="重複" DataSetColumn="重複" />
+              <Mapping SourceColumn="itname" DataSetColumn="itname" />
+              <Mapping SourceColumn="itno" DataSetColumn="itno" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="BShop_Rptb" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="BShop_Rptb" msprop:Generator_UserDSName="BShop_Rptb">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="bshop" msprop:Generator_TableClassName="bshopDataTable" msprop:Generator_TableVarName="tablebshop" msprop:Generator_TablePropName="bshop" msprop:Generator_RowDeletingName="bshopRowDeleting" msprop:Generator_RowChangingName="bshopRowChanging" msprop:Generator_RowEvHandlerName="bshopRowChangeEventHandler" msprop:Generator_RowDeletedName="bshopRowDeleted" msprop:Generator_UserTableName="bshop" msprop:Generator_RowChangedName="bshopRowChanged" msprop:Generator_RowEvArgName="bshopRowChangeEvent" msprop:Generator_RowClassName="bshopRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="fano" msprop:Generator_ColumnVarNameInTable="columnfano" msprop:Generator_ColumnPropNameInRow="fano" msprop:Generator_ColumnPropNameInTable="fanoColumn" msprop:Generator_UserColumnName="fano" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="faname1" msprop:Generator_ColumnVarNameInTable="columnfaname1" msprop:Generator_ColumnPropNameInRow="faname1" msprop:Generator_ColumnPropNameInTable="faname1Column" msprop:Generator_UserColumnName="faname1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="進貨數量" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="column進貨數量" msprop:Generator_ColumnPropNameInRow="進貨數量" msprop:Generator_ColumnPropNameInTable="進貨數量Column" msprop:Generator_UserColumnName="進貨數量" type="xs:decimal" minOccurs="0" />
+              <xs:element name="進貨金額" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="column進貨金額" msprop:Generator_ColumnPropNameInRow="進貨金額" msprop:Generator_ColumnPropNameInTable="進貨金額Column" msprop:Generator_UserColumnName="進貨金額" type="xs:decimal" minOccurs="0" />
+              <xs:element name="退貨數量" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="column退貨數量" msprop:Generator_ColumnPropNameInRow="退貨數量" msprop:Generator_ColumnPropNameInTable="退貨數量Column" msprop:Generator_UserColumnName="退貨數量" type="xs:decimal" minOccurs="0" />
+              <xs:element name="退貨金額" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="column退貨金額" msprop:Generator_ColumnPropNameInRow="退貨金額" msprop:Generator_ColumnPropNameInTable="退貨金額Column" msprop:Generator_UserColumnName="退貨金額" type="xs:decimal" minOccurs="0" />
+              <xs:element name="單據" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="column單據" msprop:Generator_ColumnPropNameInRow="單據" msprop:Generator_ColumnPropNameInTable="單據Column" msprop:Generator_UserColumnName="單據" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="進貨淨額" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="column進貨淨額" msprop:Generator_ColumnPropNameInRow="進貨淨額" msprop:Generator_ColumnPropNameInTable="進貨淨額Column" msprop:Generator_UserColumnName="進貨淨額" type="xs:decimal" minOccurs="0" />
+              <xs:element name="重複" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="column重複" msprop:Generator_ColumnPropNameInRow="重複" msprop:Generator_ColumnPropNameInTable="重複Column" msprop:Generator_UserColumnName="重複" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="itname" msprop:Generator_ColumnVarNameInTable="columnitname" msprop:Generator_ColumnPropNameInRow="itname" msprop:Generator_ColumnPropNameInTable="itnameColumn" msprop:Generator_UserColumnName="itname" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="itno" msprop:Generator_ColumnVarNameInTable="columnitno" msprop:Generator_ColumnPropNameInRow="itno" msprop:Generator_ColumnPropNameInTable="itnoColumn" msprop:Generator_UserColumnName="itno" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

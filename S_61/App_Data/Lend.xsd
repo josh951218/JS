@@ -1,0 +1,1007 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="Lend" targetNamespace="http://tempuri.org/Lend.xsd" xmlns:mstns="http://tempuri.org/Lend.xsd" xmlns="http://tempuri.org/Lend.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="2" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="_74ConnectionString" IsAppSettingsProperty="true" Modifier="Assembly" Name="_74ConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.S_61.Properties.Settings.GlobalReference.Default._74ConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="CENTERConnectionString" IsAppSettingsProperty="true" Modifier="Assembly" Name="CENTERConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.S_61.Properties.Settings.GlobalReference.Default.CENTERConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="LONGConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="LONGConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.S_61.Properties.Settings.GlobalReference.Default.LONGConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="lendTableAdapter" GeneratorDataComponentClassName="lendTableAdapter" Name="lend" UserDataComponentName="lendTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="LONGConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT          lend.leno AS lend_leno, lend.ledate AS lend_ledate, lend.ledate1 AS lend_ledate1, lend.ledate2 AS lend_ledate2, 
+                            lend.cono AS lend_cono, lend.coname1 AS lend_coname1, lend.coname2 AS lend_coname2, lend.cuno AS lend_cuno, 
+                            lend.cuname1 AS lend_cuname1, lend.cuname2 AS lend_cuname2, lend.cutel AS lend_cutel, 
+                            lend.cuper1 AS lend_cuper1, lend.stno AS lend_stno, lend.stname AS lend_stname, lend.emno AS lend_emno, 
+                            lend.emname AS lend_emname, lend.xa1no AS lend_xa1no, lend.xa1name AS lend_xa1name, 
+                            lend.xa1par AS lend_xa1par, lend.taxmnyf AS lend_taxmnyf, lend.taxmnyb AS lend_taxmnyb, 
+                            lend.taxmny AS lend_taxmny, lend.x3no AS lend_x3no, lend.rate AS lend_rate, lend.tax AS lend_tax, 
+                            lend.totmny AS lend_totmny, lend.taxb AS lend_taxb, lend.totmnyb AS lend_totmnyb, lend.lememo AS lend_lememo, 
+                            lend.recordno AS lend_recordno, lendd.leid AS lendd_leid, lendd.ledate AS lendd_ledate, lendd.leno AS lendd_leno, 
+                            lendd.ledate1 AS lendd_ledate1, lendd.ledate2 AS lendd_ledate2, lendd.cono AS lendd_cono, 
+                            lendd.cuno AS lendd_cuno, lendd.stno AS lendd_stno, lendd.emno AS lendd_emno, lendd.xa1no AS lendd_xa1no, 
+                            lendd.xa1par AS lendd_xa1par, lendd.itno AS lendd_itno, lendd.itname AS lendd_itname, lendd.ittrait AS lendd_ittrait, 
+                            lendd.itunit AS lendd_itunit, lendd.itpkgqty AS lendd_itpkgqty, lendd.qty AS lendd_qty, lendd.price AS lendd_price, 
+                            lendd.prs AS lendd_prs, lendd.rate AS lendd_rate, lendd.taxprice AS lendd_taxprice, lendd.mny AS lendd_mny, 
+                            lendd.priceb AS lendd_priceb, lendd.taxpriceb AS lendd_taxpriceb, lendd.mnyb AS lendd_mnyb, 
+                            lendd.memo AS lendd_memo, lendd.lowzero AS lendd_lowzero, lendd.bomid AS lendd_bomid, 
+                            lendd.bomrec AS lendd_bomrec, lendd.recordno AS lendd_recordno, lendd.sltflag AS lendd_sltflag, 
+                            lendd.extflag AS lendd_extflag, lendd.itdesp1 AS lendd_itdesp1, lendd.itdesp2 AS lendd_itdesp2, 
+                            lendd.itdesp3 AS lendd_itdesp3, lendd.itdesp4 AS lendd_itdesp4, lendd.itdesp5 AS lendd_itdesp5, 
+                            lendd.itdesp6 AS lendd_itdesp6, lendd.itdesp7 AS lendd_itdesp7, lendd.itdesp8 AS lendd_itdesp8, 
+                            lendd.itdesp9 AS lendd_itdesp9, lendd.itdesp10 AS lendd_itdesp10, cust.cuname2 AS cust_cuname2, 
+                            cust.cuaddr1 AS cust_cuaddr1, cust.cuuno AS cust_cuuno, cust.cufax1 AS cust_cufax1, 
+                            lendbom.leno AS lendbom_leno, lendbom.bomid AS lendbom_bomid, lendbom.BomRec AS lendbom_BomRec, 
+                            lendbom.itno AS lendbom_itno, lendbom.itname AS lendbom_itname, lendbom.itunit AS lendbom_itunit, 
+                            lendbom.itqty AS lendbom_itqty, lendbom.itpareprs AS lendbom_itpareprs, lendbom.itpkgqty AS lendbom_itpkgqty, 
+                            lendbom.itrec AS lendbom_itrec, lendbom.itprice AS lendbom_itprice, lendbom.itprs AS lendbom_itprs, 
+                            lendbom.itmny AS lendbom_itmny, lendbom.itnote AS lendbom_itnote, lendbom.ItSource AS lendbom_ItSource, 
+                            lendbom.ItBuyPri AS lendbom_ItBuyPri, lendbom.ItBuyMny AS lendbom_ItBuyMny,scrit.scname,scrit.scname1 
+FROM              lend 
+  LEFT   JOIN scrit ON lend.appscno = scrit.scname  
+
+LEFT OUTER JOIN
+                            cust ON lend.cuno = cust.cuno LEFT OUTER JOIN
+                            lendbom ON lend.leno = lendbom.leno LEFT OUTER JOIN
+                            lendd ON lend.leno = lendd.leno</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="lend_leno" DataSetColumn="lend_leno" />
+              <Mapping SourceColumn="lend_ledate" DataSetColumn="lend_ledate" />
+              <Mapping SourceColumn="lend_ledate1" DataSetColumn="lend_ledate1" />
+              <Mapping SourceColumn="lend_ledate2" DataSetColumn="lend_ledate2" />
+              <Mapping SourceColumn="lend_cono" DataSetColumn="lend_cono" />
+              <Mapping SourceColumn="lend_coname1" DataSetColumn="lend_coname1" />
+              <Mapping SourceColumn="lend_coname2" DataSetColumn="lend_coname2" />
+              <Mapping SourceColumn="lend_cuno" DataSetColumn="lend_cuno" />
+              <Mapping SourceColumn="lend_cuname1" DataSetColumn="lend_cuname1" />
+              <Mapping SourceColumn="lend_cuname2" DataSetColumn="lend_cuname2" />
+              <Mapping SourceColumn="lend_cutel" DataSetColumn="lend_cutel" />
+              <Mapping SourceColumn="lend_cuper1" DataSetColumn="lend_cuper1" />
+              <Mapping SourceColumn="lend_stno" DataSetColumn="lend_stno" />
+              <Mapping SourceColumn="lend_stname" DataSetColumn="lend_stname" />
+              <Mapping SourceColumn="lend_emno" DataSetColumn="lend_emno" />
+              <Mapping SourceColumn="lend_emname" DataSetColumn="lend_emname" />
+              <Mapping SourceColumn="lend_xa1no" DataSetColumn="lend_xa1no" />
+              <Mapping SourceColumn="lend_xa1name" DataSetColumn="lend_xa1name" />
+              <Mapping SourceColumn="lend_xa1par" DataSetColumn="lend_xa1par" />
+              <Mapping SourceColumn="lend_taxmnyf" DataSetColumn="lend_taxmnyf" />
+              <Mapping SourceColumn="lend_taxmnyb" DataSetColumn="lend_taxmnyb" />
+              <Mapping SourceColumn="lend_taxmny" DataSetColumn="lend_taxmny" />
+              <Mapping SourceColumn="lend_x3no" DataSetColumn="lend_x3no" />
+              <Mapping SourceColumn="lend_rate" DataSetColumn="lend_rate" />
+              <Mapping SourceColumn="lend_tax" DataSetColumn="lend_tax" />
+              <Mapping SourceColumn="lend_totmny" DataSetColumn="lend_totmny" />
+              <Mapping SourceColumn="lend_taxb" DataSetColumn="lend_taxb" />
+              <Mapping SourceColumn="lend_totmnyb" DataSetColumn="lend_totmnyb" />
+              <Mapping SourceColumn="lend_lememo" DataSetColumn="lend_lememo" />
+              <Mapping SourceColumn="lend_recordno" DataSetColumn="lend_recordno" />
+              <Mapping SourceColumn="lendd_leid" DataSetColumn="lendd_leid" />
+              <Mapping SourceColumn="lendd_ledate" DataSetColumn="lendd_ledate" />
+              <Mapping SourceColumn="lendd_leno" DataSetColumn="lendd_leno" />
+              <Mapping SourceColumn="lendd_ledate1" DataSetColumn="lendd_ledate1" />
+              <Mapping SourceColumn="lendd_ledate2" DataSetColumn="lendd_ledate2" />
+              <Mapping SourceColumn="lendd_cono" DataSetColumn="lendd_cono" />
+              <Mapping SourceColumn="lendd_cuno" DataSetColumn="lendd_cuno" />
+              <Mapping SourceColumn="lendd_stno" DataSetColumn="lendd_stno" />
+              <Mapping SourceColumn="lendd_emno" DataSetColumn="lendd_emno" />
+              <Mapping SourceColumn="lendd_xa1no" DataSetColumn="lendd_xa1no" />
+              <Mapping SourceColumn="lendd_xa1par" DataSetColumn="lendd_xa1par" />
+              <Mapping SourceColumn="lendd_itno" DataSetColumn="lendd_itno" />
+              <Mapping SourceColumn="lendd_itname" DataSetColumn="lendd_itname" />
+              <Mapping SourceColumn="lendd_ittrait" DataSetColumn="lendd_ittrait" />
+              <Mapping SourceColumn="lendd_itunit" DataSetColumn="lendd_itunit" />
+              <Mapping SourceColumn="lendd_itpkgqty" DataSetColumn="lendd_itpkgqty" />
+              <Mapping SourceColumn="lendd_qty" DataSetColumn="lendd_qty" />
+              <Mapping SourceColumn="lendd_price" DataSetColumn="lendd_price" />
+              <Mapping SourceColumn="lendd_prs" DataSetColumn="lendd_prs" />
+              <Mapping SourceColumn="lendd_rate" DataSetColumn="lendd_rate" />
+              <Mapping SourceColumn="lendd_taxprice" DataSetColumn="lendd_taxprice" />
+              <Mapping SourceColumn="lendd_mny" DataSetColumn="lendd_mny" />
+              <Mapping SourceColumn="lendd_priceb" DataSetColumn="lendd_priceb" />
+              <Mapping SourceColumn="lendd_taxpriceb" DataSetColumn="lendd_taxpriceb" />
+              <Mapping SourceColumn="lendd_mnyb" DataSetColumn="lendd_mnyb" />
+              <Mapping SourceColumn="lendd_memo" DataSetColumn="lendd_memo" />
+              <Mapping SourceColumn="lendd_lowzero" DataSetColumn="lendd_lowzero" />
+              <Mapping SourceColumn="lendd_bomid" DataSetColumn="lendd_bomid" />
+              <Mapping SourceColumn="lendd_bomrec" DataSetColumn="lendd_bomrec" />
+              <Mapping SourceColumn="lendd_recordno" DataSetColumn="lendd_recordno" />
+              <Mapping SourceColumn="lendd_sltflag" DataSetColumn="lendd_sltflag" />
+              <Mapping SourceColumn="lendd_extflag" DataSetColumn="lendd_extflag" />
+              <Mapping SourceColumn="lendd_itdesp1" DataSetColumn="lendd_itdesp1" />
+              <Mapping SourceColumn="lendd_itdesp2" DataSetColumn="lendd_itdesp2" />
+              <Mapping SourceColumn="lendd_itdesp3" DataSetColumn="lendd_itdesp3" />
+              <Mapping SourceColumn="lendd_itdesp4" DataSetColumn="lendd_itdesp4" />
+              <Mapping SourceColumn="lendd_itdesp5" DataSetColumn="lendd_itdesp5" />
+              <Mapping SourceColumn="lendd_itdesp6" DataSetColumn="lendd_itdesp6" />
+              <Mapping SourceColumn="lendd_itdesp7" DataSetColumn="lendd_itdesp7" />
+              <Mapping SourceColumn="lendd_itdesp8" DataSetColumn="lendd_itdesp8" />
+              <Mapping SourceColumn="lendd_itdesp9" DataSetColumn="lendd_itdesp9" />
+              <Mapping SourceColumn="lendd_itdesp10" DataSetColumn="lendd_itdesp10" />
+              <Mapping SourceColumn="cust_cuname2" DataSetColumn="cust_cuname2" />
+              <Mapping SourceColumn="cust_cuaddr1" DataSetColumn="cust_cuaddr1" />
+              <Mapping SourceColumn="cust_cuuno" DataSetColumn="cust_cuuno" />
+              <Mapping SourceColumn="cust_cufax1" DataSetColumn="cust_cufax1" />
+              <Mapping SourceColumn="lendbom_leno" DataSetColumn="lendbom_leno" />
+              <Mapping SourceColumn="lendbom_bomid" DataSetColumn="lendbom_bomid" />
+              <Mapping SourceColumn="lendbom_BomRec" DataSetColumn="lendbom_BomRec" />
+              <Mapping SourceColumn="lendbom_itno" DataSetColumn="lendbom_itno" />
+              <Mapping SourceColumn="lendbom_itname" DataSetColumn="lendbom_itname" />
+              <Mapping SourceColumn="lendbom_itunit" DataSetColumn="lendbom_itunit" />
+              <Mapping SourceColumn="lendbom_itqty" DataSetColumn="lendbom_itqty" />
+              <Mapping SourceColumn="lendbom_itpareprs" DataSetColumn="lendbom_itpareprs" />
+              <Mapping SourceColumn="lendbom_itpkgqty" DataSetColumn="lendbom_itpkgqty" />
+              <Mapping SourceColumn="lendbom_itrec" DataSetColumn="lendbom_itrec" />
+              <Mapping SourceColumn="lendbom_itprice" DataSetColumn="lendbom_itprice" />
+              <Mapping SourceColumn="lendbom_itprs" DataSetColumn="lendbom_itprs" />
+              <Mapping SourceColumn="lendbom_itmny" DataSetColumn="lendbom_itmny" />
+              <Mapping SourceColumn="lendbom_itnote" DataSetColumn="lendbom_itnote" />
+              <Mapping SourceColumn="lendbom_ItSource" DataSetColumn="lendbom_ItSource" />
+              <Mapping SourceColumn="lendbom_ItBuyPri" DataSetColumn="lendbom_ItBuyPri" />
+              <Mapping SourceColumn="lendbom_ItBuyMny" DataSetColumn="lendbom_ItBuyMny" />
+              <Mapping SourceColumn="scname" DataSetColumn="scname" />
+              <Mapping SourceColumn="scname1" DataSetColumn="scname1" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="itemTableAdapter" GeneratorDataComponentClassName="itemTableAdapter" Name="item" UserDataComponentName="itemTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="LONGConnectionString (Settings)" DbObjectName="LONG.dbo.item" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="false" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT          itno, itnoudf, itname, kino, itime, ittrait, itunit, itunitp, itpkgqty, itnw, itnwunit, itdesp1, itdesp2, itdesp3, itdesp4, 
+                            itdesp5, itdesp6, itdesp7, itdesp8, itdesp9, itdesp10, itnote, itudf1, itudf2, itudf3, itudf4, itudf5, fano, Punit, 
+                            ScNo
+FROM              item</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="itno" DataSetColumn="itno" />
+              <Mapping SourceColumn="itnoudf" DataSetColumn="itnoudf" />
+              <Mapping SourceColumn="itname" DataSetColumn="itname" />
+              <Mapping SourceColumn="kino" DataSetColumn="kino" />
+              <Mapping SourceColumn="itime" DataSetColumn="itime" />
+              <Mapping SourceColumn="ittrait" DataSetColumn="ittrait" />
+              <Mapping SourceColumn="itunit" DataSetColumn="itunit" />
+              <Mapping SourceColumn="itunitp" DataSetColumn="itunitp" />
+              <Mapping SourceColumn="itpkgqty" DataSetColumn="itpkgqty" />
+              <Mapping SourceColumn="itnw" DataSetColumn="itnw" />
+              <Mapping SourceColumn="itnwunit" DataSetColumn="itnwunit" />
+              <Mapping SourceColumn="itdesp1" DataSetColumn="itdesp1" />
+              <Mapping SourceColumn="itdesp2" DataSetColumn="itdesp2" />
+              <Mapping SourceColumn="itdesp3" DataSetColumn="itdesp3" />
+              <Mapping SourceColumn="itdesp4" DataSetColumn="itdesp4" />
+              <Mapping SourceColumn="itdesp5" DataSetColumn="itdesp5" />
+              <Mapping SourceColumn="itdesp6" DataSetColumn="itdesp6" />
+              <Mapping SourceColumn="itdesp7" DataSetColumn="itdesp7" />
+              <Mapping SourceColumn="itdesp8" DataSetColumn="itdesp8" />
+              <Mapping SourceColumn="itdesp9" DataSetColumn="itdesp9" />
+              <Mapping SourceColumn="itdesp10" DataSetColumn="itdesp10" />
+              <Mapping SourceColumn="itnote" DataSetColumn="itnote" />
+              <Mapping SourceColumn="itudf1" DataSetColumn="itudf1" />
+              <Mapping SourceColumn="itudf2" DataSetColumn="itudf2" />
+              <Mapping SourceColumn="itudf3" DataSetColumn="itudf3" />
+              <Mapping SourceColumn="itudf4" DataSetColumn="itudf4" />
+              <Mapping SourceColumn="itudf5" DataSetColumn="itudf5" />
+              <Mapping SourceColumn="fano" DataSetColumn="fano" />
+              <Mapping SourceColumn="Punit" DataSetColumn="Punit" />
+              <Mapping SourceColumn="ScNo" DataSetColumn="ScNo" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="custTableAdapter" GeneratorDataComponentClassName="custTableAdapter" Name="cust" UserDataComponentName="custTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="LONGConnectionString (Settings)" DbObjectName="LONG.dbo.cust" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="false" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT cuno, cuemno1, cuname2, cuname1,cur1,cuaddr1,cur2,cuaddr2,cur3,cuaddr3 FROM cust</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="cuno" DataSetColumn="cuno" />
+              <Mapping SourceColumn="cuemno1" DataSetColumn="cuemno1" />
+              <Mapping SourceColumn="cuname2" DataSetColumn="cuname2" />
+              <Mapping SourceColumn="cuname1" DataSetColumn="cuname1" />
+              <Mapping SourceColumn="cur1" DataSetColumn="cur1" />
+              <Mapping SourceColumn="cuaddr1" DataSetColumn="cuaddr1" />
+              <Mapping SourceColumn="cur2" DataSetColumn="cur2" />
+              <Mapping SourceColumn="cuaddr2" DataSetColumn="cuaddr2" />
+              <Mapping SourceColumn="cur3" DataSetColumn="cur3" />
+              <Mapping SourceColumn="cuaddr3" DataSetColumn="cuaddr3" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="emplTableAdapter" GeneratorDataComponentClassName="emplTableAdapter" Name="empl" UserDataComponentName="emplTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="LONGConnectionString (Settings)" DbObjectName="LONG.dbo.empl" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="false" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT          emno, emname
+FROM              empl</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="emno" DataSetColumn="emno" />
+              <Mapping SourceColumn="emname" DataSetColumn="emname" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="Lend" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="Lend" msprop:Generator_UserDSName="Lend">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="lend" msprop:Generator_TableClassName="lendDataTable" msprop:Generator_TableVarName="tablelend" msprop:Generator_RowChangedName="lendRowChanged" msprop:Generator_TablePropName="lend" msprop:Generator_RowDeletingName="lendRowDeleting" msprop:Generator_RowChangingName="lendRowChanging" msprop:Generator_RowEvHandlerName="lendRowChangeEventHandler" msprop:Generator_RowDeletedName="lendRowDeleted" msprop:Generator_RowClassName="lendRow" msprop:Generator_UserTableName="lend" msprop:Generator_RowEvArgName="lendRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="lend_leno" msprop:Generator_ColumnVarNameInTable="columnlend_leno" msprop:Generator_ColumnPropNameInRow="lend_leno" msprop:Generator_ColumnPropNameInTable="lend_lenoColumn" msprop:Generator_UserColumnName="lend_leno">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="lend_ledate" msprop:Generator_ColumnVarNameInTable="columnlend_ledate" msprop:Generator_ColumnPropNameInRow="lend_ledate" msprop:Generator_ColumnPropNameInTable="lend_ledateColumn" msprop:Generator_UserColumnName="lend_ledate" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="lend_ledate1" msprop:Generator_ColumnVarNameInTable="columnlend_ledate1" msprop:Generator_ColumnPropNameInRow="lend_ledate1" msprop:Generator_ColumnPropNameInTable="lend_ledate1Column" msprop:Generator_UserColumnName="lend_ledate1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="lend_ledate2" msprop:Generator_ColumnVarNameInTable="columnlend_ledate2" msprop:Generator_ColumnPropNameInRow="lend_ledate2" msprop:Generator_ColumnPropNameInTable="lend_ledate2Column" msprop:Generator_UserColumnName="lend_ledate2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="lend_cono" msprop:Generator_ColumnVarNameInTable="columnlend_cono" msprop:Generator_ColumnPropNameInRow="lend_cono" msprop:Generator_ColumnPropNameInTable="lend_conoColumn" msprop:Generator_UserColumnName="lend_cono" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="lend_coname1" msprop:Generator_ColumnVarNameInTable="columnlend_coname1" msprop:Generator_ColumnPropNameInRow="lend_coname1" msprop:Generator_ColumnPropNameInTable="lend_coname1Column" msprop:Generator_UserColumnName="lend_coname1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="lend_coname2" msprop:Generator_ColumnVarNameInTable="columnlend_coname2" msprop:Generator_ColumnPropNameInRow="lend_coname2" msprop:Generator_ColumnPropNameInTable="lend_coname2Column" msprop:Generator_UserColumnName="lend_coname2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="lend_cuno" msprop:Generator_ColumnVarNameInTable="columnlend_cuno" msprop:Generator_ColumnPropNameInRow="lend_cuno" msprop:Generator_ColumnPropNameInTable="lend_cunoColumn" msprop:Generator_UserColumnName="lend_cuno" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="lend_cuname1" msprop:Generator_ColumnVarNameInTable="columnlend_cuname1" msprop:Generator_ColumnPropNameInRow="lend_cuname1" msprop:Generator_ColumnPropNameInTable="lend_cuname1Column" msprop:Generator_UserColumnName="lend_cuname1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="lend_cuname2" msprop:Generator_ColumnVarNameInTable="columnlend_cuname2" msprop:Generator_ColumnPropNameInRow="lend_cuname2" msprop:Generator_ColumnPropNameInTable="lend_cuname2Column" msprop:Generator_UserColumnName="lend_cuname2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="lend_cutel" msprop:Generator_ColumnVarNameInTable="columnlend_cutel" msprop:Generator_ColumnPropNameInRow="lend_cutel" msprop:Generator_ColumnPropNameInTable="lend_cutelColumn" msprop:Generator_UserColumnName="lend_cutel" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="lend_cuper1" msprop:Generator_ColumnVarNameInTable="columnlend_cuper1" msprop:Generator_ColumnPropNameInRow="lend_cuper1" msprop:Generator_ColumnPropNameInTable="lend_cuper1Column" msprop:Generator_UserColumnName="lend_cuper1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="lend_stno" msprop:Generator_ColumnVarNameInTable="columnlend_stno" msprop:Generator_ColumnPropNameInRow="lend_stno" msprop:Generator_ColumnPropNameInTable="lend_stnoColumn" msprop:Generator_UserColumnName="lend_stno" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="lend_stname" msprop:Generator_ColumnVarNameInTable="columnlend_stname" msprop:Generator_ColumnPropNameInRow="lend_stname" msprop:Generator_ColumnPropNameInTable="lend_stnameColumn" msprop:Generator_UserColumnName="lend_stname" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="lend_emno" msprop:Generator_ColumnVarNameInTable="columnlend_emno" msprop:Generator_ColumnPropNameInRow="lend_emno" msprop:Generator_ColumnPropNameInTable="lend_emnoColumn" msprop:Generator_UserColumnName="lend_emno" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="lend_emname" msprop:Generator_ColumnVarNameInTable="columnlend_emname" msprop:Generator_ColumnPropNameInRow="lend_emname" msprop:Generator_ColumnPropNameInTable="lend_emnameColumn" msprop:Generator_UserColumnName="lend_emname" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="lend_xa1no" msprop:Generator_ColumnVarNameInTable="columnlend_xa1no" msprop:Generator_ColumnPropNameInRow="lend_xa1no" msprop:Generator_ColumnPropNameInTable="lend_xa1noColumn" msprop:Generator_UserColumnName="lend_xa1no" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="lend_xa1name" msprop:Generator_ColumnVarNameInTable="columnlend_xa1name" msprop:Generator_ColumnPropNameInRow="lend_xa1name" msprop:Generator_ColumnPropNameInTable="lend_xa1nameColumn" msprop:Generator_UserColumnName="lend_xa1name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="12" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="lend_xa1par" msprop:Generator_ColumnVarNameInTable="columnlend_xa1par" msprop:Generator_ColumnPropNameInRow="lend_xa1par" msprop:Generator_ColumnPropNameInTable="lend_xa1parColumn" msprop:Generator_UserColumnName="lend_xa1par" type="xs:decimal" minOccurs="0" />
+              <xs:element name="lend_taxmnyf" msprop:Generator_ColumnVarNameInTable="columnlend_taxmnyf" msprop:Generator_ColumnPropNameInRow="lend_taxmnyf" msprop:Generator_ColumnPropNameInTable="lend_taxmnyfColumn" msprop:Generator_UserColumnName="lend_taxmnyf" type="xs:decimal" minOccurs="0" />
+              <xs:element name="lend_taxmnyb" msprop:Generator_ColumnVarNameInTable="columnlend_taxmnyb" msprop:Generator_ColumnPropNameInRow="lend_taxmnyb" msprop:Generator_ColumnPropNameInTable="lend_taxmnybColumn" msprop:Generator_UserColumnName="lend_taxmnyb" type="xs:decimal" minOccurs="0" />
+              <xs:element name="lend_taxmny" msprop:Generator_ColumnVarNameInTable="columnlend_taxmny" msprop:Generator_ColumnPropNameInRow="lend_taxmny" msprop:Generator_ColumnPropNameInTable="lend_taxmnyColumn" msprop:Generator_UserColumnName="lend_taxmny" type="xs:decimal" minOccurs="0" />
+              <xs:element name="lend_x3no" msprop:Generator_ColumnVarNameInTable="columnlend_x3no" msprop:Generator_ColumnPropNameInRow="lend_x3no" msprop:Generator_ColumnPropNameInTable="lend_x3noColumn" msprop:Generator_UserColumnName="lend_x3no" type="xs:decimal" minOccurs="0" />
+              <xs:element name="lend_rate" msprop:Generator_ColumnVarNameInTable="columnlend_rate" msprop:Generator_ColumnPropNameInRow="lend_rate" msprop:Generator_ColumnPropNameInTable="lend_rateColumn" msprop:Generator_UserColumnName="lend_rate" type="xs:decimal" minOccurs="0" />
+              <xs:element name="lend_tax" msprop:Generator_ColumnVarNameInTable="columnlend_tax" msprop:Generator_ColumnPropNameInRow="lend_tax" msprop:Generator_ColumnPropNameInTable="lend_taxColumn" msprop:Generator_UserColumnName="lend_tax" type="xs:decimal" minOccurs="0" />
+              <xs:element name="lend_totmny" msprop:Generator_ColumnVarNameInTable="columnlend_totmny" msprop:Generator_ColumnPropNameInRow="lend_totmny" msprop:Generator_ColumnPropNameInTable="lend_totmnyColumn" msprop:Generator_UserColumnName="lend_totmny" type="xs:decimal" minOccurs="0" />
+              <xs:element name="lend_taxb" msprop:Generator_ColumnVarNameInTable="columnlend_taxb" msprop:Generator_ColumnPropNameInRow="lend_taxb" msprop:Generator_ColumnPropNameInTable="lend_taxbColumn" msprop:Generator_UserColumnName="lend_taxb" type="xs:decimal" minOccurs="0" />
+              <xs:element name="lend_totmnyb" msprop:Generator_ColumnVarNameInTable="columnlend_totmnyb" msprop:Generator_ColumnPropNameInRow="lend_totmnyb" msprop:Generator_ColumnPropNameInTable="lend_totmnybColumn" msprop:Generator_UserColumnName="lend_totmnyb" type="xs:decimal" minOccurs="0" />
+              <xs:element name="lend_lememo" msprop:Generator_ColumnVarNameInTable="columnlend_lememo" msprop:Generator_ColumnPropNameInRow="lend_lememo" msprop:Generator_ColumnPropNameInTable="lend_lememoColumn" msprop:Generator_UserColumnName="lend_lememo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="lend_recordno" msprop:Generator_ColumnVarNameInTable="columnlend_recordno" msprop:Generator_ColumnPropNameInRow="lend_recordno" msprop:Generator_ColumnPropNameInTable="lend_recordnoColumn" msprop:Generator_UserColumnName="lend_recordno" type="xs:decimal" minOccurs="0" />
+              <xs:element name="lendd_leid" msprop:Generator_ColumnVarNameInTable="columnlendd_leid" msprop:Generator_ColumnPropNameInRow="lendd_leid" msprop:Generator_ColumnPropNameInTable="lendd_leidColumn" msprop:Generator_UserColumnName="lendd_leid" type="xs:int" minOccurs="0" />
+              <xs:element name="lendd_ledate" msprop:Generator_ColumnVarNameInTable="columnlendd_ledate" msprop:Generator_ColumnPropNameInRow="lendd_ledate" msprop:Generator_ColumnPropNameInTable="lendd_ledateColumn" msprop:Generator_UserColumnName="lendd_ledate" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="lendd_leno" msprop:Generator_ColumnVarNameInTable="columnlendd_leno" msprop:Generator_ColumnPropNameInRow="lendd_leno" msprop:Generator_ColumnPropNameInTable="lendd_lenoColumn" msprop:Generator_UserColumnName="lendd_leno" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="lendd_ledate1" msprop:Generator_ColumnVarNameInTable="columnlendd_ledate1" msprop:Generator_ColumnPropNameInRow="lendd_ledate1" msprop:Generator_ColumnPropNameInTable="lendd_ledate1Column" msprop:Generator_UserColumnName="lendd_ledate1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="lendd_ledate2" msprop:Generator_ColumnVarNameInTable="columnlendd_ledate2" msprop:Generator_ColumnPropNameInRow="lendd_ledate2" msprop:Generator_ColumnPropNameInTable="lendd_ledate2Column" msprop:Generator_UserColumnName="lendd_ledate2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="lendd_cono" msprop:Generator_ColumnVarNameInTable="columnlendd_cono" msprop:Generator_ColumnPropNameInRow="lendd_cono" msprop:Generator_ColumnPropNameInTable="lendd_conoColumn" msprop:Generator_UserColumnName="lendd_cono" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="lendd_cuno" msprop:Generator_ColumnVarNameInTable="columnlendd_cuno" msprop:Generator_ColumnPropNameInRow="lendd_cuno" msprop:Generator_ColumnPropNameInTable="lendd_cunoColumn" msprop:Generator_UserColumnName="lendd_cuno" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="lendd_stno" msprop:Generator_ColumnVarNameInTable="columnlendd_stno" msprop:Generator_ColumnPropNameInRow="lendd_stno" msprop:Generator_ColumnPropNameInTable="lendd_stnoColumn" msprop:Generator_UserColumnName="lendd_stno" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="lendd_emno" msprop:Generator_ColumnVarNameInTable="columnlendd_emno" msprop:Generator_ColumnPropNameInRow="lendd_emno" msprop:Generator_ColumnPropNameInTable="lendd_emnoColumn" msprop:Generator_UserColumnName="lendd_emno" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="lendd_xa1no" msprop:Generator_ColumnVarNameInTable="columnlendd_xa1no" msprop:Generator_ColumnPropNameInRow="lendd_xa1no" msprop:Generator_ColumnPropNameInTable="lendd_xa1noColumn" msprop:Generator_UserColumnName="lendd_xa1no" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="lendd_xa1par" msprop:Generator_ColumnVarNameInTable="columnlendd_xa1par" msprop:Generator_ColumnPropNameInRow="lendd_xa1par" msprop:Generator_ColumnPropNameInTable="lendd_xa1parColumn" msprop:Generator_UserColumnName="lendd_xa1par" type="xs:decimal" minOccurs="0" />
+              <xs:element name="lendd_itno" msprop:Generator_ColumnVarNameInTable="columnlendd_itno" msprop:Generator_ColumnPropNameInRow="lendd_itno" msprop:Generator_ColumnPropNameInTable="lendd_itnoColumn" msprop:Generator_UserColumnName="lendd_itno" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="lendd_itname" msprop:Generator_ColumnVarNameInTable="columnlendd_itname" msprop:Generator_ColumnPropNameInRow="lendd_itname" msprop:Generator_ColumnPropNameInTable="lendd_itnameColumn" msprop:Generator_UserColumnName="lendd_itname" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="lendd_ittrait" msprop:Generator_ColumnVarNameInTable="columnlendd_ittrait" msprop:Generator_ColumnPropNameInRow="lendd_ittrait" msprop:Generator_ColumnPropNameInTable="lendd_ittraitColumn" msprop:Generator_UserColumnName="lendd_ittrait" type="xs:decimal" minOccurs="0" />
+              <xs:element name="lendd_itunit" msprop:Generator_ColumnVarNameInTable="columnlendd_itunit" msprop:Generator_ColumnPropNameInRow="lendd_itunit" msprop:Generator_ColumnPropNameInTable="lendd_itunitColumn" msprop:Generator_UserColumnName="lendd_itunit" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="lendd_itpkgqty" msprop:Generator_ColumnVarNameInTable="columnlendd_itpkgqty" msprop:Generator_ColumnPropNameInRow="lendd_itpkgqty" msprop:Generator_ColumnPropNameInTable="lendd_itpkgqtyColumn" msprop:Generator_UserColumnName="lendd_itpkgqty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="lendd_qty" msprop:Generator_ColumnVarNameInTable="columnlendd_qty" msprop:Generator_ColumnPropNameInRow="lendd_qty" msprop:Generator_ColumnPropNameInTable="lendd_qtyColumn" msprop:Generator_UserColumnName="lendd_qty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="lendd_price" msprop:Generator_ColumnVarNameInTable="columnlendd_price" msprop:Generator_ColumnPropNameInRow="lendd_price" msprop:Generator_ColumnPropNameInTable="lendd_priceColumn" msprop:Generator_UserColumnName="lendd_price" type="xs:decimal" minOccurs="0" />
+              <xs:element name="lendd_prs" msprop:Generator_ColumnVarNameInTable="columnlendd_prs" msprop:Generator_ColumnPropNameInRow="lendd_prs" msprop:Generator_ColumnPropNameInTable="lendd_prsColumn" msprop:Generator_UserColumnName="lendd_prs" type="xs:decimal" minOccurs="0" />
+              <xs:element name="lendd_rate" msprop:Generator_ColumnVarNameInTable="columnlendd_rate" msprop:Generator_ColumnPropNameInRow="lendd_rate" msprop:Generator_ColumnPropNameInTable="lendd_rateColumn" msprop:Generator_UserColumnName="lendd_rate" type="xs:decimal" minOccurs="0" />
+              <xs:element name="lendd_taxprice" msprop:Generator_ColumnVarNameInTable="columnlendd_taxprice" msprop:Generator_ColumnPropNameInRow="lendd_taxprice" msprop:Generator_ColumnPropNameInTable="lendd_taxpriceColumn" msprop:Generator_UserColumnName="lendd_taxprice" type="xs:decimal" minOccurs="0" />
+              <xs:element name="lendd_mny" msprop:Generator_ColumnVarNameInTable="columnlendd_mny" msprop:Generator_ColumnPropNameInRow="lendd_mny" msprop:Generator_ColumnPropNameInTable="lendd_mnyColumn" msprop:Generator_UserColumnName="lendd_mny" type="xs:decimal" minOccurs="0" />
+              <xs:element name="lendd_priceb" msprop:Generator_ColumnVarNameInTable="columnlendd_priceb" msprop:Generator_ColumnPropNameInRow="lendd_priceb" msprop:Generator_ColumnPropNameInTable="lendd_pricebColumn" msprop:Generator_UserColumnName="lendd_priceb" type="xs:decimal" minOccurs="0" />
+              <xs:element name="lendd_taxpriceb" msprop:Generator_ColumnVarNameInTable="columnlendd_taxpriceb" msprop:Generator_ColumnPropNameInRow="lendd_taxpriceb" msprop:Generator_ColumnPropNameInTable="lendd_taxpricebColumn" msprop:Generator_UserColumnName="lendd_taxpriceb" type="xs:decimal" minOccurs="0" />
+              <xs:element name="lendd_mnyb" msprop:Generator_ColumnVarNameInTable="columnlendd_mnyb" msprop:Generator_ColumnPropNameInRow="lendd_mnyb" msprop:Generator_ColumnPropNameInTable="lendd_mnybColumn" msprop:Generator_UserColumnName="lendd_mnyb" type="xs:decimal" minOccurs="0" />
+              <xs:element name="lendd_memo" msprop:Generator_ColumnVarNameInTable="columnlendd_memo" msprop:Generator_ColumnPropNameInRow="lendd_memo" msprop:Generator_ColumnPropNameInTable="lendd_memoColumn" msprop:Generator_UserColumnName="lendd_memo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="lendd_lowzero" msprop:Generator_ColumnVarNameInTable="columnlendd_lowzero" msprop:Generator_ColumnPropNameInRow="lendd_lowzero" msprop:Generator_ColumnPropNameInTable="lendd_lowzeroColumn" msprop:Generator_UserColumnName="lendd_lowzero" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="lendd_bomid" msprop:Generator_ColumnVarNameInTable="columnlendd_bomid" msprop:Generator_ColumnPropNameInRow="lendd_bomid" msprop:Generator_ColumnPropNameInTable="lendd_bomidColumn" msprop:Generator_UserColumnName="lendd_bomid" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="lendd_bomrec" msprop:Generator_ColumnVarNameInTable="columnlendd_bomrec" msprop:Generator_ColumnPropNameInRow="lendd_bomrec" msprop:Generator_ColumnPropNameInTable="lendd_bomrecColumn" msprop:Generator_UserColumnName="lendd_bomrec" type="xs:decimal" minOccurs="0" />
+              <xs:element name="lendd_recordno" msprop:Generator_ColumnVarNameInTable="columnlendd_recordno" msprop:Generator_ColumnPropNameInRow="lendd_recordno" msprop:Generator_ColumnPropNameInTable="lendd_recordnoColumn" msprop:Generator_UserColumnName="lendd_recordno" type="xs:decimal" minOccurs="0" />
+              <xs:element name="lendd_sltflag" msprop:Generator_ColumnVarNameInTable="columnlendd_sltflag" msprop:Generator_ColumnPropNameInRow="lendd_sltflag" msprop:Generator_ColumnPropNameInTable="lendd_sltflagColumn" msprop:Generator_UserColumnName="lendd_sltflag" type="xs:boolean" minOccurs="0" />
+              <xs:element name="lendd_extflag" msprop:Generator_ColumnVarNameInTable="columnlendd_extflag" msprop:Generator_ColumnPropNameInRow="lendd_extflag" msprop:Generator_ColumnPropNameInTable="lendd_extflagColumn" msprop:Generator_UserColumnName="lendd_extflag" type="xs:boolean" minOccurs="0" />
+              <xs:element name="lendd_itdesp1" msprop:Generator_ColumnVarNameInTable="columnlendd_itdesp1" msprop:Generator_ColumnPropNameInRow="lendd_itdesp1" msprop:Generator_ColumnPropNameInTable="lendd_itdesp1Column" msprop:Generator_UserColumnName="lendd_itdesp1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="lendd_itdesp2" msprop:Generator_ColumnVarNameInTable="columnlendd_itdesp2" msprop:Generator_ColumnPropNameInRow="lendd_itdesp2" msprop:Generator_ColumnPropNameInTable="lendd_itdesp2Column" msprop:Generator_UserColumnName="lendd_itdesp2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="lendd_itdesp3" msprop:Generator_ColumnVarNameInTable="columnlendd_itdesp3" msprop:Generator_ColumnPropNameInRow="lendd_itdesp3" msprop:Generator_ColumnPropNameInTable="lendd_itdesp3Column" msprop:Generator_UserColumnName="lendd_itdesp3" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="lendd_itdesp4" msprop:Generator_ColumnVarNameInTable="columnlendd_itdesp4" msprop:Generator_ColumnPropNameInRow="lendd_itdesp4" msprop:Generator_ColumnPropNameInTable="lendd_itdesp4Column" msprop:Generator_UserColumnName="lendd_itdesp4" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="lendd_itdesp5" msprop:Generator_ColumnVarNameInTable="columnlendd_itdesp5" msprop:Generator_ColumnPropNameInRow="lendd_itdesp5" msprop:Generator_ColumnPropNameInTable="lendd_itdesp5Column" msprop:Generator_UserColumnName="lendd_itdesp5" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="lendd_itdesp6" msprop:Generator_ColumnVarNameInTable="columnlendd_itdesp6" msprop:Generator_ColumnPropNameInRow="lendd_itdesp6" msprop:Generator_ColumnPropNameInTable="lendd_itdesp6Column" msprop:Generator_UserColumnName="lendd_itdesp6" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="lendd_itdesp7" msprop:Generator_ColumnVarNameInTable="columnlendd_itdesp7" msprop:Generator_ColumnPropNameInRow="lendd_itdesp7" msprop:Generator_ColumnPropNameInTable="lendd_itdesp7Column" msprop:Generator_UserColumnName="lendd_itdesp7" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="lendd_itdesp8" msprop:Generator_ColumnVarNameInTable="columnlendd_itdesp8" msprop:Generator_ColumnPropNameInRow="lendd_itdesp8" msprop:Generator_ColumnPropNameInTable="lendd_itdesp8Column" msprop:Generator_UserColumnName="lendd_itdesp8" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="lendd_itdesp9" msprop:Generator_ColumnVarNameInTable="columnlendd_itdesp9" msprop:Generator_ColumnPropNameInRow="lendd_itdesp9" msprop:Generator_ColumnPropNameInTable="lendd_itdesp9Column" msprop:Generator_UserColumnName="lendd_itdesp9" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="lendd_itdesp10" msprop:Generator_ColumnVarNameInTable="columnlendd_itdesp10" msprop:Generator_ColumnPropNameInRow="lendd_itdesp10" msprop:Generator_ColumnPropNameInTable="lendd_itdesp10Column" msprop:Generator_UserColumnName="lendd_itdesp10" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cust_cuname2" msprop:Generator_ColumnVarNameInTable="columncust_cuname2" msprop:Generator_ColumnPropNameInRow="cust_cuname2" msprop:Generator_ColumnPropNameInTable="cust_cuname2Column" msprop:Generator_UserColumnName="cust_cuname2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cust_cuaddr1" msprop:Generator_ColumnVarNameInTable="columncust_cuaddr1" msprop:Generator_ColumnPropNameInRow="cust_cuaddr1" msprop:Generator_ColumnPropNameInTable="cust_cuaddr1Column" msprop:Generator_UserColumnName="cust_cuaddr1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cust_cuuno" msprop:Generator_ColumnVarNameInTable="columncust_cuuno" msprop:Generator_ColumnPropNameInRow="cust_cuuno" msprop:Generator_ColumnPropNameInTable="cust_cuunoColumn" msprop:Generator_UserColumnName="cust_cuuno" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cust_cufax1" msprop:Generator_ColumnVarNameInTable="columncust_cufax1" msprop:Generator_ColumnPropNameInRow="cust_cufax1" msprop:Generator_ColumnPropNameInTable="cust_cufax1Column" msprop:Generator_UserColumnName="cust_cufax1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="lendbom_leno" msprop:Generator_ColumnVarNameInTable="columnlendbom_leno" msprop:Generator_ColumnPropNameInRow="lendbom_leno" msprop:Generator_ColumnPropNameInTable="lendbom_lenoColumn" msprop:Generator_UserColumnName="lendbom_leno" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="lendbom_bomid" msprop:Generator_ColumnVarNameInTable="columnlendbom_bomid" msprop:Generator_ColumnPropNameInRow="lendbom_bomid" msprop:Generator_ColumnPropNameInTable="lendbom_bomidColumn" msprop:Generator_UserColumnName="lendbom_bomid" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="lendbom_BomRec" msprop:Generator_ColumnVarNameInTable="columnlendbom_BomRec" msprop:Generator_ColumnPropNameInRow="lendbom_BomRec" msprop:Generator_ColumnPropNameInTable="lendbom_BomRecColumn" msprop:Generator_UserColumnName="lendbom_BomRec" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="lendbom_itno" msprop:Generator_ColumnVarNameInTable="columnlendbom_itno" msprop:Generator_ColumnPropNameInRow="lendbom_itno" msprop:Generator_ColumnPropNameInTable="lendbom_itnoColumn" msprop:Generator_UserColumnName="lendbom_itno" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="lendbom_itname" msprop:Generator_ColumnVarNameInTable="columnlendbom_itname" msprop:Generator_ColumnPropNameInRow="lendbom_itname" msprop:Generator_ColumnPropNameInTable="lendbom_itnameColumn" msprop:Generator_UserColumnName="lendbom_itname" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="lendbom_itunit" msprop:Generator_ColumnVarNameInTable="columnlendbom_itunit" msprop:Generator_ColumnPropNameInRow="lendbom_itunit" msprop:Generator_ColumnPropNameInTable="lendbom_itunitColumn" msprop:Generator_UserColumnName="lendbom_itunit" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="lendbom_itqty" msprop:Generator_ColumnVarNameInTable="columnlendbom_itqty" msprop:Generator_ColumnPropNameInRow="lendbom_itqty" msprop:Generator_ColumnPropNameInTable="lendbom_itqtyColumn" msprop:Generator_UserColumnName="lendbom_itqty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="lendbom_itpareprs" msprop:Generator_ColumnVarNameInTable="columnlendbom_itpareprs" msprop:Generator_ColumnPropNameInRow="lendbom_itpareprs" msprop:Generator_ColumnPropNameInTable="lendbom_itpareprsColumn" msprop:Generator_UserColumnName="lendbom_itpareprs" type="xs:decimal" minOccurs="0" />
+              <xs:element name="lendbom_itpkgqty" msprop:Generator_ColumnVarNameInTable="columnlendbom_itpkgqty" msprop:Generator_ColumnPropNameInRow="lendbom_itpkgqty" msprop:Generator_ColumnPropNameInTable="lendbom_itpkgqtyColumn" msprop:Generator_UserColumnName="lendbom_itpkgqty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="lendbom_itrec" msprop:Generator_ColumnVarNameInTable="columnlendbom_itrec" msprop:Generator_ColumnPropNameInRow="lendbom_itrec" msprop:Generator_ColumnPropNameInTable="lendbom_itrecColumn" msprop:Generator_UserColumnName="lendbom_itrec" type="xs:decimal" minOccurs="0" />
+              <xs:element name="lendbom_itprice" msprop:Generator_ColumnVarNameInTable="columnlendbom_itprice" msprop:Generator_ColumnPropNameInRow="lendbom_itprice" msprop:Generator_ColumnPropNameInTable="lendbom_itpriceColumn" msprop:Generator_UserColumnName="lendbom_itprice" type="xs:decimal" minOccurs="0" />
+              <xs:element name="lendbom_itprs" msprop:Generator_ColumnVarNameInTable="columnlendbom_itprs" msprop:Generator_ColumnPropNameInRow="lendbom_itprs" msprop:Generator_ColumnPropNameInTable="lendbom_itprsColumn" msprop:Generator_UserColumnName="lendbom_itprs" type="xs:decimal" minOccurs="0" />
+              <xs:element name="lendbom_itmny" msprop:Generator_ColumnVarNameInTable="columnlendbom_itmny" msprop:Generator_ColumnPropNameInRow="lendbom_itmny" msprop:Generator_ColumnPropNameInTable="lendbom_itmnyColumn" msprop:Generator_UserColumnName="lendbom_itmny" type="xs:decimal" minOccurs="0" />
+              <xs:element name="lendbom_itnote" msprop:Generator_ColumnVarNameInTable="columnlendbom_itnote" msprop:Generator_ColumnPropNameInRow="lendbom_itnote" msprop:Generator_ColumnPropNameInTable="lendbom_itnoteColumn" msprop:Generator_UserColumnName="lendbom_itnote" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="lendbom_ItSource" msprop:Generator_ColumnVarNameInTable="columnlendbom_ItSource" msprop:Generator_ColumnPropNameInRow="lendbom_ItSource" msprop:Generator_ColumnPropNameInTable="lendbom_ItSourceColumn" msprop:Generator_UserColumnName="lendbom_ItSource" type="xs:decimal" minOccurs="0" />
+              <xs:element name="lendbom_ItBuyPri" msprop:Generator_ColumnVarNameInTable="columnlendbom_ItBuyPri" msprop:Generator_ColumnPropNameInRow="lendbom_ItBuyPri" msprop:Generator_ColumnPropNameInTable="lendbom_ItBuyPriColumn" msprop:Generator_UserColumnName="lendbom_ItBuyPri" type="xs:decimal" minOccurs="0" />
+              <xs:element name="lendbom_ItBuyMny" msprop:Generator_ColumnVarNameInTable="columnlendbom_ItBuyMny" msprop:Generator_ColumnPropNameInRow="lendbom_ItBuyMny" msprop:Generator_ColumnPropNameInTable="lendbom_ItBuyMnyColumn" msprop:Generator_UserColumnName="lendbom_ItBuyMny" type="xs:decimal" minOccurs="0" />
+              <xs:element name="scname" msprop:Generator_ColumnVarNameInTable="columnscname" msprop:Generator_ColumnPropNameInRow="scname" msprop:Generator_ColumnPropNameInTable="scnameColumn" msprop:Generator_UserColumnName="scname" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="scname1" msprop:Generator_ColumnVarNameInTable="columnscname1" msprop:Generator_ColumnPropNameInRow="scname1" msprop:Generator_ColumnPropNameInTable="scname1Column" msprop:Generator_UserColumnName="scname1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="item" msprop:Generator_TableClassName="itemDataTable" msprop:Generator_TableVarName="tableitem" msprop:Generator_TablePropName="item" msprop:Generator_RowDeletingName="itemRowDeleting" msprop:Generator_RowChangingName="itemRowChanging" msprop:Generator_RowEvHandlerName="itemRowChangeEventHandler" msprop:Generator_RowDeletedName="itemRowDeleted" msprop:Generator_UserTableName="item" msprop:Generator_RowChangedName="itemRowChanged" msprop:Generator_RowEvArgName="itemRowChangeEvent" msprop:Generator_RowClassName="itemRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="itno" msprop:Generator_ColumnVarNameInTable="columnitno" msprop:Generator_ColumnPropNameInRow="itno" msprop:Generator_ColumnPropNameInTable="itnoColumn" msprop:Generator_UserColumnName="itno">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="itnoudf" msprop:Generator_ColumnVarNameInTable="columnitnoudf" msprop:Generator_ColumnPropNameInRow="itnoudf" msprop:Generator_ColumnPropNameInTable="itnoudfColumn" msprop:Generator_UserColumnName="itnoudf" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="itname" msprop:Generator_ColumnVarNameInTable="columnitname" msprop:Generator_ColumnPropNameInRow="itname" msprop:Generator_ColumnPropNameInTable="itnameColumn" msprop:Generator_UserColumnName="itname" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="kino" msprop:Generator_ColumnVarNameInTable="columnkino" msprop:Generator_ColumnPropNameInRow="kino" msprop:Generator_ColumnPropNameInTable="kinoColumn" msprop:Generator_UserColumnName="kino" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="itime" msprop:Generator_ColumnVarNameInTable="columnitime" msprop:Generator_ColumnPropNameInRow="itime" msprop:Generator_ColumnPropNameInTable="itimeColumn" msprop:Generator_UserColumnName="itime" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ittrait" msprop:Generator_ColumnVarNameInTable="columnittrait" msprop:Generator_ColumnPropNameInRow="ittrait" msprop:Generator_ColumnPropNameInTable="ittraitColumn" msprop:Generator_UserColumnName="ittrait" type="xs:decimal" minOccurs="0" />
+              <xs:element name="itunit" msprop:Generator_ColumnVarNameInTable="columnitunit" msprop:Generator_ColumnPropNameInRow="itunit" msprop:Generator_ColumnPropNameInTable="itunitColumn" msprop:Generator_UserColumnName="itunit" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="itunitp" msprop:Generator_ColumnVarNameInTable="columnitunitp" msprop:Generator_ColumnPropNameInRow="itunitp" msprop:Generator_ColumnPropNameInTable="itunitpColumn" msprop:Generator_UserColumnName="itunitp" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="itpkgqty" msprop:Generator_ColumnVarNameInTable="columnitpkgqty" msprop:Generator_ColumnPropNameInRow="itpkgqty" msprop:Generator_ColumnPropNameInTable="itpkgqtyColumn" msprop:Generator_UserColumnName="itpkgqty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="itnw" msprop:Generator_ColumnVarNameInTable="columnitnw" msprop:Generator_ColumnPropNameInRow="itnw" msprop:Generator_ColumnPropNameInTable="itnwColumn" msprop:Generator_UserColumnName="itnw" type="xs:decimal" minOccurs="0" />
+              <xs:element name="itnwunit" msprop:Generator_ColumnVarNameInTable="columnitnwunit" msprop:Generator_ColumnPropNameInRow="itnwunit" msprop:Generator_ColumnPropNameInTable="itnwunitColumn" msprop:Generator_UserColumnName="itnwunit" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="6" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="itdesp1" msprop:Generator_ColumnVarNameInTable="columnitdesp1" msprop:Generator_ColumnPropNameInRow="itdesp1" msprop:Generator_ColumnPropNameInTable="itdesp1Column" msprop:Generator_UserColumnName="itdesp1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="itdesp2" msprop:Generator_ColumnVarNameInTable="columnitdesp2" msprop:Generator_ColumnPropNameInRow="itdesp2" msprop:Generator_ColumnPropNameInTable="itdesp2Column" msprop:Generator_UserColumnName="itdesp2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="itdesp3" msprop:Generator_ColumnVarNameInTable="columnitdesp3" msprop:Generator_ColumnPropNameInRow="itdesp3" msprop:Generator_ColumnPropNameInTable="itdesp3Column" msprop:Generator_UserColumnName="itdesp3" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="itdesp4" msprop:Generator_ColumnVarNameInTable="columnitdesp4" msprop:Generator_ColumnPropNameInRow="itdesp4" msprop:Generator_ColumnPropNameInTable="itdesp4Column" msprop:Generator_UserColumnName="itdesp4" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="itdesp5" msprop:Generator_ColumnVarNameInTable="columnitdesp5" msprop:Generator_ColumnPropNameInRow="itdesp5" msprop:Generator_ColumnPropNameInTable="itdesp5Column" msprop:Generator_UserColumnName="itdesp5" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="itdesp6" msprop:Generator_ColumnVarNameInTable="columnitdesp6" msprop:Generator_ColumnPropNameInRow="itdesp6" msprop:Generator_ColumnPropNameInTable="itdesp6Column" msprop:Generator_UserColumnName="itdesp6" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="itdesp7" msprop:Generator_ColumnVarNameInTable="columnitdesp7" msprop:Generator_ColumnPropNameInRow="itdesp7" msprop:Generator_ColumnPropNameInTable="itdesp7Column" msprop:Generator_UserColumnName="itdesp7" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="itdesp8" msprop:Generator_ColumnVarNameInTable="columnitdesp8" msprop:Generator_ColumnPropNameInRow="itdesp8" msprop:Generator_ColumnPropNameInTable="itdesp8Column" msprop:Generator_UserColumnName="itdesp8" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="itdesp9" msprop:Generator_ColumnVarNameInTable="columnitdesp9" msprop:Generator_ColumnPropNameInRow="itdesp9" msprop:Generator_ColumnPropNameInTable="itdesp9Column" msprop:Generator_UserColumnName="itdesp9" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="itdesp10" msprop:Generator_ColumnVarNameInTable="columnitdesp10" msprop:Generator_ColumnPropNameInRow="itdesp10" msprop:Generator_ColumnPropNameInTable="itdesp10Column" msprop:Generator_UserColumnName="itdesp10" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="itnote" msprop:Generator_ColumnVarNameInTable="columnitnote" msprop:Generator_ColumnPropNameInRow="itnote" msprop:Generator_ColumnPropNameInTable="itnoteColumn" msprop:Generator_UserColumnName="itnote" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="itudf1" msprop:Generator_ColumnVarNameInTable="columnitudf1" msprop:Generator_ColumnPropNameInRow="itudf1" msprop:Generator_ColumnPropNameInTable="itudf1Column" msprop:Generator_UserColumnName="itudf1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="itudf2" msprop:Generator_ColumnVarNameInTable="columnitudf2" msprop:Generator_ColumnPropNameInRow="itudf2" msprop:Generator_ColumnPropNameInTable="itudf2Column" msprop:Generator_UserColumnName="itudf2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="itudf3" msprop:Generator_ColumnVarNameInTable="columnitudf3" msprop:Generator_ColumnPropNameInRow="itudf3" msprop:Generator_ColumnPropNameInTable="itudf3Column" msprop:Generator_UserColumnName="itudf3" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="itudf4" msprop:Generator_ColumnVarNameInTable="columnitudf4" msprop:Generator_ColumnPropNameInRow="itudf4" msprop:Generator_ColumnPropNameInTable="itudf4Column" msprop:Generator_UserColumnName="itudf4" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="itudf5" msprop:Generator_ColumnVarNameInTable="columnitudf5" msprop:Generator_ColumnPropNameInRow="itudf5" msprop:Generator_ColumnPropNameInTable="itudf5Column" msprop:Generator_UserColumnName="itudf5" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fano" msprop:Generator_ColumnVarNameInTable="columnfano" msprop:Generator_ColumnPropNameInRow="fano" msprop:Generator_ColumnPropNameInTable="fanoColumn" msprop:Generator_UserColumnName="fano" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Punit" msprop:Generator_ColumnVarNameInTable="columnPunit" msprop:Generator_ColumnPropNameInRow="Punit" msprop:Generator_ColumnPropNameInTable="PunitColumn" msprop:Generator_UserColumnName="Punit" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ScNo" msprop:Generator_ColumnVarNameInTable="columnScNo" msprop:Generator_ColumnPropNameInRow="ScNo" msprop:Generator_ColumnPropNameInTable="ScNoColumn" msprop:Generator_UserColumnName="ScNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="cust" msprop:Generator_TableClassName="custDataTable" msprop:Generator_TableVarName="tablecust" msprop:Generator_TablePropName="cust" msprop:Generator_RowDeletingName="custRowDeleting" msprop:Generator_RowChangingName="custRowChanging" msprop:Generator_RowEvHandlerName="custRowChangeEventHandler" msprop:Generator_RowDeletedName="custRowDeleted" msprop:Generator_UserTableName="cust" msprop:Generator_RowChangedName="custRowChanged" msprop:Generator_RowEvArgName="custRowChangeEvent" msprop:Generator_RowClassName="custRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="cuno" msprop:Generator_ColumnVarNameInTable="columncuno" msprop:Generator_ColumnPropNameInRow="cuno" msprop:Generator_ColumnPropNameInTable="cunoColumn" msprop:Generator_UserColumnName="cuno">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cuemno1" msprop:Generator_ColumnVarNameInTable="columncuemno1" msprop:Generator_ColumnPropNameInRow="cuemno1" msprop:Generator_ColumnPropNameInTable="cuemno1Column" msprop:Generator_UserColumnName="cuemno1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cuname2" msprop:Generator_ColumnVarNameInTable="columncuname2" msprop:Generator_ColumnPropNameInRow="cuname2" msprop:Generator_ColumnPropNameInTable="cuname2Column" msprop:Generator_UserColumnName="cuname2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cuname1" msprop:Generator_ColumnVarNameInTable="columncuname1" msprop:Generator_ColumnPropNameInRow="cuname1" msprop:Generator_ColumnPropNameInTable="cuname1Column" msprop:Generator_UserColumnName="cuname1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cur1" msprop:Generator_ColumnVarNameInTable="columncur1" msprop:Generator_ColumnPropNameInRow="cur1" msprop:Generator_ColumnPropNameInTable="cur1Column" msprop:Generator_UserColumnName="cur1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cuaddr1" msprop:Generator_ColumnVarNameInTable="columncuaddr1" msprop:Generator_ColumnPropNameInRow="cuaddr1" msprop:Generator_ColumnPropNameInTable="cuaddr1Column" msprop:Generator_UserColumnName="cuaddr1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cur2" msprop:Generator_ColumnVarNameInTable="columncur2" msprop:Generator_ColumnPropNameInRow="cur2" msprop:Generator_ColumnPropNameInTable="cur2Column" msprop:Generator_UserColumnName="cur2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cuaddr2" msprop:Generator_ColumnVarNameInTable="columncuaddr2" msprop:Generator_ColumnPropNameInRow="cuaddr2" msprop:Generator_ColumnPropNameInTable="cuaddr2Column" msprop:Generator_UserColumnName="cuaddr2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cur3" msprop:Generator_ColumnVarNameInTable="columncur3" msprop:Generator_ColumnPropNameInRow="cur3" msprop:Generator_ColumnPropNameInTable="cur3Column" msprop:Generator_UserColumnName="cur3" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cuaddr3" msprop:Generator_ColumnVarNameInTable="columncuaddr3" msprop:Generator_ColumnPropNameInRow="cuaddr3" msprop:Generator_ColumnPropNameInTable="cuaddr3Column" msprop:Generator_UserColumnName="cuaddr3" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="empl" msprop:Generator_TableClassName="emplDataTable" msprop:Generator_TableVarName="tableempl" msprop:Generator_TablePropName="empl" msprop:Generator_RowDeletingName="emplRowDeleting" msprop:Generator_RowChangingName="emplRowChanging" msprop:Generator_RowEvHandlerName="emplRowChangeEventHandler" msprop:Generator_RowDeletedName="emplRowDeleted" msprop:Generator_UserTableName="empl" msprop:Generator_RowChangedName="emplRowChanged" msprop:Generator_RowEvArgName="emplRowChangeEvent" msprop:Generator_RowClassName="emplRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="emno" msprop:Generator_ColumnVarNameInTable="columnemno" msprop:Generator_ColumnPropNameInRow="emno" msprop:Generator_ColumnPropNameInTable="emnoColumn" msprop:Generator_UserColumnName="emno">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="emname" msprop:Generator_ColumnVarNameInTable="columnemname" msprop:Generator_ColumnPropNameInRow="emname" msprop:Generator_ColumnPropNameInTable="emnameColumn" msprop:Generator_UserColumnName="emname" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:item" />
+      <xs:field xpath="mstns:itno" />
+    </xs:unique>
+    <xs:unique name="cust_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:cust" />
+      <xs:field xpath="mstns:cuno" />
+    </xs:unique>
+    <xs:unique name="empl_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:empl" />
+      <xs:field xpath="mstns:emno" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

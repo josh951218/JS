@@ -1,0 +1,814 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="Allot" targetNamespace="http://tempuri.org/Allot.xsd" xmlns:mstns="http://tempuri.org/Allot.xsd" xmlns="http://tempuri.org/Allot.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="3" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="webConnectionString" IsAppSettingsProperty="true" Modifier="Assembly" Name="webConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.S_61.Properties.Settings.GlobalReference.Default.webConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="STOCKConnectionString" IsAppSettingsProperty="true" Modifier="Assembly" Name="STOCKConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.S_61.Properties.Settings.GlobalReference.Default.STOCKConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="CENTERConnectionString" IsAppSettingsProperty="true" Modifier="Assembly" Name="CENTERConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.S_61.Properties.Settings.GlobalReference.Default.CENTERConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="LONGConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="LONGConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.S_61.Properties.Settings.GlobalReference.Default.LONGConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="allotTableAdapter" GeneratorDataComponentClassName="allotTableAdapter" Name="allot" UserDataComponentName="allotTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="LONGConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT          allot.alno AS allot_alno, allot.aldate AS allot_aldate, allot.aldate1 AS allot_aldate1, allot.aldate2 AS allot_aldate2, 
+                            allot.cono AS allot_cono, allot.coname1 AS allot_coname1, allot.coname2 AS allot_coname2, 
+                            allot.stnoo AS allot_stnoo, allot.stnameo AS allot_stnameo, allot.stnoi AS allot_stnoi, allot.stnamei AS allot_stnamei, 
+                            allot.emno AS allot_emno, allot.emname AS allot_emname, allot.almemo AS allot_almemo, 
+                            allot.bracket AS allot_bracket, allot.recordno AS allot_recordno, allot.stname AS allot_stname, 
+                            allot.UsrNo AS allot_UsrNo, AlloBom.AlNo AS AlloBom_AlNo, AlloBom.BomID AS AlloBom_BomID, 
+                            AlloBom.BomRec AS AlloBom_BomRec, AlloBom.itno AS AlloBom_itno, AlloBom.itname AS AlloBom_itname, 
+                            AlloBom.itunit AS AlloBom_itunit, AlloBom.itqty AS AlloBom_itqty, AlloBom.itpareprs AS AlloBom_itpareprs, 
+                            AlloBom.itpkgqty AS AlloBom_itpkgqty, AlloBom.itrec AS AlloBom_itrec, AlloBom.itprice AS AlloBom_itprice, 
+                            AlloBom.itprs AS AlloBom_itprs, AlloBom.itmny AS AlloBom_itmny, AlloBom.itnote AS AlloBom_itnote, 
+                            AlloBom.ItSource AS AlloBom_ItSource, AlloBom.ItBuyPri AS AlloBom_ItBuyPri, 
+                            AlloBom.ItBuyMny AS AlloBom_ItBuyMny, allotd.alno AS allotd_alno, allotd.aldate AS allotd_aldate, 
+                            allotd.aldate1 AS allotd_aldate1, allotd.aldate2 AS allotd_aldate2, allotd.cono AS allotd_cono, 
+                            allotd.stnoo AS allotd_stnoo, allotd.stnoi AS allotd_stnoi, allotd.emno AS allotd_emno, allotd.itno AS allotd_itno, 
+                            allotd.itname AS allotd_itname, allotd.ittrait AS allotd_ittrait, allotd.itunit AS allotd_itunit, 
+                            allotd.itpkgqty AS allotd_itpkgqty, allotd.qty AS allotd_qty, allotd.memo AS allotd_memo, 
+                            allotd.lowzero AS allotd_lowzero, allotd.bomid AS allotd_bomid, allotd.bomrec AS allotd_bomrec, 
+                            allotd.recordno AS allotd_recordno, allotd.sltflag AS allotd_sltflag, allotd.extflag AS allotd_extflag, 
+                            allotd.bracket AS allotd_bracket, allotd.itdesp1 AS allotd_itdesp1, allotd.itdesp2 AS allotd_itdesp2, 
+                            allotd.itdesp3 AS allotd_itdesp3, allotd.itdesp4 AS allotd_itdesp4, allotd.itdesp5 AS allotd_itdesp5, 
+                            allotd.itdesp6 AS allotd_itdesp6, allotd.itdesp7 AS allotd_itdesp7, allotd.itdesp8 AS allotd_itdesp8, 
+                            allotd.itdesp9 AS allotd_itdesp9, allotd.itdesp10 AS allotd_itdesp10, allot.AppScNo AS allot_AppScNo, 
+                            allot.AppDate AS allot_AppDate, allot.EdtScNo AS allot_EdtScNo, allot.EdtDate AS allot_EdtDate, 
+                            allot.almemo1 AS allot_almemo1,scrit.scname,scrit.scname1 
+FROM              allot 
+
+ LEFT   JOIN scrit ON allot .appscno = scrit.scname  
+
+
+LEFT OUTER JOIN
+                            AlloBom ON allot.alno = AlloBom.AlNo LEFT OUTER JOIN
+                            allotd ON allot.alno = allotd.alno</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="allot_alno" DataSetColumn="allot_alno" />
+              <Mapping SourceColumn="allot_aldate" DataSetColumn="allot_aldate" />
+              <Mapping SourceColumn="allot_aldate2" DataSetColumn="allot_aldate2" />
+              <Mapping SourceColumn="allot_cono" DataSetColumn="allot_cono" />
+              <Mapping SourceColumn="allot_coname1" DataSetColumn="allot_coname1" />
+              <Mapping SourceColumn="allot_coname2" DataSetColumn="allot_coname2" />
+              <Mapping SourceColumn="allot_stnoo" DataSetColumn="allot_stnoo" />
+              <Mapping SourceColumn="allot_stnameo" DataSetColumn="allot_stnameo" />
+              <Mapping SourceColumn="allot_stnoi" DataSetColumn="allot_stnoi" />
+              <Mapping SourceColumn="allot_stnamei" DataSetColumn="allot_stnamei" />
+              <Mapping SourceColumn="allot_emno" DataSetColumn="allot_emno" />
+              <Mapping SourceColumn="allot_emname" DataSetColumn="allot_emname" />
+              <Mapping SourceColumn="allot_almemo" DataSetColumn="allot_almemo" />
+              <Mapping SourceColumn="allot_bracket" DataSetColumn="allot_bracket" />
+              <Mapping SourceColumn="allot_recordno" DataSetColumn="allot_recordno" />
+              <Mapping SourceColumn="allot_stname" DataSetColumn="allot_stname" />
+              <Mapping SourceColumn="allot_UsrNo" DataSetColumn="allot_UsrNo" />
+              <Mapping SourceColumn="AlloBom_AlNo" DataSetColumn="AlloBom_AlNo" />
+              <Mapping SourceColumn="AlloBom_BomID" DataSetColumn="AlloBom_BomID" />
+              <Mapping SourceColumn="AlloBom_BomRec" DataSetColumn="AlloBom_BomRec" />
+              <Mapping SourceColumn="AlloBom_itno" DataSetColumn="AlloBom_itno" />
+              <Mapping SourceColumn="AlloBom_itname" DataSetColumn="AlloBom_itname" />
+              <Mapping SourceColumn="AlloBom_itunit" DataSetColumn="AlloBom_itunit" />
+              <Mapping SourceColumn="AlloBom_itqty" DataSetColumn="AlloBom_itqty" />
+              <Mapping SourceColumn="AlloBom_itpareprs" DataSetColumn="AlloBom_itpareprs" />
+              <Mapping SourceColumn="AlloBom_itpkgqty" DataSetColumn="AlloBom_itpkgqty" />
+              <Mapping SourceColumn="AlloBom_itrec" DataSetColumn="AlloBom_itrec" />
+              <Mapping SourceColumn="AlloBom_itprice" DataSetColumn="AlloBom_itprice" />
+              <Mapping SourceColumn="AlloBom_itprs" DataSetColumn="AlloBom_itprs" />
+              <Mapping SourceColumn="AlloBom_itmny" DataSetColumn="AlloBom_itmny" />
+              <Mapping SourceColumn="AlloBom_itnote" DataSetColumn="AlloBom_itnote" />
+              <Mapping SourceColumn="AlloBom_ItSource" DataSetColumn="AlloBom_ItSource" />
+              <Mapping SourceColumn="AlloBom_ItBuyPri" DataSetColumn="AlloBom_ItBuyPri" />
+              <Mapping SourceColumn="AlloBom_ItBuyMny" DataSetColumn="AlloBom_ItBuyMny" />
+              <Mapping SourceColumn="allotd_alno" DataSetColumn="allotd_alno" />
+              <Mapping SourceColumn="allotd_aldate" DataSetColumn="allotd_aldate" />
+              <Mapping SourceColumn="allotd_cono" DataSetColumn="allotd_cono" />
+              <Mapping SourceColumn="allotd_stnoo" DataSetColumn="allotd_stnoo" />
+              <Mapping SourceColumn="allotd_stnoi" DataSetColumn="allotd_stnoi" />
+              <Mapping SourceColumn="allotd_emno" DataSetColumn="allotd_emno" />
+              <Mapping SourceColumn="allotd_itno" DataSetColumn="allotd_itno" />
+              <Mapping SourceColumn="allotd_itname" DataSetColumn="allotd_itname" />
+              <Mapping SourceColumn="allotd_ittrait" DataSetColumn="allotd_ittrait" />
+              <Mapping SourceColumn="allotd_itunit" DataSetColumn="allotd_itunit" />
+              <Mapping SourceColumn="allotd_itpkgqty" DataSetColumn="allotd_itpkgqty" />
+              <Mapping SourceColumn="allotd_qty" DataSetColumn="allotd_qty" />
+              <Mapping SourceColumn="allotd_memo" DataSetColumn="allotd_memo" />
+              <Mapping SourceColumn="allotd_lowzero" DataSetColumn="allotd_lowzero" />
+              <Mapping SourceColumn="allotd_bomid" DataSetColumn="allotd_bomid" />
+              <Mapping SourceColumn="allotd_bomrec" DataSetColumn="allotd_bomrec" />
+              <Mapping SourceColumn="allotd_recordno" DataSetColumn="allotd_recordno" />
+              <Mapping SourceColumn="allotd_sltflag" DataSetColumn="allotd_sltflag" />
+              <Mapping SourceColumn="allotd_extflag" DataSetColumn="allotd_extflag" />
+              <Mapping SourceColumn="allotd_bracket" DataSetColumn="allotd_bracket" />
+              <Mapping SourceColumn="allotd_itdesp1" DataSetColumn="allotd_itdesp1" />
+              <Mapping SourceColumn="allotd_itdesp2" DataSetColumn="allotd_itdesp2" />
+              <Mapping SourceColumn="allotd_itdesp3" DataSetColumn="allotd_itdesp3" />
+              <Mapping SourceColumn="allotd_itdesp4" DataSetColumn="allotd_itdesp4" />
+              <Mapping SourceColumn="allotd_itdesp5" DataSetColumn="allotd_itdesp5" />
+              <Mapping SourceColumn="allotd_itdesp6" DataSetColumn="allotd_itdesp6" />
+              <Mapping SourceColumn="allotd_itdesp7" DataSetColumn="allotd_itdesp7" />
+              <Mapping SourceColumn="allotd_itdesp8" DataSetColumn="allotd_itdesp8" />
+              <Mapping SourceColumn="allotd_itdesp9" DataSetColumn="allotd_itdesp9" />
+              <Mapping SourceColumn="allotd_itdesp10" DataSetColumn="allotd_itdesp10" />
+              <Mapping SourceColumn="allot_aldate1" DataSetColumn="allot_aldate1" />
+              <Mapping SourceColumn="allotd_aldate1" DataSetColumn="allotd_aldate1" />
+              <Mapping SourceColumn="allotd_aldate2" DataSetColumn="allotd_aldate2" />
+              <Mapping SourceColumn="allot_AppScNo" DataSetColumn="allot_AppScNo" />
+              <Mapping SourceColumn="allot_AppDate" DataSetColumn="allot_AppDate" />
+              <Mapping SourceColumn="allot_EdtScNo" DataSetColumn="allot_EdtScNo" />
+              <Mapping SourceColumn="allot_EdtDate" DataSetColumn="allot_EdtDate" />
+              <Mapping SourceColumn="allot_almemo1" DataSetColumn="allot_almemo1" />
+              <Mapping SourceColumn="scname" DataSetColumn="scname" />
+              <Mapping SourceColumn="scname1" DataSetColumn="scname1" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="itemTableAdapter" GeneratorDataComponentClassName="itemTableAdapter" Name="item" UserDataComponentName="itemTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="LONGConnectionString (Settings)" DbObjectName="LONG.dbo.item" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="false" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT 
+                            itno, itnoudf, itname, kino, itime, ittrait, itunit, itunitp, itpkgqty, itnw, itnwunit, itdesp1, itdesp2, itdesp3, itdesp4, 
+                            itdesp5, itdesp6, itdesp7, itdesp8, itdesp9, itdesp10, itnote, itudf1, itudf2, itudf3, itudf4, itudf5, fano, Punit, ScNo
+                            FROM item </CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="itno" DataSetColumn="itno" />
+              <Mapping SourceColumn="itnoudf" DataSetColumn="itnoudf" />
+              <Mapping SourceColumn="itname" DataSetColumn="itname" />
+              <Mapping SourceColumn="kino" DataSetColumn="kino" />
+              <Mapping SourceColumn="itime" DataSetColumn="itime" />
+              <Mapping SourceColumn="ittrait" DataSetColumn="ittrait" />
+              <Mapping SourceColumn="itunit" DataSetColumn="itunit" />
+              <Mapping SourceColumn="itunitp" DataSetColumn="itunitp" />
+              <Mapping SourceColumn="itpkgqty" DataSetColumn="itpkgqty" />
+              <Mapping SourceColumn="itnw" DataSetColumn="itnw" />
+              <Mapping SourceColumn="itnwunit" DataSetColumn="itnwunit" />
+              <Mapping SourceColumn="itdesp1" DataSetColumn="itdesp1" />
+              <Mapping SourceColumn="itdesp2" DataSetColumn="itdesp2" />
+              <Mapping SourceColumn="itdesp3" DataSetColumn="itdesp3" />
+              <Mapping SourceColumn="itdesp4" DataSetColumn="itdesp4" />
+              <Mapping SourceColumn="itdesp5" DataSetColumn="itdesp5" />
+              <Mapping SourceColumn="itdesp6" DataSetColumn="itdesp6" />
+              <Mapping SourceColumn="itdesp7" DataSetColumn="itdesp7" />
+              <Mapping SourceColumn="itdesp8" DataSetColumn="itdesp8" />
+              <Mapping SourceColumn="itdesp9" DataSetColumn="itdesp9" />
+              <Mapping SourceColumn="itdesp10" DataSetColumn="itdesp10" />
+              <Mapping SourceColumn="itnote" DataSetColumn="itnote" />
+              <Mapping SourceColumn="itudf1" DataSetColumn="itudf1" />
+              <Mapping SourceColumn="itudf2" DataSetColumn="itudf2" />
+              <Mapping SourceColumn="itudf3" DataSetColumn="itudf3" />
+              <Mapping SourceColumn="itudf4" DataSetColumn="itudf4" />
+              <Mapping SourceColumn="itudf5" DataSetColumn="itudf5" />
+              <Mapping SourceColumn="fano" DataSetColumn="fano" />
+              <Mapping SourceColumn="Punit" DataSetColumn="Punit" />
+              <Mapping SourceColumn="ScNo" DataSetColumn="ScNo" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="Allot" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="Allot" msprop:Generator_UserDSName="Allot">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="allot" msprop:Generator_TableClassName="allotDataTable" msprop:Generator_TableVarName="tableallot" msprop:Generator_TablePropName="allot" msprop:Generator_RowDeletingName="allotRowDeleting" msprop:Generator_RowChangingName="allotRowChanging" msprop:Generator_RowEvHandlerName="allotRowChangeEventHandler" msprop:Generator_RowDeletedName="allotRowDeleted" msprop:Generator_UserTableName="allot" msprop:Generator_RowChangedName="allotRowChanged" msprop:Generator_RowEvArgName="allotRowChangeEvent" msprop:Generator_RowClassName="allotRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="allot_alno" msprop:Generator_ColumnVarNameInTable="columnallot_alno" msprop:Generator_ColumnPropNameInRow="allot_alno" msprop:Generator_ColumnPropNameInTable="allot_alnoColumn" msprop:Generator_UserColumnName="allot_alno">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="12" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="allot_aldate" msprop:Generator_ColumnVarNameInTable="columnallot_aldate" msprop:Generator_ColumnPropNameInRow="allot_aldate" msprop:Generator_ColumnPropNameInTable="allot_aldateColumn" msprop:Generator_UserColumnName="allot_aldate" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="allot_aldate2" msprop:Generator_ColumnVarNameInTable="columnallot_aldate2" msprop:Generator_ColumnPropNameInRow="allot_aldate2" msprop:Generator_ColumnPropNameInTable="allot_aldate2Column" msprop:Generator_UserColumnName="allot_aldate2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="allot_cono" msprop:Generator_ColumnVarNameInTable="columnallot_cono" msprop:Generator_ColumnPropNameInRow="allot_cono" msprop:Generator_ColumnPropNameInTable="allot_conoColumn" msprop:Generator_UserColumnName="allot_cono" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="allot_coname1" msprop:Generator_ColumnVarNameInTable="columnallot_coname1" msprop:Generator_ColumnPropNameInRow="allot_coname1" msprop:Generator_ColumnPropNameInTable="allot_coname1Column" msprop:Generator_UserColumnName="allot_coname1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="allot_coname2" msprop:Generator_ColumnVarNameInTable="columnallot_coname2" msprop:Generator_ColumnPropNameInRow="allot_coname2" msprop:Generator_ColumnPropNameInTable="allot_coname2Column" msprop:Generator_UserColumnName="allot_coname2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="allot_stnoo" msprop:Generator_ColumnVarNameInTable="columnallot_stnoo" msprop:Generator_ColumnPropNameInRow="allot_stnoo" msprop:Generator_ColumnPropNameInTable="allot_stnooColumn" msprop:Generator_UserColumnName="allot_stnoo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="allot_stnameo" msprop:Generator_ColumnVarNameInTable="columnallot_stnameo" msprop:Generator_ColumnPropNameInRow="allot_stnameo" msprop:Generator_ColumnPropNameInTable="allot_stnameoColumn" msprop:Generator_UserColumnName="allot_stnameo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="allot_stnoi" msprop:Generator_ColumnVarNameInTable="columnallot_stnoi" msprop:Generator_ColumnPropNameInRow="allot_stnoi" msprop:Generator_ColumnPropNameInTable="allot_stnoiColumn" msprop:Generator_UserColumnName="allot_stnoi" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="allot_stnamei" msprop:Generator_ColumnVarNameInTable="columnallot_stnamei" msprop:Generator_ColumnPropNameInRow="allot_stnamei" msprop:Generator_ColumnPropNameInTable="allot_stnameiColumn" msprop:Generator_UserColumnName="allot_stnamei" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="allot_emno" msprop:Generator_ColumnVarNameInTable="columnallot_emno" msprop:Generator_ColumnPropNameInRow="allot_emno" msprop:Generator_ColumnPropNameInTable="allot_emnoColumn" msprop:Generator_UserColumnName="allot_emno" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="allot_emname" msprop:Generator_ColumnVarNameInTable="columnallot_emname" msprop:Generator_ColumnPropNameInRow="allot_emname" msprop:Generator_ColumnPropNameInTable="allot_emnameColumn" msprop:Generator_UserColumnName="allot_emname" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="allot_almemo" msprop:Generator_ColumnVarNameInTable="columnallot_almemo" msprop:Generator_ColumnPropNameInRow="allot_almemo" msprop:Generator_ColumnPropNameInTable="allot_almemoColumn" msprop:Generator_UserColumnName="allot_almemo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="allot_bracket" msprop:Generator_ColumnVarNameInTable="columnallot_bracket" msprop:Generator_ColumnPropNameInRow="allot_bracket" msprop:Generator_ColumnPropNameInTable="allot_bracketColumn" msprop:Generator_UserColumnName="allot_bracket" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="6" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="allot_recordno" msprop:Generator_ColumnVarNameInTable="columnallot_recordno" msprop:Generator_ColumnPropNameInRow="allot_recordno" msprop:Generator_ColumnPropNameInTable="allot_recordnoColumn" msprop:Generator_UserColumnName="allot_recordno" type="xs:decimal" minOccurs="0" />
+              <xs:element name="allot_stname" msprop:Generator_ColumnVarNameInTable="columnallot_stname" msprop:Generator_ColumnPropNameInRow="allot_stname" msprop:Generator_ColumnPropNameInTable="allot_stnameColumn" msprop:Generator_UserColumnName="allot_stname" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="allot_UsrNo" msprop:Generator_ColumnVarNameInTable="columnallot_UsrNo" msprop:Generator_ColumnPropNameInRow="allot_UsrNo" msprop:Generator_ColumnPropNameInTable="allot_UsrNoColumn" msprop:Generator_UserColumnName="allot_UsrNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AlloBom_AlNo" msprop:Generator_ColumnVarNameInTable="columnAlloBom_AlNo" msprop:Generator_ColumnPropNameInRow="AlloBom_AlNo" msprop:Generator_ColumnPropNameInTable="AlloBom_AlNoColumn" msprop:Generator_UserColumnName="AlloBom_AlNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="16" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AlloBom_BomID" msprop:Generator_ColumnVarNameInTable="columnAlloBom_BomID" msprop:Generator_ColumnPropNameInRow="AlloBom_BomID" msprop:Generator_ColumnPropNameInTable="AlloBom_BomIDColumn" msprop:Generator_UserColumnName="AlloBom_BomID" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AlloBom_BomRec" msprop:Generator_ColumnVarNameInTable="columnAlloBom_BomRec" msprop:Generator_ColumnPropNameInRow="AlloBom_BomRec" msprop:Generator_ColumnPropNameInTable="AlloBom_BomRecColumn" msprop:Generator_UserColumnName="AlloBom_BomRec" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AlloBom_itno" msprop:Generator_ColumnVarNameInTable="columnAlloBom_itno" msprop:Generator_ColumnPropNameInRow="AlloBom_itno" msprop:Generator_ColumnPropNameInTable="AlloBom_itnoColumn" msprop:Generator_UserColumnName="AlloBom_itno" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AlloBom_itname" msprop:Generator_ColumnVarNameInTable="columnAlloBom_itname" msprop:Generator_ColumnPropNameInRow="AlloBom_itname" msprop:Generator_ColumnPropNameInTable="AlloBom_itnameColumn" msprop:Generator_UserColumnName="AlloBom_itname" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AlloBom_itunit" msprop:Generator_ColumnVarNameInTable="columnAlloBom_itunit" msprop:Generator_ColumnPropNameInRow="AlloBom_itunit" msprop:Generator_ColumnPropNameInTable="AlloBom_itunitColumn" msprop:Generator_UserColumnName="AlloBom_itunit" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AlloBom_itqty" msprop:Generator_ColumnVarNameInTable="columnAlloBom_itqty" msprop:Generator_ColumnPropNameInRow="AlloBom_itqty" msprop:Generator_ColumnPropNameInTable="AlloBom_itqtyColumn" msprop:Generator_UserColumnName="AlloBom_itqty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="AlloBom_itpareprs" msprop:Generator_ColumnVarNameInTable="columnAlloBom_itpareprs" msprop:Generator_ColumnPropNameInRow="AlloBom_itpareprs" msprop:Generator_ColumnPropNameInTable="AlloBom_itpareprsColumn" msprop:Generator_UserColumnName="AlloBom_itpareprs" type="xs:decimal" minOccurs="0" />
+              <xs:element name="AlloBom_itpkgqty" msprop:Generator_ColumnVarNameInTable="columnAlloBom_itpkgqty" msprop:Generator_ColumnPropNameInRow="AlloBom_itpkgqty" msprop:Generator_ColumnPropNameInTable="AlloBom_itpkgqtyColumn" msprop:Generator_UserColumnName="AlloBom_itpkgqty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="AlloBom_itrec" msprop:Generator_ColumnVarNameInTable="columnAlloBom_itrec" msprop:Generator_ColumnPropNameInRow="AlloBom_itrec" msprop:Generator_ColumnPropNameInTable="AlloBom_itrecColumn" msprop:Generator_UserColumnName="AlloBom_itrec" type="xs:decimal" minOccurs="0" />
+              <xs:element name="AlloBom_itprice" msprop:Generator_ColumnVarNameInTable="columnAlloBom_itprice" msprop:Generator_ColumnPropNameInRow="AlloBom_itprice" msprop:Generator_ColumnPropNameInTable="AlloBom_itpriceColumn" msprop:Generator_UserColumnName="AlloBom_itprice" type="xs:decimal" minOccurs="0" />
+              <xs:element name="AlloBom_itprs" msprop:Generator_ColumnVarNameInTable="columnAlloBom_itprs" msprop:Generator_ColumnPropNameInRow="AlloBom_itprs" msprop:Generator_ColumnPropNameInTable="AlloBom_itprsColumn" msprop:Generator_UserColumnName="AlloBom_itprs" type="xs:decimal" minOccurs="0" />
+              <xs:element name="AlloBom_itmny" msprop:Generator_ColumnVarNameInTable="columnAlloBom_itmny" msprop:Generator_ColumnPropNameInRow="AlloBom_itmny" msprop:Generator_ColumnPropNameInTable="AlloBom_itmnyColumn" msprop:Generator_UserColumnName="AlloBom_itmny" type="xs:decimal" minOccurs="0" />
+              <xs:element name="AlloBom_itnote" msprop:Generator_ColumnVarNameInTable="columnAlloBom_itnote" msprop:Generator_ColumnPropNameInRow="AlloBom_itnote" msprop:Generator_ColumnPropNameInTable="AlloBom_itnoteColumn" msprop:Generator_UserColumnName="AlloBom_itnote" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AlloBom_ItSource" msprop:Generator_ColumnVarNameInTable="columnAlloBom_ItSource" msprop:Generator_ColumnPropNameInRow="AlloBom_ItSource" msprop:Generator_ColumnPropNameInTable="AlloBom_ItSourceColumn" msprop:Generator_UserColumnName="AlloBom_ItSource" type="xs:decimal" minOccurs="0" />
+              <xs:element name="AlloBom_ItBuyPri" msprop:Generator_ColumnVarNameInTable="columnAlloBom_ItBuyPri" msprop:Generator_ColumnPropNameInRow="AlloBom_ItBuyPri" msprop:Generator_ColumnPropNameInTable="AlloBom_ItBuyPriColumn" msprop:Generator_UserColumnName="AlloBom_ItBuyPri" type="xs:decimal" minOccurs="0" />
+              <xs:element name="AlloBom_ItBuyMny" msprop:Generator_ColumnVarNameInTable="columnAlloBom_ItBuyMny" msprop:Generator_ColumnPropNameInRow="AlloBom_ItBuyMny" msprop:Generator_ColumnPropNameInTable="AlloBom_ItBuyMnyColumn" msprop:Generator_UserColumnName="AlloBom_ItBuyMny" type="xs:decimal" minOccurs="0" />
+              <xs:element name="allotd_alno" msprop:Generator_ColumnVarNameInTable="columnallotd_alno" msprop:Generator_ColumnPropNameInRow="allotd_alno" msprop:Generator_ColumnPropNameInTable="allotd_alnoColumn" msprop:Generator_UserColumnName="allotd_alno" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="12" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="allotd_aldate" msprop:Generator_ColumnVarNameInTable="columnallotd_aldate" msprop:Generator_ColumnPropNameInRow="allotd_aldate" msprop:Generator_ColumnPropNameInTable="allotd_aldateColumn" msprop:Generator_UserColumnName="allotd_aldate" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="allotd_cono" msprop:Generator_ColumnVarNameInTable="columnallotd_cono" msprop:Generator_ColumnPropNameInRow="allotd_cono" msprop:Generator_ColumnPropNameInTable="allotd_conoColumn" msprop:Generator_UserColumnName="allotd_cono" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="allotd_stnoo" msprop:Generator_ColumnVarNameInTable="columnallotd_stnoo" msprop:Generator_ColumnPropNameInRow="allotd_stnoo" msprop:Generator_ColumnPropNameInTable="allotd_stnooColumn" msprop:Generator_UserColumnName="allotd_stnoo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="allotd_stnoi" msprop:Generator_ColumnVarNameInTable="columnallotd_stnoi" msprop:Generator_ColumnPropNameInRow="allotd_stnoi" msprop:Generator_ColumnPropNameInTable="allotd_stnoiColumn" msprop:Generator_UserColumnName="allotd_stnoi" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="allotd_emno" msprop:Generator_ColumnVarNameInTable="columnallotd_emno" msprop:Generator_ColumnPropNameInRow="allotd_emno" msprop:Generator_ColumnPropNameInTable="allotd_emnoColumn" msprop:Generator_UserColumnName="allotd_emno" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="allotd_itno" msprop:Generator_ColumnVarNameInTable="columnallotd_itno" msprop:Generator_ColumnPropNameInRow="allotd_itno" msprop:Generator_ColumnPropNameInTable="allotd_itnoColumn" msprop:Generator_UserColumnName="allotd_itno" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="allotd_itname" msprop:Generator_ColumnVarNameInTable="columnallotd_itname" msprop:Generator_ColumnPropNameInRow="allotd_itname" msprop:Generator_ColumnPropNameInTable="allotd_itnameColumn" msprop:Generator_UserColumnName="allotd_itname" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="allotd_ittrait" msprop:Generator_ColumnVarNameInTable="columnallotd_ittrait" msprop:Generator_ColumnPropNameInRow="allotd_ittrait" msprop:Generator_ColumnPropNameInTable="allotd_ittraitColumn" msprop:Generator_UserColumnName="allotd_ittrait" type="xs:decimal" minOccurs="0" />
+              <xs:element name="allotd_itunit" msprop:Generator_ColumnVarNameInTable="columnallotd_itunit" msprop:Generator_ColumnPropNameInRow="allotd_itunit" msprop:Generator_ColumnPropNameInTable="allotd_itunitColumn" msprop:Generator_UserColumnName="allotd_itunit" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="allotd_itpkgqty" msprop:Generator_ColumnVarNameInTable="columnallotd_itpkgqty" msprop:Generator_ColumnPropNameInRow="allotd_itpkgqty" msprop:Generator_ColumnPropNameInTable="allotd_itpkgqtyColumn" msprop:Generator_UserColumnName="allotd_itpkgqty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="allotd_qty" msprop:Generator_ColumnVarNameInTable="columnallotd_qty" msprop:Generator_ColumnPropNameInRow="allotd_qty" msprop:Generator_ColumnPropNameInTable="allotd_qtyColumn" msprop:Generator_UserColumnName="allotd_qty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="allotd_memo" msprop:Generator_ColumnVarNameInTable="columnallotd_memo" msprop:Generator_ColumnPropNameInRow="allotd_memo" msprop:Generator_ColumnPropNameInTable="allotd_memoColumn" msprop:Generator_UserColumnName="allotd_memo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="allotd_lowzero" msprop:Generator_ColumnVarNameInTable="columnallotd_lowzero" msprop:Generator_ColumnPropNameInRow="allotd_lowzero" msprop:Generator_ColumnPropNameInTable="allotd_lowzeroColumn" msprop:Generator_UserColumnName="allotd_lowzero" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="allotd_bomid" msprop:Generator_ColumnVarNameInTable="columnallotd_bomid" msprop:Generator_ColumnPropNameInRow="allotd_bomid" msprop:Generator_ColumnPropNameInTable="allotd_bomidColumn" msprop:Generator_UserColumnName="allotd_bomid" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="allotd_bomrec" msprop:Generator_ColumnVarNameInTable="columnallotd_bomrec" msprop:Generator_ColumnPropNameInRow="allotd_bomrec" msprop:Generator_ColumnPropNameInTable="allotd_bomrecColumn" msprop:Generator_UserColumnName="allotd_bomrec" type="xs:decimal" minOccurs="0" />
+              <xs:element name="allotd_recordno" msprop:Generator_ColumnVarNameInTable="columnallotd_recordno" msprop:Generator_ColumnPropNameInRow="allotd_recordno" msprop:Generator_ColumnPropNameInTable="allotd_recordnoColumn" msprop:Generator_UserColumnName="allotd_recordno" type="xs:decimal" minOccurs="0" />
+              <xs:element name="allotd_sltflag" msprop:Generator_ColumnVarNameInTable="columnallotd_sltflag" msprop:Generator_ColumnPropNameInRow="allotd_sltflag" msprop:Generator_ColumnPropNameInTable="allotd_sltflagColumn" msprop:Generator_UserColumnName="allotd_sltflag" type="xs:boolean" minOccurs="0" />
+              <xs:element name="allotd_extflag" msprop:Generator_ColumnVarNameInTable="columnallotd_extflag" msprop:Generator_ColumnPropNameInRow="allotd_extflag" msprop:Generator_ColumnPropNameInTable="allotd_extflagColumn" msprop:Generator_UserColumnName="allotd_extflag" type="xs:boolean" minOccurs="0" />
+              <xs:element name="allotd_bracket" msprop:Generator_ColumnVarNameInTable="columnallotd_bracket" msprop:Generator_ColumnPropNameInRow="allotd_bracket" msprop:Generator_ColumnPropNameInTable="allotd_bracketColumn" msprop:Generator_UserColumnName="allotd_bracket" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="6" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="allotd_itdesp1" msprop:Generator_ColumnVarNameInTable="columnallotd_itdesp1" msprop:Generator_ColumnPropNameInRow="allotd_itdesp1" msprop:Generator_ColumnPropNameInTable="allotd_itdesp1Column" msprop:Generator_UserColumnName="allotd_itdesp1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="allotd_itdesp2" msprop:Generator_ColumnVarNameInTable="columnallotd_itdesp2" msprop:Generator_ColumnPropNameInRow="allotd_itdesp2" msprop:Generator_ColumnPropNameInTable="allotd_itdesp2Column" msprop:Generator_UserColumnName="allotd_itdesp2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="allotd_itdesp3" msprop:Generator_ColumnVarNameInTable="columnallotd_itdesp3" msprop:Generator_ColumnPropNameInRow="allotd_itdesp3" msprop:Generator_ColumnPropNameInTable="allotd_itdesp3Column" msprop:Generator_UserColumnName="allotd_itdesp3" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="allotd_itdesp4" msprop:Generator_ColumnVarNameInTable="columnallotd_itdesp4" msprop:Generator_ColumnPropNameInRow="allotd_itdesp4" msprop:Generator_ColumnPropNameInTable="allotd_itdesp4Column" msprop:Generator_UserColumnName="allotd_itdesp4" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="allotd_itdesp5" msprop:Generator_ColumnVarNameInTable="columnallotd_itdesp5" msprop:Generator_ColumnPropNameInRow="allotd_itdesp5" msprop:Generator_ColumnPropNameInTable="allotd_itdesp5Column" msprop:Generator_UserColumnName="allotd_itdesp5" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="allotd_itdesp6" msprop:Generator_ColumnVarNameInTable="columnallotd_itdesp6" msprop:Generator_ColumnPropNameInRow="allotd_itdesp6" msprop:Generator_ColumnPropNameInTable="allotd_itdesp6Column" msprop:Generator_UserColumnName="allotd_itdesp6" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="allotd_itdesp7" msprop:Generator_ColumnVarNameInTable="columnallotd_itdesp7" msprop:Generator_ColumnPropNameInRow="allotd_itdesp7" msprop:Generator_ColumnPropNameInTable="allotd_itdesp7Column" msprop:Generator_UserColumnName="allotd_itdesp7" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="allotd_itdesp8" msprop:Generator_ColumnVarNameInTable="columnallotd_itdesp8" msprop:Generator_ColumnPropNameInRow="allotd_itdesp8" msprop:Generator_ColumnPropNameInTable="allotd_itdesp8Column" msprop:Generator_UserColumnName="allotd_itdesp8" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="allotd_itdesp9" msprop:Generator_ColumnVarNameInTable="columnallotd_itdesp9" msprop:Generator_ColumnPropNameInRow="allotd_itdesp9" msprop:Generator_ColumnPropNameInTable="allotd_itdesp9Column" msprop:Generator_UserColumnName="allotd_itdesp9" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="allotd_itdesp10" msprop:Generator_ColumnVarNameInTable="columnallotd_itdesp10" msprop:Generator_ColumnPropNameInRow="allotd_itdesp10" msprop:Generator_ColumnPropNameInTable="allotd_itdesp10Column" msprop:Generator_UserColumnName="allotd_itdesp10" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="allot_aldate1" msprop:Generator_ColumnVarNameInTable="columnallot_aldate1" msprop:Generator_ColumnPropNameInRow="allot_aldate1" msprop:Generator_ColumnPropNameInTable="allot_aldate1Column" msprop:Generator_UserColumnName="allot_aldate1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="allotd_aldate1" msprop:Generator_ColumnVarNameInTable="columnallotd_aldate1" msprop:Generator_ColumnPropNameInRow="allotd_aldate1" msprop:Generator_ColumnPropNameInTable="allotd_aldate1Column" msprop:Generator_UserColumnName="allotd_aldate1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="allotd_aldate2" msprop:Generator_ColumnVarNameInTable="columnallotd_aldate2" msprop:Generator_ColumnPropNameInRow="allotd_aldate2" msprop:Generator_ColumnPropNameInTable="allotd_aldate2Column" msprop:Generator_UserColumnName="allotd_aldate2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="allot_AppScNo" msprop:Generator_ColumnVarNameInTable="columnallot_AppScNo" msprop:Generator_ColumnPropNameInRow="allot_AppScNo" msprop:Generator_ColumnPropNameInTable="allot_AppScNoColumn" msprop:Generator_UserColumnName="allot_AppScNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="allot_AppDate" msprop:Generator_ColumnVarNameInTable="columnallot_AppDate" msprop:Generator_ColumnPropNameInRow="allot_AppDate" msprop:Generator_ColumnPropNameInTable="allot_AppDateColumn" msprop:Generator_UserColumnName="allot_AppDate" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="allot_EdtScNo" msprop:Generator_ColumnVarNameInTable="columnallot_EdtScNo" msprop:Generator_ColumnPropNameInRow="allot_EdtScNo" msprop:Generator_ColumnPropNameInTable="allot_EdtScNoColumn" msprop:Generator_UserColumnName="allot_EdtScNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="allot_EdtDate" msprop:Generator_ColumnVarNameInTable="columnallot_EdtDate" msprop:Generator_ColumnPropNameInRow="allot_EdtDate" msprop:Generator_ColumnPropNameInTable="allot_EdtDateColumn" msprop:Generator_UserColumnName="allot_EdtDate" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="allot_almemo1" msprop:Generator_ColumnVarNameInTable="columnallot_almemo1" msprop:Generator_ColumnPropNameInRow="allot_almemo1" msprop:Generator_ColumnPropNameInTable="allot_almemo1Column" msprop:Generator_UserColumnName="allot_almemo1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="scname" msprop:Generator_ColumnVarNameInTable="columnscname" msprop:Generator_ColumnPropNameInRow="scname" msprop:Generator_ColumnPropNameInTable="scnameColumn" msprop:Generator_UserColumnName="scname" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="scname1" msprop:Generator_ColumnVarNameInTable="columnscname1" msprop:Generator_ColumnPropNameInRow="scname1" msprop:Generator_ColumnPropNameInTable="scname1Column" msprop:Generator_UserColumnName="scname1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="item" msprop:Generator_TableClassName="itemDataTable" msprop:Generator_TableVarName="tableitem" msprop:Generator_TablePropName="item" msprop:Generator_RowDeletingName="itemRowDeleting" msprop:Generator_RowChangingName="itemRowChanging" msprop:Generator_RowEvHandlerName="itemRowChangeEventHandler" msprop:Generator_RowDeletedName="itemRowDeleted" msprop:Generator_UserTableName="item" msprop:Generator_RowChangedName="itemRowChanged" msprop:Generator_RowEvArgName="itemRowChangeEvent" msprop:Generator_RowClassName="itemRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="itno" msprop:Generator_ColumnVarNameInTable="columnitno" msprop:Generator_ColumnPropNameInRow="itno" msprop:Generator_ColumnPropNameInTable="itnoColumn" msprop:Generator_UserColumnName="itno">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="itnoudf" msprop:Generator_ColumnVarNameInTable="columnitnoudf" msprop:Generator_ColumnPropNameInRow="itnoudf" msprop:Generator_ColumnPropNameInTable="itnoudfColumn" msprop:Generator_UserColumnName="itnoudf" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="itname" msprop:Generator_ColumnVarNameInTable="columnitname" msprop:Generator_ColumnPropNameInRow="itname" msprop:Generator_ColumnPropNameInTable="itnameColumn" msprop:Generator_UserColumnName="itname" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="kino" msprop:Generator_ColumnVarNameInTable="columnkino" msprop:Generator_ColumnPropNameInRow="kino" msprop:Generator_ColumnPropNameInTable="kinoColumn" msprop:Generator_UserColumnName="kino" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="itime" msprop:Generator_ColumnVarNameInTable="columnitime" msprop:Generator_ColumnPropNameInRow="itime" msprop:Generator_ColumnPropNameInTable="itimeColumn" msprop:Generator_UserColumnName="itime" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ittrait" msprop:Generator_ColumnVarNameInTable="columnittrait" msprop:Generator_ColumnPropNameInRow="ittrait" msprop:Generator_ColumnPropNameInTable="ittraitColumn" msprop:Generator_UserColumnName="ittrait" type="xs:decimal" minOccurs="0" />
+              <xs:element name="itunit" msprop:Generator_ColumnVarNameInTable="columnitunit" msprop:Generator_ColumnPropNameInRow="itunit" msprop:Generator_ColumnPropNameInTable="itunitColumn" msprop:Generator_UserColumnName="itunit" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="itunitp" msprop:Generator_ColumnVarNameInTable="columnitunitp" msprop:Generator_ColumnPropNameInRow="itunitp" msprop:Generator_ColumnPropNameInTable="itunitpColumn" msprop:Generator_UserColumnName="itunitp" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="itpkgqty" msprop:Generator_ColumnVarNameInTable="columnitpkgqty" msprop:Generator_ColumnPropNameInRow="itpkgqty" msprop:Generator_ColumnPropNameInTable="itpkgqtyColumn" msprop:Generator_UserColumnName="itpkgqty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="itnw" msprop:Generator_ColumnVarNameInTable="columnitnw" msprop:Generator_ColumnPropNameInRow="itnw" msprop:Generator_ColumnPropNameInTable="itnwColumn" msprop:Generator_UserColumnName="itnw" type="xs:decimal" minOccurs="0" />
+              <xs:element name="itnwunit" msprop:Generator_ColumnVarNameInTable="columnitnwunit" msprop:Generator_ColumnPropNameInRow="itnwunit" msprop:Generator_ColumnPropNameInTable="itnwunitColumn" msprop:Generator_UserColumnName="itnwunit" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="6" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="itdesp1" msprop:Generator_ColumnVarNameInTable="columnitdesp1" msprop:Generator_ColumnPropNameInRow="itdesp1" msprop:Generator_ColumnPropNameInTable="itdesp1Column" msprop:Generator_UserColumnName="itdesp1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="itdesp2" msprop:Generator_ColumnVarNameInTable="columnitdesp2" msprop:Generator_ColumnPropNameInRow="itdesp2" msprop:Generator_ColumnPropNameInTable="itdesp2Column" msprop:Generator_UserColumnName="itdesp2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="itdesp3" msprop:Generator_ColumnVarNameInTable="columnitdesp3" msprop:Generator_ColumnPropNameInRow="itdesp3" msprop:Generator_ColumnPropNameInTable="itdesp3Column" msprop:Generator_UserColumnName="itdesp3" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="itdesp4" msprop:Generator_ColumnVarNameInTable="columnitdesp4" msprop:Generator_ColumnPropNameInRow="itdesp4" msprop:Generator_ColumnPropNameInTable="itdesp4Column" msprop:Generator_UserColumnName="itdesp4" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="itdesp5" msprop:Generator_ColumnVarNameInTable="columnitdesp5" msprop:Generator_ColumnPropNameInRow="itdesp5" msprop:Generator_ColumnPropNameInTable="itdesp5Column" msprop:Generator_UserColumnName="itdesp5" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="itdesp6" msprop:Generator_ColumnVarNameInTable="columnitdesp6" msprop:Generator_ColumnPropNameInRow="itdesp6" msprop:Generator_ColumnPropNameInTable="itdesp6Column" msprop:Generator_UserColumnName="itdesp6" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="itdesp7" msprop:Generator_ColumnVarNameInTable="columnitdesp7" msprop:Generator_ColumnPropNameInRow="itdesp7" msprop:Generator_ColumnPropNameInTable="itdesp7Column" msprop:Generator_UserColumnName="itdesp7" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="itdesp8" msprop:Generator_ColumnVarNameInTable="columnitdesp8" msprop:Generator_ColumnPropNameInRow="itdesp8" msprop:Generator_ColumnPropNameInTable="itdesp8Column" msprop:Generator_UserColumnName="itdesp8" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="itdesp9" msprop:Generator_ColumnVarNameInTable="columnitdesp9" msprop:Generator_ColumnPropNameInRow="itdesp9" msprop:Generator_ColumnPropNameInTable="itdesp9Column" msprop:Generator_UserColumnName="itdesp9" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="itdesp10" msprop:Generator_ColumnVarNameInTable="columnitdesp10" msprop:Generator_ColumnPropNameInRow="itdesp10" msprop:Generator_ColumnPropNameInTable="itdesp10Column" msprop:Generator_UserColumnName="itdesp10" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="itnote" msprop:Generator_ColumnVarNameInTable="columnitnote" msprop:Generator_ColumnPropNameInRow="itnote" msprop:Generator_ColumnPropNameInTable="itnoteColumn" msprop:Generator_UserColumnName="itnote" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="itudf1" msprop:Generator_ColumnVarNameInTable="columnitudf1" msprop:Generator_ColumnPropNameInRow="itudf1" msprop:Generator_ColumnPropNameInTable="itudf1Column" msprop:Generator_UserColumnName="itudf1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="itudf2" msprop:Generator_ColumnVarNameInTable="columnitudf2" msprop:Generator_ColumnPropNameInRow="itudf2" msprop:Generator_ColumnPropNameInTable="itudf2Column" msprop:Generator_UserColumnName="itudf2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="itudf3" msprop:Generator_ColumnVarNameInTable="columnitudf3" msprop:Generator_ColumnPropNameInRow="itudf3" msprop:Generator_ColumnPropNameInTable="itudf3Column" msprop:Generator_UserColumnName="itudf3" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="itudf4" msprop:Generator_ColumnVarNameInTable="columnitudf4" msprop:Generator_ColumnPropNameInRow="itudf4" msprop:Generator_ColumnPropNameInTable="itudf4Column" msprop:Generator_UserColumnName="itudf4" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="itudf5" msprop:Generator_ColumnVarNameInTable="columnitudf5" msprop:Generator_ColumnPropNameInRow="itudf5" msprop:Generator_ColumnPropNameInTable="itudf5Column" msprop:Generator_UserColumnName="itudf5" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fano" msprop:Generator_ColumnVarNameInTable="columnfano" msprop:Generator_ColumnPropNameInRow="fano" msprop:Generator_ColumnPropNameInTable="fanoColumn" msprop:Generator_UserColumnName="fano" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Punit" msprop:Generator_ColumnVarNameInTable="columnPunit" msprop:Generator_ColumnPropNameInRow="Punit" msprop:Generator_ColumnPropNameInTable="PunitColumn" msprop:Generator_UserColumnName="Punit" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ScNo" msprop:Generator_ColumnVarNameInTable="columnScNo" msprop:Generator_ColumnPropNameInRow="ScNo" msprop:Generator_ColumnPropNameInTable="ScNoColumn" msprop:Generator_UserColumnName="ScNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:allot" />
+      <xs:field xpath="mstns:allot_alno" />
+    </xs:unique>
+    <xs:unique name="item_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:item" />
+      <xs:field xpath="mstns:itno" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

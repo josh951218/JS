@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" DoublePass="true" ReportInfo.Created="03/11/2015 18:35:11" ReportInfo.Modified="05/13/2015 15:03:29" ReportInfo.CreatorVersion="2013.2.5.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {   
+           
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <MsSqlDataConnection Name="Connection" ConnectionString="rijcmlq+rW0RkboK+/8CKGGYUID3ctBV8q9SvKYxl3iiE7vBnh7Tgou0+4WFf3NfmPSvHVFMb+6VV8AQa1o8PejGBoK8wrAy/t3nmq4U8bTrZ2dbE5oNTCbtG9HIkRIcs5KGiFKjR/3HHbR5Jq1DamB/JvE1pQ9HwzTHkFMa3eT8BNFqqM=">
+      <TableDataSource Name="Table1" DataType="System.Int32" Enabled="true" SelectCommand="Select &#13;&#10;單據='銷貨',數量=qty,單價=price,折數=prs,小計=(qty*price*prs),&#13;&#10;sano, sadate, sadate1, sadate2, sadateac, sadateac1, sadateac2, quno, cono, cuno, emno, spno, stno, xa1no, xa1par, seno, sename, x4no, x4name, orno, itno, &#13;&#10;itname, ittrait, itunit, itpkgqty, qty, price, prs, rate, taxprice, mny, priceb, taxpriceb, mnyb, memo, lowzero, bomid, bomrec, recordno, sltflag, extflag, bracket, itdesp1, &#13;&#10;itdesp2, itdesp3, itdesp4, itdesp5, itdesp6, itdesp7, itdesp8, itdesp9, itdesp10, stName, RecordNo_D, orid, KiTax, IsTrans, mqty, munit, mlong, mwidth1, mwidth2, &#13;&#10;mwidth3, mwidth4, mformula, Point, Punit, Pqty, Pformula, cyno&#13;&#10;from saled where 1=0">
+        <Column Name="單據" DataType="System.String"/>
+        <Column Name="數量" DataType="System.Decimal"/>
+        <Column Name="單價" DataType="System.Decimal"/>
+        <Column Name="折數" DataType="System.Decimal"/>
+        <Column Name="小計" DataType="System.Decimal"/>
+        <Column Name="sano" DataType="System.String"/>
+        <Column Name="sadate" DataType="System.String"/>
+        <Column Name="sadate1" DataType="System.String"/>
+        <Column Name="sadate2" DataType="System.String"/>
+        <Column Name="sadateac" DataType="System.String"/>
+        <Column Name="sadateac1" DataType="System.String"/>
+        <Column Name="sadateac2" DataType="System.String"/>
+        <Column Name="quno" DataType="System.String"/>
+        <Column Name="cono" DataType="System.String"/>
+        <Column Name="cuno" DataType="System.String"/>
+        <Column Name="emno" DataType="System.String"/>
+        <Column Name="spno" DataType="System.String"/>
+        <Column Name="stno" DataType="System.String"/>
+        <Column Name="xa1no" DataType="System.String"/>
+        <Column Name="xa1par" DataType="System.Decimal"/>
+        <Column Name="seno" DataType="System.String"/>
+        <Column Name="sename" DataType="System.String"/>
+        <Column Name="x4no" DataType="System.String"/>
+        <Column Name="x4name" DataType="System.String"/>
+        <Column Name="orno" DataType="System.String"/>
+        <Column Name="itno" DataType="System.String"/>
+        <Column Name="itname" DataType="System.String"/>
+        <Column Name="ittrait" DataType="System.Decimal"/>
+        <Column Name="itunit" DataType="System.String"/>
+        <Column Name="itpkgqty" DataType="System.Decimal"/>
+        <Column Name="qty" DataType="System.Decimal"/>
+        <Column Name="price" DataType="System.Decimal"/>
+        <Column Name="prs" DataType="System.Decimal"/>
+        <Column Name="rate" DataType="System.Decimal"/>
+        <Column Name="taxprice" DataType="System.Decimal"/>
+        <Column Name="mny" DataType="System.Decimal"/>
+        <Column Name="priceb" DataType="System.Decimal"/>
+        <Column Name="taxpriceb" DataType="System.Decimal"/>
+        <Column Name="mnyb" DataType="System.Decimal"/>
+        <Column Name="memo" DataType="System.String"/>
+        <Column Name="lowzero" DataType="System.String"/>
+        <Column Name="bomid" DataType="System.String"/>
+        <Column Name="bomrec" DataType="System.Decimal"/>
+        <Column Name="recordno" DataType="System.Decimal"/>
+        <Column Name="sltflag" DataType="System.Boolean" BindableControl="CheckBox"/>
+        <Column Name="extflag" DataType="System.Boolean" BindableControl="CheckBox"/>
+        <Column Name="bracket" DataType="System.String"/>
+        <Column Name="itdesp1" DataType="System.String"/>
+        <Column Name="itdesp2" DataType="System.String"/>
+        <Column Name="itdesp3" DataType="System.String"/>
+        <Column Name="itdesp4" DataType="System.String"/>
+        <Column Name="itdesp5" DataType="System.String"/>
+        <Column Name="itdesp6" DataType="System.String"/>
+        <Column Name="itdesp7" DataType="System.String"/>
+        <Column Name="itdesp8" DataType="System.String"/>
+        <Column Name="itdesp9" DataType="System.String"/>
+        <Column Name="itdesp10" DataType="System.String"/>
+        <Column Name="stName" DataType="System.String"/>
+        <Column Name="RecordNo_D" DataType="System.Decimal"/>
+        <Column Name="orid" DataType="System.String"/>
+        <Column Name="KiTax" DataType="System.String"/>
+        <Column Name="IsTrans" DataType="System.String"/>
+        <Column Name="mqty" DataType="System.Decimal"/>
+        <Column Name="munit" DataType="System.String"/>
+        <Column Name="mlong" DataType="System.Decimal"/>
+        <Column Name="mwidth1" DataType="System.Decimal"/>
+        <Column Name="mwidth2" DataType="System.Decimal"/>
+        <Column Name="mwidth3" DataType="System.Decimal"/>
+        <Column Name="mwidth4" DataType="System.Decimal"/>
+        <Column Name="mformula" DataType="System.Decimal"/>
+        <Column Name="Point" DataType="System.Decimal"/>
+        <Column Name="Punit" DataType="System.String"/>
+        <Column Name="Pqty" DataType="System.Decimal"/>
+        <Column Name="Pformula" DataType="System.String"/>
+        <Column Name="cyno" DataType="System.String"/>
+      </TableDataSource>
+    </MsSqlDataConnection>
+    <Parameter Name="txtstart" DataType="System.String"/>
+    <Parameter Name="DateRange" DataType="System.String"/>
+    <Total Name="合小計" Expression="[Table1.小計]" Evaluator="Data1" PrintOn="ReportSummary1"/>
+    <Total Name="合數量" Expression="[Table1.數量]" Evaluator="Data1" PrintOn="ReportSummary1"/>
+  </Dictionary>
+  <ReportPage Name="Page1" PaperWidth="215.9" PaperHeight="279.4" RawPaperSize="2" FirstPageSource="15" OtherPagesSource="15">
+    <PageHeaderBand Name="PageHeader1" Width="740.5" Height="117.18">
+      <TextObject Name="Text4" Top="88.61" Width="37.8" Height="18.9" Text="單據" Font="細明體, 10pt"/>
+      <TextObject Name="txtstart" Width="727.65" Height="28.35" Text="[txtstart]" HorzAlign="Center" Font="細明體, 18pt, style=Bold"/>
+      <TextObject Name="Text11" Top="30.24" Width="727.65" Height="28.35" Text="收銀人員業績統計表" HorzAlign="Center" Font="細明體, 14pt, style=Bold"/>
+      <LineObject Name="Line1" Top="82.94" Width="725.76"/>
+      <LineObject Name="Line2" Top="110.18" Width="725.76"/>
+      <TextObject Name="Text14" Left="633.15" Top="59.7" Width="94.5" Height="18.9" Text="[Page]" Font="細明體, 11pt"/>
+      <TextObject Name="Text16" Top="61.15" Width="85.05" Height="18.9" Text="統計日期：" Font="細明體, 11pt"/>
+      <TextObject Name="Text17" Left="548.1" Top="59.7" Width="85.05" Height="18.9" Text="頁    次：" Font="細明體, 11pt"/>
+      <TextObject Name="Text13" Left="83.16" Top="61.24" Width="272.16" Height="18.9" Text="[DateRange]" Font="細明體, 11pt"/>
+      <TextObject Name="Text18" Left="37.8" Top="88.45" Width="90.72" Height="18.9" Text="銷貨單號" Font="細明體, 10pt"/>
+      <TextObject Name="Text19" Left="128.52" Top="88.45" Width="136.08" Height="18.9" Text="產品編號" Font="細明體, 10pt"/>
+      <TextObject Name="Text20" Left="264.6" Top="88.45" Width="189" Height="18.9" Text="品名規格" Font="細明體, 10pt"/>
+      <TextObject Name="Text21" Left="453.6" Top="88.45" Width="68.04" Height="18.9" Text="數量" HorzAlign="Right" Font="細明體, 10pt"/>
+      <TextObject Name="Text22" Left="521.64" Top="88.45" Width="68.04" Height="18.9" Text="單價" HorzAlign="Right" Font="細明體, 10pt"/>
+      <TextObject Name="Text23" Left="589.68" Top="88.45" Width="68.04" Height="18.9" Text="折數" HorzAlign="Right" Font="細明體, 10pt"/>
+      <TextObject Name="Text24" Left="657.72" Top="88.45" Width="68.04" Height="18.9" Text="小計" HorzAlign="Right" Font="細明體, 10pt"/>
+    </PageHeaderBand>
+    <DataBand Name="Data1" Top="119.68" Width="740.5" Height="18.9" DataSource="Table1">
+      <TextObject Name="Text1" Width="37.8" Height="15.12" Text="[Table1.單據]" Font="細明體, 10pt"/>
+      <TextObject Name="Text3" Left="128.52" Width="136.08" Height="15.12" Text="[Table1.itno]" Font="細明體, 10pt"/>
+      <TextObject Name="Text2" Left="264.6" Width="189" Height="15.12" Text="[Table1.itname]" Font="細明體, 10pt"/>
+      <TextObject Name="Text5" Left="37.8" Width="90.72" Height="15.12" Text="[Table1.sano]" Font="細明體, 10pt"/>
+      <TextObject Name="Text6" Left="453.6" Width="68.04" Height="15.12" Text="[Table1.數量]" HorzAlign="Right" WordWrap="false" Font="細明體, 10pt" Trimming="EllipsisCharacter"/>
+      <TextObject Name="Text7" Left="521.64" Width="68.04" Height="15.12" Text="[Table1.單價]" HorzAlign="Right" WordWrap="false" Font="細明體, 10pt" Trimming="EllipsisCharacter"/>
+      <TextObject Name="Text8" Left="589.68" Width="68.04" Height="15.12" Text="[Table1.折數]" HorzAlign="Right" WordWrap="false" Font="細明體, 10pt" Trimming="EllipsisCharacter"/>
+      <TextObject Name="Text9" Left="657.72" Width="68.04" Height="15.12" Text="[Table1.小計]" HorzAlign="Right" WordWrap="false" Font="細明體, 10pt" Trimming="EllipsisCharacter"/>
+    </DataBand>
+    <ReportSummaryBand Name="ReportSummary1" Top="166.26" Width="740.5" Height="39.8" PrintOnBottom="true">
+      <TextObject Name="Text10" Left="627.48" Top="15.12" Width="98.28" Height="15.12" Text="[合小計]" HorzAlign="Right" Font="細明體, 10pt"/>
+      <LineObject Name="Line3" Top="7.56" Width="725.76"/>
+      <TextObject Name="Text15" Left="430.92" Top="15.12" Width="98.28" Height="15.12" Text="[合數量]" HorzAlign="Right" Font="細明體, 10pt"/>
+      <TextObject Name="Text25" Left="378" Top="15.12" Width="52.92" Height="15.12" Text="合計：" Font="細明體, 10pt"/>
+    </ReportSummaryBand>
+    <ColumnFooterBand Name="ColumnFooter1" Top="141.08" Width="740.5" Height="22.68">
+      <TextObject Name="Text12" Width="723.87" Height="22.68" BeforePrintEvent="Text12_BeforePrint" AfterDataEvent="Text12_AfterData" Text="[IIf([Page]&lt;[TotalPages],&quot;***續下頁***&quot;,&quot;(以下空白)&quot;)]" HorzAlign="Center" Font="細明體, 11pt"/>
+    </ColumnFooterBand>
+  </ReportPage>
+</Report>

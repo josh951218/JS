@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="03/11/2015 18:35:11" ReportInfo.Modified="04/23/2015 09:24:09" ReportInfo.CreatorVersion="2013.2.5.0">
+  <Dictionary>
+    <MsSqlDataConnection Name="Connection" ConnectionString="rijcmlq+rW0RkboK+/8CKGGYUID3ctBV8q9SvKYxl3iiE7vBnh7Tgou0+4WFf3NfmPSvHVFMb+6VV8AQa1o8PejGBoK8wrAy/t3nmq4U8bTrZ2dbE5oNTCbtG9HIkRIcs5KGiFKjR/3HHbR5Jq1DamB/JvE1kl2KioVxo2J3ou4J+6mAp8=">
+      <TableDataSource Name="moneyboxlog" DataType="System.Int32" PropName="Table" Enabled="true" SelectCommand="Select * from moneyboxlog where 1=0">
+        <Column Name="id" DataType="System.Int32"/>
+        <Column Name="machine" DataType="System.String"/>
+        <Column Name="shno" DataType="System.String"/>
+        <Column Name="shname" DataType="System.String"/>
+        <Column Name="emno" DataType="System.String"/>
+        <Column Name="emname" DataType="System.String"/>
+        <Column Name="opdate" DataType="System.String"/>
+        <Column Name="opdate1" DataType="System.String"/>
+        <Column Name="memo" DataType="System.String"/>
+      </TableDataSource>
+    </MsSqlDataConnection>
+    <Parameter Name="txtstart" DataType="System.String"/>
+  </Dictionary>
+  <ReportPage Name="Page1" PaperWidth="215.9" PaperHeight="279.4" RawPaperSize="2" FirstPageSource="15" OtherPagesSource="15">
+    <PageHeaderBand Name="PageHeader1" Width="740.5" Height="117.18">
+      <TextObject Name="Text2" Left="463.05" Top="88.61" Width="255.15" Height="18.9" Text="開啟時間" Font="細明體, 11pt"/>
+      <TextObject Name="Text4" Left="9.45" Top="88.61" Width="94.5" Height="18.9" Text="機台號碼" Font="細明體, 11pt"/>
+      <TextObject Name="Text6" Left="113.4" Top="88.61" Width="94.5" Height="18.9" Text="班    別" Font="細明體, 11pt"/>
+      <TextObject Name="Text8" Left="217.35" Top="88.61" Width="94.5" Height="18.9" Text="員工編號" Font="細明體, 11pt"/>
+      <TextObject Name="Text10" Left="321.3" Top="88.61" Width="132.3" Height="18.9" Text="員工姓名" Font="細明體, 11pt"/>
+      <TextObject Name="txtstart" Width="727.65" Height="28.35" Text="[txtstart]" HorzAlign="Center" Font="細明體, 18pt, style=Bold"/>
+      <TextObject Name="Text11" Top="30.24" Width="727.65" Height="28.35" Text="錢櫃開啟記錄表" HorzAlign="Center" Font="細明體, 14pt, style=Bold"/>
+      <LineObject Name="Line1" Top="82.94" Width="725.76"/>
+      <LineObject Name="Line2" Top="110.18" Width="725.76"/>
+      <TextObject Name="Text14" Left="670.95" Top="59.7" Width="56.7" Height="18.9" Text="[Page]" Font="細明體, 11pt"/>
+      <TextObject Name="Text15" Left="85.05" Top="60.7" Width="207.9" Height="18.9" Text="[Date]" Format="Date" Format.Format="f" Font="細明體, 11pt"/>
+      <TextObject Name="Text16" Top="61.15" Width="85.05" Height="18.9" Text="製表日期：" Font="細明體, 11pt"/>
+      <TextObject Name="Text17" Left="585.9" Top="59.7" Width="85.05" Height="18.9" Text="頁    次：" Font="細明體, 11pt"/>
+    </PageHeaderBand>
+    <DataBand Name="Data1" Top="120.38" Width="740.5" Height="18.9" DataSource="moneyboxlog">
+      <TextObject Name="Text1" Left="463.05" Width="255.15" Height="18.9" Text="[moneyboxlog.memo]" Font="細明體, 11pt"/>
+      <TextObject Name="Text3" Left="9.45" Width="94.5" Height="18.9" Text="[moneyboxlog.machine]" Font="細明體, 11pt"/>
+      <TextObject Name="Text5" Left="113.4" Width="94.5" Height="18.9" Text="[moneyboxlog.shname]" Font="細明體, 11pt"/>
+      <TextObject Name="Text7" Left="217.35" Width="94.5" Height="18.9" Text="[moneyboxlog.emno]" Font="細明體, 11pt"/>
+      <TextObject Name="Text9" Left="321.3" Width="132.3" Height="18.9" Text="[moneyboxlog.emname]" Font="細明體, 11pt"/>
+    </DataBand>
+    <ReportSummaryBand Name="ReportSummary1" Top="142.48" Width="740.5" Height="24.68">
+      <TextObject Name="Text12" Left="9.45" Top="2" Width="716.31" Height="22.68" Text="(以下空白)" HorzAlign="Center" Font="細明體, 11pt"/>
+    </ReportSummaryBand>
+    <PageFooterBand Name="PageFooter1" Top="170.36" Width="740.5"/>
+  </ReportPage>
+</Report>

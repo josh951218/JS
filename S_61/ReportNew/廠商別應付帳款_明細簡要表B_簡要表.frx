@@ -1,0 +1,407 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" DoublePass="true" ReportInfo.Created="03/11/2015 18:35:11" ReportInfo.Modified="09/05/2016 18:08:36" ReportInfo.CreatorVersion="2013.2.5.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {         
+    private void Text66_BeforePrint(object sender, EventArgs e)
+    {
+      if (((Int32)Report.GetVariableValue(&quot;Page&quot;))!=((Int32)Report.GetVariableValue(&quot;TotalPages&quot;)))
+      {
+        Text66.Text=&quot;*****續 下 頁*****&quot;;
+      }
+      else
+        Text66.Text=&quot;*****以下空白*****&quot;;
+    }       
+
+    private void Text17_BeforePrint(object sender, EventArgs e)
+    {
+      //帳款日期
+      try{
+      string date = ((String)Report.GetColumnValue(&quot;bshop.bsdateac1&quot;));
+      string date1 = &quot;&quot;;
+      if(((String)Report.GetParameterValue(&quot;date&quot;)) == &quot;民國&quot;)
+      {
+        date1 = (Convert.ToInt32((date.Substring(0,4)))-1911).ToString()+&quot;.&quot;;
+        date1 += date.Substring(4,2)+&quot;.&quot;+date.Substring(6,2); 
+      }
+      else
+      {
+        date1 = date.Substring(0,4)+&quot;.&quot;;
+        date1 += date.Substring(4,2)+&quot;.&quot;+date.Substring(6,2); 
+      }
+      Text17.Text = date1;
+      }catch{
+        Text17.Text = &quot;&quot;;
+      } 
+    }
+
+    private void Text29_BeforePrint(object sender, EventArgs e)
+    {
+      //註
+      if(((String)Report.GetColumnValue(&quot;bshop.單據&quot;)) == &quot;進貨&quot;)
+        Text29.Text = &quot;&quot;;
+      else
+        Text29.Text = ((String)Report.GetColumnValue(&quot;bshop.單據&quot;));
+    }
+
+    private void Text36_BeforePrint(object sender, EventArgs e)
+    {
+      //應收帳款總額
+      string formet = &quot;f&quot;+((String)Report.GetParameterValue(&quot;進貨單據小數&quot;));
+      decimal x = ((Decimal)Report.GetColumnValue(&quot;bshop.本期總金額&quot;));
+      decimal y = ((Decimal)Report.GetColumnValue(&quot;bshop.前期總金額&quot;));
+      Text36.Text = (x+y).ToString(formet);
+    }
+
+    private void Text35_BeforePrint(object sender, EventArgs e)
+    {
+      //前期應收帳款
+      string formet = &quot;f&quot;+((String)Report.GetParameterValue(&quot;進貨單據小數&quot;));
+      Text35.Text = ((Decimal)Report.GetColumnValue(&quot;bshop.前期總金額&quot;)).ToString(formet);
+    }
+
+    private void Text34_BeforePrint(object sender, EventArgs e)
+    {
+      //本期應收帳款
+      string formet = &quot;f&quot;+((String)Report.GetParameterValue(&quot;進貨單據小數&quot;));
+      Text34.Text = ((Decimal)Report.GetColumnValue(&quot;bshop.本期總金額&quot;)).ToString(formet);
+    }
+
+    private void Text31_BeforePrint(object sender, EventArgs e)
+    {
+      //稅額總計
+      string formet = &quot;f&quot;+((String)Report.GetParameterValue(&quot;進項稅額小數&quot;));
+      Text31.Text = ((Decimal)Report.GetColumnValue(&quot;bshop.營業稅總額&quot;)).ToString(formet);
+    }
+
+    private void Text32_BeforePrint(object sender, EventArgs e)
+    {
+      //已收金額
+      decimal x = ((Decimal)Report.GetColumnValue(&quot;bshop.已付加預付&quot;));
+      decimal y = ((Decimal)Report.GetColumnValue(&quot;bshop.折扣總金額&quot;));
+      
+      string formet = &quot;f&quot;+((String)Report.GetParameterValue(&quot;進貨單據小數&quot;));
+      Text32.Text = (x+y).ToString(formet);
+    }
+
+    private void Text33_BeforePrint(object sender, EventArgs e)
+    {
+      //本期應收
+      string formet = &quot;f&quot;+((String)Report.GetParameterValue(&quot;進貨單據小數&quot;));
+      Text33.Text = ((Decimal)Report.GetColumnValue(&quot;bshop.本期總金額&quot;)).ToString(formet);
+    }
+
+    private void Text39_BeforePrint(object sender, EventArgs e)
+    {
+      //稅前合計
+      string formet = &quot;f&quot;+((String)Report.GetParameterValue(&quot;進貨單據小數&quot;));
+      if(((String)Report.GetColumnValue(&quot;bshop.單據&quot;)) == &quot;期初&quot;)
+        Text39.Text =(0M).ToString(formet);
+      else
+        Text39.Text = ((Decimal)Report.GetColumnValue(&quot;bshop.TaxMny&quot;)).ToString(formet);
+    }
+
+    private void Text40_BeforePrint(object sender, EventArgs e)
+    {
+      //營業稅額
+      string formet = &quot;f&quot;+((String)Report.GetParameterValue(&quot;進項稅額小數&quot;));
+      if(((String)Report.GetColumnValue(&quot;bshop.單據&quot;)) == &quot;期初&quot;)
+        Text40.Text =(0M).ToString(formet);
+      else
+        Text40.Text = ((Decimal)Report.GetColumnValue(&quot;bshop.Tax&quot;)).ToString(formet);
+    }
+
+    private void Text41_BeforePrint(object sender, EventArgs e)
+    {
+      //應收總計
+      string formet = &quot;f&quot;+((String)Report.GetParameterValue(&quot;進貨單據小數&quot;));
+      if( ((String)Report.GetColumnValue(&quot;bshop.單據&quot;))== &quot;期初&quot;)
+        Text41.Text = ((Decimal)Report.GetColumnValue(&quot;bshop.AcctMny&quot;)).ToString(formet);
+      else
+        Text41.Text = ((Decimal)Report.GetColumnValue(&quot;bshop.TotMny&quot;)).ToString(formet);
+    }
+
+    private void Text42_BeforePrint(object sender, EventArgs e)
+    {
+      //折購金額
+      string formet = &quot;f&quot;+((String)Report.GetParameterValue(&quot;進貨單據小數&quot;));
+      if( ((String)Report.GetColumnValue(&quot;bshop.單據&quot;))== &quot;期初&quot;)
+        Text42.Text =(0M).ToString(formet);
+      else
+        Text42.Text = ((Decimal)Report.GetColumnValue(&quot;bshop.Discount&quot;)).ToString(formet); 
+    }
+
+    private void Text43_BeforePrint(object sender, EventArgs e)
+    {
+      //已收加預收
+      string formet = &quot;f&quot;+((String)Report.GetParameterValue(&quot;進貨單據小數&quot;));
+      if(((String)Report.GetColumnValue(&quot;bshop.單據&quot;)) == &quot;期初&quot;)
+        Text43.Text =(0M).ToString(formet);
+      else
+      {
+        decimal d1 =    ((Decimal)Report.GetColumnValue(&quot;bshop.已付預付&quot;));
+        decimal d2 =    ((Decimal)Report.GetColumnValue(&quot;bshop.Discount&quot;));
+        Text43.Text =(d1+d2).ToString(formet);
+      }
+    }
+
+    private void Text44_BeforePrint(object sender, EventArgs e)
+    {
+      //本期應收
+      string formet = &quot;f&quot;+((String)Report.GetParameterValue(&quot;進貨單據小數&quot;));
+      //if(((String)Report.GetColumnValue(&quot;bshop.單據&quot;)) == &quot;期初&quot;)
+      //  Text44.Text =(0M).ToString(formet);
+      //else
+        Text44.Text =((Decimal)Report.GetColumnValue(&quot;bshop.AcctMny&quot;)).ToString(formet); 
+    }
+
+    private void Text19_BeforePrint(object sender, EventArgs e)
+    {
+      //本期稅前金額
+      string formet = &quot;f&quot;+((String)Report.GetParameterValue(&quot;進貨單據小數&quot;));
+      Text19.Text =((Decimal)Report.GetColumnValue(&quot;bshop.稅前總金額&quot;)).ToString(formet);
+    }
+
+    private void Text20_BeforePrint(object sender, EventArgs e)
+    {
+      //本期單據總額
+      string formet = &quot;f&quot;+((String)Report.GetParameterValue(&quot;進貨單據小數&quot;));
+      Text20.Text =((Decimal)Report.GetColumnValue(&quot;bshop.應付總金額&quot;)).ToString(formet);
+    }
+
+    private void Text21_BeforePrint(object sender, EventArgs e)
+    {
+      //本期折扣金額
+      string formet = &quot;f&quot;+((String)Report.GetParameterValue(&quot;進貨單據小數&quot;));
+      Text21.Text =((Decimal)Report.GetColumnValue(&quot;bshop.折扣總金額&quot;)).ToString(formet);
+    }
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <MsSqlDataConnection Name="Connection" ConnectionString="rijcmlqr2sEgbyd/XFgYBeuRgqcA2fPEABqa7op7lzIvjCd0OC4AYhmBbgkZmVd9K9BlXfZ/iiMt8bGpj/FXE8QXQub9+YgGzr/o8enCWd1YxKcVamC0iAzHRtNi1xbt0lk9dsowavE0Z71FcL20DHAxCiA72mbAp/ZappgtxvOBXLovP3I8ukyDQS6EvNfLJo8L3KV">
+      <TableDataSource Name="Table" Alias="bshop" DataType="System.Int32" Enabled="true" SelectCommand=" select 單據='進貨',bshopd.*,fact.faper1,fact.faname1,fact.faname2,折已取=0, fact.fano,fact.fatel1,fact.fafax1,fact.faaddr1,fact.fauno,fact.FaPayAmt, bshop.TaxMny,bshop.Tax,bshop.TotMny,bshop.invno,bshop.Discount,bshop.recordno as rdno,bshop.CollectMny,bshop.GetPrvAcc,bshop.AcctMny,bshop.Xa1Name,(CollectMny+GetPrvAcc) as 已付預付,前期總金額=0.0,交易總筆數=0.0,稅前總金額=0.0,營業稅總額=0.0,應付總金額=0.0, 折扣總金額=0.0,已付加預付=0.0,本期總金額=0.0,前期加本期=0.0 from bshopd  left join bshop on bshopd.bsno = bshop.bsno  left join fact on bshopd.fano = fact.fano  select 單據='進退',rshopd.*,fact.faper1,fact.faname1,fact.faname2,折已取=0, fact.fano,fact.faper1,fact.fatel1,fact.fafax1,fact.faaddr1,fact.fauno,fact.FaPayAmt, rshop.TaxMny,rshop.Tax,rshop.TotMny,rshop.invno,rshop.Discount,rshop.recordno as rdno,rshop.CollectMny,rshop.GetPrvAcc,rshop.AcctMny,rshop.Xa1Name,(CollectMny+GetPrvAcc) as 已付預付,前期總金額=0.0 ,交易總筆數=0.0,稅前總金額=0.0,營業稅總額=0.0,應付總金額=0.0, 折扣總金額=0.0,已付加預付=0.0,本期總金額=0.0,前期加本期=0.0 from rshopd  left join rshop on rshopd.bsno = rshop.bsno  left join fact on rshopd.fano = fact.fano   select 單據='進貨',bshopd.*,fact.faper1,fact.faname1,fact.faname2,折已取=0, fact.fano,fact.faper1,fact.fatel1,fact.fafax1,fact.faaddr1,fact.fauno,fact.FaPayAmt, bshop.TaxMny,bshop.Tax,bshop.TotMny,bshop.invno,bshop.Discount,bshop.recordno as rdno,bshop.CollectMny,bshop.GetPrvAcc,bshop.AcctMny,bshop.Xa1Name,(CollectMny+GetPrvAcc) as 已付預付,前期總金額=0.0 ,交易總筆數=0.0,稅前總金額=0.0,營業稅總額=0.0,應付總金額=0.0, 折扣總金額=0.0,已付加預付=0.0,本期總金額=0.0,前期加本期=0.0 from bshopd  left join bshop on bshopd.bsno = bshop.bsno  left join fact on bshopd.fano = fact.fano   select 單據='進退',rshopd.*,fact.faper1,fact.faname1,fact.faname2,折已取=0, fact.fano,fact.faper1,fact.fatel1,fact.fafax1,fact.faaddr1,fact.fauno,fact.FaPayAmt, rshop.TaxMny,rshop.Tax,rshop.TotMny,rshop.invno,rshop.Discount,rshop.recordno as rdno,rshop.CollectMny,rshop.GetPrvAcc,rshop.AcctMny,rshop.Xa1Name,(CollectMny+GetPrvAcc) as 已付預付,前期總金額=0.0,交易總筆數=0.0,稅前總金額=0.0,營業稅總額=0.0,應付總金額=0.0, 折扣總金額=0.0,已付加預付=0.0,本期總金額=0.0,前期加本期=0.0  from rshopd  left join rshop on rshopd.bsno = rshop.bsno  left join fact on rshopd.fano = fact.fano   select  前期總金額=0.0,  交易總筆數=0.0,稅前總金額=0.0,營業稅總額=0.0,應付總金額=0.0,  折扣總金額=0.0,已付加預付=0.0,本期總金額=0.0,前期加本期=0.0  ,fact.*,Xa1Name from fact  left join Xa01 on fact.faXa1No = Xa01.Xa1No ">
+        <Column Name="單據" DataType="System.String"/>
+        <Column Name="taxpriceb" DataType="System.Decimal"/>
+        <Column Name="mnyb" DataType="System.Decimal"/>
+        <Column Name="memo" DataType="System.String"/>
+        <Column Name="lowzero" DataType="System.String"/>
+        <Column Name="bomid" DataType="System.String"/>
+        <Column Name="bomrec" DataType="System.Decimal"/>
+        <Column Name="recordno" DataType="System.Decimal"/>
+        <Column Name="sltflag" DataType="System.Boolean" BindableControl="CheckBox"/>
+        <Column Name="extflag" DataType="System.Boolean" BindableControl="CheckBox"/>
+        <Column Name="bracket" DataType="System.String"/>
+        <Column Name="itdesp1" DataType="System.String"/>
+        <Column Name="itdesp2" DataType="System.String"/>
+        <Column Name="itdesp3" DataType="System.String"/>
+        <Column Name="itdesp4" DataType="System.String"/>
+        <Column Name="itdesp5" DataType="System.String"/>
+        <Column Name="itdesp6" DataType="System.String"/>
+        <Column Name="itdesp7" DataType="System.String"/>
+        <Column Name="itdesp8" DataType="System.String"/>
+        <Column Name="itdesp9" DataType="System.String"/>
+        <Column Name="itdesp10" DataType="System.String"/>
+        <Column Name="serno" DataType="System.Int32"/>
+        <Column Name="StName" DataType="System.String"/>
+        <Column Name="PriceF" DataType="System.Decimal"/>
+        <Column Name="RecordNo_D" DataType="System.Decimal"/>
+        <Column Name="RealCost" DataType="System.Decimal"/>
+        <Column Name="foid" DataType="System.String"/>
+        <Column Name="mqty" DataType="System.Decimal"/>
+        <Column Name="munit" DataType="System.String"/>
+        <Column Name="mlong" DataType="System.Decimal"/>
+        <Column Name="mwidth1" DataType="System.Decimal"/>
+        <Column Name="mwidth2" DataType="System.Decimal"/>
+        <Column Name="mwidth3" DataType="System.Decimal"/>
+        <Column Name="mwidth4" DataType="System.Decimal"/>
+        <Column Name="mformula" DataType="System.Decimal"/>
+        <Column Name="Punit" DataType="System.String"/>
+        <Column Name="Pqty" DataType="System.Decimal"/>
+        <Column Name="Pformula" DataType="System.String"/>
+        <Column Name="bono" DataType="System.String"/>
+        <Column Name="boid" DataType="System.String"/>
+        <Column Name="cyno" DataType="System.String"/>
+        <Column Name="faper1" DataType="System.String"/>
+        <Column Name="faname1" DataType="System.String"/>
+        <Column Name="faname2" DataType="System.String"/>
+        <Column Name="折已取" DataType="System.Int32"/>
+        <Column Name="fano1" DataType="System.String"/>
+        <Column Name="fatel1" DataType="System.String"/>
+        <Column Name="fafax1" DataType="System.String"/>
+        <Column Name="faaddr1" DataType="System.String"/>
+        <Column Name="fauno" DataType="System.String"/>
+        <Column Name="FaPayAmt" DataType="System.Decimal"/>
+        <Column Name="TaxMny" DataType="System.Decimal"/>
+        <Column Name="Tax" DataType="System.Decimal"/>
+        <Column Name="TotMny" DataType="System.Decimal"/>
+        <Column Name="invno" DataType="System.String"/>
+        <Column Name="Discount" DataType="System.Decimal"/>
+        <Column Name="rdno" DataType="System.Decimal"/>
+        <Column Name="CollectMny" DataType="System.Decimal"/>
+        <Column Name="GetPrvAcc" DataType="System.Decimal"/>
+        <Column Name="AcctMny" DataType="System.Decimal"/>
+        <Column Name="Xa1Name" DataType="System.String"/>
+        <Column Name="已付預付" DataType="System.Decimal"/>
+        <Column Name="前期總金額" DataType="System.Decimal"/>
+        <Column Name="交易總筆數" DataType="System.Decimal"/>
+        <Column Name="稅前總金額" DataType="System.Decimal"/>
+        <Column Name="營業稅總額" DataType="System.Decimal"/>
+        <Column Name="應付總金額" DataType="System.Decimal"/>
+        <Column Name="折扣總金額" DataType="System.Decimal"/>
+        <Column Name="已付加預付" DataType="System.Decimal"/>
+        <Column Name="本期總金額" DataType="System.Decimal"/>
+        <Column Name="前期加本期" DataType="System.Decimal"/>
+        <Column Name="bsid" DataType="System.Int32"/>
+        <Column Name="bsno" DataType="System.String"/>
+        <Column Name="bsdate" DataType="System.String"/>
+        <Column Name="bsdate1" DataType="System.String"/>
+        <Column Name="bsdate2" DataType="System.String"/>
+        <Column Name="bsdateac" DataType="System.String"/>
+        <Column Name="bsdateac1" DataType="System.String"/>
+        <Column Name="bsdateac2" DataType="System.String"/>
+        <Column Name="fqno" DataType="System.String"/>
+        <Column Name="cono" DataType="System.String"/>
+        <Column Name="fano" DataType="System.String"/>
+        <Column Name="emno" DataType="System.String"/>
+        <Column Name="spno" DataType="System.String"/>
+        <Column Name="stno" DataType="System.String"/>
+        <Column Name="xa1no" DataType="System.String"/>
+        <Column Name="xa1par" DataType="System.Decimal"/>
+        <Column Name="seno" DataType="System.String"/>
+        <Column Name="sename" DataType="System.String"/>
+        <Column Name="x4no" DataType="System.String"/>
+        <Column Name="x4name" DataType="System.String"/>
+        <Column Name="fono" DataType="System.String"/>
+        <Column Name="itno" DataType="System.String"/>
+        <Column Name="itname" DataType="System.String"/>
+        <Column Name="ittrait" DataType="System.Decimal"/>
+        <Column Name="itunit" DataType="System.String"/>
+        <Column Name="itpkgqty" DataType="System.Decimal"/>
+        <Column Name="qty" DataType="System.Decimal"/>
+        <Column Name="price" DataType="System.Decimal"/>
+        <Column Name="prs" DataType="System.Decimal"/>
+        <Column Name="rate" DataType="System.Decimal"/>
+        <Column Name="taxprice" DataType="System.Decimal"/>
+        <Column Name="mny" DataType="System.Decimal"/>
+        <Column Name="priceb" DataType="System.Decimal"/>
+      </TableDataSource>
+    </MsSqlDataConnection>
+    <Parameter Name="txtstart" DataType="System.String"/>
+    <Parameter Name="txtend" DataType="System.String"/>
+    <Parameter Name="銷項金額小數" DataType="System.String"/>
+    <Parameter Name="txtaddress" DataType="System.String"/>
+    <Parameter Name="txttel" DataType="System.String"/>
+    <Parameter Name="銷貨單價小數" DataType="System.String"/>
+    <Parameter Name="銷貨單據小數" DataType="System.String"/>
+    <Parameter Name="銷項稅額小數" DataType="System.String"/>
+    <Parameter Name="庫存數量小數" DataType="System.String"/>
+    <Parameter Name="txtRange" DataType="System.String"/>
+    <Parameter Name="txttoday" DataType="System.String"/>
+    <Parameter Name="date" DataType="System.String"/>
+    <Parameter Name="進項金額小數" DataType="System.String"/>
+    <Parameter Name="進貨單價小數" DataType="System.String"/>
+    <Parameter Name="進貨單據小數" DataType="System.String"/>
+    <Parameter Name="進項稅額小數" DataType="System.String"/>
+  </Dictionary>
+  <ReportPage Name="Page1" PaperWidth="215.9" PaperHeight="139.7" RawPaperSize="119" LeftMargin="2.5" TopMargin="2.5" RightMargin="2.5" BottomMargin="2.5" FirstPageSource="15" OtherPagesSource="15" Guides="757.89">
+    <PageHeaderBand Name="PageHeader1" Top="20" Width="797.2" Height="232.01" CanGrow="true" CanShrink="true">
+      <TextObject Name="txtstart" Top="3.42" Width="756" Height="34.02" Text="[txtstart]" HorzAlign="Center" WordWrap="false" Font="細明體, 20pt, style=Bold"/>
+      <TextObject Name="Text11" Top="78.49" Width="756" Height="22.3" Text="應付帳款明細表&#13;&#10;" HorzAlign="Center" WordWrap="false" Font="細明體, 14pt, style=Bold"/>
+      <TextObject Name="Text12" Left="3.78" Top="139.93" Width="79.01" Height="18.9" Text="廠商名稱:" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text13" Left="3.78" Top="161.3" Width="79.01" Height="18.9" Text="公司地址:" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text14" Left="3.78" Top="118.56" Width="79.01" Height="18.9" Text="帳款區間:" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text15" Left="3.78" Top="182.66" Width="79.01" Height="18.9" Text="電    話:" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text27" Left="2.26" Top="210.24" Width="74.8" Height="15.49" Text="帳款日期" WordWrap="false" Font="細明體, 10pt"/>
+      <LineObject Name="Line1" Left="-3.78" Top="205.7" Width="761.67" Border.Width="2"/>
+      <LineObject Name="Line2" Top="229.12" Width="758.65" Border.Width="2"/>
+      <TextObject Name="Text1" Left="85.42" Top="118.56" Width="474.01" Height="18.9" Text="[txtRange]" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text2" Left="85.42" Top="139.93" Width="472.49" Height="18.9" Text="[bshop.fano] [bshop.faname2]" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text4" Left="86.94" Top="161.3" Width="470.57" Height="18.9" Text="[bshop.faaddr1]" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text68" Left="563.29" Top="118.56" Width="79.01" Height="18.9" Text="頁    次:" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text6" Left="644.54" Top="118.56" Width="111.57" Height="18.9" Text="[Page]" HorzAlign="Center" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text69" Left="563.31" Top="139.93" Width="79.01" Height="18.9" Text="製表日期:" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text9" Left="644.54" Top="139.93" Width="111.57" Height="18.9" Text="[txttoday]" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text70" Left="562.9" Top="161.3" Width="79.01" Height="18.9" Text="連 絡 人:" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text71" Left="563.28" Top="182.66" Width="79.01" Height="18.9" Text="統一編號:" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text10" Left="644.54" Top="161.3" Width="111.57" Height="18.9" Text="[bshop.faper1]" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text16" Left="644.54" Top="182.66" Width="111.57" Height="18.9" Text="[bshop.fauno]" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text74" Left="80.91" Top="210.24" Width="86.91" Height="15.49" Text="單據憑證" WordWrap="false" Font="細明體, 10pt"/>
+      <TextObject Name="Text89" Left="170.1" Top="210.24" Width="74.8" Height="15.49" Text="發票號碼" WordWrap="false" Font="細明體, 10pt"/>
+      <TextObject Name="Text90" Left="247.98" Top="210.24" Width="74.89" Height="15.49" Text="稅前合計" HorzAlign="Right" WordWrap="false" Font="細明體, 10pt"/>
+      <TextObject Name="Text91" Left="326.22" Top="210.24" Width="61.66" Height="15.49" Text="稅額" HorzAlign="Right" WordWrap="false" Font="細明體, 10pt"/>
+      <TextObject Name="Text92" Left="391.23" Top="210.24" Width="74.89" Height="15.49" Text="應付總計" HorzAlign="Right" WordWrap="false" Font="細明體, 10pt"/>
+      <TextObject Name="Text93" Left="468.72" Top="210.24" Width="74.89" Height="15.49" Text="折扣金額" HorzAlign="Right" WordWrap="false" Font="細明體, 10pt"/>
+      <TextObject Name="Text94" Left="550.29" Top="210.24" Width="74.89" Height="15.49" Text="已付金額" HorzAlign="Right" WordWrap="false" Font="細明體, 10pt"/>
+      <TextObject Name="Text95" Left="627.12" Top="210.24" Width="87.72" Height="15.49" Text="本期應付" HorzAlign="Right" WordWrap="false" Font="細明體, 10pt"/>
+      <TextObject Name="Text83" Left="717.06" Top="210.24" Width="33.74" Height="15.49" Text="註" WordWrap="false" Font="細明體, 10pt"/>
+      <TextObject Name="Text96" Top="37.8" Width="756" Height="15.88" Text="[txtaddress]" HorzAlign="Center" WordWrap="false" Font="細明體, 10pt"/>
+      <TextObject Name="Text97" Top="60.47" Width="756" Height="15.88" Text="[txttel]" HorzAlign="Center" WordWrap="false" Font="細明體, 10pt"/>
+      <TextObject Name="Text5" Left="86.94" Top="182.66" Width="128.15" Height="18.9" Text="[bshop.fatel1]" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text88" Left="217.8" Top="182.66" Width="67.67" Height="18.9" Text="傳  真:" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text37" Left="291.49" Top="182.66" Width="96.33" Height="18.9" Text="[bshop.fafax1]" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text98" Left="389.02" Top="182.66" Width="67.67" Height="18.9" Text="幣  別:" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text99" Left="459.64" Top="182.66" Width="97.85" Height="18.9" Text="[bshop.Xa1Name]" WordWrap="false" Font="細明體, 12pt"/>
+    </PageHeaderBand>
+    <GroupHeaderBand Name="GroupHeader1" Top="272.01" Width="797.2" StartNewPage="true" Condition="[bshop.fano]" SortOrder="None" ResetPageNumber="true">
+      <GroupHeaderBand Name="GroupHeader2" Top="292.01" Width="797.2" Condition="[bshop.bsdate]" SortOrder="None">
+        <GroupHeaderBand Name="GroupHeader3" Top="312.01" Width="797.2" Condition="[bshop.bsno]" SortOrder="None">
+          <GroupHeaderBand Name="GroupHeader4" Top="332.01" Width="797.2" Height="19.52" Condition="[bshop.單據]" SortOrder="None">
+            <TextObject Name="Text17" Left="2.26" Top="3.27" Width="74.8" Height="15.49" BeforePrintEvent="Text17_BeforePrint" Text="[bshop.bsdateac]" WordWrap="false" Font="細明體, 10pt"/>
+            <TextObject Name="Text18" Left="80.91" Top="3.27" Width="86.91" Height="15.49" Text="[bshop.bsno]" WordWrap="false" Font="細明體, 10pt"/>
+            <TextObject Name="Text29" Left="717.06" Top="3.27" Width="40.83" Height="15.49" BeforePrintEvent="Text29_BeforePrint" Text="[bshop.單據]" WordWrap="false" Font="細明體, 10pt"/>
+            <TextObject Name="Text38" Left="170.1" Top="3.27" Width="74.8" Height="15.49" Text="[bshop.invno]" WordWrap="false" Font="細明體, 10pt"/>
+            <TextObject Name="Text39" Left="247.98" Top="3.27" Width="74.89" Height="15.49" BeforePrintEvent="Text39_BeforePrint" Text="[bshop.TaxMny]" Format="Currency" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="細明體, 10pt" Trimming="EllipsisCharacter"/>
+            <TextObject Name="Text40" Left="326.22" Top="3.27" Width="61.66" Height="15.49" BeforePrintEvent="Text40_BeforePrint" Text="[bshop.Tax]" Format="Currency" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="細明體, 10pt" Trimming="EllipsisCharacter"/>
+            <TextObject Name="Text41" Left="391.23" Top="3.27" Width="74.89" Height="15.49" BeforePrintEvent="Text41_BeforePrint" Text="[bshop.TotMny]" Format="Currency" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="細明體, 10pt" Trimming="EllipsisCharacter"/>
+            <TextObject Name="Text42" Left="468.72" Top="3.27" Width="74.89" Height="15.49" BeforePrintEvent="Text42_BeforePrint" Text="[bshop.Discount]" Format="Currency" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="細明體, 10pt" Trimming="EllipsisCharacter"/>
+            <TextObject Name="Text43" Left="550.29" Top="3.27" Width="74.89" Height="15.49" BeforePrintEvent="Text43_BeforePrint" Text="[bshop.已付預付]" Format="Currency" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="細明體, 10pt" Trimming="EllipsisCharacter"/>
+            <TextObject Name="Text44" Left="627.12" Top="3.27" Width="87.72" Height="15.49" BeforePrintEvent="Text44_BeforePrint" Text="[bshop.AcctMny]" Format="Currency" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="細明體, 10pt" Trimming="EllipsisCharacter"/>
+            <DataBand Name="Data1" Top="371.53" Width="797.2" DataSource="Table"/>
+            <GroupFooterBand Name="GroupFooter4" Top="391.53" Width="797.2"/>
+          </GroupHeaderBand>
+          <GroupFooterBand Name="GroupFooter3" Top="411.53" Width="797.2"/>
+        </GroupHeaderBand>
+        <GroupFooterBand Name="GroupFooter2" Top="431.53" Width="797.2" Height="3.02" CanShrink="true">
+          <LineObject Name="Line5" Left="0.38" Top="2.23" Width="755.62" Border.Width="0.5"/>
+        </GroupFooterBand>
+      </GroupHeaderBand>
+      <GroupFooterBand Name="GroupFooter1" Top="454.55" Width="797.2" Height="16.59">
+        <TextObject Name="Text66" Left="0.38" Top="2.99" Width="756" Height="13.6" BeforePrintEvent="Text66_BeforePrint" Text="*****續 下 頁*****" HorzAlign="Center" WordWrap="false" Font="細明體, 10pt"/>
+        <ChildBand Name="Child1" Top="491.14" Width="797.2" Height="121.94" PrintOnBottom="true">
+          <TextObject Name="Text3" Left="4.16" Top="59.22" Width="753.73" Height="62.72" Text="[txtend]" WordWrap="false" Font="細明體, 12pt"/>
+          <TextObject Name="Text85" Left="2.26" Top="27.51" Width="113" Height="18.9" Text="本期應付帳款:" WordWrap="false" Font="細明體, 12pt"/>
+          <TextObject Name="Text34" Left="117.38" Top="26.75" Width="113" Height="18.9" BeforePrintEvent="Text34_BeforePrint" Text="[bshop.本期總金額]" Format="Currency" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="細明體, 12pt" Trimming="EllipsisCharacter"/>
+          <TextObject Name="Text86" Left="267.69" Top="27.51" Width="112.65" Height="18.9" Text="前期應付帳款:" WordWrap="false" Font="細明體, 12pt"/>
+          <TextObject Name="Text35" Left="381.83" Top="27.51" Width="112.65" Height="18.9" BeforePrintEvent="Text35_BeforePrint" Text="[bshop.前期總金額]" Format="Currency" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="細明體, 12pt" Trimming="EllipsisCharacter"/>
+          <TextObject Name="Text87" Left="527.5" Top="27.51" Width="113.03" Height="18.9" Text="應付帳款總額:" WordWrap="false" Font="細明體, 12pt"/>
+          <TextObject Name="Text36" Left="642.39" Top="27.51" Width="113.03" Height="18.9" BeforePrintEvent="Text36_BeforePrint" Text="[bshop.應付總金額]" Format="Currency" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="細明體, 12pt" Trimming="EllipsisCharacter"/>
+          <LineObject Name="Line4" Top="24.41" Width="760.53" Border.Width="2"/>
+          <TextObject Name="Text84" Left="2.26" Top="5.21" Width="74.8" Height="15.49" Text="總    計:" WordWrap="false" Font="細明體, 10pt"/>
+          <TextObject Name="Text31" Left="318.29" Top="5.21" Width="69.59" Height="15.49" BeforePrintEvent="Text31_BeforePrint" Text="[bshop.營業稅總額]" Format="Currency" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="細明體, 10pt" Trimming="EllipsisCharacter"/>
+          <TextObject Name="Text32" Left="550.29" Top="5.21" Width="74.89" Height="15.49" BeforePrintEvent="Text32_BeforePrint" Text="[bshop.已付加預付]" Format="Currency" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="細明體, 10pt" Trimming="EllipsisCharacter"/>
+          <TextObject Name="Text33" Left="627.12" Top="5.21" Width="87.72" Height="15.49" BeforePrintEvent="Text33_BeforePrint" Text="[bshop.應付總金額]" Format="Currency" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="細明體, 10pt" Trimming="EllipsisCharacter"/>
+          <LineObject Name="Line3" Top="2.17" Width="760.53" Border.Width="2"/>
+          <TextObject Name="Text19" Left="221.52" Top="5.21" Width="93.79" Height="15.49" BeforePrintEvent="Text19_BeforePrint" Text="[bshop.稅前總金額]" Format="Currency" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="細明體, 10pt" Trimming="EllipsisCharacter"/>
+          <TextObject Name="Text20" Left="391.23" Top="5.21" Width="74.89" Height="15.49" BeforePrintEvent="Text20_BeforePrint" Text="[bshop.本期總金額]" Format="Currency" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="細明體, 10pt" Trimming="EllipsisCharacter"/>
+          <TextObject Name="Text21" Left="468.72" Top="5.21" Width="74.89" Height="15.49" BeforePrintEvent="Text21_BeforePrint" Text="[bshop.折扣總金額]" Format="Currency" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="細明體, 10pt" Trimming="EllipsisCharacter"/>
+        </ChildBand>
+      </GroupFooterBand>
+    </GroupHeaderBand>
+  </ReportPage>
+</Report>

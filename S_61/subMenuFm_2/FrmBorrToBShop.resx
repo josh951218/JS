@@ -1,0 +1,269 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <metadata name="sqlSelectCommand1.DesignTimeVisible" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <metadata name="sqlSelectCommand1.CommandDesignTimeVisible" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <metadata name="sqlSelectCommand1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>0, 0</value>
+  </metadata>
+  <data name="sqlSelectCommand1.CommandText" xml:space="preserve">
+    <value>select borr.faname1,borr.bomemo1,borr.bomemo,borr.xa1no,borr.xa1name,borr.xa1par,borr.x3no,borr.rate,borr.emno,borr.emname,borr.booverflag,borrd.* from borr left join borrd on borr.bono=borrd.bono where (booverflag='0' or booverflag is null) and borrd.fano=(@FaNo) order by borrd.bono asc</value>
+  </data>
+  <metadata name="cn.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>133, 17</value>
+  </metadata>
+  <metadata name="daM.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="sqlSelectCommand2.DesignTimeVisible" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <metadata name="sqlSelectCommand2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>0, 0</value>
+  </metadata>
+  <metadata name="sqlSelectCommand2.CommandDesignTimeVisible" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <metadata name="sqlInsertCommand2.DesignTimeVisible" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <metadata name="sqlInsertCommand2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>0, 0</value>
+  </metadata>
+  <metadata name="sqlInsertCommand2.CommandDesignTimeVisible" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <data name="sqlInsertCommand2.CommandText" xml:space="preserve">
+    <value>INSERT INTO [lendd] ([leno], [ledate], [ledate1], [ledate2], [cono], [cuno], [stno], [emno], [xa1no], [xa1par], [itno], [itname], [ittrait], [itunit], [itpkgqty], [qty], [price], [prs], [rate], [taxprice], [mny], [priceb], [taxpriceb], [mnyb], [memo], [lowzero], [bomid], [bomrec], [recordno], [sltflag], [extflag], [itdesp1], [itdesp2], [itdesp3], [itdesp4], [itdesp5], [itdesp6], [itdesp7], [itdesp8], [itdesp9], [itdesp10], [stname], [stnoi], [stnamei]) VALUES (@leno, @ledate, @ledate1, @ledate2, @cono, @cuno, @stno, @emno, @xa1no, @xa1par, @itno, @itname, @ittrait, @itunit, @itpkgqty, @qty, @price, @prs, @rate, @taxprice, @mny, @priceb, @taxpriceb, @mnyb, @memo, @lowzero, @bomid, @bomrec, @recordno, @sltflag, @extflag, @itdesp1, @itdesp2, @itdesp3, @itdesp4, @itdesp5, @itdesp6, @itdesp7, @itdesp8, @itdesp9, @itdesp10, @stname, @stnoi, @stnamei);
+SELECT leid, leno, ledate, ledate1, ledate2, cono, cuno, stno, emno, xa1no, xa1par, itno, itname, ittrait, itunit, itpkgqty, qty, price, prs, rate, taxprice, mny, priceb, taxpriceb, mnyb, memo, lowzero, bomid, bomrec, recordno, sltflag, extflag, itdesp1, itdesp2, itdesp3, itdesp4, itdesp5, itdesp6, itdesp7, itdesp8, itdesp9, itdesp10, stname, stnoi, stnamei FROM lendd WHERE (leid = SCOPE_IDENTITY())</value>
+  </data>
+  <metadata name="sqlUpdateCommand2.DesignTimeVisible" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <metadata name="sqlUpdateCommand2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>0, 0</value>
+  </metadata>
+  <metadata name="sqlUpdateCommand2.CommandDesignTimeVisible" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <data name="sqlUpdateCommand2.CommandText" xml:space="preserve">
+    <value>UPDATE [lendd] SET [leno] = @leno, [ledate] = @ledate, [ledate1] = @ledate1, [ledate2] = @ledate2, [cono] = @cono, [cuno] = @cuno, [stno] = @stno, [emno] = @emno, [xa1no] = @xa1no, [xa1par] = @xa1par, [itno] = @itno, [itname] = @itname, [ittrait] = @ittrait, [itunit] = @itunit, [itpkgqty] = @itpkgqty, [qty] = @qty, [price] = @price, [prs] = @prs, [rate] = @rate, [taxprice] = @taxprice, [mny] = @mny, [priceb] = @priceb, [taxpriceb] = @taxpriceb, [mnyb] = @mnyb, [memo] = @memo, [lowzero] = @lowzero, [bomid] = @bomid, [bomrec] = @bomrec, [recordno] = @recordno, [sltflag] = @sltflag, [extflag] = @extflag, [itdesp1] = @itdesp1, [itdesp2] = @itdesp2, [itdesp3] = @itdesp3, [itdesp4] = @itdesp4, [itdesp5] = @itdesp5, [itdesp6] = @itdesp6, [itdesp7] = @itdesp7, [itdesp8] = @itdesp8, [itdesp9] = @itdesp9, [itdesp10] = @itdesp10, [stname] = @stname, [stnoi] = @stnoi, [stnamei] = @stnamei WHERE (([leid] = @Original_leid) AND ((@IsNull_leno = 1 AND [leno] IS NULL) OR ([leno] = @Original_leno)) AND ((@IsNull_ledate = 1 AND [ledate] IS NULL) OR ([ledate] = @Original_ledate)) AND ((@IsNull_ledate1 = 1 AND [ledate1] IS NULL) OR ([ledate1] = @Original_ledate1)) AND ((@IsNull_ledate2 = 1 AND [ledate2] IS NULL) OR ([ledate2] = @Original_ledate2)) AND ((@IsNull_cono = 1 AND [cono] IS NULL) OR ([cono] = @Original_cono)) AND ((@IsNull_cuno = 1 AND [cuno] IS NULL) OR ([cuno] = @Original_cuno)) AND ((@IsNull_stno = 1 AND [stno] IS NULL) OR ([stno] = @Original_stno)) AND ((@IsNull_emno = 1 AND [emno] IS NULL) OR ([emno] = @Original_emno)) AND ((@IsNull_xa1no = 1 AND [xa1no] IS NULL) OR ([xa1no] = @Original_xa1no)) AND ((@IsNull_xa1par = 1 AND [xa1par] IS NULL) OR ([xa1par] = @Original_xa1par)) AND ((@IsNull_itno = 1 AND [itno] IS NULL) OR ([itno] = @Original_itno)) AND ((@IsNull_itname = 1 AND [itname] IS NULL) OR ([itname] = @Original_itname)) AND ((@IsNull_ittrait = 1 AND [ittrait] IS NULL) OR ([ittrait] = @Original_ittrait)) AND ((@IsNull_itunit = 1 AND [itunit] IS NULL) OR ([itunit] = @Original_itunit)) AND ((@IsNull_itpkgqty = 1 AND [itpkgqty] IS NULL) OR ([itpkgqty] = @Original_itpkgqty)) AND ((@IsNull_qty = 1 AND [qty] IS NULL) OR ([qty] = @Original_qty)) AND ((@IsNull_price = 1 AND [price] IS NULL) OR ([price] = @Original_price)) AND ((@IsNull_prs = 1 AND [prs] IS NULL) OR ([prs] = @Original_prs)) AND ((@IsNull_rate = 1 AND [rate] IS NULL) OR ([rate] = @Original_rate)) AND ((@IsNull_taxprice = 1 AND [taxprice] IS NULL) OR ([taxprice] = @Original_taxprice)) AND ((@IsNull_mny = 1 AND [mny] IS NULL) OR ([mny] = @Original_mny)) AND ((@IsNull_priceb = 1 AND [priceb] IS NULL) OR ([priceb] = @Original_priceb)) AND ((@IsNull_taxpriceb = 1 AND [taxpriceb] IS NULL) OR ([taxpriceb] = @Original_taxpriceb)) AND ((@IsNull_mnyb = 1 AND [mnyb] IS NULL) OR ([mnyb] = @Original_mnyb)) AND ((@IsNull_memo = 1 AND [memo] IS NULL) OR ([memo] = @Original_memo)) AND ((@IsNull_lowzero = 1 AND [lowzero] IS NULL) OR ([lowzero] = @Original_lowzero)) AND ((@IsNull_bomid = 1 AND [bomid] IS NULL) OR ([bomid] = @Original_bomid)) AND ((@IsNull_bomrec = 1 AND [bomrec] IS NULL) OR ([bomrec] = @Original_bomrec)) AND ((@IsNull_recordno = 1 AND [recordno] IS NULL) OR ([recordno] = @Original_recordno)) AND ((@IsNull_sltflag = 1 AND [sltflag] IS NULL) OR ([sltflag] = @Original_sltflag)) AND ((@IsNull_extflag = 1 AND [extflag] IS NULL) OR ([extflag] = @Original_extflag)) AND ((@IsNull_itdesp1 = 1 AND [itdesp1] IS NULL) OR ([itdesp1] = @Original_itdesp1)) AND ((@IsNull_itdesp2 = 1 AND [itdesp2] IS NULL) OR ([itdesp2] = @Original_itdesp2)) AND ((@IsNull_itdesp3 = 1 AND [itdesp3] IS NULL) OR ([itdesp3] = @Original_itdesp3)) AND ((@IsNull_itdesp4 = 1 AND [itdesp4] IS NULL) OR ([itdesp4] = @Original_itdesp4)) AND ((@IsNull_itdesp5 = 1 AND [itdesp5] IS NULL) OR ([itdesp5] = @Original_itdesp5)) AND ((@IsNull_itdesp6 = 1 AND [itdesp6] IS NULL) OR ([itdesp6] = @Original_itdesp6)) AND ((@IsNull_itdesp7 = 1 AND [itdesp7] IS NULL) OR ([itdesp7] = @Original_itdesp7)) AND ((@IsNull_itdesp8 = 1 AND [itdesp8] IS NULL) OR ([itdesp8] = @Original_itdesp8)) AND ((@IsNull_itdesp9 = 1 AND [itdesp9] IS NULL) OR ([itdesp9] = @Original_itdesp9)) AND ((@IsNull_itdesp10 = 1 AND [itdesp10] IS NULL) OR ([itdesp10] = @Original_itdesp10)) AND ((@IsNull_stname = 1 AND [stname] IS NULL) OR ([stname] = @Original_stname)) AND ((@IsNull_stnoi = 1 AND [stnoi] IS NULL) OR ([stnoi] = @Original_stnoi)) AND ((@IsNull_stnamei = 1 AND [stnamei] IS NULL) OR ([stnamei] = @Original_stnamei)));
+SELECT leid, leno, ledate, ledate1, ledate2, cono, cuno, stno, emno, xa1no, xa1par, itno, itname, ittrait, itunit, itpkgqty, qty, price, prs, rate, taxprice, mny, priceb, taxpriceb, mnyb, memo, lowzero, bomid, bomrec, recordno, sltflag, extflag, itdesp1, itdesp2, itdesp3, itdesp4, itdesp5, itdesp6, itdesp7, itdesp8, itdesp9, itdesp10, stname, stnoi, stnamei FROM lendd WHERE (leid = @leid)</value>
+  </data>
+  <metadata name="sqlDeleteCommand2.DesignTimeVisible" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <metadata name="sqlDeleteCommand2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>0, 0</value>
+  </metadata>
+  <metadata name="sqlDeleteCommand2.CommandDesignTimeVisible" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <data name="sqlDeleteCommand2.CommandText" xml:space="preserve">
+    <value>DELETE FROM [lendd] WHERE (([leid] = @Original_leid) AND ((@IsNull_leno = 1 AND [leno] IS NULL) OR ([leno] = @Original_leno)) AND ((@IsNull_ledate = 1 AND [ledate] IS NULL) OR ([ledate] = @Original_ledate)) AND ((@IsNull_ledate1 = 1 AND [ledate1] IS NULL) OR ([ledate1] = @Original_ledate1)) AND ((@IsNull_ledate2 = 1 AND [ledate2] IS NULL) OR ([ledate2] = @Original_ledate2)) AND ((@IsNull_cono = 1 AND [cono] IS NULL) OR ([cono] = @Original_cono)) AND ((@IsNull_cuno = 1 AND [cuno] IS NULL) OR ([cuno] = @Original_cuno)) AND ((@IsNull_stno = 1 AND [stno] IS NULL) OR ([stno] = @Original_stno)) AND ((@IsNull_emno = 1 AND [emno] IS NULL) OR ([emno] = @Original_emno)) AND ((@IsNull_xa1no = 1 AND [xa1no] IS NULL) OR ([xa1no] = @Original_xa1no)) AND ((@IsNull_xa1par = 1 AND [xa1par] IS NULL) OR ([xa1par] = @Original_xa1par)) AND ((@IsNull_itno = 1 AND [itno] IS NULL) OR ([itno] = @Original_itno)) AND ((@IsNull_itname = 1 AND [itname] IS NULL) OR ([itname] = @Original_itname)) AND ((@IsNull_ittrait = 1 AND [ittrait] IS NULL) OR ([ittrait] = @Original_ittrait)) AND ((@IsNull_itunit = 1 AND [itunit] IS NULL) OR ([itunit] = @Original_itunit)) AND ((@IsNull_itpkgqty = 1 AND [itpkgqty] IS NULL) OR ([itpkgqty] = @Original_itpkgqty)) AND ((@IsNull_qty = 1 AND [qty] IS NULL) OR ([qty] = @Original_qty)) AND ((@IsNull_price = 1 AND [price] IS NULL) OR ([price] = @Original_price)) AND ((@IsNull_prs = 1 AND [prs] IS NULL) OR ([prs] = @Original_prs)) AND ((@IsNull_rate = 1 AND [rate] IS NULL) OR ([rate] = @Original_rate)) AND ((@IsNull_taxprice = 1 AND [taxprice] IS NULL) OR ([taxprice] = @Original_taxprice)) AND ((@IsNull_mny = 1 AND [mny] IS NULL) OR ([mny] = @Original_mny)) AND ((@IsNull_priceb = 1 AND [priceb] IS NULL) OR ([priceb] = @Original_priceb)) AND ((@IsNull_taxpriceb = 1 AND [taxpriceb] IS NULL) OR ([taxpriceb] = @Original_taxpriceb)) AND ((@IsNull_mnyb = 1 AND [mnyb] IS NULL) OR ([mnyb] = @Original_mnyb)) AND ((@IsNull_memo = 1 AND [memo] IS NULL) OR ([memo] = @Original_memo)) AND ((@IsNull_lowzero = 1 AND [lowzero] IS NULL) OR ([lowzero] = @Original_lowzero)) AND ((@IsNull_bomid = 1 AND [bomid] IS NULL) OR ([bomid] = @Original_bomid)) AND ((@IsNull_bomrec = 1 AND [bomrec] IS NULL) OR ([bomrec] = @Original_bomrec)) AND ((@IsNull_recordno = 1 AND [recordno] IS NULL) OR ([recordno] = @Original_recordno)) AND ((@IsNull_sltflag = 1 AND [sltflag] IS NULL) OR ([sltflag] = @Original_sltflag)) AND ((@IsNull_extflag = 1 AND [extflag] IS NULL) OR ([extflag] = @Original_extflag)) AND ((@IsNull_itdesp1 = 1 AND [itdesp1] IS NULL) OR ([itdesp1] = @Original_itdesp1)) AND ((@IsNull_itdesp2 = 1 AND [itdesp2] IS NULL) OR ([itdesp2] = @Original_itdesp2)) AND ((@IsNull_itdesp3 = 1 AND [itdesp3] IS NULL) OR ([itdesp3] = @Original_itdesp3)) AND ((@IsNull_itdesp4 = 1 AND [itdesp4] IS NULL) OR ([itdesp4] = @Original_itdesp4)) AND ((@IsNull_itdesp5 = 1 AND [itdesp5] IS NULL) OR ([itdesp5] = @Original_itdesp5)) AND ((@IsNull_itdesp6 = 1 AND [itdesp6] IS NULL) OR ([itdesp6] = @Original_itdesp6)) AND ((@IsNull_itdesp7 = 1 AND [itdesp7] IS NULL) OR ([itdesp7] = @Original_itdesp7)) AND ((@IsNull_itdesp8 = 1 AND [itdesp8] IS NULL) OR ([itdesp8] = @Original_itdesp8)) AND ((@IsNull_itdesp9 = 1 AND [itdesp9] IS NULL) OR ([itdesp9] = @Original_itdesp9)) AND ((@IsNull_itdesp10 = 1 AND [itdesp10] IS NULL) OR ([itdesp10] = @Original_itdesp10)) AND ((@IsNull_stname = 1 AND [stname] IS NULL) OR ([stname] = @Original_stname)) AND ((@IsNull_stnoi = 1 AND [stnoi] IS NULL) OR ([stnoi] = @Original_stnoi)) AND ((@IsNull_stnamei = 1 AND [stnamei] IS NULL) OR ([stnamei] = @Original_stnamei)))</value>
+  </data>
+  <metadata name="daD.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>212, 14</value>
+  </metadata>
+  <metadata name="labelT1.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="leno.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="btnCKall.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="btnCKnull.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="btnGet.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="btnCancel.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="dataGridViewT2.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="點選.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="借入憑證.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="借入日期.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="客戶編號.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="客戶名稱.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="產品編號.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="品名規格.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="數量.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="借入未還量.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="單位.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="單價.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="折數.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="稅前進價.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="稅前金額.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="statusStripT1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>293, 13</value>
+  </metadata>
+  <metadata name="statusStripT1.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="labelT2.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="qitno.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="$this.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>25</value>
+  </metadata>
+</root>

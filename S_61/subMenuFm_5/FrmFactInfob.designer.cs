@@ -1,0 +1,750 @@
+﻿namespace S_61.SOther
+{
+    partial class FrmFactInfob
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmFactInfob));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.groupBox1 = new JE.MyControl.GroupBoxT();
+            this.radio5 = new JE.MyControl.RadioT();
+            this.radio4 = new JE.MyControl.RadioT();
+            this.radio3 = new JE.MyControl.RadioT();
+            this.radio2 = new JE.MyControl.RadioT();
+            this.radio1 = new JE.MyControl.RadioT();
+            this.groupBox2 = new JE.MyControl.GroupBoxT();
+            this.radio11 = new JE.MyControl.RadioT();
+            this.radio10 = new JE.MyControl.RadioT();
+            this.radio9 = new JE.MyControl.RadioT();
+            this.radio8 = new JE.MyControl.RadioT();
+            this.radio7 = new JE.MyControl.RadioT();
+            this.radio6 = new JE.MyControl.RadioT();
+            this.panelT1 = new JE.MyControl.PanelBtnT();
+            this.bteExit = new JE.MyControl.ButtonT();
+            this.btnExcel = new JE.MyControl.ButtonT();
+            this.btnWord = new JE.MyControl.ButtonT();
+            this.btnPreview = new JE.MyControl.ButtonT();
+            this.btnPrint = new JE.MyControl.ButtonT();
+            this.dataGridViewT1 = new JE.MyControl.DataGridViewT();
+            this.廠商編號 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.廠商簡稱 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.聯絡人1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.電話1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.行動電話1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.負責人 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.郵遞區號 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.公司地址 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.聯絡人2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.電話2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.行動電話2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.業務人員 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.傳真機 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.零捌零電話 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.廠商類別 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.注音速查 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.far2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.發票地址 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.far3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.送貨地址 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.備註一 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.自訂一 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.statusStripT1 = new JE.MyControl.StatusStripT();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.panelT1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewT1)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.radio5);
+            this.groupBox1.Controls.Add(this.radio4);
+            this.groupBox1.Controls.Add(this.radio3);
+            this.groupBox1.Controls.Add(this.radio2);
+            this.groupBox1.Controls.Add(this.radio1);
+            this.groupBox1.Font = new System.Drawing.Font("細明體", 12F);
+            this.groupBox1.Location = new System.Drawing.Point(0, 459);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(493, 81);
+            this.groupBox1.TabIndex = 3;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "報表內容";
+            // 
+            // radio5
+            // 
+            this.radio5.AutoSize = true;
+            this.radio5.BackColor = System.Drawing.Color.Transparent;
+            this.radio5.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.radio5.Font = new System.Drawing.Font("細明體", 12F);
+            this.radio5.Location = new System.Drawing.Point(397, 37);
+            this.radio5.Name = "radio5";
+            this.radio5.Size = new System.Drawing.Size(74, 20);
+            this.radio5.TabIndex = 5;
+            this.radio5.Tag = "自訂四";
+            this.radio5.Text = "自訂四";
+            this.radio5.UseVisualStyleBackColor = true;
+            // 
+            // radio4
+            // 
+            this.radio4.AutoSize = true;
+            this.radio4.BackColor = System.Drawing.Color.Transparent;
+            this.radio4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.radio4.Font = new System.Drawing.Font("細明體", 12F);
+            this.radio4.Location = new System.Drawing.Point(307, 37);
+            this.radio4.Name = "radio4";
+            this.radio4.Size = new System.Drawing.Size(74, 20);
+            this.radio4.TabIndex = 4;
+            this.radio4.Tag = "自訂三";
+            this.radio4.Text = "自訂三";
+            this.radio4.UseVisualStyleBackColor = true;
+            // 
+            // radio3
+            // 
+            this.radio3.AutoSize = true;
+            this.radio3.BackColor = System.Drawing.Color.Transparent;
+            this.radio3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.radio3.Font = new System.Drawing.Font("細明體", 12F);
+            this.radio3.Location = new System.Drawing.Point(217, 37);
+            this.radio3.Name = "radio3";
+            this.radio3.Size = new System.Drawing.Size(74, 20);
+            this.radio3.TabIndex = 3;
+            this.radio3.Tag = "自訂二";
+            this.radio3.Text = "自訂二";
+            this.radio3.UseVisualStyleBackColor = true;
+            // 
+            // radio2
+            // 
+            this.radio2.AutoSize = true;
+            this.radio2.BackColor = System.Drawing.Color.Transparent;
+            this.radio2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.radio2.Font = new System.Drawing.Font("細明體", 12F);
+            this.radio2.Location = new System.Drawing.Point(127, 37);
+            this.radio2.Name = "radio2";
+            this.radio2.Size = new System.Drawing.Size(74, 20);
+            this.radio2.TabIndex = 2;
+            this.radio2.Tag = "自訂一";
+            this.radio2.Text = "自訂一";
+            this.radio2.UseVisualStyleBackColor = true;
+            // 
+            // radio1
+            // 
+            this.radio1.AutoSize = true;
+            this.radio1.BackColor = System.Drawing.Color.LightBlue;
+            this.radio1.Checked = true;
+            this.radio1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.radio1.Font = new System.Drawing.Font("細明體", 12F);
+            this.radio1.Location = new System.Drawing.Point(21, 37);
+            this.radio1.Name = "radio1";
+            this.radio1.Size = new System.Drawing.Size(90, 20);
+            this.radio1.TabIndex = 1;
+            this.radio1.Tag = "內定報表";
+            this.radio1.Text = "內定報表";
+            this.radio1.UseVisualStyleBackColor = false;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.radio11);
+            this.groupBox2.Controls.Add(this.radio10);
+            this.groupBox2.Controls.Add(this.radio9);
+            this.groupBox2.Controls.Add(this.radio8);
+            this.groupBox2.Controls.Add(this.radio7);
+            this.groupBox2.Controls.Add(this.radio6);
+            this.groupBox2.Font = new System.Drawing.Font("細明體", 12F);
+            this.groupBox2.Location = new System.Drawing.Point(499, 459);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(511, 81);
+            this.groupBox2.TabIndex = 4;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "表格註腳";
+            // 
+            // radio11
+            // 
+            this.radio11.AutoSize = true;
+            this.radio11.BackColor = System.Drawing.Color.Transparent;
+            this.radio11.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.radio11.Font = new System.Drawing.Font("細明體", 12F);
+            this.radio11.Location = new System.Drawing.Point(423, 37);
+            this.radio11.Name = "radio11";
+            this.radio11.Size = new System.Drawing.Size(74, 20);
+            this.radio11.TabIndex = 6;
+            this.radio11.Tag = "不列印";
+            this.radio11.Text = "不列印";
+            this.radio11.UseVisualStyleBackColor = true;
+            // 
+            // radio10
+            // 
+            this.radio10.AutoSize = true;
+            this.radio10.BackColor = System.Drawing.Color.Transparent;
+            this.radio10.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.radio10.Font = new System.Drawing.Font("細明體", 12F);
+            this.radio10.Location = new System.Drawing.Point(341, 37);
+            this.radio10.Name = "radio10";
+            this.radio10.Size = new System.Drawing.Size(74, 20);
+            this.radio10.TabIndex = 5;
+            this.radio10.Tag = "第五組";
+            this.radio10.Text = "第五組";
+            this.radio10.UseVisualStyleBackColor = true;
+            // 
+            // radio9
+            // 
+            this.radio9.AutoSize = true;
+            this.radio9.BackColor = System.Drawing.Color.Transparent;
+            this.radio9.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.radio9.Font = new System.Drawing.Font("細明體", 12F);
+            this.radio9.Location = new System.Drawing.Point(259, 37);
+            this.radio9.Name = "radio9";
+            this.radio9.Size = new System.Drawing.Size(74, 20);
+            this.radio9.TabIndex = 4;
+            this.radio9.Tag = "第四組";
+            this.radio9.Text = "第四組";
+            this.radio9.UseVisualStyleBackColor = true;
+            // 
+            // radio8
+            // 
+            this.radio8.AutoSize = true;
+            this.radio8.BackColor = System.Drawing.Color.Transparent;
+            this.radio8.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.radio8.Font = new System.Drawing.Font("細明體", 12F);
+            this.radio8.Location = new System.Drawing.Point(177, 37);
+            this.radio8.Name = "radio8";
+            this.radio8.Size = new System.Drawing.Size(74, 20);
+            this.radio8.TabIndex = 3;
+            this.radio8.Tag = "第三組";
+            this.radio8.Text = "第三組";
+            this.radio8.UseVisualStyleBackColor = true;
+            // 
+            // radio7
+            // 
+            this.radio7.AutoSize = true;
+            this.radio7.BackColor = System.Drawing.Color.Transparent;
+            this.radio7.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.radio7.Font = new System.Drawing.Font("細明體", 12F);
+            this.radio7.Location = new System.Drawing.Point(95, 37);
+            this.radio7.Name = "radio7";
+            this.radio7.Size = new System.Drawing.Size(74, 20);
+            this.radio7.TabIndex = 2;
+            this.radio7.Tag = "第二組";
+            this.radio7.Text = "第二組";
+            this.radio7.UseVisualStyleBackColor = true;
+            // 
+            // radio6
+            // 
+            this.radio6.AutoSize = true;
+            this.radio6.BackColor = System.Drawing.Color.LightBlue;
+            this.radio6.Checked = true;
+            this.radio6.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.radio6.Font = new System.Drawing.Font("細明體", 12F);
+            this.radio6.Location = new System.Drawing.Point(13, 37);
+            this.radio6.Name = "radio6";
+            this.radio6.Size = new System.Drawing.Size(74, 20);
+            this.radio6.TabIndex = 1;
+            this.radio6.Tag = "第一組";
+            this.radio6.Text = "第一組";
+            this.radio6.UseVisualStyleBackColor = false;
+            // 
+            // panelT1
+            // 
+            this.panelT1.AutoSize = true;
+            this.panelT1.Controls.Add(this.bteExit);
+            this.panelT1.Controls.Add(this.btnExcel);
+            this.panelT1.Controls.Add(this.btnWord);
+            this.panelT1.Controls.Add(this.btnPreview);
+            this.panelT1.Controls.Add(this.btnPrint);
+            this.panelT1.Location = new System.Drawing.Point(328, 545);
+            this.panelT1.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
+            this.panelT1.Name = "panelT1";
+            this.panelT1.Size = new System.Drawing.Size(355, 82);
+            this.panelT1.TabIndex = 1;
+            // 
+            // bteExit
+            // 
+            this.bteExit.BackColor = System.Drawing.SystemColors.Control;
+            this.bteExit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bteExit.BackgroundImage")));
+            this.bteExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.bteExit.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.bteExit.Font = new System.Drawing.Font("細明體", 9F);
+            this.bteExit.Location = new System.Drawing.Point(276, 0);
+            this.bteExit.Name = "bteExit";
+            this.bteExit.Size = new System.Drawing.Size(69, 79);
+            this.bteExit.TabIndex = 2;
+            this.bteExit.UseDefaultSettings = false;
+            this.bteExit.UseVisualStyleBackColor = false;
+            this.bteExit.Click += new System.EventHandler(this.bteExit_Click);
+            // 
+            // btnExcel
+            // 
+            this.btnExcel.BackColor = System.Drawing.SystemColors.Control;
+            this.btnExcel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnExcel.BackgroundImage")));
+            this.btnExcel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnExcel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnExcel.Font = new System.Drawing.Font("細明體", 9F);
+            this.btnExcel.Location = new System.Drawing.Point(207, 0);
+            this.btnExcel.Name = "btnExcel";
+            this.btnExcel.Size = new System.Drawing.Size(69, 79);
+            this.btnExcel.TabIndex = 2;
+            this.btnExcel.UseDefaultSettings = false;
+            this.btnExcel.UseVisualStyleBackColor = false;
+            this.btnExcel.Click += new System.EventHandler(this.btnExcel_Click);
+            // 
+            // btnWord
+            // 
+            this.btnWord.BackColor = System.Drawing.SystemColors.Control;
+            this.btnWord.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnWord.BackgroundImage")));
+            this.btnWord.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnWord.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnWord.Font = new System.Drawing.Font("細明體", 9F);
+            this.btnWord.Location = new System.Drawing.Point(138, 0);
+            this.btnWord.Name = "btnWord";
+            this.btnWord.Size = new System.Drawing.Size(69, 79);
+            this.btnWord.TabIndex = 2;
+            this.btnWord.UseDefaultSettings = false;
+            this.btnWord.UseVisualStyleBackColor = false;
+            this.btnWord.Click += new System.EventHandler(this.btnWord_Click);
+            // 
+            // btnPreview
+            // 
+            this.btnPreview.BackColor = System.Drawing.SystemColors.Control;
+            this.btnPreview.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnPreview.BackgroundImage")));
+            this.btnPreview.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnPreview.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnPreview.Font = new System.Drawing.Font("細明體", 9F);
+            this.btnPreview.Location = new System.Drawing.Point(69, 0);
+            this.btnPreview.Name = "btnPreview";
+            this.btnPreview.Size = new System.Drawing.Size(69, 79);
+            this.btnPreview.TabIndex = 1;
+            this.btnPreview.UseDefaultSettings = false;
+            this.btnPreview.UseVisualStyleBackColor = false;
+            this.btnPreview.Click += new System.EventHandler(this.btnPreView_Click);
+            // 
+            // btnPrint
+            // 
+            this.btnPrint.BackColor = System.Drawing.SystemColors.Control;
+            this.btnPrint.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnPrint.BackgroundImage")));
+            this.btnPrint.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnPrint.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnPrint.Font = new System.Drawing.Font("細明體", 9F);
+            this.btnPrint.Location = new System.Drawing.Point(0, 0);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(69, 79);
+            this.btnPrint.TabIndex = 0;
+            this.btnPrint.UseDefaultSettings = false;
+            this.btnPrint.UseVisualStyleBackColor = false;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
+            // 
+            // dataGridViewT1
+            // 
+            this.dataGridViewT1.AllowUserToAddRows = false;
+            this.dataGridViewT1.AllowUserToDeleteRows = false;
+            this.dataGridViewT1.AllowUserToOrderColumns = true;
+            this.dataGridViewT1.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridViewT1.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
+            this.dataGridViewT1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("細明體", 12F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewT1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridViewT1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewT1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.廠商編號,
+            this.廠商簡稱,
+            this.聯絡人1,
+            this.電話1,
+            this.行動電話1,
+            this.負責人,
+            this.郵遞區號,
+            this.公司地址,
+            this.聯絡人2,
+            this.電話2,
+            this.行動電話2,
+            this.業務人員,
+            this.傳真機,
+            this.零捌零電話,
+            this.廠商類別,
+            this.注音速查,
+            this.far2,
+            this.發票地址,
+            this.far3,
+            this.送貨地址,
+            this.備註一,
+            this.自訂一});
+            this.dataGridViewT1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
+            this.dataGridViewT1.EnableHeadersVisualStyles = false;
+            this.dataGridViewT1.Font = new System.Drawing.Font("細明體", 12F);
+            this.dataGridViewT1.ISDocument = false;
+            this.dataGridViewT1.Location = new System.Drawing.Point(0, 0);
+            this.dataGridViewT1.MultiSelect = false;
+            this.dataGridViewT1.Name = "dataGridViewT1";
+            this.dataGridViewT1.ReadOnly = true;
+            this.dataGridViewT1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(214)))), ((int)(((byte)(217)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("細明體", 12F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewT1.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridViewT1.RowHeadersWidth = 20;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Yellow;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            this.dataGridViewT1.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            this.dataGridViewT1.RowTemplate.Height = 24;
+            this.dataGridViewT1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewT1.ShowCellToolTips = false;
+            this.dataGridViewT1.Size = new System.Drawing.Size(1010, 453);
+            this.dataGridViewT1.TabIndex = 2;
+            // 
+            // 廠商編號
+            // 
+            this.廠商編號.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.廠商編號.DataPropertyName = "fano";
+            this.廠商編號.HeaderText = "廠商編號";
+            this.廠商編號.MaxInputLength = 10;
+            this.廠商編號.Name = "廠商編號";
+            this.廠商編號.ReadOnly = true;
+            this.廠商編號.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.廠商編號.Width = 93;
+            // 
+            // 廠商簡稱
+            // 
+            this.廠商簡稱.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.廠商簡稱.DataPropertyName = "faname1";
+            this.廠商簡稱.HeaderText = "廠商簡稱";
+            this.廠商簡稱.MaxInputLength = 10;
+            this.廠商簡稱.Name = "廠商簡稱";
+            this.廠商簡稱.ReadOnly = true;
+            this.廠商簡稱.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.廠商簡稱.Width = 93;
+            // 
+            // 聯絡人1
+            // 
+            this.聯絡人1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.聯絡人1.DataPropertyName = "faper1";
+            this.聯絡人1.HeaderText = "聯絡人1";
+            this.聯絡人1.MaxInputLength = 20;
+            this.聯絡人1.Name = "聯絡人1";
+            this.聯絡人1.ReadOnly = true;
+            this.聯絡人1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.聯絡人1.Width = 173;
+            // 
+            // 電話1
+            // 
+            this.電話1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.電話1.DataPropertyName = "fatel1";
+            this.電話1.HeaderText = "電話1";
+            this.電話1.MaxInputLength = 20;
+            this.電話1.Name = "電話1";
+            this.電話1.ReadOnly = true;
+            this.電話1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.電話1.Width = 173;
+            // 
+            // 行動電話1
+            // 
+            this.行動電話1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.行動電話1.DataPropertyName = "faatel1";
+            this.行動電話1.HeaderText = "行動電話1";
+            this.行動電話1.MaxInputLength = 20;
+            this.行動電話1.Name = "行動電話1";
+            this.行動電話1.ReadOnly = true;
+            this.行動電話1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.行動電話1.Width = 173;
+            // 
+            // 負責人
+            // 
+            this.負責人.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.負責人.DataPropertyName = "faper";
+            this.負責人.HeaderText = "負責人";
+            this.負責人.MaxInputLength = 10;
+            this.負責人.Name = "負責人";
+            this.負責人.ReadOnly = true;
+            this.負責人.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.負責人.Width = 93;
+            // 
+            // 郵遞區號
+            // 
+            this.郵遞區號.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.郵遞區號.DataPropertyName = "far1";
+            this.郵遞區號.HeaderText = "郵遞區號";
+            this.郵遞區號.MaxInputLength = 10;
+            this.郵遞區號.Name = "郵遞區號";
+            this.郵遞區號.ReadOnly = true;
+            this.郵遞區號.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.郵遞區號.Width = 93;
+            // 
+            // 公司地址
+            // 
+            this.公司地址.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.公司地址.DataPropertyName = "faaddr1";
+            this.公司地址.HeaderText = "公司地址";
+            this.公司地址.MaxInputLength = 60;
+            this.公司地址.Name = "公司地址";
+            this.公司地址.ReadOnly = true;
+            this.公司地址.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.公司地址.Width = 493;
+            // 
+            // 聯絡人2
+            // 
+            this.聯絡人2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.聯絡人2.DataPropertyName = "faper2";
+            this.聯絡人2.HeaderText = "聯絡人2";
+            this.聯絡人2.MaxInputLength = 20;
+            this.聯絡人2.Name = "聯絡人2";
+            this.聯絡人2.ReadOnly = true;
+            this.聯絡人2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.聯絡人2.Width = 173;
+            // 
+            // 電話2
+            // 
+            this.電話2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.電話2.DataPropertyName = "fatel2";
+            this.電話2.HeaderText = "電話2";
+            this.電話2.MaxInputLength = 20;
+            this.電話2.Name = "電話2";
+            this.電話2.ReadOnly = true;
+            this.電話2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.電話2.Width = 173;
+            // 
+            // 行動電話2
+            // 
+            this.行動電話2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.行動電話2.DataPropertyName = "faatel2";
+            this.行動電話2.HeaderText = "行動電話2";
+            this.行動電話2.MaxInputLength = 20;
+            this.行動電話2.Name = "行動電話2";
+            this.行動電話2.ReadOnly = true;
+            this.行動電話2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.行動電話2.Width = 173;
+            // 
+            // 業務人員
+            // 
+            this.業務人員.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.業務人員.DataPropertyName = "faemno1";
+            this.業務人員.HeaderText = "業務人員";
+            this.業務人員.MaxInputLength = 10;
+            this.業務人員.Name = "業務人員";
+            this.業務人員.ReadOnly = true;
+            this.業務人員.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.業務人員.Width = 93;
+            // 
+            // 傳真機
+            // 
+            this.傳真機.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.傳真機.DataPropertyName = "fafax1";
+            this.傳真機.HeaderText = "傳真機";
+            this.傳真機.MaxInputLength = 20;
+            this.傳真機.Name = "傳真機";
+            this.傳真機.ReadOnly = true;
+            this.傳真機.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.傳真機.Width = 173;
+            // 
+            // 零捌零電話
+            // 
+            this.零捌零電話.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.零捌零電話.DataPropertyName = "fatel3";
+            this.零捌零電話.HeaderText = "080電話";
+            this.零捌零電話.MaxInputLength = 20;
+            this.零捌零電話.Name = "零捌零電話";
+            this.零捌零電話.ReadOnly = true;
+            this.零捌零電話.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.零捌零電話.Width = 173;
+            // 
+            // 廠商類別
+            // 
+            this.廠商類別.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.廠商類別.DataPropertyName = "fax12no";
+            this.廠商類別.HeaderText = "廠商類別";
+            this.廠商類別.MaxInputLength = 10;
+            this.廠商類別.Name = "廠商類別";
+            this.廠商類別.ReadOnly = true;
+            this.廠商類別.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.廠商類別.Width = 93;
+            // 
+            // 注音速查
+            // 
+            this.注音速查.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.注音速查.DataPropertyName = "faime";
+            this.注音速查.HeaderText = "注音速查";
+            this.注音速查.MaxInputLength = 15;
+            this.注音速查.Name = "注音速查";
+            this.注音速查.ReadOnly = true;
+            this.注音速查.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.注音速查.Width = 133;
+            // 
+            // far2
+            // 
+            this.far2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.far2.DataPropertyName = "far2";
+            this.far2.HeaderText = "郵遞區號";
+            this.far2.MaxInputLength = 10;
+            this.far2.Name = "far2";
+            this.far2.ReadOnly = true;
+            this.far2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.far2.Width = 93;
+            // 
+            // 發票地址
+            // 
+            this.發票地址.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.發票地址.DataPropertyName = "faaddr2";
+            this.發票地址.HeaderText = "發票地址";
+            this.發票地址.MaxInputLength = 60;
+            this.發票地址.Name = "發票地址";
+            this.發票地址.ReadOnly = true;
+            this.發票地址.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.發票地址.Width = 493;
+            // 
+            // far3
+            // 
+            this.far3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.far3.DataPropertyName = "far3";
+            this.far3.HeaderText = "郵遞區號";
+            this.far3.MaxInputLength = 10;
+            this.far3.Name = "far3";
+            this.far3.ReadOnly = true;
+            this.far3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.far3.Width = 93;
+            // 
+            // 送貨地址
+            // 
+            this.送貨地址.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.送貨地址.DataPropertyName = "faaddr3";
+            this.送貨地址.HeaderText = "送貨地址";
+            this.送貨地址.MaxInputLength = 60;
+            this.送貨地址.Name = "送貨地址";
+            this.送貨地址.ReadOnly = true;
+            this.送貨地址.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.送貨地址.Width = 493;
+            // 
+            // 備註一
+            // 
+            this.備註一.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.備註一.DataPropertyName = "famemo1";
+            this.備註一.HeaderText = "備註一";
+            this.備註一.MaxInputLength = 70;
+            this.備註一.Name = "備註一";
+            this.備註一.ReadOnly = true;
+            this.備註一.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.備註一.Width = 573;
+            // 
+            // 自訂一
+            // 
+            this.自訂一.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.自訂一.DataPropertyName = "faudf1";
+            this.自訂一.HeaderText = "自訂一";
+            this.自訂一.MaxInputLength = 70;
+            this.自訂一.Name = "自訂一";
+            this.自訂一.ReadOnly = true;
+            this.自訂一.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.自訂一.Width = 573;
+            // 
+            // statusStripT1
+            // 
+            this.statusStripT1.Font = new System.Drawing.Font("微軟正黑體", 12F);
+            this.statusStripT1.Location = new System.Drawing.Point(0, 625);
+            this.statusStripT1.Name = "statusStripT1";
+            this.statusStripT1.Size = new System.Drawing.Size(1010, 22);
+            this.statusStripT1.TabIndex = 0;
+            this.statusStripT1.Text = "statusStripT1";
+            // 
+            // FrmFactInfob
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.bteExit;
+            this.ClientSize = new System.Drawing.Size(1010, 647);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.dataGridViewT1);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.statusStripT1);
+            this.Controls.Add(this.panelT1);
+            this.Name = "FrmFactInfob";
+            this.Text = "廠商資料瀏覽";
+            this.Load += new System.EventHandler(this.FrmFactInfob_Load);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            this.panelT1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewT1)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        #endregion
+
+        private JE.MyControl.GroupBoxT groupBox1;
+        private JE.MyControl.GroupBoxT groupBox2;
+        private JE.MyControl.PanelBtnT panelT1;
+        private JE.MyControl.ButtonT bteExit;
+        private JE.MyControl.ButtonT btnPreview;
+        private JE.MyControl.ButtonT btnPrint;
+        private JE.MyControl.RadioT radio1;
+        private JE.MyControl.RadioT radio2;
+        private JE.MyControl.RadioT radio3;
+        private JE.MyControl.RadioT radio4;
+        private JE.MyControl.RadioT radio5;
+        private JE.MyControl.RadioT radio6;
+        private JE.MyControl.RadioT radio7;
+        private JE.MyControl.RadioT radio8;
+        private JE.MyControl.RadioT radio9;
+        private JE.MyControl.RadioT radio10;
+        private JE.MyControl.RadioT radio11;
+        private JE.MyControl.ButtonT btnExcel;
+        private JE.MyControl.ButtonT btnWord;
+        private JE.MyControl.DataGridViewT dataGridViewT1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 廠商編號;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 廠商簡稱;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 聯絡人1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 電話1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 行動電話1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 負責人;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 郵遞區號;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 公司地址;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 聯絡人2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 電話2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 行動電話2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 業務人員;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 傳真機;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 零捌零電話;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 廠商類別;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 注音速查;
+        private System.Windows.Forms.DataGridViewTextBoxColumn far2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 發票地址;
+        private System.Windows.Forms.DataGridViewTextBoxColumn far3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 送貨地址;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 備註一;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 自訂一;
+        private JE.MyControl.StatusStripT statusStripT1; 
+    }
+}

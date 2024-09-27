@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="03/04/2015 10:21:42" ReportInfo.Modified="04/20/2015 15:43:47" ReportInfo.CreatorVersion="2013.2.5.0">
+  <Dictionary>
+    <MsSqlDataConnection Name="Connection" ConnectionString="rijcmlq+rW0RkboK+/8CKGGYUID3ctBV8q9SvKYxl3iiE7vBnh7Tgou0+4WFf3NfmPSvHVFMb+6VV8AQa1o8PejGBoK8wrAy/t3nmq4U8bTrZ2dbE5oNTCbtG9HIkRIcs5KGiFKjR/3HHbR5Jq1DamB/JvE1txsX2pefBo+LZHgBLsSTxk=">
+      <TableDataSource Name="Item" DataType="System.Int32" PropName="Table" Enabled="true" SelectCommand="Select 列印份數=0,張數=1,kind.kiname as 類別名稱,item.* &#13;&#10;                                From Item left join kind on item.kino = kind.kino Where 1=0">
+        <Column Name="列印份數" DataType="System.Int32"/>
+        <Column Name="張數" DataType="System.Int32"/>
+        <Column Name="類別名稱" DataType="System.String"/>
+        <Column Name="itno" DataType="System.String"/>
+        <Column Name="itnoudf" DataType="System.String"/>
+        <Column Name="itname" DataType="System.String"/>
+        <Column Name="kino" DataType="System.String"/>
+        <Column Name="itime" DataType="System.String"/>
+        <Column Name="ittrait" DataType="System.Decimal"/>
+        <Column Name="itunit" DataType="System.String"/>
+        <Column Name="itunitp" DataType="System.String"/>
+        <Column Name="itpkgqty" DataType="System.Decimal"/>
+        <Column Name="itbuypri" DataType="System.Decimal"/>
+        <Column Name="itprice" DataType="System.Decimal"/>
+        <Column Name="itprice1" DataType="System.Decimal"/>
+        <Column Name="itprice2" DataType="System.Decimal"/>
+        <Column Name="itprice3" DataType="System.Decimal"/>
+        <Column Name="itprice4" DataType="System.Decimal"/>
+        <Column Name="itprice5" DataType="System.Decimal"/>
+        <Column Name="itcost" DataType="System.Decimal"/>
+        <Column Name="itbuyprip" DataType="System.Decimal"/>
+        <Column Name="itpricep" DataType="System.Decimal"/>
+        <Column Name="itpricep1" DataType="System.Decimal"/>
+        <Column Name="itpricep2" DataType="System.Decimal"/>
+        <Column Name="itpricep3" DataType="System.Decimal"/>
+        <Column Name="itpricep4" DataType="System.Decimal"/>
+        <Column Name="itpricep5" DataType="System.Decimal"/>
+        <Column Name="itcostp" DataType="System.Decimal"/>
+        <Column Name="itbuyunit" DataType="System.Decimal"/>
+        <Column Name="itsalunit" DataType="System.Decimal"/>
+        <Column Name="itsafeqty" DataType="System.Decimal"/>
+        <Column Name="itlastqty" DataType="System.Decimal"/>
+        <Column Name="itnw" DataType="System.Decimal"/>
+        <Column Name="itnwunit" DataType="System.String"/>
+        <Column Name="itcostslt" DataType="System.Decimal"/>
+        <Column Name="itcodeslt" DataType="System.Decimal"/>
+        <Column Name="itcodeno" DataType="System.Decimal"/>
+        <Column Name="itdesp1" DataType="System.String"/>
+        <Column Name="itdesp2" DataType="System.String"/>
+        <Column Name="itdesp3" DataType="System.String"/>
+        <Column Name="itdesp4" DataType="System.String"/>
+        <Column Name="itdesp5" DataType="System.String"/>
+        <Column Name="itdesp6" DataType="System.String"/>
+        <Column Name="itdesp7" DataType="System.String"/>
+        <Column Name="itdesp8" DataType="System.String"/>
+        <Column Name="itdesp9" DataType="System.String"/>
+        <Column Name="itdesp10" DataType="System.String"/>
+        <Column Name="itdate" DataType="System.String"/>
+        <Column Name="itdate1" DataType="System.String"/>
+        <Column Name="itdate2" DataType="System.String"/>
+        <Column Name="itbuydate" DataType="System.String"/>
+        <Column Name="itbuydate1" DataType="System.String"/>
+        <Column Name="itbuydate2" DataType="System.String"/>
+        <Column Name="itsaldate" DataType="System.String"/>
+        <Column Name="itsaldate1" DataType="System.String"/>
+        <Column Name="itSaldate2" DataType="System.String"/>
+        <Column Name="itfircost" DataType="System.Decimal"/>
+        <Column Name="itfirtqty" DataType="System.Decimal"/>
+        <Column Name="itfirtcost" DataType="System.Decimal"/>
+        <Column Name="itstockqty" DataType="System.Decimal"/>
+        <Column Name="itnote" DataType="System.String"/>
+        <Column Name="itudf1" DataType="System.String"/>
+        <Column Name="itudf2" DataType="System.String"/>
+        <Column Name="itudf3" DataType="System.String"/>
+        <Column Name="itudf4" DataType="System.String"/>
+        <Column Name="itudf5" DataType="System.String"/>
+        <Column Name="itweblist" DataType="System.Decimal"/>
+        <Column Name="itwebpic" DataType="System.String"/>
+        <Column Name="itwebctl1" DataType="System.Decimal"/>
+        <Column Name="itwebctl2" DataType="System.Decimal"/>
+        <Column Name="IsUse" DataType="System.Boolean" BindableControl="CheckBox"/>
+        <Column Name="ItSource" DataType="System.Decimal"/>
+        <Column Name="pic" DataType="System.Byte[]" BindableControl="Picture"/>
+        <Column Name="itpicture" DataType="System.String"/>
+        <Column Name="IsEnable" DataType="System.Decimal"/>
+        <Column Name="fano" DataType="System.String"/>
+        <Column Name="Punit" DataType="System.String"/>
+        <Column Name="ScNo" DataType="System.String"/>
+        <Column Name="ItBarName1" DataType="System.String"/>
+        <Column Name="ItBarName2" DataType="System.String"/>
+      </TableDataSource>
+    </MsSqlDataConnection>
+  </Dictionary>
+  <ReportPage Name="Page1" PaperWidth="35" PaperHeight="25" RawPaperSize="137" LeftMargin="0" TopMargin="0" RightMargin="0" BottomMargin="0" FirstPageSource="15" OtherPagesSource="15">
+    <DataBand Name="Data1" Width="132.3" Height="94.5" DataSource="Item">
+      <BarcodeObject Name="Barcode1" Left="13.23" Top="38.8" Width="103" Height="28.35" DataColumn="Item.itno" Text="4710901893996" Zoom="0.8" Barcode="EAN13"/>
+      <TextObject Name="Text1" Left="3.78" Top="4.78" Width="122.85" Height="30.24" Text="[Item.itname]" Font="細明體, 9pt"/>
+      <TextObject Name="Text2" Left="3.78" Top="71.6" Width="37.8" Height="18.9" Text="售價" Font="細明體, 9pt"/>
+      <TextObject Name="Text3" Left="42.25" Top="71.6" Width="85.05" Height="18.9" Text="[Item.itprice]" Format="Currency" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.CurrencySymbol="$" Format.PositivePattern="0" Format.NegativePattern="1" HorzAlign="Right" WordWrap="false" Font="細明體, 9pt" Trimming="EllipsisCharacter"/>
+    </DataBand>
+  </ReportPage>
+</Report>

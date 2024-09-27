@@ -1,0 +1,1854 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="RSale" targetNamespace="http://tempuri.org/RSale.xsd" xmlns:mstns="http://tempuri.org/RSale.xsd" xmlns="http://tempuri.org/RSale.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="4" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="webstockConnectionString" IsAppSettingsProperty="true" Modifier="Assembly" Name="webstockConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.S_61.Properties.Settings.GlobalReference.Default.webstockConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="STOCK1ConnectionString" IsAppSettingsProperty="true" Modifier="Assembly" Name="STOCK1ConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.S_61.Properties.Settings.GlobalReference.Default.STOCK1ConnectionString" Provider="System.Data.SqlClient" />
+          <Connection ConnectionStringObject="Data Source=.;Initial Catalog=LONG;Integrated Security=True" IsAppSettingsProperty="false" Modifier="Assembly" Name="wks5123-pc.LONG.dbo" ParameterPrefix="@" Provider="System.Data.SqlClient" />
+          <Connection ConnectionStringObject="Data Source=.;Initial Catalog=bm888;User ID=BMIDP;Password=BMIDP" IsAppSettingsProperty="false" Modifier="Assembly" Name="wang_weiren.bm888.dbo" ParameterPrefix="@" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="STOCKConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="STOCKConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.S_61.Properties.Settings.GlobalReference.Default.STOCKConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTableAdapter" GeneratorDataComponentClassName="DataTableAdapter" Name="Data" UserDataComponentName="DataTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="wang_weiren.bm888.dbo" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT             rsale.fromsale  AS  rsale_fromsale ,rsale.sano AS rsale_sano, rsale.sadate AS rsale_sadate, rsale.sadate1 AS rsale_sadate1, 
+                            rsale.sadate2 AS rsale_sadate2, rsale.sadateac AS rsale_sadateac, rsale.sadateac1 AS rsale_sadateac1, 
+                            rsale.sadateac2 AS rsale_sadateac2, rsale.quno AS rsale_quno, rsale.cono AS rsale_cono, 
+                            rsale.coname1 AS rsale_coname1, rsale.coname2 AS rsale_coname2, rsale.cuno AS rsale_cuno, 
+                            rsale.cuname2 AS rsale_cuname2, rsale.cuname1 AS rsale_cuname1, rsale.cutel1 AS rsale_cutel1, 
+                            rsale.cuper1 AS rsale_cuper1, rsale.emno AS rsale_emno, rsale.emname AS rsale_emname, 
+                            rsale.spno AS rsale_spno, rsale.spname AS rsale_spname, rsale.stno AS rsale_stno, rsale.stname AS rsale_stname, 
+                            rsale.xa1no AS rsale_xa1no, rsale.xa1name AS rsale_xa1name, rsale.xa1par AS rsale_xa1par, 
+                            rsale.taxmnyf AS rsale_taxmnyf, rsale.taxmnyb AS rsale_taxmnyb, rsale.taxmny AS rsale_taxmny, 
+                            rsale.x3no AS rsale_x3no, rsale.rate AS rsale_rate, rsale.x5no AS rsale_x5no, rsale.seno AS rsale_seno, 
+                            rsale.sename AS rsale_sename, rsale.x4no AS rsale_x4no, rsale.x4name AS rsale_x4name, rsale.tax AS rsale_tax, 
+                            rsale.totmny AS rsale_totmny, rsale.taxb AS rsale_taxb, rsale.totmnyb AS rsale_totmnyb, 
+                            rsale.discount AS rsale_discount, rsale.cashmny AS rsale_cashmny, rsale.cardmny AS rsale_cardmny, 
+                            rsale.cardno AS rsale_cardno, rsale.ticket AS rsale_ticket, rsale.collectmny AS rsale_collectmny, 
+                            rsale.getprvacc AS rsale_getprvacc, rsale.acctmny AS rsale_acctmny, rsale.samemo AS rsale_samemo, 
+                            rsale.samemo1 AS rsale_samemo1, rsale.bracket AS rsale_bracket, rsale.recordno AS rsale_recordno, 
+                            rsale.invno AS rsale_invno, rsale.invdate AS rsale_invdate, rsale.invdate1 AS rsale_invdate1, 
+                            rsale.invname AS rsale_invname, rsale.invtaxno AS rsale_invtaxno, rsale.invaddr1 AS rsale_invaddr1, 
+                            rsale.invbatch AS rsale_invbatch, rsale.invbatflg AS rsale_invbatflg, rsale.appdate AS rsale_appdate, 
+                            rsale.edtdate AS rsale_edtdate, rsale.appscno AS rsale_appscno, rsale.edtscno AS rsale_edtscno, rsale_SaPayment='',
+                            rsale.acno AS rsale_acno, rsale.cloflag AS rsale_cloflag, rsale.UsrNo AS rsale_usrno, rsaled.saID AS rsaled_said, 
+                            rsaled.sano AS rsaled_sano, rsaled.sadate AS rsaled_sadate, rsaled.sadate1 AS rsaled_sadate1, 
+                            rsaled.sadate2 AS rsaled_sadate2, rsaled.sadateac AS rsaled_sadateac, rsaled.sadateac1 AS rsaled_sadateac1, 
+                            rsaled.sadateac2 AS rsaled_sadateac2, rsaled.quno AS rsaled_quno, rsaled.cono AS rsaled_cono, 
+                            rsaled.cuno AS rsaled_cuno, rsaled.emno AS rsaled_emno, rsaled.spno AS rsaled_spno, rsaled.stno AS rsaled_stno, 
+                            rsaled.xa1no AS rsaled_xa1no, rsaled.xa1par AS rsaled_xa1par, rsaled.seno AS rsaled_seno, 
+                            rsaled.sename AS rsaled_sename, rsaled.x4no AS rsaled_x4no, rsaled.x4name AS rsaled_x4name, 
+                            rsaled.orno AS rsaled_orno, rsaled.itno AS rsaled_itno, rsaled.itname AS rsaled_itname, rsaled.ittrait AS rsaled_ittrait,
+                             rsaled.itunit AS rsaled_itunit, rsaled.itpkgqty AS rsaled_itpkgqty, rsaled.qty AS rsaled_qty, 
+                            rsaled.price AS rsaled_price, rsaled.prs AS rsaled_prs, rsaled.rate AS rsaled_rate, rsaled.taxprice AS rsaled_taxprice,
+                             rsaled.mny AS rsaled_mny, rsaled.priceb AS rsaled_priceb, rsaled.taxpriceb AS rsaled_taxpriceb, 
+                            rsaled.mnyb AS rsaled_mnyb, rsaled.memo AS rsaled_memo, rsaled.lowzero AS rsaled_lowzero, 
+                            rsaled.bomid AS rsaled_bomid, rsaled.bomrec AS rsaled_bomrec, rsaled.recordno AS rsaled_recordno, 
+                            rsaled.sltflag AS rsaled_sltflag, rsaled.extflag AS rsaled_extflag, rsaled.bracket AS rsaled_bracket, 
+                            rsaled.itdesp1 AS rsaled_itdesp1, rsaled.itdesp2 AS rsaled_itdesp2, rsaled.itdesp3 AS rsaled_itdesp3, 
+                            rsaled.itdesp4 AS rsaled_itdesp4, rsaled.itdesp5 AS rsaled_itdesp5, rsaled.itdesp6 AS rsaled_itdesp6, 
+                            rsaled.itdesp7 AS rsaled_itdesp7, rsaled.itdesp8 AS rsaled_itdesp8, rsaled.itdesp9 AS rsaled_itdesp9, 
+                            rsaled.itdesp10 AS rsaled_itdesp10, rsaled.stName AS rsaled_stname, rsaled.RecordNo_D AS rsaled_recordno_d, 
+                            RSaleBom.SaNo AS rsalebom_sano, RSaleBom.BomID AS rsalebom_bomid, 
+                            RSaleBom.BomRec AS rsalebom_bomrec, RSaleBom.itno AS rsalebom_itno, RSaleBom.itname AS rsalebom_itname, 
+                            RSaleBom.itunit AS rsalebom_itunit, RSaleBom.itqty AS rsalebom_itqty, RSaleBom.itpareprs AS rsalebom_itpareprs, 
+                            RSaleBom.itpkgqty AS rsalebom_itpkgqty, RSaleBom.itrec AS rsalebom_itrec, RSaleBom.itprice AS rsalebom_itprice, 
+                            RSaleBom.itprs AS rsalebom_itprs, RSaleBom.itmny AS rsalebom_itmny, RSaleBom.itnote AS rsalebom_itnote, 
+                            RSaleBom.ItSource AS rsalebom_itsource, RSaleBom.ItBuyPri AS rsalebom_itbuypri, 
+                            RSaleBom.ItBuyMny AS rsalebom_itbuymny, cust.cuno AS cust_cuno, cust.cuname2 AS cust_cuname2, 
+                            cust.cuname1 AS cust_cuname1, cust.cuinvoname AS cust_cuinvoname, cust.cuchkname AS cust_cuchkname, 
+                            cust.cuxa1no AS cust_cuxa1no, cust.cupareno AS cust_cupareno, cust.cucono AS cust_cucono, 
+                            cust.cuime AS cust_cuime, cust.cux1no AS cust_cux1no, cust.cuemno1 AS cust_cuemno1, 
+                            cust.cuper1 AS cust_cuper1, cust.cuper2 AS cust_cuper2, cust.cuper AS cust_cuper, cust.cutel1 AS cust_cutel1, 
+                            cust.cutel2 AS cust_cutel2, cust.cufax1 AS cust_cufax1, cust.cuatel1 AS cust_cuatel1, cust.cuatel2 AS cust_cuatel2, 
+                            cust.cuatel3 AS cust_cuatel3, cust.cubbc AS cust_cubbc, cust.cuaddr1 AS cust_cuaddr1, cust.cur1 AS cust_cur1, 
+                            cust.cuaddr2 AS cust_cuaddr2, cust.cur2 AS cust_cur2, cust.cuaddr3 AS cust_cuaddr3, cust.cur3 AS cust_cur3, 
+                            cust.cuslevel AS cust_cuslevel, cust.cudisc AS cust_cudisc, cust.cuemail AS cust_cuemail, 
+                            cust.cuwww AS cust_cuwww, cust.cux2no AS cust_cux2no, cust.cuuno AS cust_cuuno, cust.cux3no AS cust_cux3no, 
+                            cust.cux4no AS cust_cux4no, cust.cucredit AS cust_cucredit, cust.cuengname AS cust_cuengname, 
+                            cust.cuengaddr AS cust_cuengaddr, cust.cuengr1 AS cust_cuengr1, cust.cumemo1 AS cust_cumemo1, 
+                            cust.cumemo2 AS cust_cumemo2, cust.cux5no AS cust_cux5no, cust.cuarea AS cust_cuarea, 
+                            cust.cuudf1 AS cust_cuudf1, cust.cuudf2 AS cust_cuudf2, cust.cuudf3 AS cust_cuudf3, cust.cuudf4 AS cust_cuudf4, 
+                            cust.cuudf5 AS cust_cuudf5, cust.cuudf6 AS cust_cuudf6, cust.cudate AS cust_cudate, cust.cudate1 AS cust_cudate1, 
+                            cust.cudate2 AS cust_cudate2, cust.culastday AS cust_culastday, cust.culastday1 AS cust_culastday1, 
+                            cust.culastday2 AS cust_culastday2, cust.cufirreceiv AS cust_cufirreceiv, cust.cusparercv AS cust_cusparercv, 
+                            cust.cureceiv AS cust_cureceiv, cust.cufirrcvpar AS cust_cufirrcvpar, cust.cufiradvamt AS cust_cufiradvamt, 
+                            cust.cuadvamt AS cust_cuadvamt, cust.cunote AS cust_cunote, cust.cubirth AS cust_cubirth, 
+                            cust.cubirth1 AS cust_cubirth1, cust.cubirth2 AS cust_cubirth2, cust.cusex AS cust_cusex, 
+                            cust.cublood AS cust_cublood, cust.cuidno AS cust_cuidno, cust.ServDate AS cust_servdate, 
+                            cust.BetwDates AS cust_betwdates, cust.MsgFlag AS cust_msgflag, cust.CuPause AS cust_cupause, 
+                            rsaled.Punit AS rsaled_Punit, rsaled.Pqty AS rsaled_Pqty, rsaled.Point AS rsaled_Point, 
+                            rsaled.mformula AS rsaled_mformula, rsaled.mwidth4 AS rsaled_mwidth4, rsaled.mwidth3 AS rsaled_mwidth3, 
+                            rsaled.mwidth2 AS rsaled_mwidth2, rsaled.mwidth1 AS rsaled_mwidth1, rsaled.mlong AS rsaled_mlong, 
+                            rsaled.munit AS rsaled_munit, rsaled.mqty AS rsaled_mqty, rsaled.IsTrans AS rsaled_IsTrans, 
+                            rsaled.KiTax AS rsaled_KiTax, rsaled.orid AS rsaled_orid,scrit.scname,scrit.scname1 
+                          , [order].Adaddr as order_Adaddr,[order].orno as order_orno,[order].cuper1 as order_cuper1,[order].AdAddr as order_AdAddr,[order].orpayment as order_orpayment,[order].ormemo as order_ormemo,order_CardNo ='', rsaled_standard=''  
+
+FROM              rsale 
+ LEFT OUTER JOIN scrit ON rsale.appscno = scrit.scname 
+
+ LEFT OUTER JOIN
+                            rsaled ON rsale.sano = rsaled.sano LEFT OUTER JOIN
+                            RSaleBom ON rsaled.bomid = RSaleBom.BomID LEFT OUTER JOIN
+                            cust ON rsale.cuno = cust.cuno
+
+ LEFT JOIN [order] ON [order].orno = rsaled.orno 
+</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="rsale_sano" DataSetColumn="rsale_sano" />
+              <Mapping SourceColumn="rsale_sadate" DataSetColumn="rsale_sadate" />
+              <Mapping SourceColumn="rsale_sadate1" DataSetColumn="rsale_sadate1" />
+              <Mapping SourceColumn="rsale_sadate2" DataSetColumn="rsale_sadate2" />
+              <Mapping SourceColumn="rsale_sadateac" DataSetColumn="rsale_sadateac" />
+              <Mapping SourceColumn="rsale_sadateac1" DataSetColumn="rsale_sadateac1" />
+              <Mapping SourceColumn="rsale_sadateac2" DataSetColumn="rsale_sadateac2" />
+              <Mapping SourceColumn="rsale_quno" DataSetColumn="rsale_quno" />
+              <Mapping SourceColumn="rsale_cono" DataSetColumn="rsale_cono" />
+              <Mapping SourceColumn="rsale_coname1" DataSetColumn="rsale_coname1" />
+              <Mapping SourceColumn="rsale_coname2" DataSetColumn="rsale_coname2" />
+              <Mapping SourceColumn="rsale_cuno" DataSetColumn="rsale_cuno" />
+              <Mapping SourceColumn="rsale_cuname2" DataSetColumn="rsale_cuname2" />
+              <Mapping SourceColumn="rsale_cuname1" DataSetColumn="rsale_cuname1" />
+              <Mapping SourceColumn="rsale_cutel1" DataSetColumn="rsale_cutel1" />
+              <Mapping SourceColumn="rsale_cuper1" DataSetColumn="rsale_cuper1" />
+              <Mapping SourceColumn="rsale_emno" DataSetColumn="rsale_emno" />
+              <Mapping SourceColumn="rsale_emname" DataSetColumn="rsale_emname" />
+              <Mapping SourceColumn="rsale_spno" DataSetColumn="rsale_spno" />
+              <Mapping SourceColumn="rsale_spname" DataSetColumn="rsale_spname" />
+              <Mapping SourceColumn="rsale_stno" DataSetColumn="rsale_stno" />
+              <Mapping SourceColumn="rsale_stname" DataSetColumn="rsale_stname" />
+              <Mapping SourceColumn="rsale_xa1no" DataSetColumn="rsale_xa1no" />
+              <Mapping SourceColumn="rsale_xa1name" DataSetColumn="rsale_xa1name" />
+              <Mapping SourceColumn="rsale_xa1par" DataSetColumn="rsale_xa1par" />
+              <Mapping SourceColumn="rsale_taxmnyf" DataSetColumn="rsale_taxmnyf" />
+              <Mapping SourceColumn="rsale_taxmnyb" DataSetColumn="rsale_taxmnyb" />
+              <Mapping SourceColumn="rsale_taxmny" DataSetColumn="rsale_taxmny" />
+              <Mapping SourceColumn="rsale_x3no" DataSetColumn="rsale_x3no" />
+              <Mapping SourceColumn="rsale_rate" DataSetColumn="rsale_rate" />
+              <Mapping SourceColumn="rsale_x5no" DataSetColumn="rsale_x5no" />
+              <Mapping SourceColumn="rsale_seno" DataSetColumn="rsale_seno" />
+              <Mapping SourceColumn="rsale_sename" DataSetColumn="rsale_sename" />
+              <Mapping SourceColumn="rsale_x4no" DataSetColumn="rsale_x4no" />
+              <Mapping SourceColumn="rsale_x4name" DataSetColumn="rsale_x4name" />
+              <Mapping SourceColumn="rsale_tax" DataSetColumn="rsale_tax" />
+              <Mapping SourceColumn="rsale_totmny" DataSetColumn="rsale_totmny" />
+              <Mapping SourceColumn="rsale_taxb" DataSetColumn="rsale_taxb" />
+              <Mapping SourceColumn="rsale_totmnyb" DataSetColumn="rsale_totmnyb" />
+              <Mapping SourceColumn="rsale_discount" DataSetColumn="rsale_discount" />
+              <Mapping SourceColumn="rsale_cashmny" DataSetColumn="rsale_cashmny" />
+              <Mapping SourceColumn="rsale_cardmny" DataSetColumn="rsale_cardmny" />
+              <Mapping SourceColumn="rsale_cardno" DataSetColumn="rsale_cardno" />
+              <Mapping SourceColumn="rsale_ticket" DataSetColumn="rsale_ticket" />
+              <Mapping SourceColumn="rsale_collectmny" DataSetColumn="rsale_collectmny" />
+              <Mapping SourceColumn="rsale_getprvacc" DataSetColumn="rsale_getprvacc" />
+              <Mapping SourceColumn="rsale_acctmny" DataSetColumn="rsale_acctmny" />
+              <Mapping SourceColumn="rsale_samemo" DataSetColumn="rsale_samemo" />
+              <Mapping SourceColumn="rsale_samemo1" DataSetColumn="rsale_samemo1" />
+              <Mapping SourceColumn="rsale_bracket" DataSetColumn="rsale_bracket" />
+              <Mapping SourceColumn="rsale_recordno" DataSetColumn="rsale_recordno" />
+              <Mapping SourceColumn="rsale_invno" DataSetColumn="rsale_invno" />
+              <Mapping SourceColumn="rsale_invdate" DataSetColumn="rsale_invdate" />
+              <Mapping SourceColumn="rsale_invdate1" DataSetColumn="rsale_invdate1" />
+              <Mapping SourceColumn="rsale_invname" DataSetColumn="rsale_invname" />
+              <Mapping SourceColumn="rsale_invtaxno" DataSetColumn="rsale_invtaxno" />
+              <Mapping SourceColumn="rsale_invaddr1" DataSetColumn="rsale_invaddr1" />
+              <Mapping SourceColumn="rsale_invbatch" DataSetColumn="rsale_invbatch" />
+              <Mapping SourceColumn="rsale_invbatflg" DataSetColumn="rsale_invbatflg" />
+              <Mapping SourceColumn="rsale_appdate" DataSetColumn="rsale_appdate" />
+              <Mapping SourceColumn="rsale_edtdate" DataSetColumn="rsale_edtdate" />
+              <Mapping SourceColumn="rsale_appscno" DataSetColumn="rsale_appscno" />
+              <Mapping SourceColumn="rsale_edtscno" DataSetColumn="rsale_edtscno" />
+              <Mapping SourceColumn="rsale_acno" DataSetColumn="rsale_acno" />
+              <Mapping SourceColumn="rsale_cloflag" DataSetColumn="rsale_cloflag" />
+              <Mapping SourceColumn="rsale_usrno" DataSetColumn="rsale_usrno" />
+              <Mapping SourceColumn="rsaled_said" DataSetColumn="rsaled_said" />
+              <Mapping SourceColumn="rsaled_sano" DataSetColumn="rsaled_sano" />
+              <Mapping SourceColumn="rsaled_sadate" DataSetColumn="rsaled_sadate" />
+              <Mapping SourceColumn="rsaled_sadate1" DataSetColumn="rsaled_sadate1" />
+              <Mapping SourceColumn="rsaled_sadate2" DataSetColumn="rsaled_sadate2" />
+              <Mapping SourceColumn="rsaled_sadateac" DataSetColumn="rsaled_sadateac" />
+              <Mapping SourceColumn="rsaled_sadateac1" DataSetColumn="rsaled_sadateac1" />
+              <Mapping SourceColumn="rsaled_sadateac2" DataSetColumn="rsaled_sadateac2" />
+              <Mapping SourceColumn="rsaled_quno" DataSetColumn="rsaled_quno" />
+              <Mapping SourceColumn="rsaled_cono" DataSetColumn="rsaled_cono" />
+              <Mapping SourceColumn="rsaled_cuno" DataSetColumn="rsaled_cuno" />
+              <Mapping SourceColumn="rsaled_emno" DataSetColumn="rsaled_emno" />
+              <Mapping SourceColumn="rsaled_spno" DataSetColumn="rsaled_spno" />
+              <Mapping SourceColumn="rsaled_stno" DataSetColumn="rsaled_stno" />
+              <Mapping SourceColumn="rsaled_xa1no" DataSetColumn="rsaled_xa1no" />
+              <Mapping SourceColumn="rsaled_xa1par" DataSetColumn="rsaled_xa1par" />
+              <Mapping SourceColumn="rsaled_seno" DataSetColumn="rsaled_seno" />
+              <Mapping SourceColumn="rsaled_sename" DataSetColumn="rsaled_sename" />
+              <Mapping SourceColumn="rsaled_x4no" DataSetColumn="rsaled_x4no" />
+              <Mapping SourceColumn="rsaled_x4name" DataSetColumn="rsaled_x4name" />
+              <Mapping SourceColumn="rsaled_orno" DataSetColumn="rsaled_orno" />
+              <Mapping SourceColumn="rsaled_itno" DataSetColumn="rsaled_itno" />
+              <Mapping SourceColumn="rsaled_itname" DataSetColumn="rsaled_itname" />
+              <Mapping SourceColumn="rsaled_ittrait" DataSetColumn="rsaled_ittrait" />
+              <Mapping SourceColumn="rsaled_itunit" DataSetColumn="rsaled_itunit" />
+              <Mapping SourceColumn="rsaled_itpkgqty" DataSetColumn="rsaled_itpkgqty" />
+              <Mapping SourceColumn="rsaled_qty" DataSetColumn="rsaled_qty" />
+              <Mapping SourceColumn="rsaled_price" DataSetColumn="rsaled_price" />
+              <Mapping SourceColumn="rsaled_prs" DataSetColumn="rsaled_prs" />
+              <Mapping SourceColumn="rsaled_rate" DataSetColumn="rsaled_rate" />
+              <Mapping SourceColumn="rsaled_taxprice" DataSetColumn="rsaled_taxprice" />
+              <Mapping SourceColumn="rsaled_mny" DataSetColumn="rsaled_mny" />
+              <Mapping SourceColumn="rsaled_priceb" DataSetColumn="rsaled_priceb" />
+              <Mapping SourceColumn="rsaled_taxpriceb" DataSetColumn="rsaled_taxpriceb" />
+              <Mapping SourceColumn="rsaled_mnyb" DataSetColumn="rsaled_mnyb" />
+              <Mapping SourceColumn="rsaled_memo" DataSetColumn="rsaled_memo" />
+              <Mapping SourceColumn="rsaled_lowzero" DataSetColumn="rsaled_lowzero" />
+              <Mapping SourceColumn="rsaled_bomid" DataSetColumn="rsaled_bomid" />
+              <Mapping SourceColumn="rsaled_bomrec" DataSetColumn="rsaled_bomrec" />
+              <Mapping SourceColumn="rsaled_recordno" DataSetColumn="rsaled_recordno" />
+              <Mapping SourceColumn="rsaled_sltflag" DataSetColumn="rsaled_sltflag" />
+              <Mapping SourceColumn="rsaled_extflag" DataSetColumn="rsaled_extflag" />
+              <Mapping SourceColumn="rsaled_bracket" DataSetColumn="rsaled_bracket" />
+              <Mapping SourceColumn="rsaled_itdesp1" DataSetColumn="rsaled_itdesp1" />
+              <Mapping SourceColumn="rsaled_itdesp2" DataSetColumn="rsaled_itdesp2" />
+              <Mapping SourceColumn="rsaled_itdesp3" DataSetColumn="rsaled_itdesp3" />
+              <Mapping SourceColumn="rsaled_itdesp4" DataSetColumn="rsaled_itdesp4" />
+              <Mapping SourceColumn="rsaled_itdesp5" DataSetColumn="rsaled_itdesp5" />
+              <Mapping SourceColumn="rsaled_itdesp6" DataSetColumn="rsaled_itdesp6" />
+              <Mapping SourceColumn="rsaled_itdesp7" DataSetColumn="rsaled_itdesp7" />
+              <Mapping SourceColumn="rsaled_itdesp8" DataSetColumn="rsaled_itdesp8" />
+              <Mapping SourceColumn="rsaled_itdesp9" DataSetColumn="rsaled_itdesp9" />
+              <Mapping SourceColumn="rsaled_itdesp10" DataSetColumn="rsaled_itdesp10" />
+              <Mapping SourceColumn="rsaled_stname" DataSetColumn="rsaled_stname" />
+              <Mapping SourceColumn="rsaled_recordno_d" DataSetColumn="rsaled_recordno_d" />
+              <Mapping SourceColumn="rsalebom_sano" DataSetColumn="rsalebom_sano" />
+              <Mapping SourceColumn="rsalebom_bomid" DataSetColumn="rsalebom_bomid" />
+              <Mapping SourceColumn="rsalebom_bomrec" DataSetColumn="rsalebom_bomrec" />
+              <Mapping SourceColumn="rsalebom_itno" DataSetColumn="rsalebom_itno" />
+              <Mapping SourceColumn="rsalebom_itname" DataSetColumn="rsalebom_itname" />
+              <Mapping SourceColumn="rsalebom_itunit" DataSetColumn="rsalebom_itunit" />
+              <Mapping SourceColumn="rsalebom_itqty" DataSetColumn="rsalebom_itqty" />
+              <Mapping SourceColumn="rsalebom_itpareprs" DataSetColumn="rsalebom_itpareprs" />
+              <Mapping SourceColumn="rsalebom_itpkgqty" DataSetColumn="rsalebom_itpkgqty" />
+              <Mapping SourceColumn="rsalebom_itrec" DataSetColumn="rsalebom_itrec" />
+              <Mapping SourceColumn="rsalebom_itprice" DataSetColumn="rsalebom_itprice" />
+              <Mapping SourceColumn="rsalebom_itprs" DataSetColumn="rsalebom_itprs" />
+              <Mapping SourceColumn="rsalebom_itmny" DataSetColumn="rsalebom_itmny" />
+              <Mapping SourceColumn="rsalebom_itnote" DataSetColumn="rsalebom_itnote" />
+              <Mapping SourceColumn="rsalebom_itsource" DataSetColumn="rsalebom_itsource" />
+              <Mapping SourceColumn="rsalebom_itbuypri" DataSetColumn="rsalebom_itbuypri" />
+              <Mapping SourceColumn="rsalebom_itbuymny" DataSetColumn="rsalebom_itbuymny" />
+              <Mapping SourceColumn="cust_cuno" DataSetColumn="cust_cuno" />
+              <Mapping SourceColumn="cust_cuname2" DataSetColumn="cust_cuname2" />
+              <Mapping SourceColumn="cust_cuname1" DataSetColumn="cust_cuname1" />
+              <Mapping SourceColumn="cust_cuinvoname" DataSetColumn="cust_cuinvoname" />
+              <Mapping SourceColumn="cust_cuchkname" DataSetColumn="cust_cuchkname" />
+              <Mapping SourceColumn="cust_cuxa1no" DataSetColumn="cust_cuxa1no" />
+              <Mapping SourceColumn="cust_cupareno" DataSetColumn="cust_cupareno" />
+              <Mapping SourceColumn="cust_cucono" DataSetColumn="cust_cucono" />
+              <Mapping SourceColumn="cust_cuime" DataSetColumn="cust_cuime" />
+              <Mapping SourceColumn="cust_cux1no" DataSetColumn="cust_cux1no" />
+              <Mapping SourceColumn="cust_cuemno1" DataSetColumn="cust_cuemno1" />
+              <Mapping SourceColumn="cust_cuper1" DataSetColumn="cust_cuper1" />
+              <Mapping SourceColumn="cust_cuper2" DataSetColumn="cust_cuper2" />
+              <Mapping SourceColumn="cust_cuper" DataSetColumn="cust_cuper" />
+              <Mapping SourceColumn="cust_cutel1" DataSetColumn="cust_cutel1" />
+              <Mapping SourceColumn="cust_cutel2" DataSetColumn="cust_cutel2" />
+              <Mapping SourceColumn="cust_cufax1" DataSetColumn="cust_cufax1" />
+              <Mapping SourceColumn="cust_cuatel1" DataSetColumn="cust_cuatel1" />
+              <Mapping SourceColumn="cust_cuatel2" DataSetColumn="cust_cuatel2" />
+              <Mapping SourceColumn="cust_cuatel3" DataSetColumn="cust_cuatel3" />
+              <Mapping SourceColumn="cust_cubbc" DataSetColumn="cust_cubbc" />
+              <Mapping SourceColumn="cust_cuaddr1" DataSetColumn="cust_cuaddr1" />
+              <Mapping SourceColumn="cust_cur1" DataSetColumn="cust_cur1" />
+              <Mapping SourceColumn="cust_cuaddr2" DataSetColumn="cust_cuaddr2" />
+              <Mapping SourceColumn="cust_cur2" DataSetColumn="cust_cur2" />
+              <Mapping SourceColumn="cust_cuaddr3" DataSetColumn="cust_cuaddr3" />
+              <Mapping SourceColumn="cust_cur3" DataSetColumn="cust_cur3" />
+              <Mapping SourceColumn="cust_cuslevel" DataSetColumn="cust_cuslevel" />
+              <Mapping SourceColumn="cust_cudisc" DataSetColumn="cust_cudisc" />
+              <Mapping SourceColumn="cust_cuemail" DataSetColumn="cust_cuemail" />
+              <Mapping SourceColumn="cust_cuwww" DataSetColumn="cust_cuwww" />
+              <Mapping SourceColumn="cust_cux2no" DataSetColumn="cust_cux2no" />
+              <Mapping SourceColumn="cust_cuuno" DataSetColumn="cust_cuuno" />
+              <Mapping SourceColumn="cust_cux3no" DataSetColumn="cust_cux3no" />
+              <Mapping SourceColumn="cust_cux4no" DataSetColumn="cust_cux4no" />
+              <Mapping SourceColumn="cust_cucredit" DataSetColumn="cust_cucredit" />
+              <Mapping SourceColumn="cust_cuengname" DataSetColumn="cust_cuengname" />
+              <Mapping SourceColumn="cust_cuengaddr" DataSetColumn="cust_cuengaddr" />
+              <Mapping SourceColumn="cust_cuengr1" DataSetColumn="cust_cuengr1" />
+              <Mapping SourceColumn="cust_cumemo1" DataSetColumn="cust_cumemo1" />
+              <Mapping SourceColumn="cust_cumemo2" DataSetColumn="cust_cumemo2" />
+              <Mapping SourceColumn="cust_cux5no" DataSetColumn="cust_cux5no" />
+              <Mapping SourceColumn="cust_cuarea" DataSetColumn="cust_cuarea" />
+              <Mapping SourceColumn="cust_cuudf1" DataSetColumn="cust_cuudf1" />
+              <Mapping SourceColumn="cust_cuudf2" DataSetColumn="cust_cuudf2" />
+              <Mapping SourceColumn="cust_cuudf3" DataSetColumn="cust_cuudf3" />
+              <Mapping SourceColumn="cust_cuudf4" DataSetColumn="cust_cuudf4" />
+              <Mapping SourceColumn="cust_cuudf5" DataSetColumn="cust_cuudf5" />
+              <Mapping SourceColumn="cust_cuudf6" DataSetColumn="cust_cuudf6" />
+              <Mapping SourceColumn="cust_cudate" DataSetColumn="cust_cudate" />
+              <Mapping SourceColumn="cust_cudate1" DataSetColumn="cust_cudate1" />
+              <Mapping SourceColumn="cust_cudate2" DataSetColumn="cust_cudate2" />
+              <Mapping SourceColumn="cust_culastday" DataSetColumn="cust_culastday" />
+              <Mapping SourceColumn="cust_culastday1" DataSetColumn="cust_culastday1" />
+              <Mapping SourceColumn="cust_culastday2" DataSetColumn="cust_culastday2" />
+              <Mapping SourceColumn="cust_cufirreceiv" DataSetColumn="cust_cufirreceiv" />
+              <Mapping SourceColumn="cust_cusparercv" DataSetColumn="cust_cusparercv" />
+              <Mapping SourceColumn="cust_cureceiv" DataSetColumn="cust_cureceiv" />
+              <Mapping SourceColumn="cust_cufirrcvpar" DataSetColumn="cust_cufirrcvpar" />
+              <Mapping SourceColumn="cust_cufiradvamt" DataSetColumn="cust_cufiradvamt" />
+              <Mapping SourceColumn="cust_cuadvamt" DataSetColumn="cust_cuadvamt" />
+              <Mapping SourceColumn="cust_cunote" DataSetColumn="cust_cunote" />
+              <Mapping SourceColumn="cust_cubirth" DataSetColumn="cust_cubirth" />
+              <Mapping SourceColumn="cust_cubirth1" DataSetColumn="cust_cubirth1" />
+              <Mapping SourceColumn="cust_cubirth2" DataSetColumn="cust_cubirth2" />
+              <Mapping SourceColumn="cust_cusex" DataSetColumn="cust_cusex" />
+              <Mapping SourceColumn="cust_cublood" DataSetColumn="cust_cublood" />
+              <Mapping SourceColumn="cust_cuidno" DataSetColumn="cust_cuidno" />
+              <Mapping SourceColumn="cust_betwdates" DataSetColumn="cust_betwdates" />
+              <Mapping SourceColumn="cust_msgflag" DataSetColumn="cust_msgflag" />
+              <Mapping SourceColumn="cust_cupause" DataSetColumn="cust_cupause" />
+              <Mapping SourceColumn="cust_servdate" DataSetColumn="cust_servdate" />
+              <Mapping SourceColumn="rsaled_Punit" DataSetColumn="rsaled_Punit" />
+              <Mapping SourceColumn="rsaled_Pqty" DataSetColumn="rsaled_Pqty" />
+              <Mapping SourceColumn="rsaled_Point" DataSetColumn="rsaled_Point" />
+              <Mapping SourceColumn="rsaled_mformula" DataSetColumn="rsaled_mformula" />
+              <Mapping SourceColumn="rsaled_mwidth4" DataSetColumn="rsaled_mwidth4" />
+              <Mapping SourceColumn="rsaled_mwidth3" DataSetColumn="rsaled_mwidth3" />
+              <Mapping SourceColumn="rsaled_mwidth2" DataSetColumn="rsaled_mwidth2" />
+              <Mapping SourceColumn="rsaled_mwidth1" DataSetColumn="rsaled_mwidth1" />
+              <Mapping SourceColumn="rsaled_mlong" DataSetColumn="rsaled_mlong" />
+              <Mapping SourceColumn="rsaled_munit" DataSetColumn="rsaled_munit" />
+              <Mapping SourceColumn="rsaled_mqty" DataSetColumn="rsaled_mqty" />
+              <Mapping SourceColumn="rsaled_IsTrans" DataSetColumn="rsaled_IsTrans" />
+              <Mapping SourceColumn="rsaled_KiTax" DataSetColumn="rsaled_KiTax" />
+              <Mapping SourceColumn="rsaled_orid" DataSetColumn="rsaled_orid" />
+              <Mapping SourceColumn="scname" DataSetColumn="scname" />
+              <Mapping SourceColumn="scname1" DataSetColumn="scname1" />
+              <Mapping SourceColumn="order_Adaddr" DataSetColumn="order_Adaddr" />
+              <Mapping SourceColumn="order_orno" DataSetColumn="order_orno" />
+              <Mapping SourceColumn="order_cuper1" DataSetColumn="order_cuper1" />
+              <Mapping SourceColumn="order_AdAddr1" DataSetColumn="order_AdAddr1" />
+              <Mapping SourceColumn="order_orpayment" DataSetColumn="order_orpayment" />
+              <Mapping SourceColumn="order_ormemo" DataSetColumn="order_ormemo" />
+              <Mapping SourceColumn="rsale_fromsale" DataSetColumn="rsale_fromsale" />
+              <Mapping SourceColumn="order_CardNo" DataSetColumn="order_CardNo" />
+              <Mapping SourceColumn="rsale_SaPayment" DataSetColumn="rsale_SaPayment" />
+              <Mapping SourceColumn="rsaled_standard" DataSetColumn="rsaled_standard" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="itemTableAdapter" GeneratorDataComponentClassName="itemTableAdapter" Name="item" UserDataComponentName="itemTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="STOCKConnectionString (Settings)" DbObjectName="STOCK.dbo.item" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="false" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT          itno, itnoudf, itname, kino, itime, ittrait, itunit, itunitp, itpkgqty, itnw, itnwunit, itdesp1, itdesp2, itdesp3, itdesp4, 
+                            itdesp5, itdesp6, itdesp7, itdesp8, itdesp9, itdesp10, itnote, itudf1, itudf2, itudf3, itudf4, itudf5, fano, Punit,pic, DATALENGTH(pic) as pic長度, ScNo
+FROM              item</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="itno" DataSetColumn="itno" />
+              <Mapping SourceColumn="itnoudf" DataSetColumn="itnoudf" />
+              <Mapping SourceColumn="itname" DataSetColumn="itname" />
+              <Mapping SourceColumn="kino" DataSetColumn="kino" />
+              <Mapping SourceColumn="itime" DataSetColumn="itime" />
+              <Mapping SourceColumn="ittrait" DataSetColumn="ittrait" />
+              <Mapping SourceColumn="itunit" DataSetColumn="itunit" />
+              <Mapping SourceColumn="itunitp" DataSetColumn="itunitp" />
+              <Mapping SourceColumn="itpkgqty" DataSetColumn="itpkgqty" />
+              <Mapping SourceColumn="itnw" DataSetColumn="itnw" />
+              <Mapping SourceColumn="itnwunit" DataSetColumn="itnwunit" />
+              <Mapping SourceColumn="itdesp1" DataSetColumn="itdesp1" />
+              <Mapping SourceColumn="itdesp2" DataSetColumn="itdesp2" />
+              <Mapping SourceColumn="itdesp3" DataSetColumn="itdesp3" />
+              <Mapping SourceColumn="itdesp4" DataSetColumn="itdesp4" />
+              <Mapping SourceColumn="itdesp5" DataSetColumn="itdesp5" />
+              <Mapping SourceColumn="itdesp6" DataSetColumn="itdesp6" />
+              <Mapping SourceColumn="itdesp7" DataSetColumn="itdesp7" />
+              <Mapping SourceColumn="itdesp8" DataSetColumn="itdesp8" />
+              <Mapping SourceColumn="itdesp9" DataSetColumn="itdesp9" />
+              <Mapping SourceColumn="itdesp10" DataSetColumn="itdesp10" />
+              <Mapping SourceColumn="itnote" DataSetColumn="itnote" />
+              <Mapping SourceColumn="itudf1" DataSetColumn="itudf1" />
+              <Mapping SourceColumn="itudf2" DataSetColumn="itudf2" />
+              <Mapping SourceColumn="itudf3" DataSetColumn="itudf3" />
+              <Mapping SourceColumn="itudf4" DataSetColumn="itudf4" />
+              <Mapping SourceColumn="itudf5" DataSetColumn="itudf5" />
+              <Mapping SourceColumn="fano" DataSetColumn="fano" />
+              <Mapping SourceColumn="Punit" DataSetColumn="Punit" />
+              <Mapping SourceColumn="ScNo" DataSetColumn="ScNo" />
+              <Mapping SourceColumn="pic長度" DataSetColumn="pic長度" />
+              <Mapping SourceColumn="pic" DataSetColumn="pic" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="RSale" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="RSale" msprop:Generator_UserDSName="RSale">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Data" msprop:Generator_TableClassName="DataDataTable" msprop:Generator_TableVarName="tableData" msprop:Generator_RowChangedName="DataRowChanged" msprop:Generator_TablePropName="Data" msprop:Generator_RowDeletingName="DataRowDeleting" msprop:Generator_RowChangingName="DataRowChanging" msprop:Generator_RowEvHandlerName="DataRowChangeEventHandler" msprop:Generator_RowDeletedName="DataRowDeleted" msprop:Generator_RowClassName="DataRow" msprop:Generator_UserTableName="Data" msprop:Generator_RowEvArgName="DataRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="rsale_sano" msprop:Generator_ColumnVarNameInTable="columnrsale_sano" msprop:Generator_ColumnPropNameInRow="rsale_sano" msprop:Generator_ColumnPropNameInTable="rsale_sanoColumn" msprop:Generator_UserColumnName="rsale_sano">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="12" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="rsale_sadate" msprop:Generator_ColumnVarNameInTable="columnrsale_sadate" msprop:Generator_ColumnPropNameInRow="rsale_sadate" msprop:Generator_ColumnPropNameInTable="rsale_sadateColumn" msprop:Generator_UserColumnName="rsale_sadate" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="rsale_sadate1" msprop:Generator_ColumnVarNameInTable="columnrsale_sadate1" msprop:Generator_ColumnPropNameInRow="rsale_sadate1" msprop:Generator_ColumnPropNameInTable="rsale_sadate1Column" msprop:Generator_UserColumnName="rsale_sadate1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="rsale_sadate2" msprop:Generator_ColumnVarNameInTable="columnrsale_sadate2" msprop:Generator_ColumnPropNameInRow="rsale_sadate2" msprop:Generator_ColumnPropNameInTable="rsale_sadate2Column" msprop:Generator_UserColumnName="rsale_sadate2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="rsale_sadateac" msprop:Generator_ColumnVarNameInTable="columnrsale_sadateac" msprop:Generator_ColumnPropNameInRow="rsale_sadateac" msprop:Generator_ColumnPropNameInTable="rsale_sadateacColumn" msprop:Generator_UserColumnName="rsale_sadateac" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="rsale_sadateac1" msprop:Generator_ColumnVarNameInTable="columnrsale_sadateac1" msprop:Generator_ColumnPropNameInRow="rsale_sadateac1" msprop:Generator_ColumnPropNameInTable="rsale_sadateac1Column" msprop:Generator_UserColumnName="rsale_sadateac1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="rsale_sadateac2" msprop:Generator_ColumnVarNameInTable="columnrsale_sadateac2" msprop:Generator_ColumnPropNameInRow="rsale_sadateac2" msprop:Generator_ColumnPropNameInTable="rsale_sadateac2Column" msprop:Generator_UserColumnName="rsale_sadateac2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="rsale_quno" msprop:Generator_ColumnVarNameInTable="columnrsale_quno" msprop:Generator_ColumnPropNameInRow="rsale_quno" msprop:Generator_ColumnPropNameInTable="rsale_qunoColumn" msprop:Generator_UserColumnName="rsale_quno" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="16" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="rsale_cono" msprop:Generator_ColumnVarNameInTable="columnrsale_cono" msprop:Generator_ColumnPropNameInRow="rsale_cono" msprop:Generator_ColumnPropNameInTable="rsale_conoColumn" msprop:Generator_UserColumnName="rsale_cono" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="rsale_coname1" msprop:Generator_ColumnVarNameInTable="columnrsale_coname1" msprop:Generator_ColumnPropNameInRow="rsale_coname1" msprop:Generator_ColumnPropNameInTable="rsale_coname1Column" msprop:Generator_UserColumnName="rsale_coname1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="rsale_coname2" msprop:Generator_ColumnVarNameInTable="columnrsale_coname2" msprop:Generator_ColumnPropNameInRow="rsale_coname2" msprop:Generator_ColumnPropNameInTable="rsale_coname2Column" msprop:Generator_UserColumnName="rsale_coname2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="rsale_cuno" msprop:Generator_ColumnVarNameInTable="columnrsale_cuno" msprop:Generator_ColumnPropNameInRow="rsale_cuno" msprop:Generator_ColumnPropNameInTable="rsale_cunoColumn" msprop:Generator_UserColumnName="rsale_cuno" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="rsale_cuname2" msprop:Generator_ColumnVarNameInTable="columnrsale_cuname2" msprop:Generator_ColumnPropNameInRow="rsale_cuname2" msprop:Generator_ColumnPropNameInTable="rsale_cuname2Column" msprop:Generator_UserColumnName="rsale_cuname2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="rsale_cuname1" msprop:Generator_ColumnVarNameInTable="columnrsale_cuname1" msprop:Generator_ColumnPropNameInRow="rsale_cuname1" msprop:Generator_ColumnPropNameInTable="rsale_cuname1Column" msprop:Generator_UserColumnName="rsale_cuname1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="rsale_cutel1" msprop:Generator_ColumnVarNameInTable="columnrsale_cutel1" msprop:Generator_ColumnPropNameInRow="rsale_cutel1" msprop:Generator_ColumnPropNameInTable="rsale_cutel1Column" msprop:Generator_UserColumnName="rsale_cutel1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="rsale_cuper1" msprop:Generator_ColumnVarNameInTable="columnrsale_cuper1" msprop:Generator_ColumnPropNameInRow="rsale_cuper1" msprop:Generator_ColumnPropNameInTable="rsale_cuper1Column" msprop:Generator_UserColumnName="rsale_cuper1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="rsale_emno" msprop:Generator_ColumnVarNameInTable="columnrsale_emno" msprop:Generator_ColumnPropNameInRow="rsale_emno" msprop:Generator_ColumnPropNameInTable="rsale_emnoColumn" msprop:Generator_UserColumnName="rsale_emno" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="rsale_emname" msprop:Generator_ColumnVarNameInTable="columnrsale_emname" msprop:Generator_ColumnPropNameInRow="rsale_emname" msprop:Generator_ColumnPropNameInTable="rsale_emnameColumn" msprop:Generator_UserColumnName="rsale_emname" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="rsale_spno" msprop:Generator_ColumnVarNameInTable="columnrsale_spno" msprop:Generator_ColumnPropNameInRow="rsale_spno" msprop:Generator_ColumnPropNameInTable="rsale_spnoColumn" msprop:Generator_UserColumnName="rsale_spno" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="rsale_spname" msprop:Generator_ColumnVarNameInTable="columnrsale_spname" msprop:Generator_ColumnPropNameInRow="rsale_spname" msprop:Generator_ColumnPropNameInTable="rsale_spnameColumn" msprop:Generator_UserColumnName="rsale_spname" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="rsale_stno" msprop:Generator_ColumnVarNameInTable="columnrsale_stno" msprop:Generator_ColumnPropNameInRow="rsale_stno" msprop:Generator_ColumnPropNameInTable="rsale_stnoColumn" msprop:Generator_UserColumnName="rsale_stno" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="rsale_stname" msprop:Generator_ColumnVarNameInTable="columnrsale_stname" msprop:Generator_ColumnPropNameInRow="rsale_stname" msprop:Generator_ColumnPropNameInTable="rsale_stnameColumn" msprop:Generator_UserColumnName="rsale_stname" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="rsale_xa1no" msprop:Generator_ColumnVarNameInTable="columnrsale_xa1no" msprop:Generator_ColumnPropNameInRow="rsale_xa1no" msprop:Generator_ColumnPropNameInTable="rsale_xa1noColumn" msprop:Generator_UserColumnName="rsale_xa1no" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="rsale_xa1name" msprop:Generator_ColumnVarNameInTable="columnrsale_xa1name" msprop:Generator_ColumnPropNameInRow="rsale_xa1name" msprop:Generator_ColumnPropNameInTable="rsale_xa1nameColumn" msprop:Generator_UserColumnName="rsale_xa1name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="12" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="rsale_xa1par" msprop:Generator_ColumnVarNameInTable="columnrsale_xa1par" msprop:Generator_ColumnPropNameInRow="rsale_xa1par" msprop:Generator_ColumnPropNameInTable="rsale_xa1parColumn" msprop:Generator_UserColumnName="rsale_xa1par" type="xs:decimal" minOccurs="0" />
+              <xs:element name="rsale_taxmnyf" msprop:Generator_ColumnVarNameInTable="columnrsale_taxmnyf" msprop:Generator_ColumnPropNameInRow="rsale_taxmnyf" msprop:Generator_ColumnPropNameInTable="rsale_taxmnyfColumn" msprop:Generator_UserColumnName="rsale_taxmnyf" type="xs:decimal" minOccurs="0" />
+              <xs:element name="rsale_taxmnyb" msprop:Generator_ColumnVarNameInTable="columnrsale_taxmnyb" msprop:Generator_ColumnPropNameInRow="rsale_taxmnyb" msprop:Generator_ColumnPropNameInTable="rsale_taxmnybColumn" msprop:Generator_UserColumnName="rsale_taxmnyb" type="xs:decimal" minOccurs="0" />
+              <xs:element name="rsale_taxmny" msprop:Generator_ColumnVarNameInTable="columnrsale_taxmny" msprop:Generator_ColumnPropNameInRow="rsale_taxmny" msprop:Generator_ColumnPropNameInTable="rsale_taxmnyColumn" msprop:Generator_UserColumnName="rsale_taxmny" type="xs:decimal" minOccurs="0" />
+              <xs:element name="rsale_x3no" msprop:Generator_ColumnVarNameInTable="columnrsale_x3no" msprop:Generator_ColumnPropNameInRow="rsale_x3no" msprop:Generator_ColumnPropNameInTable="rsale_x3noColumn" msprop:Generator_UserColumnName="rsale_x3no" type="xs:decimal" minOccurs="0" />
+              <xs:element name="rsale_rate" msprop:Generator_ColumnVarNameInTable="columnrsale_rate" msprop:Generator_ColumnPropNameInRow="rsale_rate" msprop:Generator_ColumnPropNameInTable="rsale_rateColumn" msprop:Generator_UserColumnName="rsale_rate" type="xs:decimal" minOccurs="0" />
+              <xs:element name="rsale_x5no" msprop:Generator_ColumnVarNameInTable="columnrsale_x5no" msprop:Generator_ColumnPropNameInRow="rsale_x5no" msprop:Generator_ColumnPropNameInTable="rsale_x5noColumn" msprop:Generator_UserColumnName="rsale_x5no" type="xs:decimal" minOccurs="0" />
+              <xs:element name="rsale_seno" msprop:Generator_ColumnVarNameInTable="columnrsale_seno" msprop:Generator_ColumnPropNameInRow="rsale_seno" msprop:Generator_ColumnPropNameInTable="rsale_senoColumn" msprop:Generator_UserColumnName="rsale_seno" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="rsale_sename" msprop:Generator_ColumnVarNameInTable="columnrsale_sename" msprop:Generator_ColumnPropNameInRow="rsale_sename" msprop:Generator_ColumnPropNameInTable="rsale_senameColumn" msprop:Generator_UserColumnName="rsale_sename" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="rsale_x4no" msprop:Generator_ColumnVarNameInTable="columnrsale_x4no" msprop:Generator_ColumnPropNameInRow="rsale_x4no" msprop:Generator_ColumnPropNameInTable="rsale_x4noColumn" msprop:Generator_UserColumnName="rsale_x4no" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="rsale_x4name" msprop:Generator_ColumnVarNameInTable="columnrsale_x4name" msprop:Generator_ColumnPropNameInRow="rsale_x4name" msprop:Generator_ColumnPropNameInTable="rsale_x4nameColumn" msprop:Generator_UserColumnName="rsale_x4name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="rsale_tax" msprop:Generator_ColumnVarNameInTable="columnrsale_tax" msprop:Generator_ColumnPropNameInRow="rsale_tax" msprop:Generator_ColumnPropNameInTable="rsale_taxColumn" msprop:Generator_UserColumnName="rsale_tax" type="xs:decimal" minOccurs="0" />
+              <xs:element name="rsale_totmny" msprop:Generator_ColumnVarNameInTable="columnrsale_totmny" msprop:Generator_ColumnPropNameInRow="rsale_totmny" msprop:Generator_ColumnPropNameInTable="rsale_totmnyColumn" msprop:Generator_UserColumnName="rsale_totmny" type="xs:decimal" minOccurs="0" />
+              <xs:element name="rsale_taxb" msprop:Generator_ColumnVarNameInTable="columnrsale_taxb" msprop:Generator_ColumnPropNameInRow="rsale_taxb" msprop:Generator_ColumnPropNameInTable="rsale_taxbColumn" msprop:Generator_UserColumnName="rsale_taxb" type="xs:decimal" minOccurs="0" />
+              <xs:element name="rsale_totmnyb" msprop:Generator_ColumnVarNameInTable="columnrsale_totmnyb" msprop:Generator_ColumnPropNameInRow="rsale_totmnyb" msprop:Generator_ColumnPropNameInTable="rsale_totmnybColumn" msprop:Generator_UserColumnName="rsale_totmnyb" type="xs:decimal" minOccurs="0" />
+              <xs:element name="rsale_discount" msprop:Generator_ColumnVarNameInTable="columnrsale_discount" msprop:Generator_ColumnPropNameInRow="rsale_discount" msprop:Generator_ColumnPropNameInTable="rsale_discountColumn" msprop:Generator_UserColumnName="rsale_discount" type="xs:decimal" minOccurs="0" />
+              <xs:element name="rsale_cashmny" msprop:Generator_ColumnVarNameInTable="columnrsale_cashmny" msprop:Generator_ColumnPropNameInRow="rsale_cashmny" msprop:Generator_ColumnPropNameInTable="rsale_cashmnyColumn" msprop:Generator_UserColumnName="rsale_cashmny" type="xs:decimal" minOccurs="0" />
+              <xs:element name="rsale_cardmny" msprop:Generator_ColumnVarNameInTable="columnrsale_cardmny" msprop:Generator_ColumnPropNameInRow="rsale_cardmny" msprop:Generator_ColumnPropNameInTable="rsale_cardmnyColumn" msprop:Generator_UserColumnName="rsale_cardmny" type="xs:decimal" minOccurs="0" />
+              <xs:element name="rsale_cardno" msprop:Generator_ColumnVarNameInTable="columnrsale_cardno" msprop:Generator_ColumnPropNameInRow="rsale_cardno" msprop:Generator_ColumnPropNameInTable="rsale_cardnoColumn" msprop:Generator_UserColumnName="rsale_cardno" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="rsale_ticket" msprop:Generator_ColumnVarNameInTable="columnrsale_ticket" msprop:Generator_ColumnPropNameInRow="rsale_ticket" msprop:Generator_ColumnPropNameInTable="rsale_ticketColumn" msprop:Generator_UserColumnName="rsale_ticket" type="xs:decimal" minOccurs="0" />
+              <xs:element name="rsale_collectmny" msprop:Generator_ColumnVarNameInTable="columnrsale_collectmny" msprop:Generator_ColumnPropNameInRow="rsale_collectmny" msprop:Generator_ColumnPropNameInTable="rsale_collectmnyColumn" msprop:Generator_UserColumnName="rsale_collectmny" type="xs:decimal" minOccurs="0" />
+              <xs:element name="rsale_getprvacc" msprop:Generator_ColumnVarNameInTable="columnrsale_getprvacc" msprop:Generator_ColumnPropNameInRow="rsale_getprvacc" msprop:Generator_ColumnPropNameInTable="rsale_getprvaccColumn" msprop:Generator_UserColumnName="rsale_getprvacc" type="xs:decimal" minOccurs="0" />
+              <xs:element name="rsale_acctmny" msprop:Generator_ColumnVarNameInTable="columnrsale_acctmny" msprop:Generator_ColumnPropNameInRow="rsale_acctmny" msprop:Generator_ColumnPropNameInTable="rsale_acctmnyColumn" msprop:Generator_UserColumnName="rsale_acctmny" type="xs:decimal" minOccurs="0" />
+              <xs:element name="rsale_samemo" msprop:Generator_ColumnVarNameInTable="columnrsale_samemo" msprop:Generator_ColumnPropNameInRow="rsale_samemo" msprop:Generator_ColumnPropNameInTable="rsale_samemoColumn" msprop:Generator_UserColumnName="rsale_samemo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="rsale_samemo1" msprop:Generator_ColumnVarNameInTable="columnrsale_samemo1" msprop:Generator_ColumnPropNameInRow="rsale_samemo1" msprop:Generator_ColumnPropNameInTable="rsale_samemo1Column" msprop:Generator_UserColumnName="rsale_samemo1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="rsale_bracket" msprop:Generator_ColumnVarNameInTable="columnrsale_bracket" msprop:Generator_ColumnPropNameInRow="rsale_bracket" msprop:Generator_ColumnPropNameInTable="rsale_bracketColumn" msprop:Generator_UserColumnName="rsale_bracket" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="6" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="rsale_recordno" msprop:Generator_ColumnVarNameInTable="columnrsale_recordno" msprop:Generator_ColumnPropNameInRow="rsale_recordno" msprop:Generator_ColumnPropNameInTable="rsale_recordnoColumn" msprop:Generator_UserColumnName="rsale_recordno" type="xs:decimal" minOccurs="0" />
+              <xs:element name="rsale_invno" msprop:Generator_ColumnVarNameInTable="columnrsale_invno" msprop:Generator_ColumnPropNameInRow="rsale_invno" msprop:Generator_ColumnPropNameInTable="rsale_invnoColumn" msprop:Generator_UserColumnName="rsale_invno" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="rsale_invdate" msprop:Generator_ColumnVarNameInTable="columnrsale_invdate" msprop:Generator_ColumnPropNameInRow="rsale_invdate" msprop:Generator_ColumnPropNameInTable="rsale_invdateColumn" msprop:Generator_UserColumnName="rsale_invdate" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="rsale_invdate1" msprop:Generator_ColumnVarNameInTable="columnrsale_invdate1" msprop:Generator_ColumnPropNameInRow="rsale_invdate1" msprop:Generator_ColumnPropNameInTable="rsale_invdate1Column" msprop:Generator_UserColumnName="rsale_invdate1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="rsale_invname" msprop:Generator_ColumnVarNameInTable="columnrsale_invname" msprop:Generator_ColumnPropNameInRow="rsale_invname" msprop:Generator_ColumnPropNameInTable="rsale_invnameColumn" msprop:Generator_UserColumnName="rsale_invname" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="rsale_invtaxno" msprop:Generator_ColumnVarNameInTable="columnrsale_invtaxno" msprop:Generator_ColumnPropNameInRow="rsale_invtaxno" msprop:Generator_ColumnPropNameInTable="rsale_invtaxnoColumn" msprop:Generator_UserColumnName="rsale_invtaxno" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="rsale_invaddr1" msprop:Generator_ColumnVarNameInTable="columnrsale_invaddr1" msprop:Generator_ColumnPropNameInRow="rsale_invaddr1" msprop:Generator_ColumnPropNameInTable="rsale_invaddr1Column" msprop:Generator_UserColumnName="rsale_invaddr1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="rsale_invbatch" msprop:Generator_ColumnVarNameInTable="columnrsale_invbatch" msprop:Generator_ColumnPropNameInRow="rsale_invbatch" msprop:Generator_ColumnPropNameInTable="rsale_invbatchColumn" msprop:Generator_UserColumnName="rsale_invbatch" type="xs:decimal" minOccurs="0" />
+              <xs:element name="rsale_invbatflg" msprop:Generator_ColumnVarNameInTable="columnrsale_invbatflg" msprop:Generator_ColumnPropNameInRow="rsale_invbatflg" msprop:Generator_ColumnPropNameInTable="rsale_invbatflgColumn" msprop:Generator_UserColumnName="rsale_invbatflg" type="xs:decimal" minOccurs="0" />
+              <xs:element name="rsale_appdate" msprop:Generator_ColumnVarNameInTable="columnrsale_appdate" msprop:Generator_ColumnPropNameInRow="rsale_appdate" msprop:Generator_ColumnPropNameInTable="rsale_appdateColumn" msprop:Generator_UserColumnName="rsale_appdate" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="rsale_edtdate" msprop:Generator_ColumnVarNameInTable="columnrsale_edtdate" msprop:Generator_ColumnPropNameInRow="rsale_edtdate" msprop:Generator_ColumnPropNameInTable="rsale_edtdateColumn" msprop:Generator_UserColumnName="rsale_edtdate" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="rsale_appscno" msprop:Generator_ColumnVarNameInTable="columnrsale_appscno" msprop:Generator_ColumnPropNameInRow="rsale_appscno" msprop:Generator_ColumnPropNameInTable="rsale_appscnoColumn" msprop:Generator_UserColumnName="rsale_appscno" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="rsale_edtscno" msprop:Generator_ColumnVarNameInTable="columnrsale_edtscno" msprop:Generator_ColumnPropNameInRow="rsale_edtscno" msprop:Generator_ColumnPropNameInTable="rsale_edtscnoColumn" msprop:Generator_UserColumnName="rsale_edtscno" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="rsale_acno" msprop:Generator_ColumnVarNameInTable="columnrsale_acno" msprop:Generator_ColumnPropNameInRow="rsale_acno" msprop:Generator_ColumnPropNameInTable="rsale_acnoColumn" msprop:Generator_UserColumnName="rsale_acno" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="12" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="rsale_cloflag" msprop:Generator_ColumnVarNameInTable="columnrsale_cloflag" msprop:Generator_ColumnPropNameInRow="rsale_cloflag" msprop:Generator_ColumnPropNameInTable="rsale_cloflagColumn" msprop:Generator_UserColumnName="rsale_cloflag" type="xs:boolean" minOccurs="0" />
+              <xs:element name="rsale_usrno" msprop:Generator_ColumnVarNameInTable="columnrsale_usrno" msprop:Generator_ColumnPropNameInRow="rsale_usrno" msprop:Generator_ColumnPropNameInTable="rsale_usrnoColumn" msprop:Generator_UserColumnName="rsale_usrno" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="rsaled_said" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnrsaled_said" msprop:Generator_ColumnPropNameInRow="rsaled_said" msprop:Generator_ColumnPropNameInTable="rsaled_saidColumn" msprop:Generator_UserColumnName="rsaled_said" type="xs:int" minOccurs="0" />
+              <xs:element name="rsaled_sano" msprop:Generator_ColumnVarNameInTable="columnrsaled_sano" msprop:Generator_ColumnPropNameInRow="rsaled_sano" msprop:Generator_ColumnPropNameInTable="rsaled_sanoColumn" msprop:Generator_UserColumnName="rsaled_sano" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="12" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="rsaled_sadate" msprop:Generator_ColumnVarNameInTable="columnrsaled_sadate" msprop:Generator_ColumnPropNameInRow="rsaled_sadate" msprop:Generator_ColumnPropNameInTable="rsaled_sadateColumn" msprop:Generator_UserColumnName="rsaled_sadate" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="rsaled_sadate1" msprop:Generator_ColumnVarNameInTable="columnrsaled_sadate1" msprop:Generator_ColumnPropNameInRow="rsaled_sadate1" msprop:Generator_ColumnPropNameInTable="rsaled_sadate1Column" msprop:Generator_UserColumnName="rsaled_sadate1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="rsaled_sadate2" msprop:Generator_ColumnVarNameInTable="columnrsaled_sadate2" msprop:Generator_ColumnPropNameInRow="rsaled_sadate2" msprop:Generator_ColumnPropNameInTable="rsaled_sadate2Column" msprop:Generator_UserColumnName="rsaled_sadate2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="rsaled_sadateac" msprop:Generator_ColumnVarNameInTable="columnrsaled_sadateac" msprop:Generator_ColumnPropNameInRow="rsaled_sadateac" msprop:Generator_ColumnPropNameInTable="rsaled_sadateacColumn" msprop:Generator_UserColumnName="rsaled_sadateac" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="rsaled_sadateac1" msprop:Generator_ColumnVarNameInTable="columnrsaled_sadateac1" msprop:Generator_ColumnPropNameInRow="rsaled_sadateac1" msprop:Generator_ColumnPropNameInTable="rsaled_sadateac1Column" msprop:Generator_UserColumnName="rsaled_sadateac1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="rsaled_sadateac2" msprop:Generator_ColumnVarNameInTable="columnrsaled_sadateac2" msprop:Generator_ColumnPropNameInRow="rsaled_sadateac2" msprop:Generator_ColumnPropNameInTable="rsaled_sadateac2Column" msprop:Generator_UserColumnName="rsaled_sadateac2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="rsaled_quno" msprop:Generator_ColumnVarNameInTable="columnrsaled_quno" msprop:Generator_ColumnPropNameInRow="rsaled_quno" msprop:Generator_ColumnPropNameInTable="rsaled_qunoColumn" msprop:Generator_UserColumnName="rsaled_quno" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="16" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="rsaled_cono" msprop:Generator_ColumnVarNameInTable="columnrsaled_cono" msprop:Generator_ColumnPropNameInRow="rsaled_cono" msprop:Generator_ColumnPropNameInTable="rsaled_conoColumn" msprop:Generator_UserColumnName="rsaled_cono" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="rsaled_cuno" msprop:Generator_ColumnVarNameInTable="columnrsaled_cuno" msprop:Generator_ColumnPropNameInRow="rsaled_cuno" msprop:Generator_ColumnPropNameInTable="rsaled_cunoColumn" msprop:Generator_UserColumnName="rsaled_cuno" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="rsaled_emno" msprop:Generator_ColumnVarNameInTable="columnrsaled_emno" msprop:Generator_ColumnPropNameInRow="rsaled_emno" msprop:Generator_ColumnPropNameInTable="rsaled_emnoColumn" msprop:Generator_UserColumnName="rsaled_emno" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="rsaled_spno" msprop:Generator_ColumnVarNameInTable="columnrsaled_spno" msprop:Generator_ColumnPropNameInRow="rsaled_spno" msprop:Generator_ColumnPropNameInTable="rsaled_spnoColumn" msprop:Generator_UserColumnName="rsaled_spno" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="rsaled_stno" msprop:Generator_ColumnVarNameInTable="columnrsaled_stno" msprop:Generator_ColumnPropNameInRow="rsaled_stno" msprop:Generator_ColumnPropNameInTable="rsaled_stnoColumn" msprop:Generator_UserColumnName="rsaled_stno" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="rsaled_xa1no" msprop:Generator_ColumnVarNameInTable="columnrsaled_xa1no" msprop:Generator_ColumnPropNameInRow="rsaled_xa1no" msprop:Generator_ColumnPropNameInTable="rsaled_xa1noColumn" msprop:Generator_UserColumnName="rsaled_xa1no" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="rsaled_xa1par" msprop:Generator_ColumnVarNameInTable="columnrsaled_xa1par" msprop:Generator_ColumnPropNameInRow="rsaled_xa1par" msprop:Generator_ColumnPropNameInTable="rsaled_xa1parColumn" msprop:Generator_UserColumnName="rsaled_xa1par" type="xs:decimal" minOccurs="0" />
+              <xs:element name="rsaled_seno" msprop:Generator_ColumnVarNameInTable="columnrsaled_seno" msprop:Generator_ColumnPropNameInRow="rsaled_seno" msprop:Generator_ColumnPropNameInTable="rsaled_senoColumn" msprop:Generator_UserColumnName="rsaled_seno" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="rsaled_sename" msprop:Generator_ColumnVarNameInTable="columnrsaled_sename" msprop:Generator_ColumnPropNameInRow="rsaled_sename" msprop:Generator_ColumnPropNameInTable="rsaled_senameColumn" msprop:Generator_UserColumnName="rsaled_sename" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="rsaled_x4no" msprop:Generator_ColumnVarNameInTable="columnrsaled_x4no" msprop:Generator_ColumnPropNameInRow="rsaled_x4no" msprop:Generator_ColumnPropNameInTable="rsaled_x4noColumn" msprop:Generator_UserColumnName="rsaled_x4no" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="rsaled_x4name" msprop:Generator_ColumnVarNameInTable="columnrsaled_x4name" msprop:Generator_ColumnPropNameInRow="rsaled_x4name" msprop:Generator_ColumnPropNameInTable="rsaled_x4nameColumn" msprop:Generator_UserColumnName="rsaled_x4name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="rsaled_orno" msprop:Generator_ColumnVarNameInTable="columnrsaled_orno" msprop:Generator_ColumnPropNameInRow="rsaled_orno" msprop:Generator_ColumnPropNameInTable="rsaled_ornoColumn" msprop:Generator_UserColumnName="rsaled_orno" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="16" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="rsaled_itno" msprop:Generator_ColumnVarNameInTable="columnrsaled_itno" msprop:Generator_ColumnPropNameInRow="rsaled_itno" msprop:Generator_ColumnPropNameInTable="rsaled_itnoColumn" msprop:Generator_UserColumnName="rsaled_itno" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="rsaled_itname" msprop:Generator_ColumnVarNameInTable="columnrsaled_itname" msprop:Generator_ColumnPropNameInRow="rsaled_itname" msprop:Generator_ColumnPropNameInTable="rsaled_itnameColumn" msprop:Generator_UserColumnName="rsaled_itname" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="rsaled_ittrait" msprop:Generator_ColumnVarNameInTable="columnrsaled_ittrait" msprop:Generator_ColumnPropNameInRow="rsaled_ittrait" msprop:Generator_ColumnPropNameInTable="rsaled_ittraitColumn" msprop:Generator_UserColumnName="rsaled_ittrait" type="xs:decimal" minOccurs="0" />
+              <xs:element name="rsaled_itunit" msprop:Generator_ColumnVarNameInTable="columnrsaled_itunit" msprop:Generator_ColumnPropNameInRow="rsaled_itunit" msprop:Generator_ColumnPropNameInTable="rsaled_itunitColumn" msprop:Generator_UserColumnName="rsaled_itunit" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="rsaled_itpkgqty" msprop:Generator_ColumnVarNameInTable="columnrsaled_itpkgqty" msprop:Generator_ColumnPropNameInRow="rsaled_itpkgqty" msprop:Generator_ColumnPropNameInTable="rsaled_itpkgqtyColumn" msprop:Generator_UserColumnName="rsaled_itpkgqty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="rsaled_qty" msprop:Generator_ColumnVarNameInTable="columnrsaled_qty" msprop:Generator_ColumnPropNameInRow="rsaled_qty" msprop:Generator_ColumnPropNameInTable="rsaled_qtyColumn" msprop:Generator_UserColumnName="rsaled_qty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="rsaled_price" msprop:Generator_ColumnVarNameInTable="columnrsaled_price" msprop:Generator_ColumnPropNameInRow="rsaled_price" msprop:Generator_ColumnPropNameInTable="rsaled_priceColumn" msprop:Generator_UserColumnName="rsaled_price" type="xs:decimal" minOccurs="0" />
+              <xs:element name="rsaled_prs" msprop:Generator_ColumnVarNameInTable="columnrsaled_prs" msprop:Generator_ColumnPropNameInRow="rsaled_prs" msprop:Generator_ColumnPropNameInTable="rsaled_prsColumn" msprop:Generator_UserColumnName="rsaled_prs" type="xs:decimal" minOccurs="0" />
+              <xs:element name="rsaled_rate" msprop:Generator_ColumnVarNameInTable="columnrsaled_rate" msprop:Generator_ColumnPropNameInRow="rsaled_rate" msprop:Generator_ColumnPropNameInTable="rsaled_rateColumn" msprop:Generator_UserColumnName="rsaled_rate" type="xs:decimal" minOccurs="0" />
+              <xs:element name="rsaled_taxprice" msprop:Generator_ColumnVarNameInTable="columnrsaled_taxprice" msprop:Generator_ColumnPropNameInRow="rsaled_taxprice" msprop:Generator_ColumnPropNameInTable="rsaled_taxpriceColumn" msprop:Generator_UserColumnName="rsaled_taxprice" type="xs:decimal" minOccurs="0" />
+              <xs:element name="rsaled_mny" msprop:Generator_ColumnVarNameInTable="columnrsaled_mny" msprop:Generator_ColumnPropNameInRow="rsaled_mny" msprop:Generator_ColumnPropNameInTable="rsaled_mnyColumn" msprop:Generator_UserColumnName="rsaled_mny" type="xs:decimal" minOccurs="0" />
+              <xs:element name="rsaled_priceb" msprop:Generator_ColumnVarNameInTable="columnrsaled_priceb" msprop:Generator_ColumnPropNameInRow="rsaled_priceb" msprop:Generator_ColumnPropNameInTable="rsaled_pricebColumn" msprop:Generator_UserColumnName="rsaled_priceb" type="xs:decimal" minOccurs="0" />
+              <xs:element name="rsaled_taxpriceb" msprop:Generator_ColumnVarNameInTable="columnrsaled_taxpriceb" msprop:Generator_ColumnPropNameInRow="rsaled_taxpriceb" msprop:Generator_ColumnPropNameInTable="rsaled_taxpricebColumn" msprop:Generator_UserColumnName="rsaled_taxpriceb" type="xs:decimal" minOccurs="0" />
+              <xs:element name="rsaled_mnyb" msprop:Generator_ColumnVarNameInTable="columnrsaled_mnyb" msprop:Generator_ColumnPropNameInRow="rsaled_mnyb" msprop:Generator_ColumnPropNameInTable="rsaled_mnybColumn" msprop:Generator_UserColumnName="rsaled_mnyb" type="xs:decimal" minOccurs="0" />
+              <xs:element name="rsaled_memo" msprop:Generator_ColumnVarNameInTable="columnrsaled_memo" msprop:Generator_ColumnPropNameInRow="rsaled_memo" msprop:Generator_ColumnPropNameInTable="rsaled_memoColumn" msprop:Generator_UserColumnName="rsaled_memo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="rsaled_lowzero" msprop:Generator_ColumnVarNameInTable="columnrsaled_lowzero" msprop:Generator_ColumnPropNameInRow="rsaled_lowzero" msprop:Generator_ColumnPropNameInTable="rsaled_lowzeroColumn" msprop:Generator_UserColumnName="rsaled_lowzero" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="rsaled_bomid" msprop:Generator_ColumnVarNameInTable="columnrsaled_bomid" msprop:Generator_ColumnPropNameInRow="rsaled_bomid" msprop:Generator_ColumnPropNameInTable="rsaled_bomidColumn" msprop:Generator_UserColumnName="rsaled_bomid" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="rsaled_bomrec" msprop:Generator_ColumnVarNameInTable="columnrsaled_bomrec" msprop:Generator_ColumnPropNameInRow="rsaled_bomrec" msprop:Generator_ColumnPropNameInTable="rsaled_bomrecColumn" msprop:Generator_UserColumnName="rsaled_bomrec" type="xs:decimal" minOccurs="0" />
+              <xs:element name="rsaled_recordno" msprop:Generator_ColumnVarNameInTable="columnrsaled_recordno" msprop:Generator_ColumnPropNameInRow="rsaled_recordno" msprop:Generator_ColumnPropNameInTable="rsaled_recordnoColumn" msprop:Generator_UserColumnName="rsaled_recordno" type="xs:decimal" minOccurs="0" />
+              <xs:element name="rsaled_sltflag" msprop:Generator_ColumnVarNameInTable="columnrsaled_sltflag" msprop:Generator_ColumnPropNameInRow="rsaled_sltflag" msprop:Generator_ColumnPropNameInTable="rsaled_sltflagColumn" msprop:Generator_UserColumnName="rsaled_sltflag" type="xs:boolean" minOccurs="0" />
+              <xs:element name="rsaled_extflag" msprop:Generator_ColumnVarNameInTable="columnrsaled_extflag" msprop:Generator_ColumnPropNameInRow="rsaled_extflag" msprop:Generator_ColumnPropNameInTable="rsaled_extflagColumn" msprop:Generator_UserColumnName="rsaled_extflag" type="xs:boolean" minOccurs="0" />
+              <xs:element name="rsaled_bracket" msprop:Generator_ColumnVarNameInTable="columnrsaled_bracket" msprop:Generator_ColumnPropNameInRow="rsaled_bracket" msprop:Generator_ColumnPropNameInTable="rsaled_bracketColumn" msprop:Generator_UserColumnName="rsaled_bracket" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="6" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="rsaled_itdesp1" msprop:Generator_ColumnVarNameInTable="columnrsaled_itdesp1" msprop:Generator_ColumnPropNameInRow="rsaled_itdesp1" msprop:Generator_ColumnPropNameInTable="rsaled_itdesp1Column" msprop:Generator_UserColumnName="rsaled_itdesp1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="rsaled_itdesp2" msprop:Generator_ColumnVarNameInTable="columnrsaled_itdesp2" msprop:Generator_ColumnPropNameInRow="rsaled_itdesp2" msprop:Generator_ColumnPropNameInTable="rsaled_itdesp2Column" msprop:Generator_UserColumnName="rsaled_itdesp2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="rsaled_itdesp3" msprop:Generator_ColumnVarNameInTable="columnrsaled_itdesp3" msprop:Generator_ColumnPropNameInRow="rsaled_itdesp3" msprop:Generator_ColumnPropNameInTable="rsaled_itdesp3Column" msprop:Generator_UserColumnName="rsaled_itdesp3" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="rsaled_itdesp4" msprop:Generator_ColumnVarNameInTable="columnrsaled_itdesp4" msprop:Generator_ColumnPropNameInRow="rsaled_itdesp4" msprop:Generator_ColumnPropNameInTable="rsaled_itdesp4Column" msprop:Generator_UserColumnName="rsaled_itdesp4" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="rsaled_itdesp5" msprop:Generator_ColumnVarNameInTable="columnrsaled_itdesp5" msprop:Generator_ColumnPropNameInRow="rsaled_itdesp5" msprop:Generator_ColumnPropNameInTable="rsaled_itdesp5Column" msprop:Generator_UserColumnName="rsaled_itdesp5" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="rsaled_itdesp6" msprop:Generator_ColumnVarNameInTable="columnrsaled_itdesp6" msprop:Generator_ColumnPropNameInRow="rsaled_itdesp6" msprop:Generator_ColumnPropNameInTable="rsaled_itdesp6Column" msprop:Generator_UserColumnName="rsaled_itdesp6" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="rsaled_itdesp7" msprop:Generator_ColumnVarNameInTable="columnrsaled_itdesp7" msprop:Generator_ColumnPropNameInRow="rsaled_itdesp7" msprop:Generator_ColumnPropNameInTable="rsaled_itdesp7Column" msprop:Generator_UserColumnName="rsaled_itdesp7" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="rsaled_itdesp8" msprop:Generator_ColumnVarNameInTable="columnrsaled_itdesp8" msprop:Generator_ColumnPropNameInRow="rsaled_itdesp8" msprop:Generator_ColumnPropNameInTable="rsaled_itdesp8Column" msprop:Generator_UserColumnName="rsaled_itdesp8" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="rsaled_itdesp9" msprop:Generator_ColumnVarNameInTable="columnrsaled_itdesp9" msprop:Generator_ColumnPropNameInRow="rsaled_itdesp9" msprop:Generator_ColumnPropNameInTable="rsaled_itdesp9Column" msprop:Generator_UserColumnName="rsaled_itdesp9" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="rsaled_itdesp10" msprop:Generator_ColumnVarNameInTable="columnrsaled_itdesp10" msprop:Generator_ColumnPropNameInRow="rsaled_itdesp10" msprop:Generator_ColumnPropNameInTable="rsaled_itdesp10Column" msprop:Generator_UserColumnName="rsaled_itdesp10" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="rsaled_stname" msprop:Generator_ColumnVarNameInTable="columnrsaled_stname" msprop:Generator_ColumnPropNameInRow="rsaled_stname" msprop:Generator_ColumnPropNameInTable="rsaled_stnameColumn" msprop:Generator_UserColumnName="rsaled_stname" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="rsaled_recordno_d" msprop:Generator_ColumnVarNameInTable="columnrsaled_recordno_d" msprop:Generator_ColumnPropNameInRow="rsaled_recordno_d" msprop:Generator_ColumnPropNameInTable="rsaled_recordno_dColumn" msprop:Generator_UserColumnName="rsaled_recordno_d" type="xs:decimal" minOccurs="0" />
+              <xs:element name="rsalebom_sano" msprop:Generator_ColumnVarNameInTable="columnrsalebom_sano" msprop:Generator_ColumnPropNameInRow="rsalebom_sano" msprop:Generator_ColumnPropNameInTable="rsalebom_sanoColumn" msprop:Generator_UserColumnName="rsalebom_sano" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="16" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="rsalebom_bomid" msprop:Generator_ColumnVarNameInTable="columnrsalebom_bomid" msprop:Generator_ColumnPropNameInRow="rsalebom_bomid" msprop:Generator_ColumnPropNameInTable="rsalebom_bomidColumn" msprop:Generator_UserColumnName="rsalebom_bomid" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="rsalebom_bomrec" msprop:Generator_ColumnVarNameInTable="columnrsalebom_bomrec" msprop:Generator_ColumnPropNameInRow="rsalebom_bomrec" msprop:Generator_ColumnPropNameInTable="rsalebom_bomrecColumn" msprop:Generator_UserColumnName="rsalebom_bomrec" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="rsalebom_itno" msprop:Generator_ColumnVarNameInTable="columnrsalebom_itno" msprop:Generator_ColumnPropNameInRow="rsalebom_itno" msprop:Generator_ColumnPropNameInTable="rsalebom_itnoColumn" msprop:Generator_UserColumnName="rsalebom_itno" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="rsalebom_itname" msprop:Generator_ColumnVarNameInTable="columnrsalebom_itname" msprop:Generator_ColumnPropNameInRow="rsalebom_itname" msprop:Generator_ColumnPropNameInTable="rsalebom_itnameColumn" msprop:Generator_UserColumnName="rsalebom_itname" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="rsalebom_itunit" msprop:Generator_ColumnVarNameInTable="columnrsalebom_itunit" msprop:Generator_ColumnPropNameInRow="rsalebom_itunit" msprop:Generator_ColumnPropNameInTable="rsalebom_itunitColumn" msprop:Generator_UserColumnName="rsalebom_itunit" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="rsalebom_itqty" msprop:Generator_ColumnVarNameInTable="columnrsalebom_itqty" msprop:Generator_ColumnPropNameInRow="rsalebom_itqty" msprop:Generator_ColumnPropNameInTable="rsalebom_itqtyColumn" msprop:Generator_UserColumnName="rsalebom_itqty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="rsalebom_itpareprs" msprop:Generator_ColumnVarNameInTable="columnrsalebom_itpareprs" msprop:Generator_ColumnPropNameInRow="rsalebom_itpareprs" msprop:Generator_ColumnPropNameInTable="rsalebom_itpareprsColumn" msprop:Generator_UserColumnName="rsalebom_itpareprs" type="xs:decimal" minOccurs="0" />
+              <xs:element name="rsalebom_itpkgqty" msprop:Generator_ColumnVarNameInTable="columnrsalebom_itpkgqty" msprop:Generator_ColumnPropNameInRow="rsalebom_itpkgqty" msprop:Generator_ColumnPropNameInTable="rsalebom_itpkgqtyColumn" msprop:Generator_UserColumnName="rsalebom_itpkgqty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="rsalebom_itrec" msprop:Generator_ColumnVarNameInTable="columnrsalebom_itrec" msprop:Generator_ColumnPropNameInRow="rsalebom_itrec" msprop:Generator_ColumnPropNameInTable="rsalebom_itrecColumn" msprop:Generator_UserColumnName="rsalebom_itrec" type="xs:decimal" minOccurs="0" />
+              <xs:element name="rsalebom_itprice" msprop:Generator_ColumnVarNameInTable="columnrsalebom_itprice" msprop:Generator_ColumnPropNameInRow="rsalebom_itprice" msprop:Generator_ColumnPropNameInTable="rsalebom_itpriceColumn" msprop:Generator_UserColumnName="rsalebom_itprice" type="xs:decimal" minOccurs="0" />
+              <xs:element name="rsalebom_itprs" msprop:Generator_ColumnVarNameInTable="columnrsalebom_itprs" msprop:Generator_ColumnPropNameInRow="rsalebom_itprs" msprop:Generator_ColumnPropNameInTable="rsalebom_itprsColumn" msprop:Generator_UserColumnName="rsalebom_itprs" type="xs:decimal" minOccurs="0" />
+              <xs:element name="rsalebom_itmny" msprop:Generator_ColumnVarNameInTable="columnrsalebom_itmny" msprop:Generator_ColumnPropNameInRow="rsalebom_itmny" msprop:Generator_ColumnPropNameInTable="rsalebom_itmnyColumn" msprop:Generator_UserColumnName="rsalebom_itmny" type="xs:decimal" minOccurs="0" />
+              <xs:element name="rsalebom_itnote" msprop:Generator_ColumnVarNameInTable="columnrsalebom_itnote" msprop:Generator_ColumnPropNameInRow="rsalebom_itnote" msprop:Generator_ColumnPropNameInTable="rsalebom_itnoteColumn" msprop:Generator_UserColumnName="rsalebom_itnote" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="rsalebom_itsource" msprop:Generator_ColumnVarNameInTable="columnrsalebom_itsource" msprop:Generator_ColumnPropNameInRow="rsalebom_itsource" msprop:Generator_ColumnPropNameInTable="rsalebom_itsourceColumn" msprop:Generator_UserColumnName="rsalebom_itsource" type="xs:decimal" minOccurs="0" />
+              <xs:element name="rsalebom_itbuypri" msprop:Generator_ColumnVarNameInTable="columnrsalebom_itbuypri" msprop:Generator_ColumnPropNameInRow="rsalebom_itbuypri" msprop:Generator_ColumnPropNameInTable="rsalebom_itbuypriColumn" msprop:Generator_UserColumnName="rsalebom_itbuypri" type="xs:decimal" minOccurs="0" />
+              <xs:element name="rsalebom_itbuymny" msprop:Generator_ColumnVarNameInTable="columnrsalebom_itbuymny" msprop:Generator_ColumnPropNameInRow="rsalebom_itbuymny" msprop:Generator_ColumnPropNameInTable="rsalebom_itbuymnyColumn" msprop:Generator_UserColumnName="rsalebom_itbuymny" type="xs:decimal" minOccurs="0" />
+              <xs:element name="cust_cuno" msprop:Generator_ColumnVarNameInTable="columncust_cuno" msprop:Generator_ColumnPropNameInRow="cust_cuno" msprop:Generator_ColumnPropNameInTable="cust_cunoColumn" msprop:Generator_UserColumnName="cust_cuno" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cust_cuname2" msprop:Generator_ColumnVarNameInTable="columncust_cuname2" msprop:Generator_ColumnPropNameInRow="cust_cuname2" msprop:Generator_ColumnPropNameInTable="cust_cuname2Column" msprop:Generator_UserColumnName="cust_cuname2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cust_cuname1" msprop:Generator_ColumnVarNameInTable="columncust_cuname1" msprop:Generator_ColumnPropNameInRow="cust_cuname1" msprop:Generator_ColumnPropNameInTable="cust_cuname1Column" msprop:Generator_UserColumnName="cust_cuname1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cust_cuinvoname" msprop:Generator_ColumnVarNameInTable="columncust_cuinvoname" msprop:Generator_ColumnPropNameInRow="cust_cuinvoname" msprop:Generator_ColumnPropNameInTable="cust_cuinvonameColumn" msprop:Generator_UserColumnName="cust_cuinvoname" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cust_cuchkname" msprop:Generator_ColumnVarNameInTable="columncust_cuchkname" msprop:Generator_ColumnPropNameInRow="cust_cuchkname" msprop:Generator_ColumnPropNameInTable="cust_cuchknameColumn" msprop:Generator_UserColumnName="cust_cuchkname" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cust_cuxa1no" msprop:Generator_ColumnVarNameInTable="columncust_cuxa1no" msprop:Generator_ColumnPropNameInRow="cust_cuxa1no" msprop:Generator_ColumnPropNameInTable="cust_cuxa1noColumn" msprop:Generator_UserColumnName="cust_cuxa1no" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cust_cupareno" msprop:Generator_ColumnVarNameInTable="columncust_cupareno" msprop:Generator_ColumnPropNameInRow="cust_cupareno" msprop:Generator_ColumnPropNameInTable="cust_cuparenoColumn" msprop:Generator_UserColumnName="cust_cupareno" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cust_cucono" msprop:Generator_ColumnVarNameInTable="columncust_cucono" msprop:Generator_ColumnPropNameInRow="cust_cucono" msprop:Generator_ColumnPropNameInTable="cust_cuconoColumn" msprop:Generator_UserColumnName="cust_cucono" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cust_cuime" msprop:Generator_ColumnVarNameInTable="columncust_cuime" msprop:Generator_ColumnPropNameInRow="cust_cuime" msprop:Generator_ColumnPropNameInTable="cust_cuimeColumn" msprop:Generator_UserColumnName="cust_cuime" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cust_cux1no" msprop:Generator_ColumnVarNameInTable="columncust_cux1no" msprop:Generator_ColumnPropNameInRow="cust_cux1no" msprop:Generator_ColumnPropNameInTable="cust_cux1noColumn" msprop:Generator_UserColumnName="cust_cux1no" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cust_cuemno1" msprop:Generator_ColumnVarNameInTable="columncust_cuemno1" msprop:Generator_ColumnPropNameInRow="cust_cuemno1" msprop:Generator_ColumnPropNameInTable="cust_cuemno1Column" msprop:Generator_UserColumnName="cust_cuemno1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cust_cuper1" msprop:Generator_ColumnVarNameInTable="columncust_cuper1" msprop:Generator_ColumnPropNameInRow="cust_cuper1" msprop:Generator_ColumnPropNameInTable="cust_cuper1Column" msprop:Generator_UserColumnName="cust_cuper1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cust_cuper2" msprop:Generator_ColumnVarNameInTable="columncust_cuper2" msprop:Generator_ColumnPropNameInRow="cust_cuper2" msprop:Generator_ColumnPropNameInTable="cust_cuper2Column" msprop:Generator_UserColumnName="cust_cuper2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cust_cuper" msprop:Generator_ColumnVarNameInTable="columncust_cuper" msprop:Generator_ColumnPropNameInRow="cust_cuper" msprop:Generator_ColumnPropNameInTable="cust_cuperColumn" msprop:Generator_UserColumnName="cust_cuper" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cust_cutel1" msprop:Generator_ColumnVarNameInTable="columncust_cutel1" msprop:Generator_ColumnPropNameInRow="cust_cutel1" msprop:Generator_ColumnPropNameInTable="cust_cutel1Column" msprop:Generator_UserColumnName="cust_cutel1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cust_cutel2" msprop:Generator_ColumnVarNameInTable="columncust_cutel2" msprop:Generator_ColumnPropNameInRow="cust_cutel2" msprop:Generator_ColumnPropNameInTable="cust_cutel2Column" msprop:Generator_UserColumnName="cust_cutel2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cust_cufax1" msprop:Generator_ColumnVarNameInTable="columncust_cufax1" msprop:Generator_ColumnPropNameInRow="cust_cufax1" msprop:Generator_ColumnPropNameInTable="cust_cufax1Column" msprop:Generator_UserColumnName="cust_cufax1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cust_cuatel1" msprop:Generator_ColumnVarNameInTable="columncust_cuatel1" msprop:Generator_ColumnPropNameInRow="cust_cuatel1" msprop:Generator_ColumnPropNameInTable="cust_cuatel1Column" msprop:Generator_UserColumnName="cust_cuatel1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="16" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cust_cuatel2" msprop:Generator_ColumnVarNameInTable="columncust_cuatel2" msprop:Generator_ColumnPropNameInRow="cust_cuatel2" msprop:Generator_ColumnPropNameInTable="cust_cuatel2Column" msprop:Generator_UserColumnName="cust_cuatel2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="16" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cust_cuatel3" msprop:Generator_ColumnVarNameInTable="columncust_cuatel3" msprop:Generator_ColumnPropNameInRow="cust_cuatel3" msprop:Generator_ColumnPropNameInTable="cust_cuatel3Column" msprop:Generator_UserColumnName="cust_cuatel3" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="16" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cust_cubbc" msprop:Generator_ColumnVarNameInTable="columncust_cubbc" msprop:Generator_ColumnPropNameInRow="cust_cubbc" msprop:Generator_ColumnPropNameInTable="cust_cubbcColumn" msprop:Generator_UserColumnName="cust_cubbc" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="16" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cust_cuaddr1" msprop:Generator_ColumnVarNameInTable="columncust_cuaddr1" msprop:Generator_ColumnPropNameInRow="cust_cuaddr1" msprop:Generator_ColumnPropNameInTable="cust_cuaddr1Column" msprop:Generator_UserColumnName="cust_cuaddr1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cust_cur1" msprop:Generator_ColumnVarNameInTable="columncust_cur1" msprop:Generator_ColumnPropNameInRow="cust_cur1" msprop:Generator_ColumnPropNameInTable="cust_cur1Column" msprop:Generator_UserColumnName="cust_cur1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cust_cuaddr2" msprop:Generator_ColumnVarNameInTable="columncust_cuaddr2" msprop:Generator_ColumnPropNameInRow="cust_cuaddr2" msprop:Generator_ColumnPropNameInTable="cust_cuaddr2Column" msprop:Generator_UserColumnName="cust_cuaddr2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cust_cur2" msprop:Generator_ColumnVarNameInTable="columncust_cur2" msprop:Generator_ColumnPropNameInRow="cust_cur2" msprop:Generator_ColumnPropNameInTable="cust_cur2Column" msprop:Generator_UserColumnName="cust_cur2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cust_cuaddr3" msprop:Generator_ColumnVarNameInTable="columncust_cuaddr3" msprop:Generator_ColumnPropNameInRow="cust_cuaddr3" msprop:Generator_ColumnPropNameInTable="cust_cuaddr3Column" msprop:Generator_UserColumnName="cust_cuaddr3" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cust_cur3" msprop:Generator_ColumnVarNameInTable="columncust_cur3" msprop:Generator_ColumnPropNameInRow="cust_cur3" msprop:Generator_ColumnPropNameInTable="cust_cur3Column" msprop:Generator_UserColumnName="cust_cur3" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cust_cuslevel" msprop:Generator_ColumnVarNameInTable="columncust_cuslevel" msprop:Generator_ColumnPropNameInRow="cust_cuslevel" msprop:Generator_ColumnPropNameInTable="cust_cuslevelColumn" msprop:Generator_UserColumnName="cust_cuslevel" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cust_cudisc" msprop:Generator_ColumnVarNameInTable="columncust_cudisc" msprop:Generator_ColumnPropNameInRow="cust_cudisc" msprop:Generator_ColumnPropNameInTable="cust_cudiscColumn" msprop:Generator_UserColumnName="cust_cudisc" type="xs:decimal" minOccurs="0" />
+              <xs:element name="cust_cuemail" msprop:Generator_ColumnVarNameInTable="columncust_cuemail" msprop:Generator_ColumnPropNameInRow="cust_cuemail" msprop:Generator_ColumnPropNameInTable="cust_cuemailColumn" msprop:Generator_UserColumnName="cust_cuemail" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="68" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cust_cuwww" msprop:Generator_ColumnVarNameInTable="columncust_cuwww" msprop:Generator_ColumnPropNameInRow="cust_cuwww" msprop:Generator_ColumnPropNameInTable="cust_cuwwwColumn" msprop:Generator_UserColumnName="cust_cuwww" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="68" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cust_cux2no" msprop:Generator_ColumnVarNameInTable="columncust_cux2no" msprop:Generator_ColumnPropNameInRow="cust_cux2no" msprop:Generator_ColumnPropNameInTable="cust_cux2noColumn" msprop:Generator_UserColumnName="cust_cux2no" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cust_cuuno" msprop:Generator_ColumnVarNameInTable="columncust_cuuno" msprop:Generator_ColumnPropNameInRow="cust_cuuno" msprop:Generator_ColumnPropNameInTable="cust_cuunoColumn" msprop:Generator_UserColumnName="cust_cuuno" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cust_cux3no" msprop:Generator_ColumnVarNameInTable="columncust_cux3no" msprop:Generator_ColumnPropNameInRow="cust_cux3no" msprop:Generator_ColumnPropNameInTable="cust_cux3noColumn" msprop:Generator_UserColumnName="cust_cux3no" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cust_cux4no" msprop:Generator_ColumnVarNameInTable="columncust_cux4no" msprop:Generator_ColumnPropNameInRow="cust_cux4no" msprop:Generator_ColumnPropNameInTable="cust_cux4noColumn" msprop:Generator_UserColumnName="cust_cux4no" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cust_cucredit" msprop:Generator_ColumnVarNameInTable="columncust_cucredit" msprop:Generator_ColumnPropNameInRow="cust_cucredit" msprop:Generator_ColumnPropNameInTable="cust_cucreditColumn" msprop:Generator_UserColumnName="cust_cucredit" type="xs:decimal" minOccurs="0" />
+              <xs:element name="cust_cuengname" msprop:Generator_ColumnVarNameInTable="columncust_cuengname" msprop:Generator_ColumnPropNameInRow="cust_cuengname" msprop:Generator_ColumnPropNameInTable="cust_cuengnameColumn" msprop:Generator_UserColumnName="cust_cuengname" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cust_cuengaddr" msprop:Generator_ColumnVarNameInTable="columncust_cuengaddr" msprop:Generator_ColumnPropNameInRow="cust_cuengaddr" msprop:Generator_ColumnPropNameInTable="cust_cuengaddrColumn" msprop:Generator_UserColumnName="cust_cuengaddr" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cust_cuengr1" msprop:Generator_ColumnVarNameInTable="columncust_cuengr1" msprop:Generator_ColumnPropNameInRow="cust_cuengr1" msprop:Generator_ColumnPropNameInTable="cust_cuengr1Column" msprop:Generator_UserColumnName="cust_cuengr1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cust_cumemo1" msprop:Generator_ColumnVarNameInTable="columncust_cumemo1" msprop:Generator_ColumnPropNameInRow="cust_cumemo1" msprop:Generator_ColumnPropNameInTable="cust_cumemo1Column" msprop:Generator_UserColumnName="cust_cumemo1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cust_cumemo2" msprop:Generator_ColumnVarNameInTable="columncust_cumemo2" msprop:Generator_ColumnPropNameInRow="cust_cumemo2" msprop:Generator_ColumnPropNameInTable="cust_cumemo2Column" msprop:Generator_UserColumnName="cust_cumemo2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cust_cux5no" msprop:Generator_ColumnVarNameInTable="columncust_cux5no" msprop:Generator_ColumnPropNameInRow="cust_cux5no" msprop:Generator_ColumnPropNameInTable="cust_cux5noColumn" msprop:Generator_UserColumnName="cust_cux5no" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cust_cuarea" msprop:Generator_ColumnVarNameInTable="columncust_cuarea" msprop:Generator_ColumnPropNameInRow="cust_cuarea" msprop:Generator_ColumnPropNameInTable="cust_cuareaColumn" msprop:Generator_UserColumnName="cust_cuarea" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cust_cuudf1" msprop:Generator_ColumnVarNameInTable="columncust_cuudf1" msprop:Generator_ColumnPropNameInRow="cust_cuudf1" msprop:Generator_ColumnPropNameInTable="cust_cuudf1Column" msprop:Generator_UserColumnName="cust_cuudf1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cust_cuudf2" msprop:Generator_ColumnVarNameInTable="columncust_cuudf2" msprop:Generator_ColumnPropNameInRow="cust_cuudf2" msprop:Generator_ColumnPropNameInTable="cust_cuudf2Column" msprop:Generator_UserColumnName="cust_cuudf2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cust_cuudf3" msprop:Generator_ColumnVarNameInTable="columncust_cuudf3" msprop:Generator_ColumnPropNameInRow="cust_cuudf3" msprop:Generator_ColumnPropNameInTable="cust_cuudf3Column" msprop:Generator_UserColumnName="cust_cuudf3" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cust_cuudf4" msprop:Generator_ColumnVarNameInTable="columncust_cuudf4" msprop:Generator_ColumnPropNameInRow="cust_cuudf4" msprop:Generator_ColumnPropNameInTable="cust_cuudf4Column" msprop:Generator_UserColumnName="cust_cuudf4" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cust_cuudf5" msprop:Generator_ColumnVarNameInTable="columncust_cuudf5" msprop:Generator_ColumnPropNameInRow="cust_cuudf5" msprop:Generator_ColumnPropNameInTable="cust_cuudf5Column" msprop:Generator_UserColumnName="cust_cuudf5" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cust_cuudf6" msprop:Generator_ColumnVarNameInTable="columncust_cuudf6" msprop:Generator_ColumnPropNameInRow="cust_cuudf6" msprop:Generator_ColumnPropNameInTable="cust_cuudf6Column" msprop:Generator_UserColumnName="cust_cuudf6" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cust_cudate" msprop:Generator_ColumnVarNameInTable="columncust_cudate" msprop:Generator_ColumnPropNameInRow="cust_cudate" msprop:Generator_ColumnPropNameInTable="cust_cudateColumn" msprop:Generator_UserColumnName="cust_cudate" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cust_cudate1" msprop:Generator_ColumnVarNameInTable="columncust_cudate1" msprop:Generator_ColumnPropNameInRow="cust_cudate1" msprop:Generator_ColumnPropNameInTable="cust_cudate1Column" msprop:Generator_UserColumnName="cust_cudate1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cust_cudate2" msprop:Generator_ColumnVarNameInTable="columncust_cudate2" msprop:Generator_ColumnPropNameInRow="cust_cudate2" msprop:Generator_ColumnPropNameInTable="cust_cudate2Column" msprop:Generator_UserColumnName="cust_cudate2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cust_culastday" msprop:Generator_ColumnVarNameInTable="columncust_culastday" msprop:Generator_ColumnPropNameInRow="cust_culastday" msprop:Generator_ColumnPropNameInTable="cust_culastdayColumn" msprop:Generator_UserColumnName="cust_culastday" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cust_culastday1" msprop:Generator_ColumnVarNameInTable="columncust_culastday1" msprop:Generator_ColumnPropNameInRow="cust_culastday1" msprop:Generator_ColumnPropNameInTable="cust_culastday1Column" msprop:Generator_UserColumnName="cust_culastday1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cust_culastday2" msprop:Generator_ColumnVarNameInTable="columncust_culastday2" msprop:Generator_ColumnPropNameInRow="cust_culastday2" msprop:Generator_ColumnPropNameInTable="cust_culastday2Column" msprop:Generator_UserColumnName="cust_culastday2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cust_cufirreceiv" msprop:Generator_ColumnVarNameInTable="columncust_cufirreceiv" msprop:Generator_ColumnPropNameInRow="cust_cufirreceiv" msprop:Generator_ColumnPropNameInTable="cust_cufirreceivColumn" msprop:Generator_UserColumnName="cust_cufirreceiv" type="xs:decimal" minOccurs="0" />
+              <xs:element name="cust_cusparercv" msprop:Generator_ColumnVarNameInTable="columncust_cusparercv" msprop:Generator_ColumnPropNameInRow="cust_cusparercv" msprop:Generator_ColumnPropNameInTable="cust_cusparercvColumn" msprop:Generator_UserColumnName="cust_cusparercv" type="xs:decimal" minOccurs="0" />
+              <xs:element name="cust_cureceiv" msprop:Generator_ColumnVarNameInTable="columncust_cureceiv" msprop:Generator_ColumnPropNameInRow="cust_cureceiv" msprop:Generator_ColumnPropNameInTable="cust_cureceivColumn" msprop:Generator_UserColumnName="cust_cureceiv" type="xs:decimal" minOccurs="0" />
+              <xs:element name="cust_cufirrcvpar" msprop:Generator_ColumnVarNameInTable="columncust_cufirrcvpar" msprop:Generator_ColumnPropNameInRow="cust_cufirrcvpar" msprop:Generator_ColumnPropNameInTable="cust_cufirrcvparColumn" msprop:Generator_UserColumnName="cust_cufirrcvpar" type="xs:decimal" minOccurs="0" />
+              <xs:element name="cust_cufiradvamt" msprop:Generator_ColumnVarNameInTable="columncust_cufiradvamt" msprop:Generator_ColumnPropNameInRow="cust_cufiradvamt" msprop:Generator_ColumnPropNameInTable="cust_cufiradvamtColumn" msprop:Generator_UserColumnName="cust_cufiradvamt" type="xs:decimal" minOccurs="0" />
+              <xs:element name="cust_cuadvamt" msprop:Generator_ColumnVarNameInTable="columncust_cuadvamt" msprop:Generator_ColumnPropNameInRow="cust_cuadvamt" msprop:Generator_ColumnPropNameInTable="cust_cuadvamtColumn" msprop:Generator_UserColumnName="cust_cuadvamt" type="xs:decimal" minOccurs="0" />
+              <xs:element name="cust_cunote" msprop:Generator_ColumnVarNameInTable="columncust_cunote" msprop:Generator_ColumnPropNameInRow="cust_cunote" msprop:Generator_ColumnPropNameInTable="cust_cunoteColumn" msprop:Generator_UserColumnName="cust_cunote" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cust_cubirth" msprop:Generator_ColumnVarNameInTable="columncust_cubirth" msprop:Generator_ColumnPropNameInRow="cust_cubirth" msprop:Generator_ColumnPropNameInTable="cust_cubirthColumn" msprop:Generator_UserColumnName="cust_cubirth" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cust_cubirth1" msprop:Generator_ColumnVarNameInTable="columncust_cubirth1" msprop:Generator_ColumnPropNameInRow="cust_cubirth1" msprop:Generator_ColumnPropNameInTable="cust_cubirth1Column" msprop:Generator_UserColumnName="cust_cubirth1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cust_cubirth2" msprop:Generator_ColumnVarNameInTable="columncust_cubirth2" msprop:Generator_ColumnPropNameInRow="cust_cubirth2" msprop:Generator_ColumnPropNameInTable="cust_cubirth2Column" msprop:Generator_UserColumnName="cust_cubirth2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cust_cusex" msprop:Generator_ColumnVarNameInTable="columncust_cusex" msprop:Generator_ColumnPropNameInRow="cust_cusex" msprop:Generator_ColumnPropNameInTable="cust_cusexColumn" msprop:Generator_UserColumnName="cust_cusex" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cust_cublood" msprop:Generator_ColumnVarNameInTable="columncust_cublood" msprop:Generator_ColumnPropNameInRow="cust_cublood" msprop:Generator_ColumnPropNameInTable="cust_cubloodColumn" msprop:Generator_UserColumnName="cust_cublood" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cust_cuidno" msprop:Generator_ColumnVarNameInTable="columncust_cuidno" msprop:Generator_ColumnPropNameInRow="cust_cuidno" msprop:Generator_ColumnPropNameInTable="cust_cuidnoColumn" msprop:Generator_UserColumnName="cust_cuidno" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cust_betwdates" msprop:Generator_ColumnVarNameInTable="columncust_betwdates" msprop:Generator_ColumnPropNameInRow="cust_betwdates" msprop:Generator_ColumnPropNameInTable="cust_betwdatesColumn" msprop:Generator_UserColumnName="cust_betwdates" type="xs:short" minOccurs="0" />
+              <xs:element name="cust_msgflag" msprop:Generator_ColumnVarNameInTable="columncust_msgflag" msprop:Generator_ColumnPropNameInRow="cust_msgflag" msprop:Generator_ColumnPropNameInTable="cust_msgflagColumn" msprop:Generator_UserColumnName="cust_msgflag" type="xs:boolean" minOccurs="0" />
+              <xs:element name="cust_cupause" msprop:Generator_ColumnVarNameInTable="columncust_cupause" msprop:Generator_ColumnPropNameInRow="cust_cupause" msprop:Generator_ColumnPropNameInTable="cust_cupauseColumn" msprop:Generator_UserColumnName="cust_cupause" type="xs:short" minOccurs="0" />
+              <xs:element name="cust_servdate" msprop:Generator_ColumnVarNameInTable="columncust_servdate" msprop:Generator_ColumnPropNameInRow="cust_servdate" msprop:Generator_ColumnPropNameInTable="cust_servdateColumn" msprop:Generator_UserColumnName="cust_servdate" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="rsaled_Punit" msprop:Generator_ColumnVarNameInTable="columnrsaled_Punit" msprop:Generator_ColumnPropNameInRow="rsaled_Punit" msprop:Generator_ColumnPropNameInTable="rsaled_PunitColumn" msprop:Generator_UserColumnName="rsaled_Punit" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="rsaled_Pqty" msprop:Generator_ColumnVarNameInTable="columnrsaled_Pqty" msprop:Generator_ColumnPropNameInRow="rsaled_Pqty" msprop:Generator_ColumnPropNameInTable="rsaled_PqtyColumn" msprop:Generator_UserColumnName="rsaled_Pqty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="rsaled_Point" msprop:Generator_ColumnVarNameInTable="columnrsaled_Point" msprop:Generator_ColumnPropNameInRow="rsaled_Point" msprop:Generator_ColumnPropNameInTable="rsaled_PointColumn" msprop:Generator_UserColumnName="rsaled_Point" type="xs:decimal" minOccurs="0" />
+              <xs:element name="rsaled_mformula" msprop:Generator_ColumnVarNameInTable="columnrsaled_mformula" msprop:Generator_ColumnPropNameInRow="rsaled_mformula" msprop:Generator_ColumnPropNameInTable="rsaled_mformulaColumn" msprop:Generator_UserColumnName="rsaled_mformula" type="xs:decimal" minOccurs="0" />
+              <xs:element name="rsaled_mwidth4" msprop:Generator_ColumnVarNameInTable="columnrsaled_mwidth4" msprop:Generator_ColumnPropNameInRow="rsaled_mwidth4" msprop:Generator_ColumnPropNameInTable="rsaled_mwidth4Column" msprop:Generator_UserColumnName="rsaled_mwidth4" type="xs:decimal" minOccurs="0" />
+              <xs:element name="rsaled_mwidth3" msprop:Generator_ColumnVarNameInTable="columnrsaled_mwidth3" msprop:Generator_ColumnPropNameInRow="rsaled_mwidth3" msprop:Generator_ColumnPropNameInTable="rsaled_mwidth3Column" msprop:Generator_UserColumnName="rsaled_mwidth3" type="xs:decimal" minOccurs="0" />
+              <xs:element name="rsaled_mwidth2" msprop:Generator_ColumnVarNameInTable="columnrsaled_mwidth2" msprop:Generator_ColumnPropNameInRow="rsaled_mwidth2" msprop:Generator_ColumnPropNameInTable="rsaled_mwidth2Column" msprop:Generator_UserColumnName="rsaled_mwidth2" type="xs:decimal" minOccurs="0" />
+              <xs:element name="rsaled_mwidth1" msprop:Generator_ColumnVarNameInTable="columnrsaled_mwidth1" msprop:Generator_ColumnPropNameInRow="rsaled_mwidth1" msprop:Generator_ColumnPropNameInTable="rsaled_mwidth1Column" msprop:Generator_UserColumnName="rsaled_mwidth1" type="xs:decimal" minOccurs="0" />
+              <xs:element name="rsaled_mlong" msprop:Generator_ColumnVarNameInTable="columnrsaled_mlong" msprop:Generator_ColumnPropNameInRow="rsaled_mlong" msprop:Generator_ColumnPropNameInTable="rsaled_mlongColumn" msprop:Generator_UserColumnName="rsaled_mlong" type="xs:decimal" minOccurs="0" />
+              <xs:element name="rsaled_munit" msprop:Generator_ColumnVarNameInTable="columnrsaled_munit" msprop:Generator_ColumnPropNameInRow="rsaled_munit" msprop:Generator_ColumnPropNameInTable="rsaled_munitColumn" msprop:Generator_UserColumnName="rsaled_munit" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="rsaled_mqty" msprop:Generator_ColumnVarNameInTable="columnrsaled_mqty" msprop:Generator_ColumnPropNameInRow="rsaled_mqty" msprop:Generator_ColumnPropNameInTable="rsaled_mqtyColumn" msprop:Generator_UserColumnName="rsaled_mqty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="rsaled_IsTrans" msprop:Generator_ColumnVarNameInTable="columnrsaled_IsTrans" msprop:Generator_ColumnPropNameInRow="rsaled_IsTrans" msprop:Generator_ColumnPropNameInTable="rsaled_IsTransColumn" msprop:Generator_UserColumnName="rsaled_IsTrans" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="rsaled_KiTax" msprop:Generator_ColumnVarNameInTable="columnrsaled_KiTax" msprop:Generator_ColumnPropNameInRow="rsaled_KiTax" msprop:Generator_ColumnPropNameInTable="rsaled_KiTaxColumn" msprop:Generator_UserColumnName="rsaled_KiTax" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="rsaled_orid" msprop:Generator_ColumnVarNameInTable="columnrsaled_orid" msprop:Generator_ColumnPropNameInRow="rsaled_orid" msprop:Generator_ColumnPropNameInTable="rsaled_oridColumn" msprop:Generator_UserColumnName="rsaled_orid" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="scname" msprop:Generator_ColumnVarNameInTable="columnscname" msprop:Generator_ColumnPropNameInRow="scname" msprop:Generator_ColumnPropNameInTable="scnameColumn" msprop:Generator_UserColumnName="scname" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="scname1" msprop:Generator_ColumnVarNameInTable="columnscname1" msprop:Generator_ColumnPropNameInRow="scname1" msprop:Generator_ColumnPropNameInTable="scname1Column" msprop:Generator_UserColumnName="scname1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="order_Adaddr" msprop:Generator_ColumnVarNameInTable="columnorder_Adaddr" msprop:Generator_ColumnPropNameInRow="order_Adaddr" msprop:Generator_ColumnPropNameInTable="order_AdaddrColumn" msprop:Generator_UserColumnName="order_Adaddr" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="order_orno" msprop:Generator_ColumnVarNameInTable="columnorder_orno" msprop:Generator_ColumnPropNameInRow="order_orno" msprop:Generator_ColumnPropNameInTable="order_ornoColumn" msprop:Generator_UserColumnName="order_orno" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="16" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="order_cuper1" msprop:Generator_ColumnVarNameInTable="columnorder_cuper1" msprop:Generator_ColumnPropNameInRow="order_cuper1" msprop:Generator_ColumnPropNameInTable="order_cuper1Column" msprop:Generator_UserColumnName="order_cuper1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="order_AdAddr1" msprop:Generator_ColumnVarNameInTable="columnorder_AdAddr1" msprop:Generator_ColumnPropNameInRow="order_AdAddr1" msprop:Generator_ColumnPropNameInTable="order_AdAddr1Column" msprop:Generator_UserColumnName="order_AdAddr1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="order_orpayment" msprop:Generator_ColumnVarNameInTable="columnorder_orpayment" msprop:Generator_ColumnPropNameInRow="order_orpayment" msprop:Generator_ColumnPropNameInTable="order_orpaymentColumn" msprop:Generator_UserColumnName="order_orpayment" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="order_ormemo" msprop:Generator_ColumnVarNameInTable="columnorder_ormemo" msprop:Generator_ColumnPropNameInRow="order_ormemo" msprop:Generator_ColumnPropNameInTable="order_ormemoColumn" msprop:Generator_UserColumnName="order_ormemo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="rsale_fromsale" msprop:Generator_ColumnVarNameInTable="columnrsale_fromsale" msprop:Generator_ColumnPropNameInRow="rsale_fromsale" msprop:Generator_ColumnPropNameInTable="rsale_fromsaleColumn" msprop:Generator_UserColumnName="rsale_fromsale" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="16" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="order_CardNo" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnorder_CardNo" msprop:Generator_ColumnPropNameInRow="order_CardNo" msprop:Generator_ColumnPropNameInTable="order_CardNoColumn" msprop:Generator_UserColumnName="order_CardNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="rsale_SaPayment" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnrsale_SaPayment" msprop:Generator_ColumnPropNameInRow="rsale_SaPayment" msprop:Generator_ColumnPropNameInTable="rsale_SaPaymentColumn" msprop:Generator_UserColumnName="rsale_SaPayment" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="rsaled_standard" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnrsaled_standard" msprop:Generator_ColumnPropNameInRow="rsaled_standard" msprop:Generator_ColumnPropNameInTable="rsaled_standardColumn" msprop:Generator_UserColumnName="rsaled_standard" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="item" msprop:Generator_TableClassName="itemDataTable" msprop:Generator_TableVarName="tableitem" msprop:Generator_RowChangedName="itemRowChanged" msprop:Generator_TablePropName="item" msprop:Generator_RowDeletingName="itemRowDeleting" msprop:Generator_RowChangingName="itemRowChanging" msprop:Generator_RowEvHandlerName="itemRowChangeEventHandler" msprop:Generator_RowDeletedName="itemRowDeleted" msprop:Generator_RowClassName="itemRow" msprop:Generator_UserTableName="item" msprop:Generator_RowEvArgName="itemRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="itno" msprop:Generator_ColumnVarNameInTable="columnitno" msprop:Generator_ColumnPropNameInRow="itno" msprop:Generator_ColumnPropNameInTable="itnoColumn" msprop:Generator_UserColumnName="itno">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="itnoudf" msprop:Generator_ColumnVarNameInTable="columnitnoudf" msprop:Generator_ColumnPropNameInRow="itnoudf" msprop:Generator_ColumnPropNameInTable="itnoudfColumn" msprop:Generator_UserColumnName="itnoudf" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="itname" msprop:Generator_ColumnVarNameInTable="columnitname" msprop:Generator_ColumnPropNameInRow="itname" msprop:Generator_ColumnPropNameInTable="itnameColumn" msprop:Generator_UserColumnName="itname" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="kino" msprop:Generator_ColumnVarNameInTable="columnkino" msprop:Generator_ColumnPropNameInRow="kino" msprop:Generator_ColumnPropNameInTable="kinoColumn" msprop:Generator_UserColumnName="kino" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="itime" msprop:Generator_ColumnVarNameInTable="columnitime" msprop:Generator_ColumnPropNameInRow="itime" msprop:Generator_ColumnPropNameInTable="itimeColumn" msprop:Generator_UserColumnName="itime" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ittrait" msprop:Generator_ColumnVarNameInTable="columnittrait" msprop:Generator_ColumnPropNameInRow="ittrait" msprop:Generator_ColumnPropNameInTable="ittraitColumn" msprop:Generator_UserColumnName="ittrait" type="xs:decimal" minOccurs="0" />
+              <xs:element name="itunit" msprop:Generator_ColumnVarNameInTable="columnitunit" msprop:Generator_ColumnPropNameInRow="itunit" msprop:Generator_ColumnPropNameInTable="itunitColumn" msprop:Generator_UserColumnName="itunit" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="itunitp" msprop:Generator_ColumnVarNameInTable="columnitunitp" msprop:Generator_ColumnPropNameInRow="itunitp" msprop:Generator_ColumnPropNameInTable="itunitpColumn" msprop:Generator_UserColumnName="itunitp" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="itpkgqty" msprop:Generator_ColumnVarNameInTable="columnitpkgqty" msprop:Generator_ColumnPropNameInRow="itpkgqty" msprop:Generator_ColumnPropNameInTable="itpkgqtyColumn" msprop:Generator_UserColumnName="itpkgqty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="itnw" msprop:Generator_ColumnVarNameInTable="columnitnw" msprop:Generator_ColumnPropNameInRow="itnw" msprop:Generator_ColumnPropNameInTable="itnwColumn" msprop:Generator_UserColumnName="itnw" type="xs:decimal" minOccurs="0" />
+              <xs:element name="itnwunit" msprop:Generator_ColumnVarNameInTable="columnitnwunit" msprop:Generator_ColumnPropNameInRow="itnwunit" msprop:Generator_ColumnPropNameInTable="itnwunitColumn" msprop:Generator_UserColumnName="itnwunit" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="6" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="itdesp1" msprop:Generator_ColumnVarNameInTable="columnitdesp1" msprop:Generator_ColumnPropNameInRow="itdesp1" msprop:Generator_ColumnPropNameInTable="itdesp1Column" msprop:Generator_UserColumnName="itdesp1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="itdesp2" msprop:Generator_ColumnVarNameInTable="columnitdesp2" msprop:Generator_ColumnPropNameInRow="itdesp2" msprop:Generator_ColumnPropNameInTable="itdesp2Column" msprop:Generator_UserColumnName="itdesp2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="itdesp3" msprop:Generator_ColumnVarNameInTable="columnitdesp3" msprop:Generator_ColumnPropNameInRow="itdesp3" msprop:Generator_ColumnPropNameInTable="itdesp3Column" msprop:Generator_UserColumnName="itdesp3" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="itdesp4" msprop:Generator_ColumnVarNameInTable="columnitdesp4" msprop:Generator_ColumnPropNameInRow="itdesp4" msprop:Generator_ColumnPropNameInTable="itdesp4Column" msprop:Generator_UserColumnName="itdesp4" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="itdesp5" msprop:Generator_ColumnVarNameInTable="columnitdesp5" msprop:Generator_ColumnPropNameInRow="itdesp5" msprop:Generator_ColumnPropNameInTable="itdesp5Column" msprop:Generator_UserColumnName="itdesp5" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="itdesp6" msprop:Generator_ColumnVarNameInTable="columnitdesp6" msprop:Generator_ColumnPropNameInRow="itdesp6" msprop:Generator_ColumnPropNameInTable="itdesp6Column" msprop:Generator_UserColumnName="itdesp6" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="itdesp7" msprop:Generator_ColumnVarNameInTable="columnitdesp7" msprop:Generator_ColumnPropNameInRow="itdesp7" msprop:Generator_ColumnPropNameInTable="itdesp7Column" msprop:Generator_UserColumnName="itdesp7" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="itdesp8" msprop:Generator_ColumnVarNameInTable="columnitdesp8" msprop:Generator_ColumnPropNameInRow="itdesp8" msprop:Generator_ColumnPropNameInTable="itdesp8Column" msprop:Generator_UserColumnName="itdesp8" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="itdesp9" msprop:Generator_ColumnVarNameInTable="columnitdesp9" msprop:Generator_ColumnPropNameInRow="itdesp9" msprop:Generator_ColumnPropNameInTable="itdesp9Column" msprop:Generator_UserColumnName="itdesp9" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="itdesp10" msprop:Generator_ColumnVarNameInTable="columnitdesp10" msprop:Generator_ColumnPropNameInRow="itdesp10" msprop:Generator_ColumnPropNameInTable="itdesp10Column" msprop:Generator_UserColumnName="itdesp10" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="itnote" msprop:Generator_ColumnVarNameInTable="columnitnote" msprop:Generator_ColumnPropNameInRow="itnote" msprop:Generator_ColumnPropNameInTable="itnoteColumn" msprop:Generator_UserColumnName="itnote" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="itudf1" msprop:Generator_ColumnVarNameInTable="columnitudf1" msprop:Generator_ColumnPropNameInRow="itudf1" msprop:Generator_ColumnPropNameInTable="itudf1Column" msprop:Generator_UserColumnName="itudf1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="itudf2" msprop:Generator_ColumnVarNameInTable="columnitudf2" msprop:Generator_ColumnPropNameInRow="itudf2" msprop:Generator_ColumnPropNameInTable="itudf2Column" msprop:Generator_UserColumnName="itudf2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="itudf3" msprop:Generator_ColumnVarNameInTable="columnitudf3" msprop:Generator_ColumnPropNameInRow="itudf3" msprop:Generator_ColumnPropNameInTable="itudf3Column" msprop:Generator_UserColumnName="itudf3" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="itudf4" msprop:Generator_ColumnVarNameInTable="columnitudf4" msprop:Generator_ColumnPropNameInRow="itudf4" msprop:Generator_ColumnPropNameInTable="itudf4Column" msprop:Generator_UserColumnName="itudf4" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="itudf5" msprop:Generator_ColumnVarNameInTable="columnitudf5" msprop:Generator_ColumnPropNameInRow="itudf5" msprop:Generator_ColumnPropNameInTable="itudf5Column" msprop:Generator_UserColumnName="itudf5" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fano" msprop:Generator_ColumnVarNameInTable="columnfano" msprop:Generator_ColumnPropNameInRow="fano" msprop:Generator_ColumnPropNameInTable="fanoColumn" msprop:Generator_UserColumnName="fano" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Punit" msprop:Generator_ColumnVarNameInTable="columnPunit" msprop:Generator_ColumnPropNameInRow="Punit" msprop:Generator_ColumnPropNameInTable="PunitColumn" msprop:Generator_UserColumnName="Punit" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ScNo" msprop:Generator_ColumnVarNameInTable="columnScNo" msprop:Generator_ColumnPropNameInRow="ScNo" msprop:Generator_ColumnPropNameInTable="ScNoColumn" msprop:Generator_UserColumnName="ScNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="pic長度" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnpic長度" msprop:Generator_ColumnPropNameInRow="pic長度" msprop:Generator_ColumnPropNameInTable="pic長度Column" msprop:Generator_UserColumnName="pic長度" type="xs:int" minOccurs="0" />
+              <xs:element name="pic" msprop:Generator_ColumnVarNameInTable="columnpic" msprop:Generator_ColumnPropNameInRow="pic" msprop:Generator_ColumnPropNameInTable="picColumn" msprop:Generator_UserColumnName="pic" type="xs:base64Binary" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:item" />
+      <xs:field xpath="mstns:itno" />
+    </xs:unique>
+  </xs:element>
+  <xs:annotation>
+    <xs:appinfo>
+      <msdata:Relationship name="Data_item" msdata:parent="Data" msdata:child="item" msdata:parentkey="rsaled_itno" msdata:childkey="itno" msprop:Generator_UserChildTable="item" msprop:Generator_ChildPropName="GetitemRows" msprop:Generator_UserRelationName="Data_item" msprop:Generator_ParentPropName="DataRow" msprop:Generator_RelationVarName="relationData_item" msprop:Generator_UserParentTable="Data" />
+    </xs:appinfo>
+  </xs:annotation>
+</xs:schema>

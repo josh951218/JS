@@ -1,0 +1,117 @@
+********
+  Read Me ver v 1.0.0.20	********
+********
+
+○程式說明：
+此程式用於端末機(EDC)與收銀機(ECR)連線，
+程式會讀取SendData，然後送給EDC，
+並將EDC送回來的資料存到RecvData。
+SendData的傳送長度可以在ECR.dat通訊設定檔裡的Data Len設定，長度最長只能抓到3072，傳送的內容要符合規格。
+RecvData一定會跟Data Len一樣長。
+
+
+○各檔案說明：
+ECR.dat是通訊設定檔。
+ECR.dll是主程式運作時需要的檔案。
+ECR.exe是主程式的執行檔。收銀機請直接執行此執行檔。
+
+SendData是程式要讀取的檔案，會傳送給EDC，檔名 "要" 跟ECR.dat裡設定的一致，
+全部內容需位於第一列。
+
+RecvData是程式自動產生，是EDC傳送過來的資料內容，檔名 "會" 跟ECR.dat裡RecvData的設定一致。
+
+
+○ECR.dat通訊設定檔說明：
+內容格式順序如下：
+第1列 : ComPort 編號。
+第2列 : TimeOut 秒數。
+第3列 : BaudRate。
+第4列 : ByteSize Parity StopBits。
+第5列 : Retry，通訊錯誤發生時的重試次數。
+第6列 : Data Len，資料長度，byte數，SendData的長度不能小於它，大於這個長度之後的資料不會被程式讀取及傳送。
+第7列 : SendData，要傳送的資料的檔名，若要更換傳送的檔案，要把新的檔案名稱設定在這列。
+第8列 : RecvData，收到資料後，存放的檔名，會存在跟ECR.exe同一資料夾裡。
+！注意！以上設定各列要緊鄰，也不能調換順序，
+	各列設定的內容也不能有空格，請勿使用有空格名稱的檔案(SendData及RecvData)。
+
+
+○ECR.dat通訊設定檔範例（一）：
+1
+30
+9600
+7ES1
+3
+144
+in.dat
+out.dat
+
+
+○ECR.dat通訊設定檔範例（二）in跟out設定路徑時：
+1
+30
+9600
+7ES1
+3
+144
+C:\\ecr200\\in.dat
+C:\\ecr200\\out.dat
+
+
+○程式簡單流程與回傳的錯誤碼
+程式可簡單分為 1 初始化、2 傳送 SendData 及 3 接收 RecvData 三個部份。
+錯誤碼也是依這三部份區分
+第一部份有
+11 : DAT檔開啟失敗
+12 : SendData開啟失敗
+13 : SendData內容過少(例ECR.DAT裡設定長度是144，可是in.dat大小只有100)
+14 : RecvData開啟失敗
+15 : Comport開啟或初始化失敗(例如 ComPort 編號 設錯)
+第二部份有
+21 : Comport傳送失敗
+22 : 讀秒超過時間
+23 : Comport接收失敗
+24 : 傳送的封包錯誤次數過多(EDC回NAK就會重新傳送一次，次數超過Retry時就會回傳這個Error)
+第三部份有
+31 : Comport傳送失敗
+32 : 讀秒超過時間
+33 : Comport接收失敗
+34 : 接收的封包錯誤次數過多(ECR會檢查收到的資料，有錯時會回NAK給EDC，次數超過Retry時就會回傳這個Error)
+
+若程式無中斷，正常結束，會回傳 1
+
+
+○Windows Api 使用時發生Error
+Windows Api 有自己的 Error Code，
+其中的15、21、23、31及33，五個ErrorCode是使用WindowsApi時發生Error，
+當這五種情況發生時，會產生一個檔案，叫 API_ErrorCode.dat，
+會將 Windows Api 的Error Code存進去，方便查詢，
+若是這五種以外的情況，包含流程正常無錯誤時，
+程式會自動將 API_ErrorCode.dat 刪除。
+
+Windows Api Error時，有時候可能是程式以外的問題，
+例如  ECR.DAT裡的 "ComPort 編號" 設定給錯，
+程式的ErrorCode會回15，Windows Api Error Code會是2，
+所以會把 2 存到 API_ErrorCode.dat 裡面，
+
+抓取Windows Error Code 的 API 是 GetLastError()，
+Windows Api Error Code 的定義可以在下面網址找到。
+http://msdn.microsoft.com/en-us/library/ms681381(v=VS.85).aspx
+http://msdn.microsoft.com/en-us/library/windows/desktop/ms681381(v=vs.85).aspx
+
+
+○ECR.dll 注意事項
+Microsoft.VC90.CRT.manifest + msvcr90.dll + Config.dll要跟執行檔(呼叫ECR.dll的程式)放一起。
+
+使用dll時可以給予DAT檔的路徑跟名稱，
+例 "E:\\ecr\\ecr123.dat"
+若沒給予給予DAT檔的路徑跟名稱，
+則會使用預設值
+"ECR.dat"
+
+in.log、out.log、ecr.dll、ecr.dat
+四個檔案若都沒指定路徑時，必需跟 使用dll的執行檔(副檔名為exe)放在同目錄下。
+例：
+若dll有指定在"C:\\ecr.dll"，但其他三個檔案都沒指定，
+若ecr.exe在"D:\\ecr.exe"，
+則in.log跟ecr.dat必須放在"D:\"，
+out.log則會出現在"D:\"。

@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" DoublePass="true" ReportInfo.Created="03/11/2015 18:35:11" ReportInfo.Modified="04/21/2015 15:20:47" ReportInfo.CreatorVersion="2013.2.5.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {   
+           
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <MsSqlDataConnection Name="Connection" ConnectionString="rijcmlq+rW0RkboK+/8CKGGYUID3ctBV8q9SvKYxl3iiE7vBnh7Tgou0+4WFf3NfmPSvHVFMb+6VV8AQa1o8PejGBoK8wrAy/t3nmq4U8bTrZ2dbE5oNTCbtG9HIkRIcs5KGiFKjR/3HHbR5Jq1DamB/JvE1n5JoS7FIP/5noJQu1ZRlFg=">
+      <TableDataSource Name="Table1" DataType="System.Int32" Enabled="true" SelectCommand="                    Select 序號='', 單據日期=sadate, 單據='銷貨', cust.cuname1&#13;&#10;                    ,sano, saID, sadate, sadate1, sadateac1, sadateac, saled.cuno, orno, itno, itname, ittrait, itunit, itpkgqty&#13;&#10;                    ,qty=ISNULL(qty,0), price, prs, taxprice, mny=ISNULL(mny,0), memo, bomid, bomrec, recordno, Pqty, Punit &#13;&#10;                    ,銷貨成本=0.0,銷貨毛利=0.0,毛利率=0.0&#13;&#10;                    from saled &#13;&#10;                    left join cust on saled.cuno = cust.cuno&#13;&#10;                    where 1=0 ">
+        <Column Name="cuno" DataType="System.String"/>
+        <Column Name="itno" DataType="System.String"/>
+        <Column Name="itname" DataType="System.String"/>
+        <Column Name="cuname1" DataType="System.String"/>
+        <Column Name="銷貨成本" DataType="System.Decimal"/>
+        <Column Name="銷貨毛利" DataType="System.Decimal"/>
+        <Column Name="毛利率" DataType="System.Decimal"/>
+        <Column Name="序號" DataType="System.String"/>
+        <Column Name="單據日期" DataType="System.String"/>
+        <Column Name="單據" DataType="System.String"/>
+        <Column Name="sano" DataType="System.String"/>
+        <Column Name="saID" DataType="System.Int32"/>
+        <Column Name="sadate" DataType="System.String"/>
+        <Column Name="sadate1" DataType="System.String"/>
+        <Column Name="sadateac1" DataType="System.String"/>
+        <Column Name="sadateac" DataType="System.String"/>
+        <Column Name="orno" DataType="System.String"/>
+        <Column Name="ittrait" DataType="System.Decimal"/>
+        <Column Name="itunit" DataType="System.String"/>
+        <Column Name="itpkgqty" DataType="System.Decimal"/>
+        <Column Name="qty" DataType="System.Decimal"/>
+        <Column Name="price" DataType="System.Decimal"/>
+        <Column Name="prs" DataType="System.Decimal"/>
+        <Column Name="taxprice" DataType="System.Decimal"/>
+        <Column Name="mny" DataType="System.Decimal"/>
+        <Column Name="memo" DataType="System.String"/>
+        <Column Name="bomid" DataType="System.String"/>
+        <Column Name="bomrec" DataType="System.Decimal"/>
+        <Column Name="recordno" DataType="System.Decimal"/>
+        <Column Name="Pqty" DataType="System.Decimal"/>
+        <Column Name="Punit" DataType="System.String"/>
+      </TableDataSource>
+    </MsSqlDataConnection>
+    <Parameter Name="txtstart" DataType="System.String"/>
+    <Parameter Name="DateRange" DataType="System.String"/>
+    <Parameter Name="RankState" DataType="System.String"/>
+    <Parameter Name="txtend" DataType="System.String"/>
+    <Total Name="Rank" TotalType="Count" Evaluator="Data1" ResetAfterPrint="false"/>
+  </Dictionary>
+  <ReportPage Name="Page1" PaperWidth="215.9" PaperHeight="279.4" RawPaperSize="2" FirstPageSource="15" OtherPagesSource="15">
+    <PageHeaderBand Name="PageHeader1" Width="740.5" Height="109.62">
+      <TextObject Name="Text4" Top="88.61" Width="37.8" Height="11.34" Text="排行" Font="細明體, 9pt"/>
+      <TextObject Name="txtstart" Width="727.65" Height="28.35" Text="[txtstart]" HorzAlign="Center" Font="細明體, 18pt, style=Bold"/>
+      <TextObject Name="Text11" Top="30.24" Width="727.65" Height="28.35" Text="產品銷售排行表" HorzAlign="Center" Font="細明體, 14pt, style=Bold"/>
+      <LineObject Name="Line1" Top="82.94" Width="725.76"/>
+      <TextObject Name="Text14" Left="693.63" Top="61.24" Width="34.02" Height="18.9" Text="[Page]" Font="細明體, 11pt"/>
+      <TextObject Name="Text16" Top="61.15" Width="85.05" Height="18.9" Text="統計日期：" Font="細明體, 11pt"/>
+      <TextObject Name="Text17" Left="608.58" Top="61.24" Width="85.05" Height="18.9" Text="頁    次：" Font="細明體, 11pt"/>
+      <TextObject Name="Text13" Left="83.16" Top="61.24" Width="196.56" Height="18.9" Text="[DateRange]" Font="細明體, 11pt"/>
+      <TextObject Name="Text18" Left="30.24" Top="88.45" Width="105.84" Height="11.34" Text="產品編號" Font="細明體, 9pt"/>
+      <TextObject Name="Text19" Left="136.08" Top="88.45" Width="166.32" Height="11.34" Text="品名規格" Font="細明體, 9pt"/>
+      <TextObject Name="Text20" Left="302.4" Top="88.45" Width="37.8" Height="11.34" Text="單位" HorzAlign="Right" Font="細明體, 9pt"/>
+      <TextObject Name="Text21" Left="332.64" Top="88.45" Width="83.16" Height="11.34" Text="銷貨數量" HorzAlign="Right" Font="細明體, 9pt"/>
+      <TextObject Name="Text22" Left="415.8" Top="88.45" Width="90.72" Height="11.34" Text="銷貨金額" HorzAlign="Right" Font="細明體, 9pt"/>
+      <TextObject Name="Text23" Left="506.52" Top="88.45" Width="90.72" Height="11.34" Text="銷貨成本" HorzAlign="Right" Font="細明體, 9pt"/>
+      <TextObject Name="Text24" Left="672.84" Top="88.45" Width="52.92" Height="11.34" Text="毛利率" HorzAlign="Right" Font="細明體, 9pt"/>
+      <TextObject Name="Text28" Left="597.24" Top="88.45" Width="75.6" Height="11.34" Text="銷貨毛利" HorzAlign="Right" Font="細明體, 9pt"/>
+      <TextObject Name="Text2" Left="279.72" Top="61.24" Width="264.6" Height="18.9" Text="[RankState]" Font="細明體, 11pt"/>
+      <LineObject Name="Line4" Top="105.84" Width="725.76"/>
+    </PageHeaderBand>
+    <DataBand Name="Data1" Top="112.82" Width="740.5" Height="15.12" DataSource="Table1">
+      <TextObject Name="Text1" Width="30.24" Height="15.12" Text="[ToInt32(1+[Rank])]" Font="細明體, 8pt"/>
+      <TextObject Name="Text3" Left="30.24" Width="105.84" Height="15.12" Text="[Table1.itno]" Font="細明體, 8pt"/>
+      <TextObject Name="Text5" Left="136.08" Width="166.32" Height="15.12" Text="[Table1.itname]" Font="細明體, 8pt"/>
+      <TextObject Name="Text6" Left="302.4" Width="30.24" Height="15.12" Text="[Table1.itunit]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Right" WordWrap="false" Font="細明體, 8pt" Trimming="EllipsisCharacter"/>
+      <TextObject Name="Text7" Left="332.64" Width="83.16" Height="15.12" Text="[Table1.qty]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Right" WordWrap="false" Font="細明體, 8pt" Trimming="EllipsisCharacter"/>
+      <TextObject Name="Text8" Left="415.8" Width="90.72" Height="15.12" Text="[Table1.mny]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Right" WordWrap="false" Font="細明體, 8pt" Trimming="EllipsisCharacter"/>
+      <TextObject Name="Text9" Left="506.52" Width="90.72" Height="15.12" Text="[Table1.銷貨成本]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Right" WordWrap="false" Font="細明體, 8pt" Trimming="EllipsisCharacter"/>
+      <TextObject Name="Text26" Left="597.24" Width="75.6" Height="15.12" Text="[Table1.銷貨毛利]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Right" WordWrap="false" Font="細明體, 8pt" Trimming="EllipsisCharacter"/>
+      <TextObject Name="Text27" Left="672.84" Width="52.92" Height="15.12" Text="[Table1.毛利率]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Right" WordWrap="false" Font="細明體, 8pt" Trimming="EllipsisCharacter"/>
+    </DataBand>
+    <ReportSummaryBand Name="ReportSummary1" Top="164.58" Width="740.5" Height="37.8" PrintOnBottom="true">
+      <TextObject Name="Text10" Top="15.12" Width="725.76" Height="15.12" Text="[txtend]" Font="細明體, 10pt"/>
+      <LineObject Name="Line3" Top="7.56" Width="725.76"/>
+    </ReportSummaryBand>
+    <ColumnFooterBand Name="ColumnFooter1" Top="131.14" Width="740.5" Height="30.24">
+      <TextObject Name="Text12" Top="7.56" Width="723.87" Height="22.68" BeforePrintEvent="Text12_BeforePrint" AfterDataEvent="Text12_AfterData" Text="[IIf([Page]&lt;[TotalPages],&quot;***續下頁***&quot;,&quot;(以下空白)&quot;)]" HorzAlign="Center" Font="細明體, 11pt"/>
+    </ColumnFooterBand>
+  </ReportPage>
+</Report>

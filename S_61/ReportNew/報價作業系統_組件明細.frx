@@ -1,0 +1,371 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" DoublePass="true" ReportInfo.Created="03/11/2015 18:35:11" ReportInfo.Modified="06/28/2016 17:49:24" ReportInfo.CreatorVersion="2013.2.5.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {         
+    private void Text67_BeforePrint(object sender, EventArgs e)
+    {
+      if(((Decimal)Report.GetColumnValue(&quot;QUOTE_.quoted_recordno&quot;))==((Decimal)Report.GetColumnValue(&quot;QUOTE_.quote_recordno&quot;)))
+      {
+        Text67.Visible=true;
+      } 
+      else
+        Text67.Visible=false; 
+    }
+
+    private void Text66_BeforePrint(object sender, EventArgs e)
+    {
+      if (((Int32)Report.GetVariableValue(&quot;Page&quot;))!=((Int32)Report.GetVariableValue(&quot;TotalPages&quot;)))
+      {
+        Text66.Visible=true;
+      }
+      else
+        Text66.Visible=false;
+    }       
+
+    private void Text1_BeforePrint(object sender, EventArgs e)
+    {
+      //銷貨日期
+      string date = (((String)Report.GetColumnValue(&quot;QUOTE_.quote_報價日期_西元&quot;)));
+      string date1 = &quot;&quot;;
+      if(((String)Report.GetParameterValue(&quot;date&quot;)) == &quot;民國&quot;)
+      {
+        date1 = (Convert.ToInt32((date.Substring(0,4)))-1911).ToString()+&quot;.&quot;;
+        date1 += date.Substring(4,2)+&quot;.&quot;+date.Substring(6,2); 
+      }
+      else
+      {
+        date1 = date.Substring(0,4)+&quot;.&quot;;
+        date1 += date.Substring(4,2)+&quot;.&quot;+date.Substring(6,2); 
+      }
+      Text1.Text = date1;
+    }
+
+    private void Text40_BeforePrint(object sender, EventArgs e)
+    {
+      //金額
+      if(((Boolean)Report.GetParameterValue(&quot;是否顯示金額&quot;)) == false)
+      {
+        Text40.Text =&quot;&quot;;
+        return;
+      }
+      string formet = &quot;f&quot;+((String)Report.GetParameterValue(&quot;銷貨金額小數&quot;));
+      Text40.Text = ((Decimal)Report.GetColumnValue(&quot;QUOTE_.quoted_外幣稅前金額&quot;)).ToString(formet);
+    }
+
+    private void Text37_BeforePrint(object sender, EventArgs e)
+    {
+      //數量
+      string formet = &quot;f&quot;+((String)Report.GetParameterValue(&quot;庫存數量小數&quot;));
+      Text37.Text = ((Decimal)Report.GetColumnValue(&quot;QUOTE_.quoted_數量&quot;)).ToString(formet);
+    }
+
+    private void Text39_BeforePrint(object sender, EventArgs e)
+    {
+      //單價
+      if(((Boolean)Report.GetParameterValue(&quot;是否顯示金額&quot;)) == false)
+      {
+        Text39.Text =&quot;&quot;;
+        return;
+      }
+      string formet = &quot;f&quot;+((String)Report.GetParameterValue(&quot;銷貨單價小數&quot;));
+      Text39.Text = ((Decimal)Report.GetColumnValue(&quot;QUOTE_.quoted_外幣稅前單價&quot;)).ToString(formet); 
+    }
+
+    private void Text52_BeforePrint(object sender, EventArgs e)
+    {
+      //稅前合計
+      if(((Boolean)Report.GetParameterValue(&quot;是否顯示金額&quot;)) == false)
+      {
+        Text52.Text =&quot;&quot;;
+        return;
+      }
+      string formet = &quot;f&quot;+(((String)Report.GetParameterValue(&quot;銷貨單據小數&quot;)));
+      Text52.Text = ((Decimal)Report.GetColumnValue(&quot;QUOTE_.quote_外幣合計&quot;)).ToString(formet); 
+    }
+
+    private void Text58_BeforePrint(object sender, EventArgs e)
+    {
+      //營業稅額
+      if(((Boolean)Report.GetParameterValue(&quot;是否顯示金額&quot;)) == false)
+      {
+        Text58.Text =&quot;&quot;;
+        return;
+      }
+      string formet = &quot;f&quot;+(((String)Report.GetParameterValue(&quot;銷項稅額小數&quot;)));
+      Text58.Text = ((Decimal)Report.GetColumnValue(&quot;QUOTE_.quote_外幣營業稅額&quot;)).ToString(formet); 
+    }
+    
+
+    private void Text56_BeforePrint(object sender, EventArgs e)
+    {
+      //報價總額
+      if(((Boolean)Report.GetParameterValue(&quot;是否顯示金額&quot;)) == false)
+      {
+        Text56.Text =&quot;&quot;;
+        return;
+      }
+      string formet = &quot;f&quot;+(((String)Report.GetParameterValue(&quot;銷貨單據小數&quot;)));
+      Text56.Text = ((Decimal)Report.GetColumnValue(&quot;QUOTE_.quote_外幣報價總額&quot;)).ToString(formet); 
+    }
+
+    private void Text45_BeforePrint(object sender, EventArgs e)
+    {
+      string formet = &quot;f&quot;+((String)Report.GetParameterValue(&quot;庫存數量小數&quot;));
+      decimal itqty = ((Decimal)Report.GetColumnValue(&quot;QUOTE_.quotebom_標準用量&quot;));
+      decimal itpareprs = ((Decimal)Report.GetColumnValue(&quot;QUOTE_.quotebom_母件比率&quot;));
+      decimal itpkgqty = ((Decimal)Report.GetColumnValue(&quot;QUOTE_.quotebom_包裝數量&quot;));
+      if(itpareprs == 0)
+      {
+         Text45.Text=(0M).ToString(formet);
+      }
+      else
+      {
+         Text45.Text=((itqty / itpareprs)*itpkgqty).ToString(formet);
+      }
+    }
+
+    private void Text44_BeforePrint(object sender, EventArgs e)
+    {
+      if(((String)Report.GetColumnValue(&quot;QUOTE_.quotebom_品名規格&quot;))==&quot;&quot;){Data1.Visible=false;}
+    }
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <MsSqlDataConnection Name="Connection" ConnectionString="rijcmlqr2sEgbyd/XFgYBeuRgqcA2fPEABqa7op7lzIvjCd0OC4AYhmBbgkZmVd9K9BlXfZ/iiMt8bGpj/FXE8QXQub9+YgGzr/o8enCWd1YxKcVamC0iAzHRtNi1xbt0lk9dsowavE0Z71FcL20DHAxCiA72mbAp/ZappgtxvOBXLovP0xRx8y1sNRNR8LlJuyWcOZ">
+      <TableDataSource Name="Table" Alias="QUOTE_" DataType="System.Int32" Enabled="true" SelectCommand="SELECT a.quno AS quote_報價單號, a.qudate1 AS quote_報價日期_西元, a.qudates1 AS quote_預計交期_西元, a.qudates2 AS quote_預計交期_保留,  a.cono AS quote_公司編號, a.coname1 AS quote_公司簡稱, a.coname2 AS quote_公司名稱, a.cuno AS quote_客戶編號, a.cuname2 AS quote_客戶名稱, a.cuname1 AS quote_客戶簡稱, a.cutel1 AS quote_客戶電話, a.cuper1 AS quote_客戶聯絡人,  a.emno AS quote_業務編號, a.emname AS quote_業務姓名, a.xa1no AS quote_幣別編號, a.xa1name AS quote_幣別名稱,  a.xa1par AS quote_匯率, a.trno AS quote_報價類別編號, a.trname AS quote_報價類別名稱, a.taxmnyf AS quote_taxmnyf,  a.taxmnyb AS quote_本幣合計, a.taxmny AS quote_外幣合計, a.x3no AS quote_稅別編號, a.rate AS quote_稅率,  a.tax AS quote_外幣營業稅額, a.totmny AS quote_外幣報價總額, a.taxb AS quote_本幣營業稅額, a.totmnyb AS quote_本幣報價總額,  a.qupayment AS quote_付款條件, a.quperiod AS quote_有效期限, a.qumemo AS quote_備註, a.recordno AS quote_recordno, a.UsrNo AS quote_UsrNo, a.QuDate AS quote_QuDate, a.QuDates AS quote_QuDates,a.qumemo1 AS quote_詳細備註,a.ischeck AS quote_ischeck, c.QuNo AS quotebom_報價單號, c.BomID AS quotebom_BomID, c.BomRec AS quotebom_BomRec, c.itno AS quotebom_產品編號, c.itname AS quotebom_品名規格, c.itunit AS quotebom_單位, c.itqty AS quotebom_標準用量,  c.itpareprs AS quotebom_母件比率, c.itpkgqty AS quotebom_包裝數量, c.itrec AS quotebom_itrec,  c.itprice AS quotebom_單價, c.itprs AS quotebom_折數, c.itmny AS quotebom_金額, c.itnote AS quotebom_說明, c.ItSource AS quotebom_ItSource, c.ItBuyPri AS quotebom_ItBuyPri, c.ItBuyMny AS quotebom_ItBuyMny, b.quid AS quoted_quid, b.quno AS quoted_報價單號, b.qudate1 AS quoted_報價日期_西元, b.qudate2 AS quoted_報價日期_保留, b.qudates1 AS quoted_預計交期_西元, b.qudates2 AS quoted_預計交期_保留, b.cuno AS quoted_客戶編號, b.emno AS quoted_業務編號, b.xa1no AS quoted_幣別編號, b.xa1par AS quoted_匯率, b.trno AS quoted_報價類別編號, b.itno AS quoted_產品編號, b.itname AS quoted_品名規格, b.ittrait AS quoted_產品組成, b.itunit AS quoted_單位, b.itpkgqty AS quoted_包裝數量,  b.qty AS quoted_數量, b.price AS quoted_外幣單價, b.prs AS quoted_折數, b.rate AS quoted_稅率,  b.taxprice AS quoted_外幣稅前單價, b.mny AS quoted_外幣稅前金額, b.priceb AS quoted_本幣單價, b.taxpriceb AS quoted_本幣稅前單價, b.mnyb AS quoted_本幣稅前金額, b.memo AS quoted_說明, b.lowzero AS quoted_庫存量不足, b.bomid AS quoted_bomid, b.bomrec AS quoted_bomrec, b.recordno AS quoted_recordno, b.sltflag AS quoted_sltflag, b.extflag AS quoted_extflag, b.itdesp1 AS quoted_規格說明1, b.itdesp2 AS quoted_規格說明2, b.itdesp3 AS quoted_規格說明3,  b.itdesp4 AS quoted_規格說明4, b.itdesp5 AS quoted_規格說明5, b.itdesp6 AS quoted_規格說明6,  b.itdesp7 AS quoted_規格說明7, b.itdesp8 AS quoted_規格說明8, b.itdesp9 AS quoted_規格說明9, b.itdesp10 AS quoted_規格說明10,b.pqty,b.punit, b.stName AS quoted_stName, b.QuDate AS quoted_QuDate, b.QuDates AS quoted_QuDates,b.standard AS quoted_standard ,  d.cufax1 AS cust_客戶傳真, d.cuaddr1 AS cust_公司地址, d.cuuno AS cust_統一編號,d.cuname2 AS cust_客戶名稱,d.cuatel1 AS cust_客戶行動電話, i.itpicture AS item_itpicture , i.pic AS item_pic , i.itnote AS item_備註 ,i.itnoudf ,DATALENGTH(pic)長度 ,i.kino ,kind.kiname , scrit.scname as 使用者編號,scrit.scname1 as 使用者名稱,   empl.EmAtel1,empl.EmEmail FROM quoted AS b LEFT JOIN quote AS a ON a.quno = b.quno left join cust as d on d.cuno=b.cuno left join item as i on b.itno=i.itno left join kind on i.kino = kind.kino left join scrit ON a.appscno = scrit.scname left join empl on a.emno = empl.emno LEFT JOIN QuoteBom AS c ON c.BomID = b.bomid  order by quoted_quid ">
+        <Column Name="quote_報價單號" DataType="System.String"/>
+        <Column Name="quote_報價日期_西元" DataType="System.String"/>
+        <Column Name="quote_預計交期_西元" DataType="System.String"/>
+        <Column Name="quote_預計交期_保留" DataType="System.String"/>
+        <Column Name="quote_公司編號" DataType="System.String"/>
+        <Column Name="quote_公司簡稱" DataType="System.String"/>
+        <Column Name="quote_公司名稱" DataType="System.String"/>
+        <Column Name="quote_客戶編號" DataType="System.String"/>
+        <Column Name="quote_客戶名稱" DataType="System.String"/>
+        <Column Name="quote_客戶簡稱" DataType="System.String"/>
+        <Column Name="quote_客戶電話" DataType="System.String"/>
+        <Column Name="quote_客戶聯絡人" DataType="System.String"/>
+        <Column Name="quote_業務編號" DataType="System.String"/>
+        <Column Name="quote_業務姓名" DataType="System.String"/>
+        <Column Name="quote_幣別編號" DataType="System.String"/>
+        <Column Name="quote_幣別名稱" DataType="System.String"/>
+        <Column Name="quote_匯率" DataType="System.Decimal"/>
+        <Column Name="quote_報價類別編號" DataType="System.String"/>
+        <Column Name="quote_報價類別名稱" DataType="System.String"/>
+        <Column Name="quote_taxmnyf" DataType="System.Decimal"/>
+        <Column Name="quote_本幣合計" DataType="System.Decimal"/>
+        <Column Name="quote_外幣合計" DataType="System.Decimal"/>
+        <Column Name="quote_稅別編號" DataType="System.Decimal"/>
+        <Column Name="quote_稅率" DataType="System.Decimal"/>
+        <Column Name="quote_外幣營業稅額" DataType="System.Decimal"/>
+        <Column Name="quote_外幣報價總額" DataType="System.Decimal"/>
+        <Column Name="quote_本幣營業稅額" DataType="System.Decimal"/>
+        <Column Name="quote_本幣報價總額" DataType="System.Decimal"/>
+        <Column Name="quote_付款條件" DataType="System.String"/>
+        <Column Name="quote_有效期限" DataType="System.String"/>
+        <Column Name="quote_備註" DataType="System.String"/>
+        <Column Name="quote_recordno" DataType="System.Decimal"/>
+        <Column Name="quote_UsrNo" DataType="System.String"/>
+        <Column Name="quote_QuDate" DataType="System.String"/>
+        <Column Name="quote_QuDates" DataType="System.String"/>
+        <Column Name="quote_詳細備註" DataType="System.String"/>
+        <Column Name="quote_ischeck" DataType="System.String"/>
+        <Column Name="quoted_quid" DataType="System.Int32"/>
+        <Column Name="quoted_報價單號" DataType="System.String"/>
+        <Column Name="quoted_報價日期_西元" DataType="System.String"/>
+        <Column Name="quoted_報價日期_保留" DataType="System.String"/>
+        <Column Name="quoted_預計交期_西元" DataType="System.String"/>
+        <Column Name="quoted_預計交期_保留" DataType="System.String"/>
+        <Column Name="quoted_客戶編號" DataType="System.String"/>
+        <Column Name="quoted_業務編號" DataType="System.String"/>
+        <Column Name="quoted_幣別編號" DataType="System.String"/>
+        <Column Name="quoted_匯率" DataType="System.Decimal"/>
+        <Column Name="quoted_報價類別編號" DataType="System.String"/>
+        <Column Name="quoted_產品編號" DataType="System.String"/>
+        <Column Name="quoted_品名規格" DataType="System.String"/>
+        <Column Name="quoted_產品組成" DataType="System.Decimal"/>
+        <Column Name="quoted_單位" DataType="System.String"/>
+        <Column Name="quoted_包裝數量" DataType="System.Decimal"/>
+        <Column Name="quoted_數量" DataType="System.Decimal"/>
+        <Column Name="quoted_外幣單價" DataType="System.Decimal"/>
+        <Column Name="quoted_折數" DataType="System.Decimal"/>
+        <Column Name="quoted_稅率" DataType="System.Decimal"/>
+        <Column Name="quoted_外幣稅前單價" DataType="System.Decimal"/>
+        <Column Name="quoted_外幣稅前金額" DataType="System.Decimal"/>
+        <Column Name="quoted_本幣單價" DataType="System.Decimal"/>
+        <Column Name="quoted_本幣稅前單價" DataType="System.Decimal"/>
+        <Column Name="quoted_本幣稅前金額" DataType="System.Decimal"/>
+        <Column Name="quoted_說明" DataType="System.String"/>
+        <Column Name="quoted_庫存量不足" DataType="System.String"/>
+        <Column Name="quoted_bomid" DataType="System.String"/>
+        <Column Name="quoted_bomrec" DataType="System.Decimal"/>
+        <Column Name="quoted_recordno" DataType="System.Decimal"/>
+        <Column Name="quoted_sltflag" DataType="System.Boolean" BindableControl="CheckBox"/>
+        <Column Name="quoted_extflag" DataType="System.Boolean" BindableControl="CheckBox"/>
+        <Column Name="quoted_規格說明1" DataType="System.String"/>
+        <Column Name="quoted_規格說明2" DataType="System.String"/>
+        <Column Name="quoted_規格說明3" DataType="System.String"/>
+        <Column Name="quoted_規格說明4" DataType="System.String"/>
+        <Column Name="quoted_規格說明5" DataType="System.String"/>
+        <Column Name="quoted_規格說明6" DataType="System.String"/>
+        <Column Name="quoted_規格說明7" DataType="System.String"/>
+        <Column Name="quoted_規格說明8" DataType="System.String"/>
+        <Column Name="quoted_規格說明9" DataType="System.String"/>
+        <Column Name="quoted_規格說明10" DataType="System.String"/>
+        <Column Name="pqty" DataType="System.Decimal"/>
+        <Column Name="punit" DataType="System.String"/>
+        <Column Name="quoted_stName" DataType="System.String"/>
+        <Column Name="quoted_QuDate" DataType="System.String"/>
+        <Column Name="quoted_QuDates" DataType="System.String"/>
+        <Column Name="quoted_standard" DataType="System.String"/>
+        <Column Name="cust_客戶傳真" DataType="System.String"/>
+        <Column Name="cust_公司地址" DataType="System.String"/>
+        <Column Name="cust_客戶名稱" DataType="System.String"/>
+        <Column Name="cust_客戶行動電話" DataType="System.String"/>
+        <Column Name="item_itpicture" DataType="System.String"/>
+        <Column Name="item_pic" DataType="System.Byte[]" BindableControl="Picture"/>
+        <Column Name="item_備註" DataType="System.String"/>
+        <Column Name="itnoudf" DataType="System.String"/>
+        <Column Name="長度" DataType="System.Int32"/>
+        <Column Name="kino" DataType="System.String"/>
+        <Column Name="kiname" DataType="System.String"/>
+        <Column Name="使用者編號" DataType="System.String"/>
+        <Column Name="使用者名稱" DataType="System.String"/>
+        <Column Name="EmAtel1" DataType="System.String"/>
+        <Column Name="EmEmail" DataType="System.String"/>
+        <Column Name="cust_統一編號" DataType="System.String"/>
+        <Column Name="quotebom_報價單號" DataType="System.String"/>
+        <Column Name="quotebom_BomID" DataType="System.String"/>
+        <Column Name="quotebom_BomRec" DataType="System.String"/>
+        <Column Name="quotebom_產品編號" DataType="System.String"/>
+        <Column Name="quotebom_品名規格" DataType="System.String"/>
+        <Column Name="quotebom_單位" DataType="System.String"/>
+        <Column Name="quotebom_標準用量" DataType="System.Decimal"/>
+        <Column Name="quotebom_母件比率" DataType="System.Decimal"/>
+        <Column Name="quotebom_包裝數量" DataType="System.Decimal"/>
+        <Column Name="quotebom_itrec" DataType="System.Decimal"/>
+        <Column Name="quotebom_單價" DataType="System.Decimal"/>
+        <Column Name="quotebom_折數" DataType="System.Decimal"/>
+        <Column Name="quotebom_金額" DataType="System.Decimal"/>
+        <Column Name="quotebom_說明" DataType="System.String"/>
+        <Column Name="quotebom_ItSource" DataType="System.Decimal"/>
+        <Column Name="quotebom_ItBuyPri" DataType="System.Decimal"/>
+        <Column Name="quotebom_ItBuyMny" DataType="System.Decimal"/>
+      </TableDataSource>
+    </MsSqlDataConnection>
+    <Parameter Name="txtstart" DataType="System.String"/>
+    <Parameter Name="DateRange" DataType="System.String"/>
+    <Parameter Name="RankState" DataType="System.String"/>
+    <Parameter Name="txtend" DataType="System.String"/>
+    <Parameter Name="銷項金額小數" DataType="System.String"/>
+    <Parameter Name="txtadress" DataType="System.String"/>
+    <Parameter Name="txttel" DataType="System.String"/>
+    <Parameter Name="銷貨單價小數" DataType="System.String"/>
+    <Parameter Name="銷貨單據小數" DataType="System.String"/>
+    <Parameter Name="銷項稅額小數" DataType="System.String"/>
+    <Parameter Name="庫存數量小數" DataType="System.String"/>
+    <Parameter Name="是否顯示金額" DataType="System.Boolean"/>
+    <Parameter Name="date" DataType="System.String"/>
+    <Parameter Name="進貨單價小數" DataType="System.String"/>
+    <Parameter Name="進貨單據小數" DataType="System.String"/>
+    <Parameter Name="進項稅額小數" DataType="System.String"/>
+    <Parameter Name="進貨金額小數" DataType="System.String"/>
+    <Total Name="Rank" TotalType="Count" Evaluator="Data1" ResetAfterPrint="false"/>
+  </Dictionary>
+  <ReportPage Name="Page1" PaperWidth="215.9" PaperHeight="279.4" RawPaperSize="1" LeftMargin="2.5" TopMargin="2.5" RightMargin="2.5" BottomMargin="2.5" FirstPageSource="15" OtherPagesSource="15" Guides="757.89,376.866">
+    <PageHeaderBand Name="PageHeader1" Top="20" Width="797.2" Height="201.77" CanGrow="true" CanShrink="true">
+      <TextObject Name="txtstart" Top="3.42" Width="756" Height="34.02" Text="[txtstart]" HorzAlign="Center" WordWrap="false" Font="細明體, 20pt, style=Bold"/>
+      <TextObject Name="Text11" Left="326.97" Top="41.63" Width="101" Height="22.3" Text="報 價 單" HorzAlign="Center" WordWrap="false" Font="細明體, 16pt, style=Bold, Underline"/>
+      <TextObject Name="Text12" Left="3.78" Top="108.26" Width="79.01" Height="18.9" Text="客戶名稱:" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text13" Left="3.78" Top="129.88" Width="79.01" Height="18.9" Text="公司地址:" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text14" Left="3.78" Top="86.26" Width="79.01" Height="18.9" Text="報價日期:" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text15" Left="3.78" Top="151.88" Width="79.01" Height="18.9" Text="聯絡電話:" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text5" Left="188.78" Top="86.26" Width="135.71" Height="18.9" Text="幣別名稱:" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text16" Left="234.14" Top="151.88" Width="79.01" Height="18.9" Text="傳 真 機:" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text6" Left="426.22" Top="86.26" Width="49.14" Height="18.9" Text="匯率:" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text9" Left="477.21" Top="86.26" Width="71.83" Height="18.9" Text="[QUOTE_.quote_匯率]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="4" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" WordWrap="false" Font="細明體, 12pt" Trimming="EllipsisCharacter"/>
+      <TextObject Name="Text1" Left="84.3" Top="86.26" Width="94.5" Height="18.9" BeforePrintEvent="Text1_BeforePrint" Text="[QUOTE_.quote_報價日期_西元]" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text2" Left="84.3" Top="108.26" Width="458.88" Height="21.55" Text="[QUOTE_.quote_客戶編號] [QUOTE_.cust_客戶名稱]" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text4" Left="84.3" Top="151.88" Width="140.25" Height="18.9" Text="[QUOTE_.quote_客戶電話]" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text10" Left="557.6" Top="86.26" Width="79.01" Height="18.9" Text="頁    次:" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text17" Left="557.98" Top="108.26" Width="79.01" Height="18.9" Text="報價憑證:" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text18" Left="557.6" Top="129.88" Width="79.01" Height="18.9" Text="聯 絡 人:" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text19" Left="557.6" Top="151.88" Width="79.01" Height="18.9" Text="統一編號:" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text20" Left="638.42" Top="86.26" Width="115.72" Height="18.9" Text="[Page]" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text21" Left="638.42" Top="108.26" Width="115.72" Height="18.9" Text="[QUOTE_.quote_報價單號]" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text22" Left="638.42" Top="129.88" Width="115.72" Height="18.9" Text="[QUOTE_.quote_客戶聯絡人]" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text23" Left="638.42" Top="151.88" Width="115.72" Height="18.9" Text="[QUOTE_.cust_統一編號]" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text25" Left="315.28" Top="151.88" Width="228.26" Height="18.9" Text="[QUOTE_.cust_客戶傳真]" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text26" Left="269.92" Top="86.26" Width="149.34" Height="18.9" Text="[QUOTE_.quote_幣別編號][QUOTE_.quote_幣別名稱]" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text27" Left="3.78" Top="179.46" Width="35.06" Height="15.49" Text="序號" WordWrap="false" Font="細明體, 11pt"/>
+      <TextObject Name="Text28" Left="43.4" Top="179.46" Width="156.8" Height="15.49" Text="產品編號" WordWrap="false" Font="細明體, 11pt"/>
+      <TextObject Name="Text29" Left="204.56" Top="179.46" Width="227.87" Height="15.49" Text="產品規格" WordWrap="false" Font="細明體, 11pt"/>
+      <TextObject Name="Text30" Left="436.38" Top="179.46" Width="88.43" Height="15.49" Text="數量" HorzAlign="Right" WordWrap="false" Font="細明體, 11pt"/>
+      <TextObject Name="Text31" Left="528.92" Top="179.46" Width="38.44" Height="15.49" Text="單位" WordWrap="false" Font="細明體, 11pt"/>
+      <TextObject Name="Text32" Left="571.94" Top="179.46" Width="88.43" Height="15.49" Text="單價" HorzAlign="Right" WordWrap="false" Font="細明體, 11pt"/>
+      <TextObject Name="Text33" Left="666.26" Top="179.46" Width="88.43" Height="15.49" Text="金額" HorzAlign="Right" WordWrap="false" Font="細明體, 11pt"/>
+      <LineObject Name="Line1" Left="-3.78" Top="174.92" Width="761.67" Border.Width="2"/>
+      <LineObject Name="Line2" Top="199.86" Width="758.65" Border.Width="2"/>
+      <TextObject Name="Text24" Left="84.3" Top="129.88" Width="458.48" Height="18.9" Text="[QUOTE_.cust_公司地址]" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text7" Left="462.1" Top="42.38" Width="294.34" Height="15.88" Text="[txtadress]" WordWrap="false" Font="細明體, 10pt"/>
+      <TextObject Name="Text8" Left="462.1" Top="63.16" Width="294.34" Height="15.88" Text="[txttel]" WordWrap="false" Font="細明體, 10pt"/>
+    </PageHeaderBand>
+    <GroupHeaderBand Name="GroupHeader1" Top="241.77" Width="797.2" StartNewPage="true" Condition="[QUOTE_.quote_報價單號]" ResetPageNumber="true">
+      <GroupHeaderBand Name="GroupHeader2" Top="261.77" Width="797.2" Height="17.38" Condition="[QUOTE_.quoted_recordno]">
+        <TextObject Name="Text34" Left="3.78" Top="3.78" Width="35.06" Height="13.6" Text="[QUOTE_.quoted_recordno]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" WordWrap="false" Font="細明體, 10pt" Trimming="EllipsisCharacter"/>
+        <TextObject Name="Text35" Left="43.4" Top="3.78" Width="156.8" Height="13.6" Text="[QUOTE_.quoted_產品編號]" WordWrap="false" Font="細明體, 10pt"/>
+        <TextObject Name="Text36" Left="204.56" Top="3.78" Width="227.87" Height="13.6" Text="[QUOTE_.quoted_品名規格]" WordWrap="false" Font="細明體, 10pt"/>
+        <TextObject Name="Text37" Left="436.38" Top="3.78" Width="88.43" Height="13.6" BeforePrintEvent="Text37_BeforePrint" Text="[QUOTE_.quoted_數量]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="細明體, 10pt" Trimming="EllipsisCharacter"/>
+        <TextObject Name="Text38" Left="528.92" Top="3.78" Width="38.44" Height="13.6" Text="[QUOTE_.quoted_單位]" WordWrap="false" Font="細明體, 10pt"/>
+        <TextObject Name="Text39" Left="571.94" Top="3.78" Width="88.43" Height="13.6" BeforePrintEvent="Text39_BeforePrint" Text="[QUOTE_.quoted_外幣稅前單價]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="細明體, 10pt" Trimming="EllipsisCharacter"/>
+        <TextObject Name="Text40" Left="666.26" Top="3.78" Width="88.43" Height="13.6" BeforePrintEvent="Text40_BeforePrint" Text="[QUOTE_.quoted_外幣稅前金額]" Format="Currency" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="細明體, 10pt" Trimming="EllipsisCharacter"/>
+        <DataBand Name="Data1" Top="299.15" Width="797.2" Height="13.6" CanGrow="true" CanShrink="true" DataSource="Table">
+          <TextObject Name="Text44" Left="204.56" Width="227.87" Height="13.6" BeforePrintEvent="Text44_BeforePrint" Text="[QUOTE_.quotebom_品名規格]" WordWrap="false" Font="細明體, 10pt"/>
+          <TextObject Name="Text45" Left="436.38" Width="88.43" Height="13.6" BeforePrintEvent="Text45_BeforePrint" Text="[QUOTE_.quotebom_標準用量]" HorzAlign="Right" WordWrap="false" Font="細明體, 10pt"/>
+          <TextObject Name="Text46" Left="528.92" Width="38.44" Height="13.6" Text="[QUOTE_.quotebom_單位]" WordWrap="false" Font="細明體, 10pt"/>
+        </DataBand>
+        <GroupFooterBand Name="GroupFooter2" Top="332.75" Width="797.2" Height="24.57" CanGrow="true" CanShrink="true">
+          <TextObject Name="Text67" Top="8.36" Width="756" Height="13.6" BeforePrintEvent="Text67_BeforePrint" Text="***** 以 下 空 白 *****" HorzAlign="Center" WordWrap="false" Font="細明體, 10pt"/>
+          <LineObject Name="Line5" Left="-0.76" Top="3.77" Width="757.88"/>
+        </GroupFooterBand>
+      </GroupHeaderBand>
+      <GroupFooterBand Name="GroupFooter1" Top="377.32" Width="797.2" Height="187.79" PrintOnBottom="true" RepeatOnEveryPage="true">
+        <TextObject Name="Text41" Left="3.78" Top="26.06" Width="79.01" Height="18.9" Text="付款條件:" WordWrap="false" Font="細明體, 12pt"/>
+        <TextObject Name="Text42" Left="3.78" Top="47.58" Width="79.01" Height="18.9" Text="有效期限:" WordWrap="false" Font="細明體, 12pt"/>
+        <TextObject Name="Text43" Left="3.78" Top="69.1" Width="79.01" Height="18.9" Text="業務代表:" WordWrap="false" Font="細明體, 12pt"/>
+        <TextObject Name="Text47" Left="557.6" Top="26.06" Width="79.01" Height="18.9" Text="稅前合計:" WordWrap="false" Font="細明體, 12pt"/>
+        <TextObject Name="Text48" Left="557.6" Top="47.58" Width="79.01" Height="18.9" Text="營業稅額:" WordWrap="false" Font="細明體, 12pt"/>
+        <TextObject Name="Text49" Left="557.6" Top="69.1" Width="79.01" Height="18.9" Text="報價總額:" WordWrap="false" Font="細明體, 12pt"/>
+        <TextObject Name="Text50" Left="84.68" Top="26.06" Width="470.55" Height="18.9" BeforePrintEvent="Text50_BeforePrint" Text="[QUOTE_.quote_付款條件]" Format="Number" Format.UseLocale="true" WordWrap="false" Font="細明體, 12pt"/>
+        <TextObject Name="Text51" Left="84.68" Top="47.58" Width="470.55" Height="18.9" BeforePrintEvent="Text51_BeforePrint" Text="[QUOTE_.quote_有效期限]" Format="Number" Format.UseLocale="true" WordWrap="false" Font="細明體, 12pt"/>
+        <TextObject Name="Text52" Left="640.32" Top="26.06" Width="115.72" Height="18.9" BeforePrintEvent="Text52_BeforePrint" Text="[QUOTE_.quote_外幣合計]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="細明體, 12pt"/>
+        <TextObject Name="Text56" Left="640.32" Top="69.1" Width="115.72" Height="18.9" BeforePrintEvent="Text56_BeforePrint" Text="[QUOTE_.quote_外幣報價總額]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="細明體, 12pt"/>
+        <TextObject Name="Text57" Left="84.68" Top="69.1" Width="470.55" Height="18.9" BeforePrintEvent="Text57_BeforePrint" Text="[QUOTE_.quote_業務姓名]" Format="Number" Format.UseLocale="true" WordWrap="false" Font="細明體, 12pt"/>
+        <TextObject Name="Text58" Left="640.32" Top="47.58" Width="115.72" Height="18.9" BeforePrintEvent="Text58_BeforePrint" Text="[QUOTE_.quote_外幣營業稅額]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="細明體, 12pt"/>
+        <TextObject Name="Text61" Left="3.78" Top="98.92" Width="79.01" Height="18.9" Text="備    註:" WordWrap="false" Font="細明體, 12pt"/>
+        <TextObject Name="Text64" Left="86.45" Top="98.92" Width="669.59" Height="18.9" Text="[QUOTE_.quote_備註]" WordWrap="false" Font="細明體, 12pt"/>
+        <LineObject Name="Line3" Top="21.92" Width="754.48" Border.Width="2"/>
+        <LineObject Name="Line4" Left="-3.78" Top="91.76" Width="760.53" Border.Width="2"/>
+        <TextObject Name="Text66" Left="0.38" Top="2.23" Width="756" Height="13.6" BeforePrintEvent="Text66_BeforePrint" Text="***** 續 下 頁 *****" HorzAlign="Center" WordWrap="false" Font="細明體, 10pt"/>
+        <TextObject Name="Text3" Left="4.16" Top="125.07" Width="753.73" Height="62.72" Text="[txtend]" WordWrap="false" Font="細明體, 12pt"/>
+      </GroupFooterBand>
+    </GroupHeaderBand>
+  </ReportPage>
+</Report>

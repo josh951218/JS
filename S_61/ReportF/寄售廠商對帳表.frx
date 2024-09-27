@@ -1,0 +1,178 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" DoublePass="true" ReportInfo.Created="03/11/2015 18:35:11" ReportInfo.Modified="07/08/2015 14:57:42" ReportInfo.CreatorVersion="2013.2.5.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {     
+    private void Text26_BeforePrint(object sender, EventArgs e)
+    {
+      var disc =((Decimal)Report.GetColumnValue(&quot;Table1.itdisc&quot;));
+      Text26.Text = disc.ToString(&quot;f0&quot;)+&quot; %&quot;;
+    }
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <MsSqlDataConnection Name="Connection" ConnectionString="rijcmlq+rW0RkboK+/8CKGGYUID3ctBV8q9SvKYxl3iiE7vBnh7Tgou0+4WFf3NfmPSvHVFMb+6VV8AQa1o8PejGBoK8wrAy/t3nmq4U8bTrZ2dbE5oNTCbtG9HIkRIcs5KGiFKjR/3HHbR5Jq1DamB/JvE1v6Kcof3gP1FO72508pjXDU=">
+      <TableDataSource Name="Table1" DataType="System.Int32" Enabled="true" SelectCommand="Select 後台出單=0.0,前台出單=0.0,區間交易量=0.0,實售金額=0.0,抽成金額=0.0,應收金額=0.0,期初庫存=0.0,進貨數量=0.0,本月庫存=0.0,itno,itname,itprice,itdisc&#13;&#10;,fact.*&#13;&#10;from item left join fact on item.fano = fact.fano&#13;&#10;where 1=0 ">
+        <Column Name="抽成金額" DataType="System.Decimal"/>
+        <Column Name="itno" DataType="System.String"/>
+        <Column Name="itprice" DataType="System.Decimal"/>
+        <Column Name="itdisc" DataType="System.Decimal"/>
+        <Column Name="fano" DataType="System.String"/>
+        <Column Name="faname2" DataType="System.String"/>
+        <Column Name="faname1" DataType="System.String"/>
+        <Column Name="faxa1no" DataType="System.String"/>
+        <Column Name="facono" DataType="System.String"/>
+        <Column Name="faime" DataType="System.String"/>
+        <Column Name="fax12no" DataType="System.String"/>
+        <Column Name="faemno1" DataType="System.String"/>
+        <Column Name="faper1" DataType="System.String"/>
+        <Column Name="faper2" DataType="System.String"/>
+        <Column Name="faper" DataType="System.String"/>
+        <Column Name="fatel1" DataType="System.String"/>
+        <Column Name="fatel2" DataType="System.String"/>
+        <Column Name="fatel3" DataType="System.String"/>
+        <Column Name="fafax1" DataType="System.String"/>
+        <Column Name="faatel1" DataType="System.String"/>
+        <Column Name="faatel2" DataType="System.String"/>
+        <Column Name="fabbc" DataType="System.String"/>
+        <Column Name="faaddr1" DataType="System.String"/>
+        <Column Name="far1" DataType="System.String"/>
+        <Column Name="faaddr2" DataType="System.String"/>
+        <Column Name="far2" DataType="System.String"/>
+        <Column Name="faaddr3" DataType="System.String"/>
+        <Column Name="far3" DataType="System.String"/>
+        <Column Name="fawork" DataType="System.String"/>
+        <Column Name="faemail" DataType="System.String"/>
+        <Column Name="fawww" DataType="System.String"/>
+        <Column Name="facredit" DataType="System.Decimal"/>
+        <Column Name="fauno" DataType="System.String"/>
+        <Column Name="fax3no" DataType="System.String"/>
+        <Column Name="fax4no" DataType="System.String"/>
+        <Column Name="fax5no" DataType="System.String"/>
+        <Column Name="faengname" DataType="System.String"/>
+        <Column Name="faengaddr" DataType="System.String"/>
+        <Column Name="faengr1" DataType="System.String"/>
+        <Column Name="famemo1" DataType="System.String"/>
+        <Column Name="famemo2" DataType="System.String"/>
+        <Column Name="faarea" DataType="System.String"/>
+        <Column Name="fax2no" DataType="System.String"/>
+        <Column Name="faudf1" DataType="System.String"/>
+        <Column Name="faudf2" DataType="System.String"/>
+        <Column Name="faudf3" DataType="System.String"/>
+        <Column Name="faudf4" DataType="System.String"/>
+        <Column Name="faudf5" DataType="System.String"/>
+        <Column Name="faudf6" DataType="System.String"/>
+        <Column Name="falastday" DataType="System.String"/>
+        <Column Name="falastday1" DataType="System.String"/>
+        <Column Name="falastday2" DataType="System.String"/>
+        <Column Name="fadate" DataType="System.String"/>
+        <Column Name="fadate1" DataType="System.String"/>
+        <Column Name="fadate2" DataType="System.String"/>
+        <Column Name="fafirpayabl" DataType="System.Decimal"/>
+        <Column Name="fasparepay" DataType="System.Decimal"/>
+        <Column Name="fapayable" DataType="System.Decimal"/>
+        <Column Name="fafirpaypar" DataType="System.Decimal"/>
+        <Column Name="fafirpayamt" DataType="System.Decimal"/>
+        <Column Name="fapayamt" DataType="System.Decimal"/>
+        <Column Name="faChkName" DataType="System.String"/>
+        <Column Name="WebID" DataType="System.String"/>
+        <Column Name="WebPassWord" DataType="System.String"/>
+        <Column Name="itname" DataType="System.String"/>
+        <Column Name="區間交易量" DataType="System.Decimal"/>
+        <Column Name="後台出單" DataType="System.Decimal"/>
+        <Column Name="前台出單" DataType="System.Decimal"/>
+        <Column Name="實售金額" DataType="System.Decimal"/>
+        <Column Name="期初庫存" DataType="System.Decimal"/>
+        <Column Name="本月庫存" DataType="System.Decimal"/>
+        <Column Name="應收金額" DataType="System.Decimal"/>
+        <Column Name="進貨數量" DataType="System.Decimal"/>
+      </TableDataSource>
+    </MsSqlDataConnection>
+    <Parameter Name="txtstart" DataType="System.String"/>
+    <Parameter Name="DateRange" DataType="System.String"/>
+    <Parameter Name="RankState" DataType="System.String"/>
+    <Parameter Name="txtend" DataType="System.String"/>
+    <Total Name="後台+" Expression="[Table1.後台出單]" Evaluator="Data1" PrintOn="ReportSummary1" ResetAfterPrint="false"/>
+    <Total Name="前台+" Expression="[Table1.前台出單]" Evaluator="Data1" PrintOn="ReportSummary1" ResetAfterPrint="false"/>
+    <Total Name="交易+" Expression="[Table1.區間交易量]" Evaluator="Data1" PrintOn="ReportSummary1" ResetAfterPrint="false"/>
+    <Total Name="應收+" Expression="[Table1.應收金額]" Evaluator="Data1" PrintOn="ReportSummary1" ResetAfterPrint="false"/>
+    <Total Name="實售+" Expression="[Table1.實售金額]" Evaluator="Data1" PrintOn="ReportSummary1" ResetAfterPrint="false"/>
+    <Total Name="抽成+" Expression="[Table1.抽成金額]" Evaluator="Data1" PrintOn="ReportSummary1" ResetAfterPrint="false"/>
+  </Dictionary>
+  <ReportPage Name="Page1" Landscape="true" PaperWidth="279.4" PaperHeight="215.9" RawPaperSize="1" FirstPageSource="15" OtherPagesSource="15">
+    <PageHeaderBand Name="PageHeader1" Width="980.53" Height="154.98">
+      <TextObject Name="txtstart" Width="958.23" Height="28.35" Text="[txtstart]" HorzAlign="Center" Font="細明體, 18pt, style=Bold"/>
+      <TextObject Name="Text11" Top="30.24" Width="958.23" Height="28.35" Text="寄售廠商對帳表" HorzAlign="Center" Font="細明體, 14pt, style=Bold"/>
+      <LineObject Name="Line1" Left="-3.78" Top="150.98" Width="963.9"/>
+      <TextObject Name="Text14" Left="916.65" Top="61.24" Width="41.58" Height="18.9" Text="[Page]" Font="細明體, 11pt"/>
+      <TextObject Name="Text16" Top="61.15" Width="85.05" Height="18.9" Text="統計日期：" Font="細明體, 11pt"/>
+      <TextObject Name="Text17" Left="831.6" Top="61.24" Width="85.05" Height="18.9" Text="頁    次：" Font="細明體, 11pt"/>
+      <TextObject Name="Text13" Left="86.94" Top="61.24" Width="185.22" Height="18.9" Text="[DateRange]" Font="細明體, 11pt"/>
+      <TextObject Name="Text19" Top="83.16" Width="85.05" Height="18.9" Text="廠商編號：" Font="細明體, 11pt"/>
+      <TextObject Name="Text1" Left="86.94" Top="83.16" Width="185.22" Height="18.9" Text="[Table1.fano][Table1.faname1]" Font="細明體, 11pt"/>
+      <TextObject Name="Text20" Top="105.84" Width="85.05" Height="18.9" Text="聯絡人：" HorzAlign="Right" Font="細明體, 11pt"/>
+      <TextObject Name="Text21" Left="332.64" Top="105.84" Width="85.05" Height="18.9" Text="聯絡電話：" HorzAlign="Right" Font="細明體, 11pt"/>
+      <TextObject Name="Text2" Left="86.94" Top="105.84" Width="185.22" Height="18.9" Text="[Table1.faper1]" Font="細明體, 11pt"/>
+      <TextObject Name="Text3" Left="419.58" Top="105.84" Width="185.22" Height="18.9" Text="[Table1.fatel1]" Font="細明體, 11pt"/>
+      <TextObject Name="Text22" Left="684.18" Top="105.84" Width="85.05" Height="18.9" Text="傳真：" HorzAlign="Right" Font="細明體, 11pt"/>
+      <TextObject Name="Text4" Left="771.12" Top="105.84" Width="185.22" Height="18.9" Text="[Table1.fafax1]" Font="細明體, 11pt"/>
+      <TextObject Name="Text28" Top="132.3" Width="109.62" Height="15.12" Text="產品編號" WordWrap="false" Font="細明體, 9pt"/>
+      <TextObject Name="Text29" Left="109.62" Top="132.3" Width="177.66" Height="15.12" Text="品名規格" WordWrap="false" Font="細明體, 9pt"/>
+      <TextObject Name="Text30" Left="287.28" Top="132.3" Width="64.26" Height="15.12" Text="定價" HorzAlign="Right" WordWrap="false" Font="細明體, 9pt"/>
+      <TextObject Name="Text31" Left="351.54" Top="132.3" Width="60.48" Height="15.12" Text="上期庫存" HorzAlign="Right" WordWrap="false" Font="細明體, 9pt"/>
+      <TextObject Name="Text32" Left="472.5" Top="132.3" Width="60.48" Height="15.12" Text="本月庫存" HorzAlign="Right" WordWrap="false" Font="細明體, 9pt"/>
+      <TextObject Name="Text35" Left="532.98" Top="132.3" Width="60.48" Height="15.12" Text="後台出單" HorzAlign="Right" WordWrap="false" Font="細明體, 9pt"/>
+      <TextObject Name="Text36" Left="850.5" Top="132.3" Width="41.58" Height="15.12" Text="抽成比" HorzAlign="Right" WordWrap="false" Font="細明體, 9pt"/>
+      <TextObject Name="Text37" Left="892.08" Top="132.3" Width="64.26" Height="15.12" Text="抽成金額" HorzAlign="Right" WordWrap="false" Font="細明體, 9pt"/>
+      <LineObject Name="Line4" Top="128.52" Width="960.12"/>
+      <TextObject Name="Text40" Left="593.46" Top="132.3" Width="60.48" Height="15.12" Text="前台出單" HorzAlign="Right" WordWrap="false" Font="細明體, 9pt"/>
+      <TextObject Name="Text42" Left="653.94" Top="132.3" Width="64.26" Height="15.12" Text="實際銷售量" HorzAlign="Right" WordWrap="false" Font="細明體, 9pt"/>
+      <TextObject Name="Text44" Left="718.2" Top="132.3" Width="68.04" Height="15.12" Text="應收金額" HorzAlign="Right" WordWrap="false" Font="細明體, 9pt"/>
+      <TextObject Name="Text25" Left="786.24" Top="132.3" Width="64.26" Height="15.12" Text="實收金額" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Right" WordWrap="false" Font="細明體, 9pt"/>
+      <TextObject Name="Text47" Left="412.02" Top="132.3" Width="60.48" Height="15.12" Text="進貨量" HorzAlign="Right" WordWrap="false" Font="細明體, 9pt"/>
+    </PageHeaderBand>
+    <DataBand Name="Data1" Top="157.86" Width="980.53" Height="18.9" DataSource="Table1">
+      <TextObject Name="Text5" Width="109.62" Height="15.12" Text="[Table1.itno]" Font="細明體, 9pt"/>
+      <TextObject Name="Text27" Left="892.08" Width="64.26" Height="15.12" Text="[Table1.抽成金額]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Right" WordWrap="false" Font="細明體, 9pt"/>
+      <TextObject Name="Text26" Left="850.5" Width="41.58" Height="15.12" BeforePrintEvent="Text26_BeforePrint" Text="[Table1.itdisc]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Right" WordWrap="false" Font="細明體, 9pt"/>
+      <TextObject Name="Text15" Left="472.5" Width="60.48" Height="15.12" Text="[Table1.本月庫存]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Right" WordWrap="false" Font="細明體, 9pt"/>
+      <TextObject Name="Text9" Left="351.54" Width="60.48" Height="15.12" Text="[Table1.期初庫存]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Right" WordWrap="false" Font="細明體, 9pt"/>
+      <TextObject Name="Text8" Left="287.28" Width="64.26" Height="15.12" Text="[Table1.itprice]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Right" WordWrap="false" Font="細明體, 9pt"/>
+      <TextObject Name="Text7" Left="109.62" Width="177.66" Height="15.12" Text="[Table1.itname]" Font="細明體, 9pt"/>
+      <TextObject Name="Text38" Left="532.98" Width="60.48" Height="15.12" Text="[Table1.後台出單]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Right" WordWrap="false" Font="細明體, 9pt"/>
+      <TextObject Name="Text39" Left="593.46" Width="60.48" Height="15.12" Text="[Table1.前台出單]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Right" WordWrap="false" Font="細明體, 9pt"/>
+      <TextObject Name="Text43" Left="653.94" Width="64.26" Height="15.12" Text="[Table1.區間交易量]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Right" WordWrap="false" Font="細明體, 9pt"/>
+      <TextObject Name="Text41" Left="786.24" Width="64.26" Height="15.12" Text="[Table1.實售金額]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Right" WordWrap="false" Font="細明體, 9pt"/>
+      <TextObject Name="Text45" Left="718.2" Width="68.04" Height="15.12" Text="[Table1.應收金額]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Right" WordWrap="false" Font="細明體, 9pt"/>
+      <TextObject Name="Text46" Left="412.02" Width="60.48" Height="15.12" Text="[Table1.進貨數量]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Right" WordWrap="false" Font="細明體, 9pt"/>
+    </DataBand>
+    <ReportSummaryBand Name="ReportSummary1" Top="212.75" Width="980.53" Height="26.46" KeepWithData="true">
+      <LineObject Name="Line3" Top="3.78" Width="960.12"/>
+      <TextObject Name="Text6" Left="514.08" Top="7.56" Width="60.48" Height="15.12" Text="[後台+]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Right" Font="細明體, 9pt"/>
+      <TextObject Name="Text10" Left="574.56" Top="7.56" Width="60.48" Height="15.12" Text="[前台+]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Right" Font="細明體, 9pt"/>
+      <TextObject Name="Text18" Left="635.04" Top="7.56" Width="68.04" Height="15.12" Text="[交易+]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Right" Font="細明體, 9pt"/>
+      <TextObject Name="Text23" Left="703.08" Top="7.56" Width="71.82" Height="15.12" Text="[應收+]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Right" Font="細明體, 9pt"/>
+      <TextObject Name="Text24" Left="774.9" Top="7.56" Width="68.04" Height="15.12" Text="[實售+]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Right" Font="細明體, 9pt"/>
+      <TextObject Name="Text33" Left="888.3" Top="7.56" Width="68.04" Height="15.12" Text="[抽成+]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Right" Font="細明體, 9pt"/>
+    </ReportSummaryBand>
+    <ColumnFooterBand Name="ColumnFooter1" Top="179.64" Width="980.53" Height="30.24">
+      <TextObject Name="Text12" Top="7.56" Width="958.23" Height="22.68" BeforePrintEvent="Text12_BeforePrint" AfterDataEvent="Text12_AfterData" Text="[IIf([Page]&lt;[TotalPages],&quot;***續下頁***&quot;,&quot;(以下空白)&quot;)]" HorzAlign="Center" Font="細明體, 9pt"/>
+    </ColumnFooterBand>
+  </ReportPage>
+</Report>

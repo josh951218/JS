@@ -1,0 +1,721 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="FQuot" targetNamespace="http://tempuri.org/FQuot.xsd" xmlns:mstns="http://tempuri.org/FQuot.xsd" xmlns="http://tempuri.org/FQuot.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="2" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="webConnectionString" IsAppSettingsProperty="true" Modifier="Assembly" Name="webConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.S_61.Properties.Settings.GlobalReference.Default.webConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="STOCKConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="STOCKConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.S_61.Properties.Settings.GlobalReference.Default.STOCKConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="LONGConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="LONGConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.S_61.Properties.Settings.GlobalReference.Default.LONGConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="fquotTableAdapter" GeneratorDataComponentClassName="fquotTableAdapter" Name="fquot" UserDataComponentName="fquotTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="STOCKConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT          a.fqno AS fquot_fqno, a.fqdate AS fquot_fqdate, a.fqdate1 AS fquot_fqdate1, a.fqdate2 AS fquot_fqdate2, 
+                            a.fqdates AS fquot_fqdates, a.fqdates1 AS fquot_fqdates1, a.fqdates2 AS fquot_fqdates2, a.cono AS fquot_cono, 
+                            a.coname1 AS fquot_coname1, a.coname2 AS fquot_coname2, a.fano AS fquot_fano, a.faname2 AS fquot_faname2, 
+                            a.faname1 AS fquot_faname1, a.fatel1 AS fquot_fatel1, a.faper1 AS fquot_faper1, a.emno AS fquot_emno, 
+                            a.emname AS fquot_emname, a.xa1no AS fquot_xa1no, a.xa1name AS fquot_xa1name, a.xa1par AS fquot_xa1par, 
+                            a.taxmnyf AS fquot_taxmnyf, a.taxmnyb AS fquot_taxmnyb, a.taxmny AS fquot_taxmny, a.x3no AS fquot_x3no, 
+                            a.rate AS fquot_rate, a.tax AS fquot_tax, a.totmny AS fquot_totmny, a.taxb AS fquot_taxb, a.totmnyb AS fquot_totmnyb, 
+                            a.fqpayment AS fquot_fqpayment, a.fqperiod AS fquot_fqperiod, a.fqmemo AS fquot_fqmemo, 
+                            a.recordno AS fquot_recordno, a.UsrNo AS fquot_UsrNo, c.FqNo AS fquotbom_FqNo, c.BomID AS fquotbom_BomID, 
+                            c.BomRec AS fquotbom_BomRec, c.itno AS fquotbom_itno, c.itname AS fquotbom_itname, c.itunit AS fquotbom_itunit, 
+                            c.itqty AS fquotbom_itqty, c.itpareprs AS fquotbom_itpareprs, c.itpkgqty AS fquotbom_itpkgqty, 
+                            c.itrec AS fquotbom_itrec, c.itprice AS fquotbom_itprice, c.itprs AS fquotbom_itprs, c.itmny AS fquotbom_itmny, 
+                            c.itnote AS fquotbom_itnote, c.ItSource AS fquotbom_ItSource, c.ItBuyPri AS fquotbom_ItBuyPri, 
+                            c.ItBuyMny AS fquotbom_ItBuyMny, b.fqno AS fquotd_fqno, b.fqdate AS fquotd_fqdate, b.fqdate1 AS fquotd_fqdate1, 
+                            b.fqdate2 AS fquotd_fqdate2, b.fqdates AS fquotd_fqdates, b.fqdates1 AS fquotd_fqdates1, 
+                            b.fqdates2 AS fquotd_fqdates2, b.fano AS fquotd_fano, b.emno AS fquotd_emno, b.xa1no AS fquotd_xa1no, 
+                            b.xa1par AS fquotd_xa1par, b.itno AS fquotd_itno, b.itname AS fquotd_itname, b.ittrait AS fquotd_ittrait, 
+                            b.itunit AS fquotd_itunit, b.itpkgqty AS fquotd_itpkgqty, b.qty AS fquotd_qty, b.price AS fquotd_price, 
+                            b.prs AS fquotd_prs, b.rate AS fquotd_rate, b.taxprice AS fquotd_taxprice, b.mny AS fquotd_mny, 
+                            b.priceb AS fquotd_priceb, b.taxpriceb AS fquotd_taxpriceb, b.mnyb AS fquotd_mnyb, b.memo AS fquotd_memo, 
+                            b.lowzero AS fquotd_lowzero, b.bomid AS fquotd_bomid, b.bomrec AS fquotd_bomrec, b.recordno AS fquotd_recordno, 
+                            b.sltflag AS fquotd_sltflag, b.extflag AS fquotd_extflag, b.itdesp1 AS fquotd_itdesp1, b.itdesp2 AS fquotd_itdesp2, 
+                            b.itdesp3 AS fquotd_itdesp3, b.itdesp4 AS fquotd_itdesp4, b.itdesp5 AS fquotd_itdesp5, b.itdesp6 AS fquotd_itdesp6, 
+                            b.itdesp7 AS fquotd_itdesp7, b.itdesp8 AS fquotd_itdesp8, b.itdesp9 AS fquotd_itdesp9, 
+                            b.itdesp10 AS fquotd_itdesp10, b.stName AS fquotd_stName, f.fano AS fact_fano, f.fafax1 AS fact_fafax1, 
+                            f.faaddr1 AS fact_faaddr1, f.fauno AS fact_fauno, f.faname2 AS fact_faname2, i.itpicture AS item_itpicture, 
+                            i.pic AS item_pic, a.AppScNo AS fquot_AppScNo, a.AppDate AS fquot_AppDate, a.EdtScNo AS fquot_EdtScNo, 
+                            a.EdtDate AS fquot_EdtDate, a.fqmemo1 AS fquot_fqmemo1,scrit.scname,scrit.scname1 ,DATALENGTH(i.pic) as pic長度
+FROM              fquotd AS b
+ 
+ 
+ LEFT  JOIN
+                            fquot AS a ON a.fqno = b.fqno  
+
+ LEFT  JOIN scrit ON a.appscno = scrit.scname
+
+LEFT  JOIN
+                            item AS i ON i.itno = b.itno LEFT OUTER JOIN
+                            fact AS f ON f.fano = a.fano LEFT OUTER JOIN
+                            FQuotBom AS c ON c.BomID = b.bomid</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="fquot_fqno" DataSetColumn="fquot_fqno" />
+              <Mapping SourceColumn="fquot_fqdate" DataSetColumn="fquot_fqdate" />
+              <Mapping SourceColumn="fquot_fqdate1" DataSetColumn="fquot_fqdate1" />
+              <Mapping SourceColumn="fquot_fqdate2" DataSetColumn="fquot_fqdate2" />
+              <Mapping SourceColumn="fquot_fqdates" DataSetColumn="fquot_fqdates" />
+              <Mapping SourceColumn="fquot_fqdates1" DataSetColumn="fquot_fqdates1" />
+              <Mapping SourceColumn="fquot_fqdates2" DataSetColumn="fquot_fqdates2" />
+              <Mapping SourceColumn="fquot_cono" DataSetColumn="fquot_cono" />
+              <Mapping SourceColumn="fquot_coname1" DataSetColumn="fquot_coname1" />
+              <Mapping SourceColumn="fquot_coname2" DataSetColumn="fquot_coname2" />
+              <Mapping SourceColumn="fquot_fano" DataSetColumn="fquot_fano" />
+              <Mapping SourceColumn="fquot_faname2" DataSetColumn="fquot_faname2" />
+              <Mapping SourceColumn="fquot_faname1" DataSetColumn="fquot_faname1" />
+              <Mapping SourceColumn="fquot_fatel1" DataSetColumn="fquot_fatel1" />
+              <Mapping SourceColumn="fquot_faper1" DataSetColumn="fquot_faper1" />
+              <Mapping SourceColumn="fquot_emno" DataSetColumn="fquot_emno" />
+              <Mapping SourceColumn="fquot_emname" DataSetColumn="fquot_emname" />
+              <Mapping SourceColumn="fquot_xa1no" DataSetColumn="fquot_xa1no" />
+              <Mapping SourceColumn="fquot_xa1name" DataSetColumn="fquot_xa1name" />
+              <Mapping SourceColumn="fquot_xa1par" DataSetColumn="fquot_xa1par" />
+              <Mapping SourceColumn="fquot_taxmnyf" DataSetColumn="fquot_taxmnyf" />
+              <Mapping SourceColumn="fquot_taxmnyb" DataSetColumn="fquot_taxmnyb" />
+              <Mapping SourceColumn="fquot_taxmny" DataSetColumn="fquot_taxmny" />
+              <Mapping SourceColumn="fquot_x3no" DataSetColumn="fquot_x3no" />
+              <Mapping SourceColumn="fquot_rate" DataSetColumn="fquot_rate" />
+              <Mapping SourceColumn="fquot_tax" DataSetColumn="fquot_tax" />
+              <Mapping SourceColumn="fquot_totmny" DataSetColumn="fquot_totmny" />
+              <Mapping SourceColumn="fquot_taxb" DataSetColumn="fquot_taxb" />
+              <Mapping SourceColumn="fquot_totmnyb" DataSetColumn="fquot_totmnyb" />
+              <Mapping SourceColumn="fquot_fqpayment" DataSetColumn="fquot_fqpayment" />
+              <Mapping SourceColumn="fquot_fqperiod" DataSetColumn="fquot_fqperiod" />
+              <Mapping SourceColumn="fquot_fqmemo" DataSetColumn="fquot_fqmemo" />
+              <Mapping SourceColumn="fquot_recordno" DataSetColumn="fquot_recordno" />
+              <Mapping SourceColumn="fquot_UsrNo" DataSetColumn="fquot_UsrNo" />
+              <Mapping SourceColumn="fquotbom_FqNo" DataSetColumn="fquotbom_FqNo" />
+              <Mapping SourceColumn="fquotbom_BomID" DataSetColumn="fquotbom_BomID" />
+              <Mapping SourceColumn="fquotbom_BomRec" DataSetColumn="fquotbom_BomRec" />
+              <Mapping SourceColumn="fquotbom_itno" DataSetColumn="fquotbom_itno" />
+              <Mapping SourceColumn="fquotbom_itname" DataSetColumn="fquotbom_itname" />
+              <Mapping SourceColumn="fquotbom_itunit" DataSetColumn="fquotbom_itunit" />
+              <Mapping SourceColumn="fquotbom_itqty" DataSetColumn="fquotbom_itqty" />
+              <Mapping SourceColumn="fquotbom_itpareprs" DataSetColumn="fquotbom_itpareprs" />
+              <Mapping SourceColumn="fquotbom_itpkgqty" DataSetColumn="fquotbom_itpkgqty" />
+              <Mapping SourceColumn="fquotbom_itrec" DataSetColumn="fquotbom_itrec" />
+              <Mapping SourceColumn="fquotbom_itprice" DataSetColumn="fquotbom_itprice" />
+              <Mapping SourceColumn="fquotbom_itprs" DataSetColumn="fquotbom_itprs" />
+              <Mapping SourceColumn="fquotbom_itmny" DataSetColumn="fquotbom_itmny" />
+              <Mapping SourceColumn="fquotbom_itnote" DataSetColumn="fquotbom_itnote" />
+              <Mapping SourceColumn="fquotbom_ItSource" DataSetColumn="fquotbom_ItSource" />
+              <Mapping SourceColumn="fquotbom_ItBuyPri" DataSetColumn="fquotbom_ItBuyPri" />
+              <Mapping SourceColumn="fquotbom_ItBuyMny" DataSetColumn="fquotbom_ItBuyMny" />
+              <Mapping SourceColumn="fquotd_fqno" DataSetColumn="fquotd_fqno" />
+              <Mapping SourceColumn="fquotd_fqdate" DataSetColumn="fquotd_fqdate" />
+              <Mapping SourceColumn="fquotd_fqdate1" DataSetColumn="fquotd_fqdate1" />
+              <Mapping SourceColumn="fquotd_fqdate2" DataSetColumn="fquotd_fqdate2" />
+              <Mapping SourceColumn="fquotd_fqdates" DataSetColumn="fquotd_fqdates" />
+              <Mapping SourceColumn="fquotd_fqdates1" DataSetColumn="fquotd_fqdates1" />
+              <Mapping SourceColumn="fquotd_fqdates2" DataSetColumn="fquotd_fqdates2" />
+              <Mapping SourceColumn="fquotd_fano" DataSetColumn="fquotd_fano" />
+              <Mapping SourceColumn="fquotd_emno" DataSetColumn="fquotd_emno" />
+              <Mapping SourceColumn="fquotd_xa1no" DataSetColumn="fquotd_xa1no" />
+              <Mapping SourceColumn="fquotd_xa1par" DataSetColumn="fquotd_xa1par" />
+              <Mapping SourceColumn="fquotd_itno" DataSetColumn="fquotd_itno" />
+              <Mapping SourceColumn="fquotd_itname" DataSetColumn="fquotd_itname" />
+              <Mapping SourceColumn="fquotd_ittrait" DataSetColumn="fquotd_ittrait" />
+              <Mapping SourceColumn="fquotd_itunit" DataSetColumn="fquotd_itunit" />
+              <Mapping SourceColumn="fquotd_itpkgqty" DataSetColumn="fquotd_itpkgqty" />
+              <Mapping SourceColumn="fquotd_qty" DataSetColumn="fquotd_qty" />
+              <Mapping SourceColumn="fquotd_price" DataSetColumn="fquotd_price" />
+              <Mapping SourceColumn="fquotd_prs" DataSetColumn="fquotd_prs" />
+              <Mapping SourceColumn="fquotd_rate" DataSetColumn="fquotd_rate" />
+              <Mapping SourceColumn="fquotd_taxprice" DataSetColumn="fquotd_taxprice" />
+              <Mapping SourceColumn="fquotd_mny" DataSetColumn="fquotd_mny" />
+              <Mapping SourceColumn="fquotd_priceb" DataSetColumn="fquotd_priceb" />
+              <Mapping SourceColumn="fquotd_taxpriceb" DataSetColumn="fquotd_taxpriceb" />
+              <Mapping SourceColumn="fquotd_mnyb" DataSetColumn="fquotd_mnyb" />
+              <Mapping SourceColumn="fquotd_memo" DataSetColumn="fquotd_memo" />
+              <Mapping SourceColumn="fquotd_lowzero" DataSetColumn="fquotd_lowzero" />
+              <Mapping SourceColumn="fquotd_bomid" DataSetColumn="fquotd_bomid" />
+              <Mapping SourceColumn="fquotd_bomrec" DataSetColumn="fquotd_bomrec" />
+              <Mapping SourceColumn="fquotd_recordno" DataSetColumn="fquotd_recordno" />
+              <Mapping SourceColumn="fquotd_sltflag" DataSetColumn="fquotd_sltflag" />
+              <Mapping SourceColumn="fquotd_extflag" DataSetColumn="fquotd_extflag" />
+              <Mapping SourceColumn="fquotd_itdesp1" DataSetColumn="fquotd_itdesp1" />
+              <Mapping SourceColumn="fquotd_itdesp2" DataSetColumn="fquotd_itdesp2" />
+              <Mapping SourceColumn="fquotd_itdesp3" DataSetColumn="fquotd_itdesp3" />
+              <Mapping SourceColumn="fquotd_itdesp4" DataSetColumn="fquotd_itdesp4" />
+              <Mapping SourceColumn="fquotd_itdesp5" DataSetColumn="fquotd_itdesp5" />
+              <Mapping SourceColumn="fquotd_itdesp6" DataSetColumn="fquotd_itdesp6" />
+              <Mapping SourceColumn="fquotd_itdesp7" DataSetColumn="fquotd_itdesp7" />
+              <Mapping SourceColumn="fquotd_itdesp8" DataSetColumn="fquotd_itdesp8" />
+              <Mapping SourceColumn="fquotd_itdesp9" DataSetColumn="fquotd_itdesp9" />
+              <Mapping SourceColumn="fquotd_itdesp10" DataSetColumn="fquotd_itdesp10" />
+              <Mapping SourceColumn="fquotd_stName" DataSetColumn="fquotd_stName" />
+              <Mapping SourceColumn="fact_fano" DataSetColumn="fact_fano" />
+              <Mapping SourceColumn="fact_fafax1" DataSetColumn="fact_fafax1" />
+              <Mapping SourceColumn="fact_faaddr1" DataSetColumn="fact_faaddr1" />
+              <Mapping SourceColumn="fact_fauno" DataSetColumn="fact_fauno" />
+              <Mapping SourceColumn="fact_faname2" DataSetColumn="fact_faname2" />
+              <Mapping SourceColumn="item_itpicture" DataSetColumn="item_itpicture" />
+              <Mapping SourceColumn="item_pic" DataSetColumn="item_pic" />
+              <Mapping SourceColumn="fquot_AppScNo" DataSetColumn="fquot_AppScNo" />
+              <Mapping SourceColumn="fquot_AppDate" DataSetColumn="fquot_AppDate" />
+              <Mapping SourceColumn="fquot_EdtScNo" DataSetColumn="fquot_EdtScNo" />
+              <Mapping SourceColumn="fquot_EdtDate" DataSetColumn="fquot_EdtDate" />
+              <Mapping SourceColumn="fquot_fqmemo1" DataSetColumn="fquot_fqmemo1" />
+              <Mapping SourceColumn="scname" DataSetColumn="scname" />
+              <Mapping SourceColumn="scname1" DataSetColumn="scname1" />
+              <Mapping SourceColumn="pic長度" DataSetColumn="pic長度" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="FQuot" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="FQuot" msprop:Generator_UserDSName="FQuot">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="fquot" msprop:Generator_TableClassName="fquotDataTable" msprop:Generator_TableVarName="tablefquot" msprop:Generator_RowChangedName="fquotRowChanged" msprop:Generator_TablePropName="fquot" msprop:Generator_RowDeletingName="fquotRowDeleting" msprop:Generator_RowChangingName="fquotRowChanging" msprop:Generator_RowEvHandlerName="fquotRowChangeEventHandler" msprop:Generator_RowDeletedName="fquotRowDeleted" msprop:Generator_RowClassName="fquotRow" msprop:Generator_UserTableName="fquot" msprop:Generator_RowEvArgName="fquotRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="fquot_fqno" msprop:Generator_ColumnVarNameInTable="columnfquot_fqno" msprop:Generator_ColumnPropNameInRow="fquot_fqno" msprop:Generator_ColumnPropNameInTable="fquot_fqnoColumn" msprop:Generator_UserColumnName="fquot_fqno" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="16" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fquot_fqdate" msprop:Generator_ColumnVarNameInTable="columnfquot_fqdate" msprop:Generator_ColumnPropNameInRow="fquot_fqdate" msprop:Generator_ColumnPropNameInTable="fquot_fqdateColumn" msprop:Generator_UserColumnName="fquot_fqdate" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fquot_fqdate1" msprop:Generator_ColumnVarNameInTable="columnfquot_fqdate1" msprop:Generator_ColumnPropNameInRow="fquot_fqdate1" msprop:Generator_ColumnPropNameInTable="fquot_fqdate1Column" msprop:Generator_UserColumnName="fquot_fqdate1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fquot_fqdate2" msprop:Generator_ColumnVarNameInTable="columnfquot_fqdate2" msprop:Generator_ColumnPropNameInRow="fquot_fqdate2" msprop:Generator_ColumnPropNameInTable="fquot_fqdate2Column" msprop:Generator_UserColumnName="fquot_fqdate2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fquot_fqdates" msprop:Generator_ColumnVarNameInTable="columnfquot_fqdates" msprop:Generator_ColumnPropNameInRow="fquot_fqdates" msprop:Generator_ColumnPropNameInTable="fquot_fqdatesColumn" msprop:Generator_UserColumnName="fquot_fqdates" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fquot_fqdates1" msprop:Generator_ColumnVarNameInTable="columnfquot_fqdates1" msprop:Generator_ColumnPropNameInRow="fquot_fqdates1" msprop:Generator_ColumnPropNameInTable="fquot_fqdates1Column" msprop:Generator_UserColumnName="fquot_fqdates1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fquot_fqdates2" msprop:Generator_ColumnVarNameInTable="columnfquot_fqdates2" msprop:Generator_ColumnPropNameInRow="fquot_fqdates2" msprop:Generator_ColumnPropNameInTable="fquot_fqdates2Column" msprop:Generator_UserColumnName="fquot_fqdates2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fquot_cono" msprop:Generator_ColumnVarNameInTable="columnfquot_cono" msprop:Generator_ColumnPropNameInRow="fquot_cono" msprop:Generator_ColumnPropNameInTable="fquot_conoColumn" msprop:Generator_UserColumnName="fquot_cono" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fquot_coname1" msprop:Generator_ColumnVarNameInTable="columnfquot_coname1" msprop:Generator_ColumnPropNameInRow="fquot_coname1" msprop:Generator_ColumnPropNameInTable="fquot_coname1Column" msprop:Generator_UserColumnName="fquot_coname1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fquot_coname2" msprop:Generator_ColumnVarNameInTable="columnfquot_coname2" msprop:Generator_ColumnPropNameInRow="fquot_coname2" msprop:Generator_ColumnPropNameInTable="fquot_coname2Column" msprop:Generator_UserColumnName="fquot_coname2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fquot_fano" msprop:Generator_ColumnVarNameInTable="columnfquot_fano" msprop:Generator_ColumnPropNameInRow="fquot_fano" msprop:Generator_ColumnPropNameInTable="fquot_fanoColumn" msprop:Generator_UserColumnName="fquot_fano" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fquot_faname2" msprop:Generator_ColumnVarNameInTable="columnfquot_faname2" msprop:Generator_ColumnPropNameInRow="fquot_faname2" msprop:Generator_ColumnPropNameInTable="fquot_faname2Column" msprop:Generator_UserColumnName="fquot_faname2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fquot_faname1" msprop:Generator_ColumnVarNameInTable="columnfquot_faname1" msprop:Generator_ColumnPropNameInRow="fquot_faname1" msprop:Generator_ColumnPropNameInTable="fquot_faname1Column" msprop:Generator_UserColumnName="fquot_faname1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fquot_fatel1" msprop:Generator_ColumnVarNameInTable="columnfquot_fatel1" msprop:Generator_ColumnPropNameInRow="fquot_fatel1" msprop:Generator_ColumnPropNameInTable="fquot_fatel1Column" msprop:Generator_UserColumnName="fquot_fatel1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fquot_faper1" msprop:Generator_ColumnVarNameInTable="columnfquot_faper1" msprop:Generator_ColumnPropNameInRow="fquot_faper1" msprop:Generator_ColumnPropNameInTable="fquot_faper1Column" msprop:Generator_UserColumnName="fquot_faper1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fquot_emno" msprop:Generator_ColumnVarNameInTable="columnfquot_emno" msprop:Generator_ColumnPropNameInRow="fquot_emno" msprop:Generator_ColumnPropNameInTable="fquot_emnoColumn" msprop:Generator_UserColumnName="fquot_emno" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fquot_emname" msprop:Generator_ColumnVarNameInTable="columnfquot_emname" msprop:Generator_ColumnPropNameInRow="fquot_emname" msprop:Generator_ColumnPropNameInTable="fquot_emnameColumn" msprop:Generator_UserColumnName="fquot_emname" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fquot_xa1no" msprop:Generator_ColumnVarNameInTable="columnfquot_xa1no" msprop:Generator_ColumnPropNameInRow="fquot_xa1no" msprop:Generator_ColumnPropNameInTable="fquot_xa1noColumn" msprop:Generator_UserColumnName="fquot_xa1no" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fquot_xa1name" msprop:Generator_ColumnVarNameInTable="columnfquot_xa1name" msprop:Generator_ColumnPropNameInRow="fquot_xa1name" msprop:Generator_ColumnPropNameInTable="fquot_xa1nameColumn" msprop:Generator_UserColumnName="fquot_xa1name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="12" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fquot_xa1par" msprop:Generator_ColumnVarNameInTable="columnfquot_xa1par" msprop:Generator_ColumnPropNameInRow="fquot_xa1par" msprop:Generator_ColumnPropNameInTable="fquot_xa1parColumn" msprop:Generator_UserColumnName="fquot_xa1par" type="xs:decimal" minOccurs="0" />
+              <xs:element name="fquot_taxmnyf" msprop:Generator_ColumnVarNameInTable="columnfquot_taxmnyf" msprop:Generator_ColumnPropNameInRow="fquot_taxmnyf" msprop:Generator_ColumnPropNameInTable="fquot_taxmnyfColumn" msprop:Generator_UserColumnName="fquot_taxmnyf" type="xs:decimal" minOccurs="0" />
+              <xs:element name="fquot_taxmnyb" msprop:Generator_ColumnVarNameInTable="columnfquot_taxmnyb" msprop:Generator_ColumnPropNameInRow="fquot_taxmnyb" msprop:Generator_ColumnPropNameInTable="fquot_taxmnybColumn" msprop:Generator_UserColumnName="fquot_taxmnyb" type="xs:decimal" minOccurs="0" />
+              <xs:element name="fquot_taxmny" msprop:Generator_ColumnVarNameInTable="columnfquot_taxmny" msprop:Generator_ColumnPropNameInRow="fquot_taxmny" msprop:Generator_ColumnPropNameInTable="fquot_taxmnyColumn" msprop:Generator_UserColumnName="fquot_taxmny" type="xs:decimal" minOccurs="0" />
+              <xs:element name="fquot_x3no" msprop:Generator_ColumnVarNameInTable="columnfquot_x3no" msprop:Generator_ColumnPropNameInRow="fquot_x3no" msprop:Generator_ColumnPropNameInTable="fquot_x3noColumn" msprop:Generator_UserColumnName="fquot_x3no" type="xs:decimal" minOccurs="0" />
+              <xs:element name="fquot_rate" msprop:Generator_ColumnVarNameInTable="columnfquot_rate" msprop:Generator_ColumnPropNameInRow="fquot_rate" msprop:Generator_ColumnPropNameInTable="fquot_rateColumn" msprop:Generator_UserColumnName="fquot_rate" type="xs:decimal" minOccurs="0" />
+              <xs:element name="fquot_tax" msprop:Generator_ColumnVarNameInTable="columnfquot_tax" msprop:Generator_ColumnPropNameInRow="fquot_tax" msprop:Generator_ColumnPropNameInTable="fquot_taxColumn" msprop:Generator_UserColumnName="fquot_tax" type="xs:decimal" minOccurs="0" />
+              <xs:element name="fquot_totmny" msprop:Generator_ColumnVarNameInTable="columnfquot_totmny" msprop:Generator_ColumnPropNameInRow="fquot_totmny" msprop:Generator_ColumnPropNameInTable="fquot_totmnyColumn" msprop:Generator_UserColumnName="fquot_totmny" type="xs:decimal" minOccurs="0" />
+              <xs:element name="fquot_taxb" msprop:Generator_ColumnVarNameInTable="columnfquot_taxb" msprop:Generator_ColumnPropNameInRow="fquot_taxb" msprop:Generator_ColumnPropNameInTable="fquot_taxbColumn" msprop:Generator_UserColumnName="fquot_taxb" type="xs:decimal" minOccurs="0" />
+              <xs:element name="fquot_totmnyb" msprop:Generator_ColumnVarNameInTable="columnfquot_totmnyb" msprop:Generator_ColumnPropNameInRow="fquot_totmnyb" msprop:Generator_ColumnPropNameInTable="fquot_totmnybColumn" msprop:Generator_UserColumnName="fquot_totmnyb" type="xs:decimal" minOccurs="0" />
+              <xs:element name="fquot_fqpayment" msprop:Generator_ColumnVarNameInTable="columnfquot_fqpayment" msprop:Generator_ColumnPropNameInRow="fquot_fqpayment" msprop:Generator_ColumnPropNameInTable="fquot_fqpaymentColumn" msprop:Generator_UserColumnName="fquot_fqpayment" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fquot_fqperiod" msprop:Generator_ColumnVarNameInTable="columnfquot_fqperiod" msprop:Generator_ColumnPropNameInRow="fquot_fqperiod" msprop:Generator_ColumnPropNameInTable="fquot_fqperiodColumn" msprop:Generator_UserColumnName="fquot_fqperiod" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fquot_fqmemo" msprop:Generator_ColumnVarNameInTable="columnfquot_fqmemo" msprop:Generator_ColumnPropNameInRow="fquot_fqmemo" msprop:Generator_ColumnPropNameInTable="fquot_fqmemoColumn" msprop:Generator_UserColumnName="fquot_fqmemo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fquot_recordno" msprop:Generator_ColumnVarNameInTable="columnfquot_recordno" msprop:Generator_ColumnPropNameInRow="fquot_recordno" msprop:Generator_ColumnPropNameInTable="fquot_recordnoColumn" msprop:Generator_UserColumnName="fquot_recordno" type="xs:decimal" minOccurs="0" />
+              <xs:element name="fquot_UsrNo" msprop:Generator_ColumnVarNameInTable="columnfquot_UsrNo" msprop:Generator_ColumnPropNameInRow="fquot_UsrNo" msprop:Generator_ColumnPropNameInTable="fquot_UsrNoColumn" msprop:Generator_UserColumnName="fquot_UsrNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fquotbom_FqNo" msprop:Generator_ColumnVarNameInTable="columnfquotbom_FqNo" msprop:Generator_ColumnPropNameInRow="fquotbom_FqNo" msprop:Generator_ColumnPropNameInTable="fquotbom_FqNoColumn" msprop:Generator_UserColumnName="fquotbom_FqNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="16" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fquotbom_BomID" msprop:Generator_ColumnVarNameInTable="columnfquotbom_BomID" msprop:Generator_ColumnPropNameInRow="fquotbom_BomID" msprop:Generator_ColumnPropNameInTable="fquotbom_BomIDColumn" msprop:Generator_UserColumnName="fquotbom_BomID" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fquotbom_BomRec" msprop:Generator_ColumnVarNameInTable="columnfquotbom_BomRec" msprop:Generator_ColumnPropNameInRow="fquotbom_BomRec" msprop:Generator_ColumnPropNameInTable="fquotbom_BomRecColumn" msprop:Generator_UserColumnName="fquotbom_BomRec" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fquotbom_itno" msprop:Generator_ColumnVarNameInTable="columnfquotbom_itno" msprop:Generator_ColumnPropNameInRow="fquotbom_itno" msprop:Generator_ColumnPropNameInTable="fquotbom_itnoColumn" msprop:Generator_UserColumnName="fquotbom_itno" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fquotbom_itname" msprop:Generator_ColumnVarNameInTable="columnfquotbom_itname" msprop:Generator_ColumnPropNameInRow="fquotbom_itname" msprop:Generator_ColumnPropNameInTable="fquotbom_itnameColumn" msprop:Generator_UserColumnName="fquotbom_itname" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fquotbom_itunit" msprop:Generator_ColumnVarNameInTable="columnfquotbom_itunit" msprop:Generator_ColumnPropNameInRow="fquotbom_itunit" msprop:Generator_ColumnPropNameInTable="fquotbom_itunitColumn" msprop:Generator_UserColumnName="fquotbom_itunit" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fquotbom_itqty" msprop:Generator_ColumnVarNameInTable="columnfquotbom_itqty" msprop:Generator_ColumnPropNameInRow="fquotbom_itqty" msprop:Generator_ColumnPropNameInTable="fquotbom_itqtyColumn" msprop:Generator_UserColumnName="fquotbom_itqty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="fquotbom_itpareprs" msprop:Generator_ColumnVarNameInTable="columnfquotbom_itpareprs" msprop:Generator_ColumnPropNameInRow="fquotbom_itpareprs" msprop:Generator_ColumnPropNameInTable="fquotbom_itpareprsColumn" msprop:Generator_UserColumnName="fquotbom_itpareprs" type="xs:decimal" minOccurs="0" />
+              <xs:element name="fquotbom_itpkgqty" msprop:Generator_ColumnVarNameInTable="columnfquotbom_itpkgqty" msprop:Generator_ColumnPropNameInRow="fquotbom_itpkgqty" msprop:Generator_ColumnPropNameInTable="fquotbom_itpkgqtyColumn" msprop:Generator_UserColumnName="fquotbom_itpkgqty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="fquotbom_itrec" msprop:Generator_ColumnVarNameInTable="columnfquotbom_itrec" msprop:Generator_ColumnPropNameInRow="fquotbom_itrec" msprop:Generator_ColumnPropNameInTable="fquotbom_itrecColumn" msprop:Generator_UserColumnName="fquotbom_itrec" type="xs:decimal" minOccurs="0" />
+              <xs:element name="fquotbom_itprice" msprop:Generator_ColumnVarNameInTable="columnfquotbom_itprice" msprop:Generator_ColumnPropNameInRow="fquotbom_itprice" msprop:Generator_ColumnPropNameInTable="fquotbom_itpriceColumn" msprop:Generator_UserColumnName="fquotbom_itprice" type="xs:decimal" minOccurs="0" />
+              <xs:element name="fquotbom_itprs" msprop:Generator_ColumnVarNameInTable="columnfquotbom_itprs" msprop:Generator_ColumnPropNameInRow="fquotbom_itprs" msprop:Generator_ColumnPropNameInTable="fquotbom_itprsColumn" msprop:Generator_UserColumnName="fquotbom_itprs" type="xs:decimal" minOccurs="0" />
+              <xs:element name="fquotbom_itmny" msprop:Generator_ColumnVarNameInTable="columnfquotbom_itmny" msprop:Generator_ColumnPropNameInRow="fquotbom_itmny" msprop:Generator_ColumnPropNameInTable="fquotbom_itmnyColumn" msprop:Generator_UserColumnName="fquotbom_itmny" type="xs:decimal" minOccurs="0" />
+              <xs:element name="fquotbom_itnote" msprop:Generator_ColumnVarNameInTable="columnfquotbom_itnote" msprop:Generator_ColumnPropNameInRow="fquotbom_itnote" msprop:Generator_ColumnPropNameInTable="fquotbom_itnoteColumn" msprop:Generator_UserColumnName="fquotbom_itnote" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fquotbom_ItSource" msprop:Generator_ColumnVarNameInTable="columnfquotbom_ItSource" msprop:Generator_ColumnPropNameInRow="fquotbom_ItSource" msprop:Generator_ColumnPropNameInTable="fquotbom_ItSourceColumn" msprop:Generator_UserColumnName="fquotbom_ItSource" type="xs:decimal" minOccurs="0" />
+              <xs:element name="fquotbom_ItBuyPri" msprop:Generator_ColumnVarNameInTable="columnfquotbom_ItBuyPri" msprop:Generator_ColumnPropNameInRow="fquotbom_ItBuyPri" msprop:Generator_ColumnPropNameInTable="fquotbom_ItBuyPriColumn" msprop:Generator_UserColumnName="fquotbom_ItBuyPri" type="xs:decimal" minOccurs="0" />
+              <xs:element name="fquotbom_ItBuyMny" msprop:Generator_ColumnVarNameInTable="columnfquotbom_ItBuyMny" msprop:Generator_ColumnPropNameInRow="fquotbom_ItBuyMny" msprop:Generator_ColumnPropNameInTable="fquotbom_ItBuyMnyColumn" msprop:Generator_UserColumnName="fquotbom_ItBuyMny" type="xs:decimal" minOccurs="0" />
+              <xs:element name="fquotd_fqno" msprop:Generator_ColumnVarNameInTable="columnfquotd_fqno" msprop:Generator_ColumnPropNameInRow="fquotd_fqno" msprop:Generator_ColumnPropNameInTable="fquotd_fqnoColumn" msprop:Generator_UserColumnName="fquotd_fqno" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="16" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fquotd_fqdate" msprop:Generator_ColumnVarNameInTable="columnfquotd_fqdate" msprop:Generator_ColumnPropNameInRow="fquotd_fqdate" msprop:Generator_ColumnPropNameInTable="fquotd_fqdateColumn" msprop:Generator_UserColumnName="fquotd_fqdate" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fquotd_fqdate1" msprop:Generator_ColumnVarNameInTable="columnfquotd_fqdate1" msprop:Generator_ColumnPropNameInRow="fquotd_fqdate1" msprop:Generator_ColumnPropNameInTable="fquotd_fqdate1Column" msprop:Generator_UserColumnName="fquotd_fqdate1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fquotd_fqdate2" msprop:Generator_ColumnVarNameInTable="columnfquotd_fqdate2" msprop:Generator_ColumnPropNameInRow="fquotd_fqdate2" msprop:Generator_ColumnPropNameInTable="fquotd_fqdate2Column" msprop:Generator_UserColumnName="fquotd_fqdate2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fquotd_fqdates" msprop:Generator_ColumnVarNameInTable="columnfquotd_fqdates" msprop:Generator_ColumnPropNameInRow="fquotd_fqdates" msprop:Generator_ColumnPropNameInTable="fquotd_fqdatesColumn" msprop:Generator_UserColumnName="fquotd_fqdates" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fquotd_fqdates1" msprop:Generator_ColumnVarNameInTable="columnfquotd_fqdates1" msprop:Generator_ColumnPropNameInRow="fquotd_fqdates1" msprop:Generator_ColumnPropNameInTable="fquotd_fqdates1Column" msprop:Generator_UserColumnName="fquotd_fqdates1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fquotd_fqdates2" msprop:Generator_ColumnVarNameInTable="columnfquotd_fqdates2" msprop:Generator_ColumnPropNameInRow="fquotd_fqdates2" msprop:Generator_ColumnPropNameInTable="fquotd_fqdates2Column" msprop:Generator_UserColumnName="fquotd_fqdates2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fquotd_fano" msprop:Generator_ColumnVarNameInTable="columnfquotd_fano" msprop:Generator_ColumnPropNameInRow="fquotd_fano" msprop:Generator_ColumnPropNameInTable="fquotd_fanoColumn" msprop:Generator_UserColumnName="fquotd_fano" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fquotd_emno" msprop:Generator_ColumnVarNameInTable="columnfquotd_emno" msprop:Generator_ColumnPropNameInRow="fquotd_emno" msprop:Generator_ColumnPropNameInTable="fquotd_emnoColumn" msprop:Generator_UserColumnName="fquotd_emno" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fquotd_xa1no" msprop:Generator_ColumnVarNameInTable="columnfquotd_xa1no" msprop:Generator_ColumnPropNameInRow="fquotd_xa1no" msprop:Generator_ColumnPropNameInTable="fquotd_xa1noColumn" msprop:Generator_UserColumnName="fquotd_xa1no" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fquotd_xa1par" msprop:Generator_ColumnVarNameInTable="columnfquotd_xa1par" msprop:Generator_ColumnPropNameInRow="fquotd_xa1par" msprop:Generator_ColumnPropNameInTable="fquotd_xa1parColumn" msprop:Generator_UserColumnName="fquotd_xa1par" type="xs:decimal" minOccurs="0" />
+              <xs:element name="fquotd_itno" msprop:Generator_ColumnVarNameInTable="columnfquotd_itno" msprop:Generator_ColumnPropNameInRow="fquotd_itno" msprop:Generator_ColumnPropNameInTable="fquotd_itnoColumn" msprop:Generator_UserColumnName="fquotd_itno" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fquotd_itname" msprop:Generator_ColumnVarNameInTable="columnfquotd_itname" msprop:Generator_ColumnPropNameInRow="fquotd_itname" msprop:Generator_ColumnPropNameInTable="fquotd_itnameColumn" msprop:Generator_UserColumnName="fquotd_itname" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fquotd_ittrait" msprop:Generator_ColumnVarNameInTable="columnfquotd_ittrait" msprop:Generator_ColumnPropNameInRow="fquotd_ittrait" msprop:Generator_ColumnPropNameInTable="fquotd_ittraitColumn" msprop:Generator_UserColumnName="fquotd_ittrait" type="xs:decimal" minOccurs="0" />
+              <xs:element name="fquotd_itunit" msprop:Generator_ColumnVarNameInTable="columnfquotd_itunit" msprop:Generator_ColumnPropNameInRow="fquotd_itunit" msprop:Generator_ColumnPropNameInTable="fquotd_itunitColumn" msprop:Generator_UserColumnName="fquotd_itunit" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fquotd_itpkgqty" msprop:Generator_ColumnVarNameInTable="columnfquotd_itpkgqty" msprop:Generator_ColumnPropNameInRow="fquotd_itpkgqty" msprop:Generator_ColumnPropNameInTable="fquotd_itpkgqtyColumn" msprop:Generator_UserColumnName="fquotd_itpkgqty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="fquotd_qty" msprop:Generator_ColumnVarNameInTable="columnfquotd_qty" msprop:Generator_ColumnPropNameInRow="fquotd_qty" msprop:Generator_ColumnPropNameInTable="fquotd_qtyColumn" msprop:Generator_UserColumnName="fquotd_qty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="fquotd_price" msprop:Generator_ColumnVarNameInTable="columnfquotd_price" msprop:Generator_ColumnPropNameInRow="fquotd_price" msprop:Generator_ColumnPropNameInTable="fquotd_priceColumn" msprop:Generator_UserColumnName="fquotd_price" type="xs:decimal" minOccurs="0" />
+              <xs:element name="fquotd_prs" msprop:Generator_ColumnVarNameInTable="columnfquotd_prs" msprop:Generator_ColumnPropNameInRow="fquotd_prs" msprop:Generator_ColumnPropNameInTable="fquotd_prsColumn" msprop:Generator_UserColumnName="fquotd_prs" type="xs:decimal" minOccurs="0" />
+              <xs:element name="fquotd_rate" msprop:Generator_ColumnVarNameInTable="columnfquotd_rate" msprop:Generator_ColumnPropNameInRow="fquotd_rate" msprop:Generator_ColumnPropNameInTable="fquotd_rateColumn" msprop:Generator_UserColumnName="fquotd_rate" type="xs:decimal" minOccurs="0" />
+              <xs:element name="fquotd_taxprice" msprop:Generator_ColumnVarNameInTable="columnfquotd_taxprice" msprop:Generator_ColumnPropNameInRow="fquotd_taxprice" msprop:Generator_ColumnPropNameInTable="fquotd_taxpriceColumn" msprop:Generator_UserColumnName="fquotd_taxprice" type="xs:decimal" minOccurs="0" />
+              <xs:element name="fquotd_mny" msprop:Generator_ColumnVarNameInTable="columnfquotd_mny" msprop:Generator_ColumnPropNameInRow="fquotd_mny" msprop:Generator_ColumnPropNameInTable="fquotd_mnyColumn" msprop:Generator_UserColumnName="fquotd_mny" type="xs:decimal" minOccurs="0" />
+              <xs:element name="fquotd_priceb" msprop:Generator_ColumnVarNameInTable="columnfquotd_priceb" msprop:Generator_ColumnPropNameInRow="fquotd_priceb" msprop:Generator_ColumnPropNameInTable="fquotd_pricebColumn" msprop:Generator_UserColumnName="fquotd_priceb" type="xs:decimal" minOccurs="0" />
+              <xs:element name="fquotd_taxpriceb" msprop:Generator_ColumnVarNameInTable="columnfquotd_taxpriceb" msprop:Generator_ColumnPropNameInRow="fquotd_taxpriceb" msprop:Generator_ColumnPropNameInTable="fquotd_taxpricebColumn" msprop:Generator_UserColumnName="fquotd_taxpriceb" type="xs:decimal" minOccurs="0" />
+              <xs:element name="fquotd_mnyb" msprop:Generator_ColumnVarNameInTable="columnfquotd_mnyb" msprop:Generator_ColumnPropNameInRow="fquotd_mnyb" msprop:Generator_ColumnPropNameInTable="fquotd_mnybColumn" msprop:Generator_UserColumnName="fquotd_mnyb" type="xs:decimal" minOccurs="0" />
+              <xs:element name="fquotd_memo" msprop:Generator_ColumnVarNameInTable="columnfquotd_memo" msprop:Generator_ColumnPropNameInRow="fquotd_memo" msprop:Generator_ColumnPropNameInTable="fquotd_memoColumn" msprop:Generator_UserColumnName="fquotd_memo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fquotd_lowzero" msprop:Generator_ColumnVarNameInTable="columnfquotd_lowzero" msprop:Generator_ColumnPropNameInRow="fquotd_lowzero" msprop:Generator_ColumnPropNameInTable="fquotd_lowzeroColumn" msprop:Generator_UserColumnName="fquotd_lowzero" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fquotd_bomid" msprop:Generator_ColumnVarNameInTable="columnfquotd_bomid" msprop:Generator_ColumnPropNameInRow="fquotd_bomid" msprop:Generator_ColumnPropNameInTable="fquotd_bomidColumn" msprop:Generator_UserColumnName="fquotd_bomid" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fquotd_bomrec" msprop:Generator_ColumnVarNameInTable="columnfquotd_bomrec" msprop:Generator_ColumnPropNameInRow="fquotd_bomrec" msprop:Generator_ColumnPropNameInTable="fquotd_bomrecColumn" msprop:Generator_UserColumnName="fquotd_bomrec" type="xs:decimal" minOccurs="0" />
+              <xs:element name="fquotd_recordno" msprop:Generator_ColumnVarNameInTable="columnfquotd_recordno" msprop:Generator_ColumnPropNameInRow="fquotd_recordno" msprop:Generator_ColumnPropNameInTable="fquotd_recordnoColumn" msprop:Generator_UserColumnName="fquotd_recordno" type="xs:decimal" minOccurs="0" />
+              <xs:element name="fquotd_sltflag" msprop:Generator_ColumnVarNameInTable="columnfquotd_sltflag" msprop:Generator_ColumnPropNameInRow="fquotd_sltflag" msprop:Generator_ColumnPropNameInTable="fquotd_sltflagColumn" msprop:Generator_UserColumnName="fquotd_sltflag" type="xs:boolean" minOccurs="0" />
+              <xs:element name="fquotd_extflag" msprop:Generator_ColumnVarNameInTable="columnfquotd_extflag" msprop:Generator_ColumnPropNameInRow="fquotd_extflag" msprop:Generator_ColumnPropNameInTable="fquotd_extflagColumn" msprop:Generator_UserColumnName="fquotd_extflag" type="xs:boolean" minOccurs="0" />
+              <xs:element name="fquotd_itdesp1" msprop:Generator_ColumnVarNameInTable="columnfquotd_itdesp1" msprop:Generator_ColumnPropNameInRow="fquotd_itdesp1" msprop:Generator_ColumnPropNameInTable="fquotd_itdesp1Column" msprop:Generator_UserColumnName="fquotd_itdesp1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fquotd_itdesp2" msprop:Generator_ColumnVarNameInTable="columnfquotd_itdesp2" msprop:Generator_ColumnPropNameInRow="fquotd_itdesp2" msprop:Generator_ColumnPropNameInTable="fquotd_itdesp2Column" msprop:Generator_UserColumnName="fquotd_itdesp2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fquotd_itdesp3" msprop:Generator_ColumnVarNameInTable="columnfquotd_itdesp3" msprop:Generator_ColumnPropNameInRow="fquotd_itdesp3" msprop:Generator_ColumnPropNameInTable="fquotd_itdesp3Column" msprop:Generator_UserColumnName="fquotd_itdesp3" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fquotd_itdesp4" msprop:Generator_ColumnVarNameInTable="columnfquotd_itdesp4" msprop:Generator_ColumnPropNameInRow="fquotd_itdesp4" msprop:Generator_ColumnPropNameInTable="fquotd_itdesp4Column" msprop:Generator_UserColumnName="fquotd_itdesp4" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fquotd_itdesp5" msprop:Generator_ColumnVarNameInTable="columnfquotd_itdesp5" msprop:Generator_ColumnPropNameInRow="fquotd_itdesp5" msprop:Generator_ColumnPropNameInTable="fquotd_itdesp5Column" msprop:Generator_UserColumnName="fquotd_itdesp5" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fquotd_itdesp6" msprop:Generator_ColumnVarNameInTable="columnfquotd_itdesp6" msprop:Generator_ColumnPropNameInRow="fquotd_itdesp6" msprop:Generator_ColumnPropNameInTable="fquotd_itdesp6Column" msprop:Generator_UserColumnName="fquotd_itdesp6" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fquotd_itdesp7" msprop:Generator_ColumnVarNameInTable="columnfquotd_itdesp7" msprop:Generator_ColumnPropNameInRow="fquotd_itdesp7" msprop:Generator_ColumnPropNameInTable="fquotd_itdesp7Column" msprop:Generator_UserColumnName="fquotd_itdesp7" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fquotd_itdesp8" msprop:Generator_ColumnVarNameInTable="columnfquotd_itdesp8" msprop:Generator_ColumnPropNameInRow="fquotd_itdesp8" msprop:Generator_ColumnPropNameInTable="fquotd_itdesp8Column" msprop:Generator_UserColumnName="fquotd_itdesp8" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fquotd_itdesp9" msprop:Generator_ColumnVarNameInTable="columnfquotd_itdesp9" msprop:Generator_ColumnPropNameInRow="fquotd_itdesp9" msprop:Generator_ColumnPropNameInTable="fquotd_itdesp9Column" msprop:Generator_UserColumnName="fquotd_itdesp9" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fquotd_itdesp10" msprop:Generator_ColumnVarNameInTable="columnfquotd_itdesp10" msprop:Generator_ColumnPropNameInRow="fquotd_itdesp10" msprop:Generator_ColumnPropNameInTable="fquotd_itdesp10Column" msprop:Generator_UserColumnName="fquotd_itdesp10" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fquotd_stName" msprop:Generator_ColumnVarNameInTable="columnfquotd_stName" msprop:Generator_ColumnPropNameInRow="fquotd_stName" msprop:Generator_ColumnPropNameInTable="fquotd_stNameColumn" msprop:Generator_UserColumnName="fquotd_stName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fact_fano" msprop:Generator_ColumnVarNameInTable="columnfact_fano" msprop:Generator_ColumnPropNameInRow="fact_fano" msprop:Generator_ColumnPropNameInTable="fact_fanoColumn" msprop:Generator_UserColumnName="fact_fano" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fact_fafax1" msprop:Generator_ColumnVarNameInTable="columnfact_fafax1" msprop:Generator_ColumnPropNameInRow="fact_fafax1" msprop:Generator_ColumnPropNameInTable="fact_fafax1Column" msprop:Generator_UserColumnName="fact_fafax1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fact_faaddr1" msprop:Generator_ColumnVarNameInTable="columnfact_faaddr1" msprop:Generator_ColumnPropNameInRow="fact_faaddr1" msprop:Generator_ColumnPropNameInTable="fact_faaddr1Column" msprop:Generator_UserColumnName="fact_faaddr1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fact_fauno" msprop:Generator_ColumnVarNameInTable="columnfact_fauno" msprop:Generator_ColumnPropNameInRow="fact_fauno" msprop:Generator_ColumnPropNameInTable="fact_faunoColumn" msprop:Generator_UserColumnName="fact_fauno" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fact_faname2" msprop:Generator_ColumnVarNameInTable="columnfact_faname2" msprop:Generator_ColumnPropNameInRow="fact_faname2" msprop:Generator_ColumnPropNameInTable="fact_faname2Column" msprop:Generator_UserColumnName="fact_faname2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="item_itpicture" msprop:Generator_ColumnVarNameInTable="columnitem_itpicture" msprop:Generator_ColumnPropNameInRow="item_itpicture" msprop:Generator_ColumnPropNameInTable="item_itpictureColumn" msprop:Generator_UserColumnName="item_itpicture" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="item_pic" msprop:Generator_ColumnVarNameInTable="columnitem_pic" msprop:Generator_ColumnPropNameInRow="item_pic" msprop:Generator_ColumnPropNameInTable="item_picColumn" msprop:Generator_UserColumnName="item_pic" type="xs:base64Binary" minOccurs="0" />
+              <xs:element name="fquot_AppScNo" msprop:Generator_ColumnVarNameInTable="columnfquot_AppScNo" msprop:Generator_ColumnPropNameInRow="fquot_AppScNo" msprop:Generator_ColumnPropNameInTable="fquot_AppScNoColumn" msprop:Generator_UserColumnName="fquot_AppScNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fquot_AppDate" msprop:Generator_ColumnVarNameInTable="columnfquot_AppDate" msprop:Generator_ColumnPropNameInRow="fquot_AppDate" msprop:Generator_ColumnPropNameInTable="fquot_AppDateColumn" msprop:Generator_UserColumnName="fquot_AppDate" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fquot_EdtScNo" msprop:Generator_ColumnVarNameInTable="columnfquot_EdtScNo" msprop:Generator_ColumnPropNameInRow="fquot_EdtScNo" msprop:Generator_ColumnPropNameInTable="fquot_EdtScNoColumn" msprop:Generator_UserColumnName="fquot_EdtScNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fquot_EdtDate" msprop:Generator_ColumnVarNameInTable="columnfquot_EdtDate" msprop:Generator_ColumnPropNameInRow="fquot_EdtDate" msprop:Generator_ColumnPropNameInTable="fquot_EdtDateColumn" msprop:Generator_UserColumnName="fquot_EdtDate" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fquot_fqmemo1" msprop:Generator_ColumnVarNameInTable="columnfquot_fqmemo1" msprop:Generator_ColumnPropNameInRow="fquot_fqmemo1" msprop:Generator_ColumnPropNameInTable="fquot_fqmemo1Column" msprop:Generator_UserColumnName="fquot_fqmemo1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="scname" msprop:Generator_ColumnVarNameInTable="columnscname" msprop:Generator_ColumnPropNameInRow="scname" msprop:Generator_ColumnPropNameInTable="scnameColumn" msprop:Generator_UserColumnName="scname" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="scname1" msprop:Generator_ColumnVarNameInTable="columnscname1" msprop:Generator_ColumnPropNameInRow="scname1" msprop:Generator_ColumnPropNameInTable="scname1Column" msprop:Generator_UserColumnName="scname1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="pic長度" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnpic長度" msprop:Generator_ColumnPropNameInRow="pic長度" msprop:Generator_ColumnPropNameInTable="pic長度Column" msprop:Generator_UserColumnName="pic長度" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

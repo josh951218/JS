@@ -1,0 +1,506 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" DoublePass="true" ReportInfo.Created="03/11/2015 18:35:11" ReportInfo.Modified="07/04/2016 18:38:35" ReportInfo.CreatorVersion="2013.2.5.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {         
+    private void Text67_BeforePrint(object sender, EventArgs e)
+    {
+      if(((Decimal)Report.GetColumnValue(&quot;RSHOP_.rshopd_recordno&quot;))==((Decimal)Report.GetColumnValue(&quot;RSHOP_.rshop_recordno&quot;)))
+      {
+        Text67.Visible=true;
+      } 
+      else
+        Text67.Visible=false; 
+    }
+
+    private void Text66_BeforePrint(object sender, EventArgs e)
+    {
+      if (((Int32)Report.GetVariableValue(&quot;Page&quot;))!=((Int32)Report.GetVariableValue(&quot;TotalPages&quot;)))
+      {
+        Text66.Visible=true;
+      }
+      else
+        Text66.Visible=false;
+    }       
+
+    private void Text1_BeforePrint(object sender, EventArgs e)
+    {
+      //銷貨日期
+      string date = ((String)Report.GetColumnValue(&quot;RSHOP_.rshop_退貨日期_西元&quot;));
+      string date1 = &quot;&quot;;
+      if(((String)Report.GetParameterValue(&quot;date&quot;)) == &quot;民國&quot;)
+      {
+        date1 = (Convert.ToInt32((date.Substring(0,4)))-1911).ToString()+&quot;.&quot;;
+        date1 += date.Substring(4,2)+&quot;.&quot;+date.Substring(6,2); 
+      }
+      else
+      {
+        date1 = date.Substring(0,4)+&quot;.&quot;;
+        date1 += date.Substring(4,2)+&quot;.&quot;+date.Substring(6,2); 
+      }
+      Text1.Text = date1;
+    }
+
+    private void Text40_BeforePrint(object sender, EventArgs e)
+    {
+      //金額
+      if(((Boolean)Report.GetParameterValue(&quot;是否顯示金額&quot;)) == false)
+      {
+        Text40.Text =&quot;&quot;;
+        return;
+      }
+      string formet = &quot;f&quot;+((String)Report.GetParameterValue(&quot;進項金額小數&quot;))    ;
+      Text40.Text = ((Decimal)Report.GetColumnValue(&quot;RSHOP_.rshopd_外幣稅前金額&quot;)).ToString(formet);
+    }
+
+    private void Text37_BeforePrint(object sender, EventArgs e)
+    {
+      //數量
+      string formet = &quot;f&quot;+((String)Report.GetParameterValue(&quot;庫存數量小數&quot;));
+      Text37.Text = ((Decimal)Report.GetColumnValue(&quot;RSHOP_.rshopd_數量&quot;)).ToString(formet);
+    }
+
+    private void Text39_BeforePrint(object sender, EventArgs e)
+    {
+      //單價
+      if(((Boolean)Report.GetParameterValue(&quot;是否顯示金額&quot;)) == false)
+      {
+          Text39.Text =&quot;&quot;;
+          return;
+      }
+      string formet = &quot;f&quot;+((String)Report.GetParameterValue(&quot;進貨單價小數&quot;));
+      Text39.Text = ((Decimal)Report.GetColumnValue(&quot;RSHOP_.rshopd_外幣稅前單價&quot;)).ToString(formet);
+    }
+
+    private void Text50_BeforePrint(object sender, EventArgs e)
+    {
+      //稅前合計
+      if(((Boolean)Report.GetParameterValue(&quot;是否顯示金額&quot;)) == false)
+      {
+        Text50.Text =&quot;&quot;;
+        return;
+      }
+      string formet = &quot;f&quot;+((String)Report.GetParameterValue(&quot;進貨單據小數&quot;));
+      Text50.Text = ((Decimal)Report.GetColumnValue(&quot;RSHOP_.rshop_外幣合計&quot;)).ToString(formet);
+    }
+
+    private void Text51_BeforePrint(object sender, EventArgs e)
+    {
+      //營業稅
+      if(((Boolean)Report.GetParameterValue(&quot;是否顯示金額&quot;)) == false)
+      {
+        Text51.Text =&quot;&quot;;
+        return;
+      }
+      string formet = &quot;f&quot;+((String)Report.GetParameterValue(&quot;進項稅額小數&quot;));
+      Text51.Text =((Decimal)Report.GetColumnValue(&quot;RSHOP_.rshop_外幣營業稅額&quot;)).ToString(formet);
+    }
+
+    private void Text57_BeforePrint(object sender, EventArgs e)
+    {
+      //應收總額
+      if(((Boolean)Report.GetParameterValue(&quot;是否顯示金額&quot;)) == false)
+      {
+        Text57.Text =&quot;&quot;;
+        return;
+      }
+      string formet = &quot;f&quot;+((String)Report.GetParameterValue(&quot;進貨單據小數&quot;));
+      Text57.Text =((Decimal)Report.GetColumnValue(&quot;RSHOP_.rshop_外幣總額&quot;)).ToString(formet);
+    }
+
+    private void Text53_BeforePrint(object sender, EventArgs e)
+    {
+      //已付金額
+      if(((Boolean)Report.GetParameterValue(&quot;是否顯示金額&quot;)) == false)
+      {
+        Text53.Text =&quot;&quot;;
+        return;
+      }
+      string formet = &quot;f&quot;+((String)Report.GetParameterValue(&quot;進貨單據小數&quot;));
+      Text53.Text =((Decimal)Report.GetColumnValue(&quot;RSHOP_.rshop_已付金額&quot;)).ToString(formet);
+    }
+
+    private void Text54_BeforePrint(object sender, EventArgs e)
+    {
+      //折扣金額
+      if(((Boolean)Report.GetParameterValue(&quot;是否顯示金額&quot;)) == false)
+      {
+        Text54.Text =&quot;&quot;;
+        return;
+      }
+      string formet = &quot;f&quot;+((String)Report.GetParameterValue(&quot;進貨單據小數&quot;));
+      Text54.Text =((Decimal)Report.GetColumnValue(&quot;RSHOP_.rshop_折扣金額&quot;)).ToString(formet);
+    }
+
+    
+
+    private void Text52_BeforePrint(object sender, EventArgs e)
+    {
+      //未付金額
+      if(((Boolean)Report.GetParameterValue(&quot;是否顯示金額&quot;)) == false)
+      {
+        Text52.Text =&quot;&quot;;
+        return;
+      }
+      string formet = &quot;f&quot;+((String)Report.GetParameterValue(&quot;進貨單據小數&quot;));
+      Text52.Text =((Decimal)Report.GetColumnValue(&quot;RSHOP_.rshop_未付金額&quot;)).ToString(formet);
+    }
+
+    private void Text36_BeforePrint(object sender, EventArgs e)
+    {
+      if(((String)Report.GetColumnValue(&quot;RSHOP_.rshopd_品名規格&quot;))==&quot;&quot;)
+      {
+        Data1.Visible=false;
+      }
+    }
+
+    private void Text2_BeforePrint(object sender, EventArgs e)
+    {
+      Text2.Text = ((String)Report.GetColumnValue(&quot;RSHOP_.rshop_發票抬頭&quot;)) + &quot;［&quot; + ((String)Report.GetColumnValue(&quot;RSHOP_.rshop_廠商聯絡人&quot;)) +&quot;］&quot;;
+    }
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <MsSqlDataConnection Name="Connection" ConnectionString="rijcmlq+rW0RkboK+/8CKGGYUID3ctBV8q9SvKYxl3iiE7vBnh7Tgou0+4WFf3NfmPSvHVFX/S2Yvz0Ibm2enAAh/bj5IwCF1OGDq6mzCDV0cmqq5lzdq8B2h44YdiG1MkNRxzZmCUdOqUj+K3AG9XjPOZ10p/sYM73zozTORNgAnXunb8=">
+      <TableDataSource Name="Table" Alias="RSHOP_" DataType="System.Int32" Enabled="true" SelectCommand="SELECT &#13;&#10;rshop.bsno AS rshop_退貨單號, rshop.bsdate AS rshop_退貨日期_民國, rshop.bsdate1 AS rshop_退貨日期_西元,  rshop.bsdate2 AS rshop_退貨日期_保留, rshop.bsdateac AS rshop_帳款日期, rshop.bsdateac1 AS rshop_帳款日期_西元,  rshop.bsdateac2 AS rshop_帳款日期_保留, rshop.fqno AS rshop_詢價憑證, rshop.cono AS rshop_公司編號, rshop.coname1 AS rshop_公司簡稱, rshop.coname2 AS rshop_公司名稱, rshop.fano AS rshop_廠商編號,  rshop.faname2 AS rshop_廠商名稱, rshop.faname1 AS rshop_廠商簡稱, &#13;&#10;rshop.fatel1 AS rshop_廠商電話,  rshop.faper1 AS rshop_廠商聯絡人, rshop.emno AS rshop_業務編號, rshop.emname AS rshop_業務姓名,  rshop.spno AS rshop_專案編號, rshop.spname AS rshop_專案名稱, rshop.stno AS rshop_退貨倉庫編號, rshop.stname AS rshop_退貨倉庫名稱, rshop.xa1no AS rshop_幣別編號, rshop.xa1name AS rshop_幣別名稱, rshop.xa1par AS rshop_匯率, rshop.taxmnyf AS rshop_taxmnyf, rshop.taxmnyb AS rshop_本幣合計,  rshop.taxmny AS rshop_外幣合計, rshop.x3no AS rshop_稅別編號, &#13;&#10;rshop.rate AS rshop_稅率, rshop.x5no AS rshop_發票種類,  rshop.seno AS rshop_送貨編號, rshop.sename AS rshop_送貨名稱, rshop.x4no AS rshop_結帳類別編號,  rshop.x4name AS rshop_結帳類別名稱, rshop.tax AS rshop_外幣營業稅額, rshop.totmny AS rshop_外幣總額, rshop.taxb AS rshop_本幣營業稅額,  rshop.totmnyb AS rshop_本幣總額, rshop.discount AS rshop_折扣金額, rshop.cashmny AS rshop_現金金額,  rshop.cardmny AS rshop_刷卡金額, rshop.cardno AS rshop_刷卡卡號, rshop.ticket AS rshop_禮卷金額,  &#13;&#10;rshop.collectmny AS rshop_已付金額, rshop.getprvacc AS rshop_取用預付, rshop.acctmny AS rshop_未付金額,  rshop.bsmemo AS rshop_備註, rshop.bsmemo1 AS rshop_詳細備註, rshop.bracket AS rshop_表單類型,  rshop.recordno AS rshop_recordno, rshop.invno AS rshop_發票編號, rshop.invdate AS rshop_發票日期_民國,  rshop.invdate1 AS rshop_發票日期_西元, rshop.invname AS rshop_發票抬頭, rshop.invtaxno AS rshop_統一編號, rshop.invaddr1 AS rshop_發票地址, &#13;&#10;rshop.transport AS rshop_運費, rshop.tranpar AS rshop_運費匯率,  rshop.transportb AS rshop_運費本幣, rshop.premium AS rshop_保險費外幣, rshop.prempar AS rshop_保險費匯率,  rshop.premiumb AS rshop_保險費本幣, rshop.tariff AS rshop_關稅, rshop.taripar AS rshop_關稅匯率,  rshop.tariffb AS rshop_關稅本幣, rshop.postal AS rshop_郵電費, rshop.procfee AS rshop_手續費,  rshop.certif AS rshop_簽證費, rshop.clearance AS rshop_報關費, rshop.otherfee AS rshop_其他費用,  rshop.totfee AS rshop_費用合計, rshop.allot AS rshop_費用分配, &#13;&#10;rshop.appdate AS rshop_新增日期時間,  rshop.edtdate AS rshop_修改日期時間, rshop.appscno AS rshop_登錄人員, rshop.edtscno AS rshop_最後修改人員,  rshop.acno AS rshop_傳票編號, rshop.cloflag AS rshop_年結標示, rshop.UsrNo AS rshop_UsrNo,  rshop.BsShare AS rshop_費用分攤, rshop.BsShsel AS rshop_分攤方式, rshopd.bsid AS rshopd_bsid,  &#13;&#10;&#13;&#10;rshopd.bsno AS rshopd_退貨單號, rshopd.bsdate AS rshopd_退貨日期_民國, rshopd.bsdate1 AS rshopd_退貨日期_西元,  rshopd.bsdate2 AS rshopd_退貨日期_保留, rshopd.bsdateac AS rshopd_帳款日期_民國, rshopd.bsdateac1 AS rshopd_帳款日期_西元,  rshopd.bsdateac2 AS rshopd_帳款日期_保留, rshopd.fqno AS rshopd_詢價憑證, rshopd.cono AS rshopd_公司編號,  rshopd.fano AS rshopd_廠商編號, rshopd.emno AS rshopd_業務編號, rshopd.spno AS rshopd_專案編號,  rshopd.stno AS rshopd_進貨倉庫編號, rshopd.xa1no AS rshopd_幣別編號, &#13;&#10;rshopd.xa1par AS rshopd_匯率,  rshopd.seno AS rshopd_送貨編號, rshopd.sename AS rshopd_送貨名稱, rshopd.x4no AS rshopd_結帳類別編號,  rshopd.x4name AS rshopd_結帳類別名稱, rshopd.fono AS rshopd_採購單號, rshopd.itno AS rshopd_產品編號,  rshopd.itname AS rshopd_品名規格, rshopd.ittrait AS rshopd_產品組成, rshopd.itunit AS rshopd_單位,  rshopd.itpkgqty AS rshopd_包裝數量, rshopd.qty AS rshopd_數量, rshopd.price AS rshopd_外幣單價,  rshopd.prs AS rshopd_折數, rshopd.rate AS rshopd_稅率, rshopd.taxprice AS rshopd_外幣稅前單價,  &#13;&#10;rshopd.mny AS rshopd_外幣稅前金額, rshopd.priceb AS rshopd_本幣單價, rshopd.taxpriceb AS rshopd_本幣稅前單價,  rshopd.mnyb AS rshopd_本幣稅前金額, rshopd.memo AS rshopd_說明, rshopd.lowzero AS rshopd_低於庫存量,  rshopd.bomid AS rshopd_bomid, rshopd.bomrec AS rshopd_bomrec, rshopd.recordno AS rshopd_recordno,  rshopd.sltflag AS rshopd_sltflag, rshopd.extflag AS rshopd_extflag, rshopd.bracket AS rshopd_表單類型,  &#13;&#10;rshopd.itdesp1 AS rshopd_規格說明1, rshopd.itdesp2 AS rshopd_規格說明2, rshopd.itdesp3 AS rshopd_規格說明3,  rshopd.itdesp4 AS rshopd_規格說明4, rshopd.itdesp5 AS rshopd_規格說明5, &#13;&#10;rshopd.itdesp6 AS rshopd_規格說明6,  rshopd.itdesp7 AS rshopd_規格說明7, rshopd.itdesp8 AS rshopd_規格說明8, rshopd.itdesp9 AS rshopd_規格說明9,  rshopd.itdesp10 AS rshopd_規格說明10, &#13;&#10;rshopd.stName AS rshopd_stName,  rshopd.RecordNo_D AS rshopd_RecordNo_D, rshopd.RealCost AS rshopd_RealCost, rshopd.Pqty AS rshopd_Pqty,  rshopd.Punit AS rshopd_Punit, rshopd.mformula AS rshopd_mformula, &#13;&#10;rshopd.mwidth4 AS rshopd_mwidth4,  rshopd.mwidth3 AS rshopd_mwidth3, rshopd.mwidth2 AS rshopd_mwidth2, rshopd.mwidth1 AS rshopd_mwidth1,  rshopd.mlong AS rshopd_mlong, rshopd.munit AS rshopd_munit, rshopd.mqty AS rshopd_mqty,  rshopd.foid AS rshopd_foid, &#13;&#10;&#13;&#10;RShopBom.BsNo AS RShopBom_退貨單號, RShopBom.BomID AS RShopBom_BomID,  RShopBom.BomRec AS RShopBom_BomRec, RShopBom.itno AS RShopBom_產品編號,  RShopBom.itname AS RShopBom_品名規格, RShopBom.itunit AS RShopBom_單位,  RShopBom.itqty AS RShopBom_標準用量, RShopBom.itpareprs AS RShopBom_母件比率,  RShopBom.itpkgqty AS RShopBom_包裝數量, RShopBom.itrec AS RShopBom_itrec,  RShopBom.itprice AS RShopBom_單價, RShopBom.itprs AS RShopBom_折數,  RShopBom.itmny AS RShopBom_金額, RShopBom.itnote AS RShopBom_說明,  RShopBom.ItSource AS RShopBom_ItSource, RShopBom.ItBuyPri AS RShopBom_ItBuyPri,  RShopBom.ItBuyMny AS RShopBom_ItBuyMny, &#13;&#10;&#13;&#10;fact.fano AS fact_廠商編號, fact.faname2 AS fact_廠商名稱,  fact.faname1 AS fact_廠商簡稱, fact.faxa1no AS fact_幣別編號, fact.facono AS fact_隸屬公司, fact.faime AS fact_注音速查,  fact.fax12no AS fact_廠商類別, fact.faemno1 AS fact_業務人員, fact.faper1 AS fact_廠商聯絡人1, fact.faper2 AS fact_廠商聯絡人2,  fact.faper AS fact_廠商負責人, fact.fatel1 AS fact_廠商電話1, fact.fatel2 AS fact_廠商電話2, fact.fatel3 AS fact_廠商電話3,  fact.fafax1 AS fact_廠商傳真, fact.faatel1 AS fact_廠商行動電話1, fact.faatel2 AS fact_廠商行動電話2, fact.fabbc AS fact_呼叫器,  &#13;&#10;fact.faaddr1 AS fact_公司地址, fact.far1 AS fact_公司郵遞區號, fact.faaddr2 AS fact_發票地址, fact.far2 AS fact_發票郵遞區號,  fact.faaddr3 AS fact_工廠地址, fact.far3 AS fact_工廠郵遞區號, fact.fawork AS fact_營業項目, fact.faemail AS fact_電子信箱,  fact.fawww AS fact_網址, fact.facredit AS fact_信用額度, fact.fauno AS fact_統一編號, fact.fax3no AS fact_營業稅,  fact.fax4no AS fact_結帳類別, fact.fax5no AS fact_發票模式, fact.faengname AS fact_英文抬頭,  fact.faengaddr AS fact_英文住址, fact.faengr1 AS fact_英文住址郵遞區號, fact.famemo1 AS fact_備註1,  fact.famemo2 AS fact_備註2, &#13;&#10;fact.faarea AS fact_地區類別, fact.fax2no AS fact_區域名稱, fact.faudf1 AS fact_自訂1,  fact.faudf2 AS fact_自訂2, fact.faudf3 AS fact_自訂3, fact.faudf4 AS fact_自訂4, fact.faudf5 AS fact_自訂5,  fact.faudf6 AS fact_自訂6, fact.falastday AS fact_最近交易_民國, fact.falastday1 AS fact_最近交易_西元,  fact.falastday2 AS fact_最近交易_保留, fact.fadate AS fact_建檔日期_民國, fact.fadate1 AS fact_建檔日期_西元,  fact.fadate2 AS fact_建檔日期_保留, fact.fafirpayabl AS fact_期初應付帳款金額, fact.fasparepay AS fact_期初應付帳款餘額,  fact.fapayable AS fact_現有應付帳款金額, fact.fafirpaypar AS fact_期初應付帳款匯率, fact.fafirpayamt AS fact_期初預付金額,  fact.fapayamt AS fact_預付餘額, fact.faChkName AS fact_faChkName,&#13;&#10;&#13;&#10;scrit.scname,scrit.scname1  &#13;&#10;&#13;&#10;FROM  rshop  &#13;&#10;LEFT  JOIN  rshopd ON rshop.bsno = rshopd.bsno  &#13;&#10;LEFT  JOIN  RShopBom ON rshopd.bomid = RShopBom.BomID  &#13;&#10;LEFT  JOIN  fact ON rshop.fano = fact.fano  &#13;&#10;Left join scrit on rshop.appscno = scrit.scname  &#13;&#10;&#13;&#10;WHERE rshop.bsno&gt;='' and rshop.bsno&lt;=''&#13;&#10;&#13;&#10;order by rshop.bsno,rshopd.recordno">
+        <Column Name="rshop_退貨單號" DataType="System.String"/>
+        <Column Name="rshop_退貨日期_民國" DataType="System.String"/>
+        <Column Name="rshop_退貨日期_西元" DataType="System.String"/>
+        <Column Name="rshop_退貨日期_保留" DataType="System.String"/>
+        <Column Name="rshop_帳款日期" DataType="System.String"/>
+        <Column Name="rshop_帳款日期_西元" DataType="System.String"/>
+        <Column Name="rshop_帳款日期_保留" DataType="System.String"/>
+        <Column Name="rshop_詢價憑證" DataType="System.String"/>
+        <Column Name="rshop_公司編號" DataType="System.String"/>
+        <Column Name="rshop_公司簡稱" DataType="System.String"/>
+        <Column Name="rshop_公司名稱" DataType="System.String"/>
+        <Column Name="rshop_廠商編號" DataType="System.String"/>
+        <Column Name="rshop_廠商名稱" DataType="System.String"/>
+        <Column Name="rshop_廠商簡稱" DataType="System.String"/>
+        <Column Name="rshop_廠商電話" DataType="System.String"/>
+        <Column Name="rshop_廠商聯絡人" DataType="System.String"/>
+        <Column Name="rshop_業務編號" DataType="System.String"/>
+        <Column Name="rshop_業務姓名" DataType="System.String"/>
+        <Column Name="rshop_專案編號" DataType="System.String"/>
+        <Column Name="rshop_專案名稱" DataType="System.String"/>
+        <Column Name="rshop_退貨倉庫編號" DataType="System.String"/>
+        <Column Name="rshop_退貨倉庫名稱" DataType="System.String"/>
+        <Column Name="rshop_幣別編號" DataType="System.String"/>
+        <Column Name="rshop_幣別名稱" DataType="System.String"/>
+        <Column Name="rshop_匯率" DataType="System.Decimal"/>
+        <Column Name="rshop_taxmnyf" DataType="System.Decimal"/>
+        <Column Name="rshop_本幣合計" DataType="System.Decimal"/>
+        <Column Name="rshop_外幣合計" DataType="System.Decimal"/>
+        <Column Name="rshop_稅別編號" DataType="System.Decimal"/>
+        <Column Name="rshop_稅率" DataType="System.Decimal"/>
+        <Column Name="rshop_發票種類" DataType="System.Decimal"/>
+        <Column Name="rshop_送貨編號" DataType="System.String"/>
+        <Column Name="rshop_送貨名稱" DataType="System.String"/>
+        <Column Name="rshop_結帳類別編號" DataType="System.String"/>
+        <Column Name="rshop_結帳類別名稱" DataType="System.String"/>
+        <Column Name="rshop_外幣營業稅額" DataType="System.Decimal"/>
+        <Column Name="rshop_外幣總額" DataType="System.Decimal"/>
+        <Column Name="rshop_本幣營業稅額" DataType="System.Decimal"/>
+        <Column Name="rshop_本幣總額" DataType="System.Decimal"/>
+        <Column Name="rshop_折扣金額" DataType="System.Decimal"/>
+        <Column Name="rshop_刷卡金額" DataType="System.Decimal"/>
+        <Column Name="rshop_刷卡卡號" DataType="System.String"/>
+        <Column Name="rshop_禮卷金額" DataType="System.Decimal"/>
+        <Column Name="rshop_已付金額" DataType="System.Decimal"/>
+        <Column Name="rshop_取用預付" DataType="System.Decimal"/>
+        <Column Name="rshop_未付金額" DataType="System.Decimal"/>
+        <Column Name="rshop_備註" DataType="System.String"/>
+        <Column Name="rshop_詳細備註" DataType="System.String"/>
+        <Column Name="rshop_表單類型" DataType="System.String"/>
+        <Column Name="rshop_recordno" DataType="System.Decimal"/>
+        <Column Name="rshop_發票編號" DataType="System.String"/>
+        <Column Name="rshop_發票日期_民國" DataType="System.String"/>
+        <Column Name="rshop_發票日期_西元" DataType="System.String"/>
+        <Column Name="rshop_發票抬頭" DataType="System.String"/>
+        <Column Name="rshop_統一編號" DataType="System.String"/>
+        <Column Name="rshop_發票地址" DataType="System.String"/>
+        <Column Name="rshop_運費" DataType="System.Decimal"/>
+        <Column Name="rshop_運費匯率" DataType="System.Decimal"/>
+        <Column Name="rshop_運費本幣" DataType="System.Decimal"/>
+        <Column Name="rshop_保險費外幣" DataType="System.Decimal"/>
+        <Column Name="rshop_保險費匯率" DataType="System.Decimal"/>
+        <Column Name="rshop_保險費本幣" DataType="System.Decimal"/>
+        <Column Name="rshop_關稅" DataType="System.Decimal"/>
+        <Column Name="rshop_關稅匯率" DataType="System.Decimal"/>
+        <Column Name="rshop_關稅本幣" DataType="System.Decimal"/>
+        <Column Name="rshop_郵電費" DataType="System.Decimal"/>
+        <Column Name="rshop_手續費" DataType="System.Decimal"/>
+        <Column Name="rshop_簽證費" DataType="System.Decimal"/>
+        <Column Name="rshop_報關費" DataType="System.Decimal"/>
+        <Column Name="rshop_其他費用" DataType="System.Decimal"/>
+        <Column Name="rshop_費用合計" DataType="System.Decimal"/>
+        <Column Name="rshop_費用分配" DataType="System.String"/>
+        <Column Name="rshop_新增日期時間" DataType="System.String"/>
+        <Column Name="rshop_修改日期時間" DataType="System.String"/>
+        <Column Name="rshop_登錄人員" DataType="System.String"/>
+        <Column Name="rshop_最後修改人員" DataType="System.String"/>
+        <Column Name="rshop_傳票編號" DataType="System.String"/>
+        <Column Name="rshop_年結標示" DataType="System.Boolean" BindableControl="CheckBox"/>
+        <Column Name="rshop_UsrNo" DataType="System.String"/>
+        <Column Name="rshop_分攤方式" DataType="System.Decimal"/>
+        <Column Name="rshopd_bsid" DataType="System.Int32"/>
+        <Column Name="rshopd_退貨日期_民國" DataType="System.String"/>
+        <Column Name="rshopd_退貨日期_西元" DataType="System.String"/>
+        <Column Name="rshopd_退貨日期_保留" DataType="System.String"/>
+        <Column Name="rshopd_帳款日期_民國" DataType="System.String"/>
+        <Column Name="rshopd_帳款日期_西元" DataType="System.String"/>
+        <Column Name="rshopd_帳款日期_保留" DataType="System.String"/>
+        <Column Name="rshopd_詢價憑證" DataType="System.String"/>
+        <Column Name="rshopd_公司編號" DataType="System.String"/>
+        <Column Name="rshopd_廠商編號" DataType="System.String"/>
+        <Column Name="rshopd_業務編號" DataType="System.String"/>
+        <Column Name="rshopd_專案編號" DataType="System.String"/>
+        <Column Name="rshopd_進貨倉庫編號" DataType="System.String"/>
+        <Column Name="rshopd_幣別編號" DataType="System.String"/>
+        <Column Name="rshopd_匯率" DataType="System.Decimal"/>
+        <Column Name="rshopd_送貨編號" DataType="System.String"/>
+        <Column Name="rshopd_送貨名稱" DataType="System.String"/>
+        <Column Name="rshopd_結帳類別編號" DataType="System.String"/>
+        <Column Name="rshopd_結帳類別名稱" DataType="System.String"/>
+        <Column Name="rshopd_採購單號" DataType="System.String"/>
+        <Column Name="rshopd_產品編號" DataType="System.String"/>
+        <Column Name="rshopd_品名規格" DataType="System.String"/>
+        <Column Name="rshopd_產品組成" DataType="System.Decimal"/>
+        <Column Name="rshopd_單位" DataType="System.String"/>
+        <Column Name="rshopd_包裝數量" DataType="System.Decimal"/>
+        <Column Name="rshopd_數量" DataType="System.Decimal"/>
+        <Column Name="rshopd_外幣單價" DataType="System.Decimal"/>
+        <Column Name="rshopd_折數" DataType="System.Decimal"/>
+        <Column Name="rshopd_稅率" DataType="System.Decimal"/>
+        <Column Name="rshopd_外幣稅前單價" DataType="System.Decimal"/>
+        <Column Name="rshopd_外幣稅前金額" DataType="System.Decimal"/>
+        <Column Name="rshopd_本幣單價" DataType="System.Decimal"/>
+        <Column Name="rshopd_本幣稅前單價" DataType="System.Decimal"/>
+        <Column Name="rshopd_本幣稅前金額" DataType="System.Decimal"/>
+        <Column Name="rshopd_說明" DataType="System.String"/>
+        <Column Name="rshopd_低於庫存量" DataType="System.String"/>
+        <Column Name="rshopd_bomid" DataType="System.String"/>
+        <Column Name="rshopd_bomrec" DataType="System.Decimal"/>
+        <Column Name="rshopd_recordno" DataType="System.Decimal"/>
+        <Column Name="rshopd_sltflag" DataType="System.Boolean" BindableControl="CheckBox"/>
+        <Column Name="rshopd_extflag" DataType="System.Boolean" BindableControl="CheckBox"/>
+        <Column Name="rshopd_表單類型" DataType="System.String"/>
+        <Column Name="rshopd_規格說明1" DataType="System.String"/>
+        <Column Name="rshopd_規格說明2" DataType="System.String"/>
+        <Column Name="rshopd_規格說明3" DataType="System.String"/>
+        <Column Name="rshopd_規格說明4" DataType="System.String"/>
+        <Column Name="rshopd_規格說明5" DataType="System.String"/>
+        <Column Name="rshopd_規格說明6" DataType="System.String"/>
+        <Column Name="rshopd_規格說明7" DataType="System.String"/>
+        <Column Name="rshopd_規格說明8" DataType="System.String"/>
+        <Column Name="rshopd_規格說明9" DataType="System.String"/>
+        <Column Name="rshopd_規格說明10" DataType="System.String"/>
+        <Column Name="rshopd_stName" DataType="System.String"/>
+        <Column Name="rshopd_RecordNo_D" DataType="System.Decimal"/>
+        <Column Name="rshopd_RealCost" DataType="System.Decimal"/>
+        <Column Name="rshopd_Pqty" DataType="System.Decimal"/>
+        <Column Name="rshopd_Punit" DataType="System.String"/>
+        <Column Name="rshopd_mformula" DataType="System.Decimal"/>
+        <Column Name="rshopd_mwidth4" DataType="System.Decimal"/>
+        <Column Name="rshopd_mwidth3" DataType="System.Decimal"/>
+        <Column Name="rshopd_mwidth2" DataType="System.Decimal"/>
+        <Column Name="rshopd_mwidth1" DataType="System.Decimal"/>
+        <Column Name="rshopd_mlong" DataType="System.Decimal"/>
+        <Column Name="rshopd_munit" DataType="System.String"/>
+        <Column Name="rshopd_mqty" DataType="System.Decimal"/>
+        <Column Name="rshopd_foid" DataType="System.String"/>
+        <Column Name="RShopBom_退貨單號" DataType="System.String"/>
+        <Column Name="RShopBom_BomID" DataType="System.String"/>
+        <Column Name="RShopBom_BomRec" DataType="System.String"/>
+        <Column Name="RShopBom_產品編號" DataType="System.String"/>
+        <Column Name="RShopBom_品名規格" DataType="System.String"/>
+        <Column Name="RShopBom_單位" DataType="System.String"/>
+        <Column Name="RShopBom_標準用量" DataType="System.Decimal"/>
+        <Column Name="RShopBom_母件比率" DataType="System.Decimal"/>
+        <Column Name="RShopBom_包裝數量" DataType="System.Decimal"/>
+        <Column Name="RShopBom_itrec" DataType="System.Decimal"/>
+        <Column Name="RShopBom_單價" DataType="System.Decimal"/>
+        <Column Name="RShopBom_折數" DataType="System.Decimal"/>
+        <Column Name="RShopBom_金額" DataType="System.Decimal"/>
+        <Column Name="RShopBom_說明" DataType="System.String"/>
+        <Column Name="RShopBom_ItSource" DataType="System.Decimal"/>
+        <Column Name="RShopBom_ItBuyPri" DataType="System.Decimal"/>
+        <Column Name="RShopBom_ItBuyMny" DataType="System.Decimal"/>
+        <Column Name="fact_廠商編號" DataType="System.String"/>
+        <Column Name="fact_廠商名稱" DataType="System.String"/>
+        <Column Name="fact_廠商簡稱" DataType="System.String"/>
+        <Column Name="fact_幣別編號" DataType="System.String"/>
+        <Column Name="fact_隸屬公司" DataType="System.String"/>
+        <Column Name="fact_注音速查" DataType="System.String"/>
+        <Column Name="fact_廠商類別" DataType="System.String"/>
+        <Column Name="fact_業務人員" DataType="System.String"/>
+        <Column Name="fact_廠商聯絡人1" DataType="System.String"/>
+        <Column Name="fact_廠商聯絡人2" DataType="System.String"/>
+        <Column Name="fact_廠商負責人" DataType="System.String"/>
+        <Column Name="fact_廠商電話1" DataType="System.String"/>
+        <Column Name="fact_廠商電話2" DataType="System.String"/>
+        <Column Name="fact_廠商電話3" DataType="System.String"/>
+        <Column Name="fact_廠商傳真" DataType="System.String"/>
+        <Column Name="fact_廠商行動電話1" DataType="System.String"/>
+        <Column Name="fact_廠商行動電話2" DataType="System.String"/>
+        <Column Name="fact_呼叫器" DataType="System.String"/>
+        <Column Name="fact_公司地址" DataType="System.String"/>
+        <Column Name="fact_公司郵遞區號" DataType="System.String"/>
+        <Column Name="fact_發票地址" DataType="System.String"/>
+        <Column Name="fact_發票郵遞區號" DataType="System.String"/>
+        <Column Name="fact_工廠地址" DataType="System.String"/>
+        <Column Name="fact_工廠郵遞區號" DataType="System.String"/>
+        <Column Name="fact_營業項目" DataType="System.String"/>
+        <Column Name="fact_電子信箱" DataType="System.String"/>
+        <Column Name="fact_網址" DataType="System.String"/>
+        <Column Name="fact_信用額度" DataType="System.Decimal"/>
+        <Column Name="fact_統一編號" DataType="System.String"/>
+        <Column Name="fact_營業稅" DataType="System.String"/>
+        <Column Name="fact_結帳類別" DataType="System.String"/>
+        <Column Name="fact_發票模式" DataType="System.String"/>
+        <Column Name="fact_英文抬頭" DataType="System.String"/>
+        <Column Name="fact_英文住址" DataType="System.String"/>
+        <Column Name="fact_英文住址郵遞區號" DataType="System.String"/>
+        <Column Name="fact_備註1" DataType="System.String"/>
+        <Column Name="fact_備註2" DataType="System.String"/>
+        <Column Name="fact_地區類別" DataType="System.String"/>
+        <Column Name="fact_區域名稱" DataType="System.String"/>
+        <Column Name="fact_自訂1" DataType="System.String"/>
+        <Column Name="fact_自訂2" DataType="System.String"/>
+        <Column Name="fact_自訂3" DataType="System.String"/>
+        <Column Name="fact_自訂4" DataType="System.String"/>
+        <Column Name="fact_自訂5" DataType="System.String"/>
+        <Column Name="fact_自訂6" DataType="System.String"/>
+        <Column Name="fact_最近交易_民國" DataType="System.String"/>
+        <Column Name="fact_最近交易_西元" DataType="System.String"/>
+        <Column Name="fact_最近交易_保留" DataType="System.String"/>
+        <Column Name="fact_建檔日期_民國" DataType="System.String"/>
+        <Column Name="fact_建檔日期_西元" DataType="System.String"/>
+        <Column Name="fact_建檔日期_保留" DataType="System.String"/>
+        <Column Name="fact_期初應付帳款金額" DataType="System.Decimal"/>
+        <Column Name="fact_期初應付帳款餘額" DataType="System.Decimal"/>
+        <Column Name="fact_現有應付帳款金額" DataType="System.Decimal"/>
+        <Column Name="fact_期初應付帳款匯率" DataType="System.Decimal"/>
+        <Column Name="fact_期初預付金額" DataType="System.Decimal"/>
+        <Column Name="fact_預付餘額" DataType="System.Decimal"/>
+        <Column Name="fact_faChkName" DataType="System.String"/>
+        <Column Name="scname" DataType="System.String"/>
+        <Column Name="scname1" DataType="System.String"/>
+        <Column Name="rshopd_退貨單號" DataType="System.String"/>
+        <Column Name="rshop_現金金額" DataType="System.Decimal"/>
+        <Column Name="rshop_費用分攤" DataType="System.Decimal"/>
+      </TableDataSource>
+    </MsSqlDataConnection>
+    <Parameter Name="txtstart" DataType="System.String"/>
+    <Parameter Name="DateRange" DataType="System.String"/>
+    <Parameter Name="RankState" DataType="System.String"/>
+    <Parameter Name="txtend" DataType="System.String"/>
+    <Parameter Name="銷項金額小數" DataType="System.String"/>
+    <Parameter Name="txtadress" DataType="System.String"/>
+    <Parameter Name="txttel" DataType="System.String"/>
+    <Parameter Name="銷貨單價小數" DataType="System.String"/>
+    <Parameter Name="銷貨單據小數" DataType="System.String"/>
+    <Parameter Name="銷項稅額小數" DataType="System.String"/>
+    <Parameter Name="庫存數量小數" DataType="System.String"/>
+    <Parameter Name="是否顯示金額" DataType="System.Boolean"/>
+    <Parameter Name="date" DataType="System.String"/>
+    <Parameter Name="進項金額小數" DataType="System.String"/>
+    <Parameter Name="進貨單價小數" DataType="System.String"/>
+    <Parameter Name="進貨單據小數" DataType="System.String"/>
+    <Parameter Name="進項稅額小數" DataType="System.String"/>
+    <Total Name="Rank" TotalType="Count" Evaluator="Data1" ResetAfterPrint="false"/>
+  </Dictionary>
+  <ReportPage Name="Page1" PaperWidth="215.9" PaperHeight="139.7" RawPaperSize="119" LeftMargin="2.5" TopMargin="2.5" RightMargin="2.5" BottomMargin="2.5" FirstPageSource="15" OtherPagesSource="15" Guides="786.24,757.89,378.756">
+    <PageHeaderBand Name="PageHeader1" Width="797.2" Height="222.54" CanGrow="true" CanShrink="true">
+      <TextObject Name="txtstart" Top="3.42" Width="756" Height="34.02" Text="[txtstart]" HorzAlign="Center" WordWrap="false" Font="細明體, 20pt, style=Bold"/>
+      <TextObject Name="Text11" Left="307.46" Top="41.63" Width="143.69" Height="22.3" Text="進貨退出單" HorzAlign="Center" WordWrap="false" Font="細明體, 16pt, style=Bold"/>
+      <TextObject Name="Text12" Left="3.78" Top="108.26" Width="79.01" Height="18.9" Text="廠商名稱:" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text13" Left="3.78" Top="129.88" Width="79.01" Height="18.9" Text="公司地址:" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text14" Left="3.78" Top="86.26" Width="79.01" Height="18.9" Text="退貨日期:" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text15" Left="3.78" Top="151.88" Width="79.01" Height="18.9" Text="聯絡電話:" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text5" Left="3.56" Top="173.2" Width="79.01" Height="18.9" Text="幣別名稱:" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text16" Left="234.14" Top="151.88" Width="79.01" Height="18.9" Text="傳 真 機:" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text6" Left="234.14" Top="173.2" Width="79.01" Height="18.9" Text="匯    率:" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text9" Left="315.28" Top="173.2" Width="228.26" Height="18.9" Text="[RSHOP_.rshop_匯率]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="4" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" WordWrap="false" Font="細明體, 12pt" Trimming="EllipsisCharacter"/>
+      <TextObject Name="Text1" Left="84.3" Top="86.26" Width="94.5" Height="18.9" BeforePrintEvent="Text1_BeforePrint" Text="[RSHOP_.rshop_退貨日期_民國]" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text2" Left="84.3" Top="108.26" Width="458.88" Height="21.55" BeforePrintEvent="Text2_BeforePrint" Text="[RSHOP_.rshop_發票抬頭][RSHOP_.rshop_廠商聯絡人]" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text4" Left="84.3" Top="151.88" Width="140.25" Height="18.9" Text="[RSHOP_.rshop_廠商電話]" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text10" Left="557.6" Top="86.26" Width="79.01" Height="18.9" Text="頁    次:" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text17" Left="557.98" Top="108.26" Width="79.01" Height="18.9" Text="退貨憑證:" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text18" Left="557.6" Top="129.88" Width="79.01" Height="18.9" Text="統一編號:" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text19" Left="557.6" Top="151.88" Width="79.01" Height="18.9" Text="發票號碼:" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text20" Left="638.42" Top="86.26" Width="115.72" Height="18.9" Text="[Page]" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text21" Left="638.42" Top="108.26" Width="115.72" Height="18.9" Text="[RSHOP_.rshop_退貨單號]" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text22" Left="638.42" Top="129.88" Width="115.72" Height="18.9" Text="[RSHOP_.rshop_統一編號]" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text23" Left="638.42" Top="151.88" Width="115.72" Height="18.9" Text="[RSHOP_.rshop_發票編號]" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text25" Left="315.28" Top="151.88" Width="228.26" Height="18.9" Text="[RSHOP_.fact_廠商傳真]" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text26" Left="84.7" Top="173.2" Width="140.25" Height="18.9" Text="[RSHOP_.rshop_幣別編號][RSHOP_.rshop_幣別名稱]" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text27" Left="3.78" Top="202.14" Width="35.06" Height="15.49" Text="序號" WordWrap="false" Font="細明體, 11pt"/>
+      <TextObject Name="Text28" Left="43.4" Top="202.14" Width="156.8" Height="15.49" Text="產品編號" WordWrap="false" Font="細明體, 11pt"/>
+      <TextObject Name="Text29" Left="204.56" Top="202.14" Width="227.87" Height="15.49" Text="產品規格" WordWrap="false" Font="細明體, 11pt"/>
+      <TextObject Name="Text30" Left="436.38" Top="202.14" Width="88.43" Height="15.49" Text="數量" HorzAlign="Right" WordWrap="false" Font="細明體, 11pt"/>
+      <TextObject Name="Text31" Left="528.92" Top="202.14" Width="38.44" Height="15.49" Text="單位" WordWrap="false" Font="細明體, 11pt"/>
+      <TextObject Name="Text32" Left="571.94" Top="202.14" Width="88.43" Height="15.49" Text="單價" HorzAlign="Right" WordWrap="false" Font="細明體, 11pt"/>
+      <TextObject Name="Text33" Left="666.26" Top="202.14" Width="88.43" Height="15.49" Text="金額" HorzAlign="Right" WordWrap="false" Font="細明體, 11pt"/>
+      <LineObject Name="Line1" Left="-3.78" Top="197.6" Width="761.67" Border.Width="2"/>
+      <LineObject Name="Line2" Top="222.54" Width="758.65" Border.Width="2"/>
+      <TextObject Name="Text24" Left="84.3" Top="129.88" Width="458.48" Height="18.9" Text="[RSHOP_.fact_公司地址]" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text7" Left="462.1" Top="42.38" Width="294.34" Height="15.88" Text="[txtadress]" WordWrap="false" Font="細明體, 10pt"/>
+      <TextObject Name="Text8" Left="462.1" Top="63.16" Width="294.34" Height="15.88" Text="[txttel]" WordWrap="false" Font="細明體, 10pt"/>
+      <TextObject Name="Text68" Left="557.6" Top="173.2" Width="79.01" Height="18.9" Text="退貨倉庫:" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text69" Left="638.42" Top="173.2" Width="115.72" Height="18.9" Text="[RSHOP_.rshop_退貨倉庫名稱]" WordWrap="false" Font="細明體, 12pt"/>
+    </PageHeaderBand>
+    <GroupHeaderBand Name="GroupHeader1" Top="226.54" Width="797.2" StartNewPage="true" Condition="[RSHOP_.rshop_退貨單號]" ResetPageNumber="true">
+      <GroupHeaderBand Name="GroupHeader2" Top="230.54" Width="797.2" Condition="[RSHOP_.rshopd_recordno]">
+        <DataBand Name="Data1" Top="234.54" Width="797.2" Height="17.38" DataSource="Table">
+          <TextObject Name="Text34" Left="3.78" Top="3.78" Width="35.06" Height="13.6" Text="[RSHOP_.rshopd_recordno]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" WordWrap="false" Font="細明體, 10pt" Trimming="EllipsisCharacter"/>
+          <TextObject Name="Text35" Left="43.4" Top="3.78" Width="156.8" Height="13.6" Text="[RSHOP_.rshopd_產品編號]" WordWrap="false" Font="細明體, 10pt"/>
+          <TextObject Name="Text36" Left="204.56" Top="3.78" Width="227.87" Height="13.6" BeforePrintEvent="Text36_BeforePrint" Text="[RSHOP_.rshopd_品名規格]" WordWrap="false" Font="細明體, 10pt"/>
+          <TextObject Name="Text37" Left="436.38" Top="3.78" Width="88.43" Height="13.6" BeforePrintEvent="Text37_BeforePrint" Text="[RSHOP_.rshopd_數量]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="細明體, 10pt" Trimming="EllipsisCharacter"/>
+          <TextObject Name="Text38" Left="528.92" Top="3.78" Width="38.44" Height="13.6" Text="[RSHOP_.rshopd_單位]" WordWrap="false" Font="細明體, 10pt"/>
+          <TextObject Name="Text39" Left="571.94" Top="3.78" Width="88.43" Height="13.6" BeforePrintEvent="Text39_BeforePrint" Text="[RSHOP_.rshopd_外幣稅前單價]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="細明體, 10pt" Trimming="EllipsisCharacter"/>
+          <TextObject Name="Text40" Left="666.26" Top="3.78" Width="88.43" Height="13.6" BeforePrintEvent="Text40_BeforePrint" Text="[RSHOP_.rshopd_外幣稅前金額]" Format="Currency" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="細明體, 10pt" Trimming="EllipsisCharacter"/>
+        </DataBand>
+        <GroupFooterBand Name="GroupFooter2" Top="255.92" Width="797.2" Height="15.88" CanGrow="true" CanShrink="true">
+          <TextObject Name="Text67" Top="2.28" Width="756" Height="13.6" BeforePrintEvent="Text67_BeforePrint" Text="*****以 下 空 白  *****" HorzAlign="Center" WordWrap="false" Font="細明體, 10pt"/>
+        </GroupFooterBand>
+      </GroupHeaderBand>
+      <GroupFooterBand Name="GroupFooter1" Top="275.8" Width="797.2" Height="180.23" PrintOnBottom="true" RepeatOnEveryPage="true">
+        <TextObject Name="Text41" Left="3.78" Top="26.06" Width="79.01" Height="18.9" Text="稅前合計:" WordWrap="false" Font="細明體, 12pt"/>
+        <TextObject Name="Text42" Left="3.78" Top="47.58" Width="79.01" Height="18.9" Text="營業稅額:" WordWrap="false" Font="細明體, 12pt"/>
+        <TextObject Name="Text43" Left="3.78" Top="69.1" Width="79.01" Height="18.9" Text="應付總計:" WordWrap="false" Font="細明體, 12pt"/>
+        <TextObject Name="Text47" Left="559.45" Top="67.64" Width="79.01" Height="18.9" Text="未付金額:" WordWrap="false" Font="細明體, 12pt"/>
+        <TextObject Name="Text50" Left="84.68" Top="26.06" Width="106.98" Height="18.9" BeforePrintEvent="Text50_BeforePrint" Text="[RSHOP_.rshop_外幣合計]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="細明體, 12pt"/>
+        <TextObject Name="Text51" Left="84.68" Top="47.58" Width="106.98" Height="18.9" BeforePrintEvent="Text51_BeforePrint" Text="[RSHOP_.rshop_外幣營業稅額]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="細明體, 12pt"/>
+        <TextObject Name="Text52" Left="642.17" Top="67.64" Width="115.72" Height="18.9" BeforePrintEvent="Text52_BeforePrint" Text="[RSHOP_.rshop_未付金額]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="細明體, 12pt"/>
+        <TextObject Name="Text57" Left="84.68" Top="69.1" Width="106.98" Height="18.9" BeforePrintEvent="Text57_BeforePrint" Text="[RSHOP_.rshop_外幣總額]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="細明體, 12pt"/>
+        <TextObject Name="Text61" Left="3.4" Top="95.14" Width="79.01" Height="18.9" Text="備    註:" WordWrap="false" Font="細明體, 12pt"/>
+        <TextObject Name="Text64" Left="84.68" Top="95.14" Width="673.21" Height="18.9" Text="[RSHOP_.rshop_備註]" WordWrap="false" Font="細明體, 12pt"/>
+        <LineObject Name="Line3" Top="21.92" Width="754.48" Border.Width="2"/>
+        <LineObject Name="Line4" Left="-3.78" Top="91.76" Width="760.53" Border.Width="2"/>
+        <TextObject Name="Text66" Left="0.38" Top="2.23" Width="756" Height="13.6" BeforePrintEvent="Text66_BeforePrint" Text="*****續 下 頁  *****" HorzAlign="Center" WordWrap="false" Font="細明體, 10pt"/>
+        <TextObject Name="Text3" Left="4.16" Top="117.51" Width="753.73" Height="62.72" Text="[txtend]" WordWrap="false" Font="細明體, 12pt"/>
+        <TextObject Name="Text45" Left="559.45" Top="47.58" Width="79.01" Height="18.9" Text="折扣金額:" WordWrap="false" Font="細明體, 12pt"/>
+        <TextObject Name="Text54" Left="642.17" Top="47.58" Width="115.72" Height="18.9" BeforePrintEvent="Text54_BeforePrint" Text="[RSHOP_.rshop_折扣金額]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="細明體, 12pt"/>
+        <TextObject Name="Text44" Left="559.45" Top="26.06" Width="79.01" Height="18.9" Text="已付金額:" WordWrap="false" Font="細明體, 12pt"/>
+        <TextObject Name="Text53" Left="642.17" Top="26.06" Width="115.72" Height="18.9" BeforePrintEvent="Text53_BeforePrint" Text="[RSHOP_.rshop_已付金額]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="細明體, 12pt"/>
+      </GroupFooterBand>
+    </GroupHeaderBand>
+  </ReportPage>
+</Report>

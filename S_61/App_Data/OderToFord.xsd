@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="OderToFord" targetNamespace="http://tempuri.org/OderToFord.xsd" xmlns:mstns="http://tempuri.org/OderToFord.xsd" xmlns="http://tempuri.org/OderToFord.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="1" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="_71ConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="_71ConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.S_61.Properties.Settings.GlobalReference.Default._71ConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="LONGConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="LONGConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.S_61.Properties.Settings.GlobalReference.Default.LONGConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="orderTableAdapter" GeneratorDataComponentClassName="orderTableAdapter" Name="order" UserDataComponentName="orderTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="LONGConnectionString (Settings)" DbObjectName="LONG.dbo.item" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>select 品名規格=itname,單位=itunit,現有庫存量=0.0,訂單需求量=0.0,採購未交量=0.0,已採購訂單=0.0,入庫數量=0.0,不足數量=0.0,安全存量=0.0,採購建議數量=0.0,採購數量=0.0,廠商編號=fano,廠商簡稱='' ,產品編號=itno from item</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="品名規格" DataSetColumn="品名規格" />
+              <Mapping SourceColumn="單位" DataSetColumn="單位" />
+              <Mapping SourceColumn="現有庫存量" DataSetColumn="現有庫存量" />
+              <Mapping SourceColumn="訂單需求量" DataSetColumn="訂單需求量" />
+              <Mapping SourceColumn="採購未交量" DataSetColumn="採購未交量" />
+              <Mapping SourceColumn="已採購訂單" DataSetColumn="已採購訂單" />
+              <Mapping SourceColumn="入庫數量" DataSetColumn="入庫數量" />
+              <Mapping SourceColumn="不足數量" DataSetColumn="不足數量" />
+              <Mapping SourceColumn="安全存量" DataSetColumn="安全存量" />
+              <Mapping SourceColumn="採購建議數量" DataSetColumn="採購建議數量" />
+              <Mapping SourceColumn="採購數量" DataSetColumn="採購數量" />
+              <Mapping SourceColumn="廠商編號" DataSetColumn="廠商編號" />
+              <Mapping SourceColumn="廠商簡稱" DataSetColumn="廠商簡稱" />
+              <Mapping SourceColumn="產品編號" DataSetColumn="產品編號" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="OderToFord" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="OderToFord" msprop:Generator_UserDSName="OderToFord">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="order" msprop:Generator_TableClassName="orderDataTable" msprop:Generator_TableVarName="tableorder" msprop:Generator_RowChangedName="orderRowChanged" msprop:Generator_TablePropName="order" msprop:Generator_RowDeletingName="orderRowDeleting" msprop:Generator_RowChangingName="orderRowChanging" msprop:Generator_RowEvHandlerName="orderRowChangeEventHandler" msprop:Generator_RowDeletedName="orderRowDeleted" msprop:Generator_RowClassName="orderRow" msprop:Generator_UserTableName="order" msprop:Generator_RowEvArgName="orderRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="品名規格" msprop:Generator_ColumnVarNameInTable="column品名規格" msprop:Generator_ColumnPropNameInRow="品名規格" msprop:Generator_ColumnPropNameInTable="品名規格Column" msprop:Generator_UserColumnName="品名規格" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="單位" msprop:Generator_ColumnVarNameInTable="column單位" msprop:Generator_ColumnPropNameInRow="單位" msprop:Generator_ColumnPropNameInTable="單位Column" msprop:Generator_UserColumnName="單位" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="現有庫存量" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="column現有庫存量" msprop:Generator_ColumnPropNameInRow="現有庫存量" msprop:Generator_ColumnPropNameInTable="現有庫存量Column" msprop:Generator_UserColumnName="現有庫存量" type="xs:decimal" minOccurs="0" />
+              <xs:element name="訂單需求量" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="column訂單需求量" msprop:Generator_ColumnPropNameInRow="訂單需求量" msprop:Generator_ColumnPropNameInTable="訂單需求量Column" msprop:Generator_UserColumnName="訂單需求量" type="xs:decimal" minOccurs="0" />
+              <xs:element name="採購未交量" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="column採購未交量" msprop:Generator_ColumnPropNameInRow="採購未交量" msprop:Generator_ColumnPropNameInTable="採購未交量Column" msprop:Generator_UserColumnName="採購未交量" type="xs:decimal" minOccurs="0" />
+              <xs:element name="已採購訂單" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="column已採購訂單" msprop:Generator_ColumnPropNameInRow="已採購訂單" msprop:Generator_ColumnPropNameInTable="已採購訂單Column" msprop:Generator_UserColumnName="已採購訂單" type="xs:decimal" minOccurs="0" />
+              <xs:element name="入庫數量" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="column入庫數量" msprop:Generator_ColumnPropNameInRow="入庫數量" msprop:Generator_ColumnPropNameInTable="入庫數量Column" msprop:Generator_UserColumnName="入庫數量" type="xs:decimal" minOccurs="0" />
+              <xs:element name="不足數量" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="column不足數量" msprop:Generator_ColumnPropNameInRow="不足數量" msprop:Generator_ColumnPropNameInTable="不足數量Column" msprop:Generator_UserColumnName="不足數量" type="xs:decimal" minOccurs="0" />
+              <xs:element name="安全存量" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="column安全存量" msprop:Generator_ColumnPropNameInRow="安全存量" msprop:Generator_ColumnPropNameInTable="安全存量Column" msprop:Generator_UserColumnName="安全存量" type="xs:decimal" minOccurs="0" />
+              <xs:element name="採購建議數量" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="column採購建議數量" msprop:Generator_ColumnPropNameInRow="採購建議數量" msprop:Generator_ColumnPropNameInTable="採購建議數量Column" msprop:Generator_UserColumnName="採購建議數量" type="xs:decimal" minOccurs="0" />
+              <xs:element name="採購數量" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="column採購數量" msprop:Generator_ColumnPropNameInRow="採購數量" msprop:Generator_ColumnPropNameInTable="採購數量Column" msprop:Generator_UserColumnName="採購數量" type="xs:decimal" minOccurs="0" />
+              <xs:element name="廠商編號" msprop:Generator_ColumnVarNameInTable="column廠商編號" msprop:Generator_ColumnPropNameInRow="廠商編號" msprop:Generator_ColumnPropNameInTable="廠商編號Column" msprop:Generator_UserColumnName="廠商編號" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="廠商簡稱" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="column廠商簡稱" msprop:Generator_ColumnPropNameInRow="廠商簡稱" msprop:Generator_ColumnPropNameInTable="廠商簡稱Column" msprop:Generator_UserColumnName="廠商簡稱" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="產品編號" msprop:Generator_ColumnVarNameInTable="column產品編號" msprop:Generator_ColumnPropNameInRow="產品編號" msprop:Generator_ColumnPropNameInTable="產品編號Column" msprop:Generator_UserColumnName="產品編號">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:order" />
+      <xs:field xpath="mstns:產品編號" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

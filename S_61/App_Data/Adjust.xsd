@@ -1,0 +1,555 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="Adjust" targetNamespace="http://tempuri.org/Adjust.xsd" xmlns:mstns="http://tempuri.org/Adjust.xsd" xmlns="http://tempuri.org/Adjust.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="3" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="webstockConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="webstockConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.S_61.Properties.Settings.GlobalReference.Default.webstockConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="STOCKConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="STOCKConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.S_61.Properties.Settings.GlobalReference.Default.STOCKConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="CENTERConnectionString" IsAppSettingsProperty="true" Modifier="Assembly" Name="CENTERConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.S_61.Properties.Settings.GlobalReference.Default.CENTERConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="LONGConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="LONGConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.S_61.Properties.Settings.GlobalReference.Default.LONGConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="adjustTableAdapter" GeneratorDataComponentClassName="adjustTableAdapter" Name="adjust" UserDataComponentName="adjustTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="LONGConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT          a.adno AS adjust_adno, a.addate AS adjust_addate, a.addate1 AS adjust_addate1, a.addate2 AS adjust_addate2, 
+                            a.cono AS adjust_cono, a.coname1 AS adjust_coname1, a.coname2 AS adjust_coname2, a.stno AS adjust_stno, 
+                            a.stname AS adjust_stname, a.emno AS adjust_emno, a.emname AS adjust_emname, a.totmnyb AS adjust_totmnyb, 
+                            a.costflag AS adjust_costflag, a.admemo AS adjust_admemo, a.bracket AS adjust_bracket, 
+                            a.recordno AS adjust_recordno, a.UsrNo AS adjust_usrno, b.adno AS adjustd_adno, b.addate AS adjustd_addate, 
+                            b.addate1 AS adjustd_addate1, b.addate2 AS adjustd_addate2, b.cono AS adjustd_cono, b.stno AS adjustd_stno, 
+                            b.emno AS adjustd_emno, b.costflag AS adjustd_costflag, b.itno AS adjustd_itno, b.itname AS adjustd_itname, 
+                            b.ittrait AS adjustd_ittrait, b.itunit AS adjustd_itunit, b.itpkgqty AS adjustd_itpkgqty, b.qty AS adjustd_qty, 
+                            b.costb AS adjustd_costb, b.costb1 AS adjustd_costb1, b.mnyb AS adjustd_mnyb, b.memo AS adjustd_memo, 
+                            b.lowzero AS adjustd_lowzro, b.bomid AS adjustd_bomid, b.bomrec AS adjustd_bomrec, 
+                            b.recordno AS adjustd_recordno, b.sltflag AS adjustd_sltflag, b.extflag AS adjustd_extflag, 
+                            b.bracket AS adjustd_bracket, b.itdesp1 AS adjustd_itdesp1, b.itdesp2 AS adjustd_itdesp2, 
+                            b.itdesp3 AS adjustd_itdesp3, b.itdesp4 AS adjustd_itdesp4, b.itdesp5 AS adjustd_itdesp5, 
+                            b.itdesp6 AS adjustd_itdesp6, b.itdesp7 AS adjustd_itdesp7, b.itdesp8 AS adjustd_itdesp8, 
+                            b.itdesp9 AS adjustd_itdesp9, b.itdesp10 AS adjustd_itdesp310, b.stname AS adjustd_stname, 
+                            c.AdNo AS adjuBom_AdNo, c.BomID AS adjuBom_BomID, c.BomRec AS adjuBom_BomRec, c.itno AS adjuBom_itno, 
+                            c.itname AS adjuBom_itname, c.itunit AS adjuBom_itunit, c.itqty AS adjuBom_itqty, c.itpareprs AS adjuBom_tpareprs, 
+                            c.itpkgqty AS adjuBom_itpkgqty, c.itrec AS adjuBom_itrec, c.itprice AS adjuBom_itprice, c.itprs AS adjuBom_itprs, 
+                            c.itmny AS adjuBom_itmny, c.itnote AS adjuBom_itnote, c.ItSource AS adjuBom_itsource, 
+                            c.ItBuyPri AS adjuBom_itbuypri, c.ItBuyMny AS adjuBom_itbuymny, a.admemo1 AS adjust_admemo1, 
+                            a.IsTrans AS adjust_IsTrans, a.EdtDate AS adjust_EdtDate, a.EdtScNo AS adjust_EdtScNo, 
+                            a.AppDate AS adjust_AppDate, a.AppScNo AS adjust_AppScNo,scrit.scname,scrit.scname1  
+FROM              adjust AS a 
+  LEFT   JOIN scrit ON a.appscno = scrit.scname 
+LEFT OUTER JOIN
+                            adjustd AS b ON a.adno = b.adno LEFT OUTER JOIN
+                            AdjuBom AS c ON c.AdNo = a.adno</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="adjust_adno" DataSetColumn="adjust_adno" />
+              <Mapping SourceColumn="adjust_addate" DataSetColumn="adjust_addate" />
+              <Mapping SourceColumn="adjust_addate2" DataSetColumn="adjust_addate2" />
+              <Mapping SourceColumn="adjust_cono" DataSetColumn="adjust_cono" />
+              <Mapping SourceColumn="adjust_coname1" DataSetColumn="adjust_coname1" />
+              <Mapping SourceColumn="adjust_coname2" DataSetColumn="adjust_coname2" />
+              <Mapping SourceColumn="adjust_stno" DataSetColumn="adjust_stno" />
+              <Mapping SourceColumn="adjust_stname" DataSetColumn="adjust_stname" />
+              <Mapping SourceColumn="adjust_emno" DataSetColumn="adjust_emno" />
+              <Mapping SourceColumn="adjust_emname" DataSetColumn="adjust_emname" />
+              <Mapping SourceColumn="adjust_totmnyb" DataSetColumn="adjust_totmnyb" />
+              <Mapping SourceColumn="adjust_costflag" DataSetColumn="adjust_costflag" />
+              <Mapping SourceColumn="adjust_admemo" DataSetColumn="adjust_admemo" />
+              <Mapping SourceColumn="adjust_bracket" DataSetColumn="adjust_bracket" />
+              <Mapping SourceColumn="adjust_recordno" DataSetColumn="adjust_recordno" />
+              <Mapping SourceColumn="adjust_usrno" DataSetColumn="adjust_usrno" />
+              <Mapping SourceColumn="adjustd_adno" DataSetColumn="adjustd_adno" />
+              <Mapping SourceColumn="adjustd_addate" DataSetColumn="adjustd_addate" />
+              <Mapping SourceColumn="adjustd_cono" DataSetColumn="adjustd_cono" />
+              <Mapping SourceColumn="adjustd_stno" DataSetColumn="adjustd_stno" />
+              <Mapping SourceColumn="adjustd_emno" DataSetColumn="adjustd_emno" />
+              <Mapping SourceColumn="adjustd_costflag" DataSetColumn="adjustd_costflag" />
+              <Mapping SourceColumn="adjustd_itno" DataSetColumn="adjustd_itno" />
+              <Mapping SourceColumn="adjustd_itname" DataSetColumn="adjustd_itname" />
+              <Mapping SourceColumn="adjustd_ittrait" DataSetColumn="adjustd_ittrait" />
+              <Mapping SourceColumn="adjustd_itunit" DataSetColumn="adjustd_itunit" />
+              <Mapping SourceColumn="adjustd_itpkgqty" DataSetColumn="adjustd_itpkgqty" />
+              <Mapping SourceColumn="adjustd_qty" DataSetColumn="adjustd_qty" />
+              <Mapping SourceColumn="adjustd_costb" DataSetColumn="adjustd_costb" />
+              <Mapping SourceColumn="adjustd_costb1" DataSetColumn="adjustd_costb1" />
+              <Mapping SourceColumn="adjustd_mnyb" DataSetColumn="adjustd_mnyb" />
+              <Mapping SourceColumn="adjustd_memo" DataSetColumn="adjustd_memo" />
+              <Mapping SourceColumn="adjustd_lowzro" DataSetColumn="adjustd_lowzro" />
+              <Mapping SourceColumn="adjustd_bomid" DataSetColumn="adjustd_bomid" />
+              <Mapping SourceColumn="adjustd_bomrec" DataSetColumn="adjustd_bomrec" />
+              <Mapping SourceColumn="adjustd_recordno" DataSetColumn="adjustd_recordno" />
+              <Mapping SourceColumn="adjustd_sltflag" DataSetColumn="adjustd_sltflag" />
+              <Mapping SourceColumn="adjustd_extflag" DataSetColumn="adjustd_extflag" />
+              <Mapping SourceColumn="adjustd_bracket" DataSetColumn="adjustd_bracket" />
+              <Mapping SourceColumn="adjustd_itdesp1" DataSetColumn="adjustd_itdesp1" />
+              <Mapping SourceColumn="adjustd_itdesp2" DataSetColumn="adjustd_itdesp2" />
+              <Mapping SourceColumn="adjustd_itdesp3" DataSetColumn="adjustd_itdesp3" />
+              <Mapping SourceColumn="adjustd_itdesp4" DataSetColumn="adjustd_itdesp4" />
+              <Mapping SourceColumn="adjustd_itdesp5" DataSetColumn="adjustd_itdesp5" />
+              <Mapping SourceColumn="adjustd_itdesp6" DataSetColumn="adjustd_itdesp6" />
+              <Mapping SourceColumn="adjustd_itdesp7" DataSetColumn="adjustd_itdesp7" />
+              <Mapping SourceColumn="adjustd_itdesp8" DataSetColumn="adjustd_itdesp8" />
+              <Mapping SourceColumn="adjustd_itdesp9" DataSetColumn="adjustd_itdesp9" />
+              <Mapping SourceColumn="adjustd_itdesp310" DataSetColumn="adjustd_itdesp310" />
+              <Mapping SourceColumn="adjustd_stname" DataSetColumn="adjustd_stname" />
+              <Mapping SourceColumn="adjuBom_AdNo" DataSetColumn="adjuBom_AdNo" />
+              <Mapping SourceColumn="adjuBom_BomID" DataSetColumn="adjuBom_BomID" />
+              <Mapping SourceColumn="adjuBom_BomRec" DataSetColumn="adjuBom_BomRec" />
+              <Mapping SourceColumn="adjuBom_itno" DataSetColumn="adjuBom_itno" />
+              <Mapping SourceColumn="adjuBom_itname" DataSetColumn="adjuBom_itname" />
+              <Mapping SourceColumn="adjuBom_itunit" DataSetColumn="adjuBom_itunit" />
+              <Mapping SourceColumn="adjuBom_itqty" DataSetColumn="adjuBom_itqty" />
+              <Mapping SourceColumn="adjuBom_tpareprs" DataSetColumn="adjuBom_tpareprs" />
+              <Mapping SourceColumn="adjuBom_itpkgqty" DataSetColumn="adjuBom_itpkgqty" />
+              <Mapping SourceColumn="adjuBom_itrec" DataSetColumn="adjuBom_itrec" />
+              <Mapping SourceColumn="adjuBom_itprice" DataSetColumn="adjuBom_itprice" />
+              <Mapping SourceColumn="adjuBom_itprs" DataSetColumn="adjuBom_itprs" />
+              <Mapping SourceColumn="adjuBom_itmny" DataSetColumn="adjuBom_itmny" />
+              <Mapping SourceColumn="adjuBom_itnote" DataSetColumn="adjuBom_itnote" />
+              <Mapping SourceColumn="adjuBom_itsource" DataSetColumn="adjuBom_itsource" />
+              <Mapping SourceColumn="adjuBom_itbuypri" DataSetColumn="adjuBom_itbuypri" />
+              <Mapping SourceColumn="adjuBom_itbuymny" DataSetColumn="adjuBom_itbuymny" />
+              <Mapping SourceColumn="adjust_addate1" DataSetColumn="adjust_addate1" />
+              <Mapping SourceColumn="adjustd_addate1" DataSetColumn="adjustd_addate1" />
+              <Mapping SourceColumn="adjustd_addate2" DataSetColumn="adjustd_addate2" />
+              <Mapping SourceColumn="adjust_admemo1" DataSetColumn="adjust_admemo1" />
+              <Mapping SourceColumn="adjust_IsTrans" DataSetColumn="adjust_IsTrans" />
+              <Mapping SourceColumn="adjust_EdtDate" DataSetColumn="adjust_EdtDate" />
+              <Mapping SourceColumn="adjust_EdtScNo" DataSetColumn="adjust_EdtScNo" />
+              <Mapping SourceColumn="adjust_AppDate" DataSetColumn="adjust_AppDate" />
+              <Mapping SourceColumn="adjust_AppScNo" DataSetColumn="adjust_AppScNo" />
+              <Mapping SourceColumn="scname" DataSetColumn="scname" />
+              <Mapping SourceColumn="scname1" DataSetColumn="scname1" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="Adjust" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="Adjust" msprop:Generator_UserDSName="Adjust">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="adjust" msprop:Generator_TableClassName="adjustDataTable" msprop:Generator_TableVarName="tableadjust" msprop:Generator_TablePropName="adjust" msprop:Generator_RowDeletingName="adjustRowDeleting" msprop:Generator_RowChangingName="adjustRowChanging" msprop:Generator_RowEvHandlerName="adjustRowChangeEventHandler" msprop:Generator_RowDeletedName="adjustRowDeleted" msprop:Generator_UserTableName="adjust" msprop:Generator_RowChangedName="adjustRowChanged" msprop:Generator_RowEvArgName="adjustRowChangeEvent" msprop:Generator_RowClassName="adjustRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="adjust_adno" msprop:Generator_ColumnVarNameInTable="columnadjust_adno" msprop:Generator_ColumnPropNameInRow="adjust_adno" msprop:Generator_ColumnPropNameInTable="adjust_adnoColumn" msprop:Generator_UserColumnName="adjust_adno">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="12" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="adjust_addate" msprop:Generator_ColumnVarNameInTable="columnadjust_addate" msprop:Generator_ColumnPropNameInRow="adjust_addate" msprop:Generator_ColumnPropNameInTable="adjust_addateColumn" msprop:Generator_UserColumnName="adjust_addate" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="adjust_addate2" msprop:Generator_ColumnVarNameInTable="columnadjust_addate2" msprop:Generator_ColumnPropNameInRow="adjust_addate2" msprop:Generator_ColumnPropNameInTable="adjust_addate2Column" msprop:Generator_UserColumnName="adjust_addate2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="adjust_cono" msprop:Generator_ColumnVarNameInTable="columnadjust_cono" msprop:Generator_ColumnPropNameInRow="adjust_cono" msprop:Generator_ColumnPropNameInTable="adjust_conoColumn" msprop:Generator_UserColumnName="adjust_cono" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="adjust_coname1" msprop:Generator_ColumnVarNameInTable="columnadjust_coname1" msprop:Generator_ColumnPropNameInRow="adjust_coname1" msprop:Generator_ColumnPropNameInTable="adjust_coname1Column" msprop:Generator_UserColumnName="adjust_coname1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="adjust_coname2" msprop:Generator_ColumnVarNameInTable="columnadjust_coname2" msprop:Generator_ColumnPropNameInRow="adjust_coname2" msprop:Generator_ColumnPropNameInTable="adjust_coname2Column" msprop:Generator_UserColumnName="adjust_coname2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="adjust_stno" msprop:Generator_ColumnVarNameInTable="columnadjust_stno" msprop:Generator_ColumnPropNameInRow="adjust_stno" msprop:Generator_ColumnPropNameInTable="adjust_stnoColumn" msprop:Generator_UserColumnName="adjust_stno" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="adjust_stname" msprop:Generator_ColumnVarNameInTable="columnadjust_stname" msprop:Generator_ColumnPropNameInRow="adjust_stname" msprop:Generator_ColumnPropNameInTable="adjust_stnameColumn" msprop:Generator_UserColumnName="adjust_stname" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="adjust_emno" msprop:Generator_ColumnVarNameInTable="columnadjust_emno" msprop:Generator_ColumnPropNameInRow="adjust_emno" msprop:Generator_ColumnPropNameInTable="adjust_emnoColumn" msprop:Generator_UserColumnName="adjust_emno" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="adjust_emname" msprop:Generator_ColumnVarNameInTable="columnadjust_emname" msprop:Generator_ColumnPropNameInRow="adjust_emname" msprop:Generator_ColumnPropNameInTable="adjust_emnameColumn" msprop:Generator_UserColumnName="adjust_emname" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="adjust_totmnyb" msprop:Generator_ColumnVarNameInTable="columnadjust_totmnyb" msprop:Generator_ColumnPropNameInRow="adjust_totmnyb" msprop:Generator_ColumnPropNameInTable="adjust_totmnybColumn" msprop:Generator_UserColumnName="adjust_totmnyb" type="xs:decimal" minOccurs="0" />
+              <xs:element name="adjust_costflag" msprop:Generator_ColumnVarNameInTable="columnadjust_costflag" msprop:Generator_ColumnPropNameInRow="adjust_costflag" msprop:Generator_ColumnPropNameInTable="adjust_costflagColumn" msprop:Generator_UserColumnName="adjust_costflag" type="xs:boolean" minOccurs="0" />
+              <xs:element name="adjust_admemo" msprop:Generator_ColumnVarNameInTable="columnadjust_admemo" msprop:Generator_ColumnPropNameInRow="adjust_admemo" msprop:Generator_ColumnPropNameInTable="adjust_admemoColumn" msprop:Generator_UserColumnName="adjust_admemo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="adjust_bracket" msprop:Generator_ColumnVarNameInTable="columnadjust_bracket" msprop:Generator_ColumnPropNameInRow="adjust_bracket" msprop:Generator_ColumnPropNameInTable="adjust_bracketColumn" msprop:Generator_UserColumnName="adjust_bracket" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="6" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="adjust_recordno" msprop:Generator_ColumnVarNameInTable="columnadjust_recordno" msprop:Generator_ColumnPropNameInRow="adjust_recordno" msprop:Generator_ColumnPropNameInTable="adjust_recordnoColumn" msprop:Generator_UserColumnName="adjust_recordno" type="xs:decimal" minOccurs="0" />
+              <xs:element name="adjust_usrno" msprop:Generator_ColumnVarNameInTable="columnadjust_usrno" msprop:Generator_ColumnPropNameInRow="adjust_usrno" msprop:Generator_ColumnPropNameInTable="adjust_usrnoColumn" msprop:Generator_UserColumnName="adjust_usrno" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="adjustd_adno" msprop:Generator_ColumnVarNameInTable="columnadjustd_adno" msprop:Generator_ColumnPropNameInRow="adjustd_adno" msprop:Generator_ColumnPropNameInTable="adjustd_adnoColumn" msprop:Generator_UserColumnName="adjustd_adno" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="12" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="adjustd_addate" msprop:Generator_ColumnVarNameInTable="columnadjustd_addate" msprop:Generator_ColumnPropNameInRow="adjustd_addate" msprop:Generator_ColumnPropNameInTable="adjustd_addateColumn" msprop:Generator_UserColumnName="adjustd_addate" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="adjustd_cono" msprop:Generator_ColumnVarNameInTable="columnadjustd_cono" msprop:Generator_ColumnPropNameInRow="adjustd_cono" msprop:Generator_ColumnPropNameInTable="adjustd_conoColumn" msprop:Generator_UserColumnName="adjustd_cono" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="adjustd_stno" msprop:Generator_ColumnVarNameInTable="columnadjustd_stno" msprop:Generator_ColumnPropNameInRow="adjustd_stno" msprop:Generator_ColumnPropNameInTable="adjustd_stnoColumn" msprop:Generator_UserColumnName="adjustd_stno" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="adjustd_emno" msprop:Generator_ColumnVarNameInTable="columnadjustd_emno" msprop:Generator_ColumnPropNameInRow="adjustd_emno" msprop:Generator_ColumnPropNameInTable="adjustd_emnoColumn" msprop:Generator_UserColumnName="adjustd_emno" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="adjustd_costflag" msprop:Generator_ColumnVarNameInTable="columnadjustd_costflag" msprop:Generator_ColumnPropNameInRow="adjustd_costflag" msprop:Generator_ColumnPropNameInTable="adjustd_costflagColumn" msprop:Generator_UserColumnName="adjustd_costflag" type="xs:boolean" minOccurs="0" />
+              <xs:element name="adjustd_itno" msprop:Generator_ColumnVarNameInTable="columnadjustd_itno" msprop:Generator_ColumnPropNameInRow="adjustd_itno" msprop:Generator_ColumnPropNameInTable="adjustd_itnoColumn" msprop:Generator_UserColumnName="adjustd_itno" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="adjustd_itname" msprop:Generator_ColumnVarNameInTable="columnadjustd_itname" msprop:Generator_ColumnPropNameInRow="adjustd_itname" msprop:Generator_ColumnPropNameInTable="adjustd_itnameColumn" msprop:Generator_UserColumnName="adjustd_itname" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="adjustd_ittrait" msprop:Generator_ColumnVarNameInTable="columnadjustd_ittrait" msprop:Generator_ColumnPropNameInRow="adjustd_ittrait" msprop:Generator_ColumnPropNameInTable="adjustd_ittraitColumn" msprop:Generator_UserColumnName="adjustd_ittrait" type="xs:decimal" minOccurs="0" />
+              <xs:element name="adjustd_itunit" msprop:Generator_ColumnVarNameInTable="columnadjustd_itunit" msprop:Generator_ColumnPropNameInRow="adjustd_itunit" msprop:Generator_ColumnPropNameInTable="adjustd_itunitColumn" msprop:Generator_UserColumnName="adjustd_itunit" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="adjustd_itpkgqty" msprop:Generator_ColumnVarNameInTable="columnadjustd_itpkgqty" msprop:Generator_ColumnPropNameInRow="adjustd_itpkgqty" msprop:Generator_ColumnPropNameInTable="adjustd_itpkgqtyColumn" msprop:Generator_UserColumnName="adjustd_itpkgqty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="adjustd_qty" msprop:Generator_ColumnVarNameInTable="columnadjustd_qty" msprop:Generator_ColumnPropNameInRow="adjustd_qty" msprop:Generator_ColumnPropNameInTable="adjustd_qtyColumn" msprop:Generator_UserColumnName="adjustd_qty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="adjustd_costb" msprop:Generator_ColumnVarNameInTable="columnadjustd_costb" msprop:Generator_ColumnPropNameInRow="adjustd_costb" msprop:Generator_ColumnPropNameInTable="adjustd_costbColumn" msprop:Generator_UserColumnName="adjustd_costb" type="xs:decimal" minOccurs="0" />
+              <xs:element name="adjustd_costb1" msprop:Generator_ColumnVarNameInTable="columnadjustd_costb1" msprop:Generator_ColumnPropNameInRow="adjustd_costb1" msprop:Generator_ColumnPropNameInTable="adjustd_costb1Column" msprop:Generator_UserColumnName="adjustd_costb1" type="xs:decimal" minOccurs="0" />
+              <xs:element name="adjustd_mnyb" msprop:Generator_ColumnVarNameInTable="columnadjustd_mnyb" msprop:Generator_ColumnPropNameInRow="adjustd_mnyb" msprop:Generator_ColumnPropNameInTable="adjustd_mnybColumn" msprop:Generator_UserColumnName="adjustd_mnyb" type="xs:decimal" minOccurs="0" />
+              <xs:element name="adjustd_memo" msprop:Generator_ColumnVarNameInTable="columnadjustd_memo" msprop:Generator_ColumnPropNameInRow="adjustd_memo" msprop:Generator_ColumnPropNameInTable="adjustd_memoColumn" msprop:Generator_UserColumnName="adjustd_memo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="adjustd_lowzro" msprop:Generator_ColumnVarNameInTable="columnadjustd_lowzro" msprop:Generator_ColumnPropNameInRow="adjustd_lowzro" msprop:Generator_ColumnPropNameInTable="adjustd_lowzroColumn" msprop:Generator_UserColumnName="adjustd_lowzro" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="adjustd_bomid" msprop:Generator_ColumnVarNameInTable="columnadjustd_bomid" msprop:Generator_ColumnPropNameInRow="adjustd_bomid" msprop:Generator_ColumnPropNameInTable="adjustd_bomidColumn" msprop:Generator_UserColumnName="adjustd_bomid" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="adjustd_bomrec" msprop:Generator_ColumnVarNameInTable="columnadjustd_bomrec" msprop:Generator_ColumnPropNameInRow="adjustd_bomrec" msprop:Generator_ColumnPropNameInTable="adjustd_bomrecColumn" msprop:Generator_UserColumnName="adjustd_bomrec" type="xs:decimal" minOccurs="0" />
+              <xs:element name="adjustd_recordno" msprop:Generator_ColumnVarNameInTable="columnadjustd_recordno" msprop:Generator_ColumnPropNameInRow="adjustd_recordno" msprop:Generator_ColumnPropNameInTable="adjustd_recordnoColumn" msprop:Generator_UserColumnName="adjustd_recordno" type="xs:decimal" minOccurs="0" />
+              <xs:element name="adjustd_sltflag" msprop:Generator_ColumnVarNameInTable="columnadjustd_sltflag" msprop:Generator_ColumnPropNameInRow="adjustd_sltflag" msprop:Generator_ColumnPropNameInTable="adjustd_sltflagColumn" msprop:Generator_UserColumnName="adjustd_sltflag" type="xs:boolean" minOccurs="0" />
+              <xs:element name="adjustd_extflag" msprop:Generator_ColumnVarNameInTable="columnadjustd_extflag" msprop:Generator_ColumnPropNameInRow="adjustd_extflag" msprop:Generator_ColumnPropNameInTable="adjustd_extflagColumn" msprop:Generator_UserColumnName="adjustd_extflag" type="xs:boolean" minOccurs="0" />
+              <xs:element name="adjustd_bracket" msprop:Generator_ColumnVarNameInTable="columnadjustd_bracket" msprop:Generator_ColumnPropNameInRow="adjustd_bracket" msprop:Generator_ColumnPropNameInTable="adjustd_bracketColumn" msprop:Generator_UserColumnName="adjustd_bracket" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="6" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="adjustd_itdesp1" msprop:Generator_ColumnVarNameInTable="columnadjustd_itdesp1" msprop:Generator_ColumnPropNameInRow="adjustd_itdesp1" msprop:Generator_ColumnPropNameInTable="adjustd_itdesp1Column" msprop:Generator_UserColumnName="adjustd_itdesp1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="adjustd_itdesp2" msprop:Generator_ColumnVarNameInTable="columnadjustd_itdesp2" msprop:Generator_ColumnPropNameInRow="adjustd_itdesp2" msprop:Generator_ColumnPropNameInTable="adjustd_itdesp2Column" msprop:Generator_UserColumnName="adjustd_itdesp2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="adjustd_itdesp3" msprop:Generator_ColumnVarNameInTable="columnadjustd_itdesp3" msprop:Generator_ColumnPropNameInRow="adjustd_itdesp3" msprop:Generator_ColumnPropNameInTable="adjustd_itdesp3Column" msprop:Generator_UserColumnName="adjustd_itdesp3" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="adjustd_itdesp4" msprop:Generator_ColumnVarNameInTable="columnadjustd_itdesp4" msprop:Generator_ColumnPropNameInRow="adjustd_itdesp4" msprop:Generator_ColumnPropNameInTable="adjustd_itdesp4Column" msprop:Generator_UserColumnName="adjustd_itdesp4" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="adjustd_itdesp5" msprop:Generator_ColumnVarNameInTable="columnadjustd_itdesp5" msprop:Generator_ColumnPropNameInRow="adjustd_itdesp5" msprop:Generator_ColumnPropNameInTable="adjustd_itdesp5Column" msprop:Generator_UserColumnName="adjustd_itdesp5" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="adjustd_itdesp6" msprop:Generator_ColumnVarNameInTable="columnadjustd_itdesp6" msprop:Generator_ColumnPropNameInRow="adjustd_itdesp6" msprop:Generator_ColumnPropNameInTable="adjustd_itdesp6Column" msprop:Generator_UserColumnName="adjustd_itdesp6" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="adjustd_itdesp7" msprop:Generator_ColumnVarNameInTable="columnadjustd_itdesp7" msprop:Generator_ColumnPropNameInRow="adjustd_itdesp7" msprop:Generator_ColumnPropNameInTable="adjustd_itdesp7Column" msprop:Generator_UserColumnName="adjustd_itdesp7" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="adjustd_itdesp8" msprop:Generator_ColumnVarNameInTable="columnadjustd_itdesp8" msprop:Generator_ColumnPropNameInRow="adjustd_itdesp8" msprop:Generator_ColumnPropNameInTable="adjustd_itdesp8Column" msprop:Generator_UserColumnName="adjustd_itdesp8" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="adjustd_itdesp9" msprop:Generator_ColumnVarNameInTable="columnadjustd_itdesp9" msprop:Generator_ColumnPropNameInRow="adjustd_itdesp9" msprop:Generator_ColumnPropNameInTable="adjustd_itdesp9Column" msprop:Generator_UserColumnName="adjustd_itdesp9" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="adjustd_itdesp310" msprop:Generator_ColumnVarNameInTable="columnadjustd_itdesp310" msprop:Generator_ColumnPropNameInRow="adjustd_itdesp310" msprop:Generator_ColumnPropNameInTable="adjustd_itdesp310Column" msprop:Generator_UserColumnName="adjustd_itdesp310" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="adjustd_stname" msprop:Generator_ColumnVarNameInTable="columnadjustd_stname" msprop:Generator_ColumnPropNameInRow="adjustd_stname" msprop:Generator_ColumnPropNameInTable="adjustd_stnameColumn" msprop:Generator_UserColumnName="adjustd_stname" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="adjuBom_AdNo" msprop:Generator_ColumnVarNameInTable="columnadjuBom_AdNo" msprop:Generator_ColumnPropNameInRow="adjuBom_AdNo" msprop:Generator_ColumnPropNameInTable="adjuBom_AdNoColumn" msprop:Generator_UserColumnName="adjuBom_AdNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="16" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="adjuBom_BomID" msprop:Generator_ColumnVarNameInTable="columnadjuBom_BomID" msprop:Generator_ColumnPropNameInRow="adjuBom_BomID" msprop:Generator_ColumnPropNameInTable="adjuBom_BomIDColumn" msprop:Generator_UserColumnName="adjuBom_BomID" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="adjuBom_BomRec" msprop:Generator_ColumnVarNameInTable="columnadjuBom_BomRec" msprop:Generator_ColumnPropNameInRow="adjuBom_BomRec" msprop:Generator_ColumnPropNameInTable="adjuBom_BomRecColumn" msprop:Generator_UserColumnName="adjuBom_BomRec" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="adjuBom_itno" msprop:Generator_ColumnVarNameInTable="columnadjuBom_itno" msprop:Generator_ColumnPropNameInRow="adjuBom_itno" msprop:Generator_ColumnPropNameInTable="adjuBom_itnoColumn" msprop:Generator_UserColumnName="adjuBom_itno" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="adjuBom_itname" msprop:Generator_ColumnVarNameInTable="columnadjuBom_itname" msprop:Generator_ColumnPropNameInRow="adjuBom_itname" msprop:Generator_ColumnPropNameInTable="adjuBom_itnameColumn" msprop:Generator_UserColumnName="adjuBom_itname" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="adjuBom_itunit" msprop:Generator_ColumnVarNameInTable="columnadjuBom_itunit" msprop:Generator_ColumnPropNameInRow="adjuBom_itunit" msprop:Generator_ColumnPropNameInTable="adjuBom_itunitColumn" msprop:Generator_UserColumnName="adjuBom_itunit" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="adjuBom_itqty" msprop:Generator_ColumnVarNameInTable="columnadjuBom_itqty" msprop:Generator_ColumnPropNameInRow="adjuBom_itqty" msprop:Generator_ColumnPropNameInTable="adjuBom_itqtyColumn" msprop:Generator_UserColumnName="adjuBom_itqty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="adjuBom_tpareprs" msprop:Generator_ColumnVarNameInTable="columnadjuBom_tpareprs" msprop:Generator_ColumnPropNameInRow="adjuBom_tpareprs" msprop:Generator_ColumnPropNameInTable="adjuBom_tpareprsColumn" msprop:Generator_UserColumnName="adjuBom_tpareprs" type="xs:decimal" minOccurs="0" />
+              <xs:element name="adjuBom_itpkgqty" msprop:Generator_ColumnVarNameInTable="columnadjuBom_itpkgqty" msprop:Generator_ColumnPropNameInRow="adjuBom_itpkgqty" msprop:Generator_ColumnPropNameInTable="adjuBom_itpkgqtyColumn" msprop:Generator_UserColumnName="adjuBom_itpkgqty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="adjuBom_itrec" msprop:Generator_ColumnVarNameInTable="columnadjuBom_itrec" msprop:Generator_ColumnPropNameInRow="adjuBom_itrec" msprop:Generator_ColumnPropNameInTable="adjuBom_itrecColumn" msprop:Generator_UserColumnName="adjuBom_itrec" type="xs:decimal" minOccurs="0" />
+              <xs:element name="adjuBom_itprice" msprop:Generator_ColumnVarNameInTable="columnadjuBom_itprice" msprop:Generator_ColumnPropNameInRow="adjuBom_itprice" msprop:Generator_ColumnPropNameInTable="adjuBom_itpriceColumn" msprop:Generator_UserColumnName="adjuBom_itprice" type="xs:decimal" minOccurs="0" />
+              <xs:element name="adjuBom_itprs" msprop:Generator_ColumnVarNameInTable="columnadjuBom_itprs" msprop:Generator_ColumnPropNameInRow="adjuBom_itprs" msprop:Generator_ColumnPropNameInTable="adjuBom_itprsColumn" msprop:Generator_UserColumnName="adjuBom_itprs" type="xs:decimal" minOccurs="0" />
+              <xs:element name="adjuBom_itmny" msprop:Generator_ColumnVarNameInTable="columnadjuBom_itmny" msprop:Generator_ColumnPropNameInRow="adjuBom_itmny" msprop:Generator_ColumnPropNameInTable="adjuBom_itmnyColumn" msprop:Generator_UserColumnName="adjuBom_itmny" type="xs:decimal" minOccurs="0" />
+              <xs:element name="adjuBom_itnote" msprop:Generator_ColumnVarNameInTable="columnadjuBom_itnote" msprop:Generator_ColumnPropNameInRow="adjuBom_itnote" msprop:Generator_ColumnPropNameInTable="adjuBom_itnoteColumn" msprop:Generator_UserColumnName="adjuBom_itnote" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="adjuBom_itsource" msprop:Generator_ColumnVarNameInTable="columnadjuBom_itsource" msprop:Generator_ColumnPropNameInRow="adjuBom_itsource" msprop:Generator_ColumnPropNameInTable="adjuBom_itsourceColumn" msprop:Generator_UserColumnName="adjuBom_itsource" type="xs:decimal" minOccurs="0" />
+              <xs:element name="adjuBom_itbuypri" msprop:Generator_ColumnVarNameInTable="columnadjuBom_itbuypri" msprop:Generator_ColumnPropNameInRow="adjuBom_itbuypri" msprop:Generator_ColumnPropNameInTable="adjuBom_itbuypriColumn" msprop:Generator_UserColumnName="adjuBom_itbuypri" type="xs:decimal" minOccurs="0" />
+              <xs:element name="adjuBom_itbuymny" msprop:Generator_ColumnVarNameInTable="columnadjuBom_itbuymny" msprop:Generator_ColumnPropNameInRow="adjuBom_itbuymny" msprop:Generator_ColumnPropNameInTable="adjuBom_itbuymnyColumn" msprop:Generator_UserColumnName="adjuBom_itbuymny" type="xs:decimal" minOccurs="0" />
+              <xs:element name="adjust_addate1" msprop:Generator_ColumnVarNameInTable="columnadjust_addate1" msprop:Generator_ColumnPropNameInRow="adjust_addate1" msprop:Generator_ColumnPropNameInTable="adjust_addate1Column" msprop:Generator_UserColumnName="adjust_addate1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="adjustd_addate1" msprop:Generator_ColumnVarNameInTable="columnadjustd_addate1" msprop:Generator_ColumnPropNameInRow="adjustd_addate1" msprop:Generator_ColumnPropNameInTable="adjustd_addate1Column" msprop:Generator_UserColumnName="adjustd_addate1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="adjustd_addate2" msprop:Generator_ColumnVarNameInTable="columnadjustd_addate2" msprop:Generator_ColumnPropNameInRow="adjustd_addate2" msprop:Generator_ColumnPropNameInTable="adjustd_addate2Column" msprop:Generator_UserColumnName="adjustd_addate2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="adjust_admemo1" msprop:Generator_ColumnVarNameInTable="columnadjust_admemo1" msprop:Generator_ColumnPropNameInRow="adjust_admemo1" msprop:Generator_ColumnPropNameInTable="adjust_admemo1Column" msprop:Generator_UserColumnName="adjust_admemo1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="adjust_IsTrans" msprop:Generator_ColumnVarNameInTable="columnadjust_IsTrans" msprop:Generator_ColumnPropNameInRow="adjust_IsTrans" msprop:Generator_ColumnPropNameInTable="adjust_IsTransColumn" msprop:Generator_UserColumnName="adjust_IsTrans" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="adjust_EdtDate" msprop:Generator_ColumnVarNameInTable="columnadjust_EdtDate" msprop:Generator_ColumnPropNameInRow="adjust_EdtDate" msprop:Generator_ColumnPropNameInTable="adjust_EdtDateColumn" msprop:Generator_UserColumnName="adjust_EdtDate" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="adjust_EdtScNo" msprop:Generator_ColumnVarNameInTable="columnadjust_EdtScNo" msprop:Generator_ColumnPropNameInRow="adjust_EdtScNo" msprop:Generator_ColumnPropNameInTable="adjust_EdtScNoColumn" msprop:Generator_UserColumnName="adjust_EdtScNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="adjust_AppDate" msprop:Generator_ColumnVarNameInTable="columnadjust_AppDate" msprop:Generator_ColumnPropNameInRow="adjust_AppDate" msprop:Generator_ColumnPropNameInTable="adjust_AppDateColumn" msprop:Generator_UserColumnName="adjust_AppDate" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="adjust_AppScNo" msprop:Generator_ColumnVarNameInTable="columnadjust_AppScNo" msprop:Generator_ColumnPropNameInRow="adjust_AppScNo" msprop:Generator_ColumnPropNameInTable="adjust_AppScNoColumn" msprop:Generator_UserColumnName="adjust_AppScNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="scname" msprop:Generator_ColumnVarNameInTable="columnscname" msprop:Generator_ColumnPropNameInRow="scname" msprop:Generator_ColumnPropNameInTable="scnameColumn" msprop:Generator_UserColumnName="scname" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="scname1" msprop:Generator_ColumnVarNameInTable="columnscname1" msprop:Generator_ColumnPropNameInRow="scname1" msprop:Generator_ColumnPropNameInTable="scname1Column" msprop:Generator_UserColumnName="scname1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:adjust" />
+      <xs:field xpath="mstns:adjust_adno" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,319 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" DoublePass="true" ReportInfo.Created="03/11/2015 18:35:11" ReportInfo.Modified="06/28/2016 17:33:15" ReportInfo.CreatorVersion="2013.2.5.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {         
+    private void Text67_BeforePrint(object sender, EventArgs e)
+    {
+      if(((Decimal)Report.GetColumnValue(&quot;FQUOT_.fquotd_recordno&quot;))==((Decimal)Report.GetColumnValue(&quot;FQUOT_.fquot_recordno&quot;)))
+      {
+        Text67.Visible=true;
+      } 
+      else
+        Text67.Visible=false; 
+    }
+
+    private void Text66_BeforePrint(object sender, EventArgs e)
+    {
+      if (((Int32)Report.GetVariableValue(&quot;Page&quot;))!=((Int32)Report.GetVariableValue(&quot;TotalPages&quot;)))
+      {
+        Text66.Visible=true;
+      }
+      else
+        Text66.Visible=false;
+    }       
+
+    private void Text1_BeforePrint(object sender, EventArgs e)
+    {
+      //銷貨日期
+      string date = (((String)Report.GetColumnValue(&quot;FQUOT_.fquot_詢價日期_西元&quot;)));
+      string date1 = &quot;&quot;;
+      if(((String)Report.GetParameterValue(&quot;date&quot;)) == &quot;民國&quot;)
+      {
+        date1 = (Convert.ToInt32((date.Substring(0,4)))-1911).ToString()+&quot;.&quot;;
+        date1 += date.Substring(4,2)+&quot;.&quot;+date.Substring(6,2); 
+      }
+      else
+      {
+        date1 = date.Substring(0,4)+&quot;.&quot;;
+        date1 += date.Substring(4,2)+&quot;.&quot;+date.Substring(6,2); 
+      }
+      Text1.Text = date1;
+    }
+
+    private void Text40_BeforePrint(object sender, EventArgs e)
+    {
+      //金額
+      if(((Boolean)Report.GetParameterValue(&quot;是否顯示金額&quot;)) == false)
+      {
+        Text40.Text =&quot;&quot;;
+        return;
+      }
+      string formet = &quot;f&quot;+((String)Report.GetParameterValue(&quot;進項金額小數&quot;));
+      Text40.Text = ((Decimal)Report.GetColumnValue(&quot;FQUOT_.fquotd_外幣稅前金額&quot;)).ToString(formet);
+    }
+
+    private void Text37_BeforePrint(object sender, EventArgs e)
+    {
+      //數量
+      string formet = &quot;f&quot;+((String)Report.GetParameterValue(&quot;庫存數量小數&quot;));
+      Text37.Text = ((Decimal)Report.GetColumnValue(&quot;FQUOT_.fquotd_數量&quot;)).ToString(formet);
+    }
+
+    private void Text39_BeforePrint(object sender, EventArgs e)
+    {
+      //單價
+      if(((Boolean)Report.GetParameterValue(&quot;是否顯示金額&quot;)) == false)
+      {
+        Text39.Text =&quot;&quot;;
+        return;
+      }
+      string formet = &quot;f&quot;+((String)Report.GetParameterValue(&quot;進貨單價小數&quot;));
+      Text39.Text = ((Decimal)Report.GetColumnValue(&quot;FQUOT_.fquotd_外幣稅前單價&quot;)).ToString(formet); 
+    }
+
+    private void Text52_BeforePrint(object sender, EventArgs e)
+    {
+      //稅前合計
+      if(((Boolean)Report.GetParameterValue(&quot;是否顯示金額&quot;)) == false)
+      {
+        Text52.Text =&quot;&quot;;
+        return;
+      }
+      string formet = &quot;f&quot;+(((String)Report.GetParameterValue(&quot;進貨單據小數&quot;)));
+      Text52.Text = ((Decimal)Report.GetColumnValue(&quot;FQUOT_.fquot_外幣合計&quot;)).ToString(formet); 
+    }
+
+    private void Text58_BeforePrint(object sender, EventArgs e)
+    {
+      //營業稅額
+      if(((Boolean)Report.GetParameterValue(&quot;是否顯示金額&quot;)) == false)
+      {
+        Text58.Text =&quot;&quot;;
+        return;
+      }
+      string formet = &quot;f&quot;+(((String)Report.GetParameterValue(&quot;進項稅額小數&quot;)));
+      Text58.Text = ((Decimal)Report.GetColumnValue(&quot;FQUOT_.fquot_外幣營業稅額&quot;)).ToString(formet); 
+    }
+    
+
+    private void Text56_BeforePrint(object sender, EventArgs e)
+    {
+      //報價總額
+      if(((Boolean)Report.GetParameterValue(&quot;是否顯示金額&quot;)) == false)
+      {
+        Text56.Text =&quot;&quot;;
+        return;
+      }
+      string formet = &quot;f&quot;+(((String)Report.GetParameterValue(&quot;進貨單據小數&quot;)));
+      Text56.Text = ((Decimal)Report.GetColumnValue(&quot;FQUOT_.fquot_外幣詢價總額&quot;)).ToString(formet); 
+    }
+    
+    
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <MsSqlDataConnection Name="Connection" ConnectionString="rijcmlq+rW0RkboK+/8CKGGYUID3ctBV8q9SvKYxl3iiE7vBnh7Tgou0+4WFf3NfmPSvHVFX/S2Yvz0Ibm2enAAh/bj5IwCF1OGDq6mzCDV0cmqq5lzdq8B2h44YdiG1MkNRxzZmCUdOqUj+K3AG9XjPOZ10gPNpzXlAuZ2Xc0Mv7MKRW0=">
+      <TableDataSource Name="Table" Alias="FQUOT_" DataType="System.Int32" Enabled="true" SelectCommand="SELECT a.fqno AS fquot_詢價單號, a.fqdate AS fquot_詢價日期_民國, a.fqdate1 AS fquot_詢價日期_西元, a.fqdate2 AS fquot_詢價日期_保留,  a.fqdates AS fquot_預計交期_民國, a.fqdates1 AS fquot_預計交期_西元, a.fqdates2 AS fquot_預計交期_保留, a.cono AS fquot_公司編號,  a.coname1 AS fquot_公司簡稱, a.coname2 AS fquot_公司名稱, a.fano AS fquot_廠商編號, a.faname2 AS fquot_廠商名稱, a.faname1 AS fquot_廠商簡稱, a.fatel1 AS fquot_廠商電話, a.faper1 AS fquot_廠商聯絡人, a.emno AS fquot_採購人員編號, a.emname AS fquot_採購人員姓名, a.xa1no AS fquot_幣別編號, a.xa1name AS fquot_幣別名稱, a.xa1par AS fquot_匯率, a.taxmnyf AS fquot_taxmnyf, a.taxmnyb AS fquot_本幣合計, a.taxmny AS fquot_外幣合計, a.x3no AS fquot_稅別編號, a.rate AS fquot_稅率, a.tax AS fquot_外幣營業稅額, a.totmny AS fquot_外幣詢價總額, a.taxb AS fquot_本幣營業稅額, a.totmnyb AS fquot_本幣詢價總額, a.fqpayment AS fquot_付款條件, a.fqperiod AS fquot_有效期限, a.fqmemo AS fquot_備註, a.recordno AS fquot_recordno, a.UsrNo AS fquot_UsrNo,a.fqmemo1 AS fquot_fqmemo1,  a.AppDate AS fquot_AppDate, a.EdtDate AS fquot_EdtDate,a.AppScNo AS fquot_AppScNo, a.EdtScNo AS fquot_EdtScNo,  b.fqdate2 AS fquotd_詢價日期_保留, b.fqdates AS fquotd_預計交期_民國, b.fqdates1 AS fquotd_預計交期_西元,  b.fqdates2 AS fquotd_預計交期_保留, b.fano AS fquotd_廠商編號, b.emno AS fquotd_業務編號, b.xa1no AS fquotd_幣別編號,  b.xa1par AS fquotd_匯率, b.itno AS fquotd_產品編號, b.itname AS fquotd_品名規格, b.ittrait AS fquotd_產品組成,  b.itunit AS fquotd_單位, b.itpkgqty AS fquotd_包裝數量, b.qty AS fquotd_數量, b.price AS fquotd_外幣單價,  b.prs AS fquotd_折數, b.rate AS fquotd_稅率, b.taxprice AS fquotd_外幣稅前單價, b.mny AS fquotd_外幣稅前金額,  b.priceb AS fquotd_本幣單價, b.taxpriceb AS fquotd_本幣稅前單價, b.mnyb AS fquotd_本幣稅前金額, b.memo AS fquotd_備註, b.lowzero AS fquotd_lowzero, b.bomid AS fquotd_bomid, b.bomrec AS fquotd_bomrec, b.recordno AS fquotd_recordno, b.sltflag AS fquotd_sltflag, b.extflag AS fquotd_extflag, b.itdesp1 AS fquotd_規格說明1, b.itdesp2 AS fquotd_規格說明2, b.itdesp3 AS fquotd_規格說明3, b.itdesp4 AS fquotd_規格說明4, b.itdesp5 AS fquotd_規格說明5, b.itdesp6 AS fquotd_規格說明6, b.itdesp7 AS fquotd_規格說明7, b.itdesp8 AS fquotd_規格說明8, b.itdesp9 AS fquotd_規格說明9,  b.itdesp10 AS fquotd_規格說明10, b.stName AS fquotd_stName, f.fano AS fact_廠商編號, f.fafax1 AS fact_廠商傳真, f.faaddr1 AS fact_廠商地址, f.fauno AS fact_廠商統一編號, f.faname2 AS fact_廠商名稱 , i.itpicture AS item_itpicture , i.pic AS item_pic,DATALENGTH(i.pic) as pic長度,  scrit.scname as 使用者編號,scrit.scname1 as 使用者名稱 FROM fquotd AS b LEFT JOIN fquot AS a ON a.fqno = b.fqno left join fact as f on f.fano=a.fano left join item as i on i.itno=b.itno LEFT   JOIN scrit ON a.appscno = scrit.scname order by b.itno ">
+        <Column Name="fquot_詢價單號" DataType="System.String"/>
+        <Column Name="fquot_詢價日期_民國" DataType="System.String"/>
+        <Column Name="fquot_詢價日期_西元" DataType="System.String"/>
+        <Column Name="fquot_詢價日期_保留" DataType="System.String"/>
+        <Column Name="fquot_預計交期_民國" DataType="System.String"/>
+        <Column Name="fquot_預計交期_西元" DataType="System.String"/>
+        <Column Name="fquot_預計交期_保留" DataType="System.String"/>
+        <Column Name="fquot_公司編號" DataType="System.String"/>
+        <Column Name="fquot_公司簡稱" DataType="System.String"/>
+        <Column Name="fquot_公司名稱" DataType="System.String"/>
+        <Column Name="fquot_廠商編號" DataType="System.String"/>
+        <Column Name="fquot_廠商名稱" DataType="System.String"/>
+        <Column Name="fquot_廠商簡稱" DataType="System.String"/>
+        <Column Name="fquot_廠商電話" DataType="System.String"/>
+        <Column Name="fquot_廠商聯絡人" DataType="System.String"/>
+        <Column Name="fquot_採購人員編號" DataType="System.String"/>
+        <Column Name="fquot_採購人員姓名" DataType="System.String"/>
+        <Column Name="fquot_幣別編號" DataType="System.String"/>
+        <Column Name="fquot_幣別名稱" DataType="System.String"/>
+        <Column Name="fquot_匯率" DataType="System.Decimal"/>
+        <Column Name="fquot_taxmnyf" DataType="System.Decimal"/>
+        <Column Name="fquot_本幣合計" DataType="System.Decimal"/>
+        <Column Name="fquot_外幣合計" DataType="System.Decimal"/>
+        <Column Name="fquot_稅別編號" DataType="System.Decimal"/>
+        <Column Name="fquot_稅率" DataType="System.Decimal"/>
+        <Column Name="fquot_外幣營業稅額" DataType="System.Decimal"/>
+        <Column Name="fquot_本幣營業稅額" DataType="System.Decimal"/>
+        <Column Name="fquot_付款條件" DataType="System.String"/>
+        <Column Name="fquot_有效期限" DataType="System.String"/>
+        <Column Name="fquot_備註" DataType="System.String"/>
+        <Column Name="fquot_recordno" DataType="System.Decimal"/>
+        <Column Name="fquot_UsrNo" DataType="System.String"/>
+        <Column Name="fquot_fqmemo1" DataType="System.String"/>
+        <Column Name="fquot_AppDate" DataType="System.String"/>
+        <Column Name="fquot_EdtDate" DataType="System.String"/>
+        <Column Name="fquot_AppScNo" DataType="System.String"/>
+        <Column Name="fquot_EdtScNo" DataType="System.String"/>
+        <Column Name="fquotd_詢價日期_保留" DataType="System.String"/>
+        <Column Name="fquotd_預計交期_民國" DataType="System.String"/>
+        <Column Name="fquotd_預計交期_西元" DataType="System.String"/>
+        <Column Name="fquotd_預計交期_保留" DataType="System.String"/>
+        <Column Name="fquotd_廠商編號" DataType="System.String"/>
+        <Column Name="fquotd_業務編號" DataType="System.String"/>
+        <Column Name="fquotd_幣別編號" DataType="System.String"/>
+        <Column Name="fquotd_匯率" DataType="System.Decimal"/>
+        <Column Name="fquotd_產品編號" DataType="System.String"/>
+        <Column Name="fquotd_品名規格" DataType="System.String"/>
+        <Column Name="fquotd_產品組成" DataType="System.Decimal"/>
+        <Column Name="fquotd_單位" DataType="System.String"/>
+        <Column Name="fquotd_包裝數量" DataType="System.Decimal"/>
+        <Column Name="fquotd_數量" DataType="System.Decimal"/>
+        <Column Name="fquotd_外幣單價" DataType="System.Decimal"/>
+        <Column Name="fquotd_折數" DataType="System.Decimal"/>
+        <Column Name="fquotd_稅率" DataType="System.Decimal"/>
+        <Column Name="fquotd_外幣稅前單價" DataType="System.Decimal"/>
+        <Column Name="fquotd_外幣稅前金額" DataType="System.Decimal"/>
+        <Column Name="fquotd_本幣單價" DataType="System.Decimal"/>
+        <Column Name="fquotd_本幣稅前單價" DataType="System.Decimal"/>
+        <Column Name="fquotd_本幣稅前金額" DataType="System.Decimal"/>
+        <Column Name="fquotd_備註" DataType="System.String"/>
+        <Column Name="fquotd_lowzero" DataType="System.String"/>
+        <Column Name="fquotd_bomid" DataType="System.String"/>
+        <Column Name="fquotd_bomrec" DataType="System.Decimal"/>
+        <Column Name="fquotd_recordno" DataType="System.Decimal"/>
+        <Column Name="fquotd_sltflag" DataType="System.Boolean" BindableControl="CheckBox"/>
+        <Column Name="fquotd_extflag" DataType="System.Boolean" BindableControl="CheckBox"/>
+        <Column Name="fquotd_規格說明1" DataType="System.String"/>
+        <Column Name="fquotd_規格說明2" DataType="System.String"/>
+        <Column Name="fquotd_規格說明3" DataType="System.String"/>
+        <Column Name="fquotd_規格說明4" DataType="System.String"/>
+        <Column Name="fquotd_規格說明5" DataType="System.String"/>
+        <Column Name="fquotd_規格說明6" DataType="System.String"/>
+        <Column Name="fquotd_規格說明7" DataType="System.String"/>
+        <Column Name="fquotd_規格說明8" DataType="System.String"/>
+        <Column Name="fquotd_規格說明9" DataType="System.String"/>
+        <Column Name="fquotd_規格說明10" DataType="System.String"/>
+        <Column Name="fquotd_stName" DataType="System.String"/>
+        <Column Name="fact_廠商編號" DataType="System.String"/>
+        <Column Name="fact_廠商傳真" DataType="System.String"/>
+        <Column Name="fact_廠商地址" DataType="System.String"/>
+        <Column Name="fact_廠商統一編號" DataType="System.String"/>
+        <Column Name="fact_廠商名稱" DataType="System.String"/>
+        <Column Name="item_itpicture" DataType="System.String"/>
+        <Column Name="item_pic" DataType="System.Byte[]" BindableControl="Picture"/>
+        <Column Name="pic長度" DataType="System.Int32"/>
+        <Column Name="使用者編號" DataType="System.String"/>
+        <Column Name="使用者名稱" DataType="System.String"/>
+        <Column Name="fquot_外幣詢價總額" DataType="System.Decimal"/>
+        <Column Name="fquot_本幣詢價總額" DataType="System.Decimal"/>
+      </TableDataSource>
+    </MsSqlDataConnection>
+    <Parameter Name="txtstart" DataType="System.String"/>
+    <Parameter Name="DateRange" DataType="System.String"/>
+    <Parameter Name="RankState" DataType="System.String"/>
+    <Parameter Name="txtend" DataType="System.String"/>
+    <Parameter Name="銷項金額小數" DataType="System.String"/>
+    <Parameter Name="txtadress" DataType="System.String"/>
+    <Parameter Name="txttel" DataType="System.String"/>
+    <Parameter Name="銷貨單價小數" DataType="System.String"/>
+    <Parameter Name="銷貨單據小數" DataType="System.String"/>
+    <Parameter Name="銷項稅額小數" DataType="System.String"/>
+    <Parameter Name="庫存數量小數" DataType="System.String"/>
+    <Parameter Name="是否顯示金額" DataType="System.Boolean"/>
+    <Parameter Name="date" DataType="System.String"/>
+    <Parameter Name="進貨單價小數" DataType="System.String"/>
+    <Parameter Name="進貨單據小數" DataType="System.String"/>
+    <Parameter Name="進項稅額小數" DataType="System.String"/>
+    <Parameter Name="進項金額小數" DataType="System.String"/>
+    <Total Name="Rank" TotalType="Count" Evaluator="Data1" ResetAfterPrint="false"/>
+  </Dictionary>
+  <ReportPage Name="Page1" PaperWidth="215.9" PaperHeight="279.4" RawPaperSize="1" LeftMargin="2.5" TopMargin="2.5" RightMargin="2.5" BottomMargin="2.5" FirstPageSource="15" OtherPagesSource="15" Guides="786.24,757.89,378">
+    <PageHeaderBand Name="PageHeader1" Top="20" Width="797.2" Height="201.77" CanGrow="true" CanShrink="true">
+      <TextObject Name="txtstart" Top="3.42" Width="756" Height="34.02" Text="[txtstart]" HorzAlign="Center" WordWrap="false" Font="細明體, 20pt, style=Bold"/>
+      <TextObject Name="Text11" Left="316.06" Top="41.63" Width="119.13" Height="22.3" Text="詢  價  單" HorzAlign="Center" WordWrap="false" Font="細明體, 16pt, style=Bold, Underline"/>
+      <TextObject Name="Text12" Left="3.78" Top="108.26" Width="79.01" Height="18.9" Text="廠商名稱:" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text13" Left="3.78" Top="129.88" Width="79.01" Height="18.9" Text="公司地址:" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text14" Left="3.78" Top="86.26" Width="79.01" Height="18.9" Text="詢價日期:" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text15" Left="3.78" Top="151.88" Width="79.01" Height="18.9" Text="聯絡電話:" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text5" Left="188.78" Top="86.26" Width="135.71" Height="18.9" Text="幣別名稱:" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text16" Left="234.14" Top="151.88" Width="79.01" Height="18.9" Text="傳 真 機:" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text6" Left="426.22" Top="86.26" Width="49.14" Height="18.9" Text="匯率:" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text9" Left="477.21" Top="86.26" Width="71.83" Height="18.9" Text="[FQUOT_.fquot_匯率]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="4" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" WordWrap="false" Font="細明體, 12pt" Trimming="EllipsisCharacter"/>
+      <TextObject Name="Text1" Left="84.3" Top="86.26" Width="94.5" Height="18.9" BeforePrintEvent="Text1_BeforePrint" Text="[FQUOT_.fquot_詢價日期_西元]" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text2" Left="84.3" Top="108.26" Width="458.88" Height="21.55" Text="[FQUOT_.fquot_廠商編號] [FQUOT_.fact_廠商名稱]" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text4" Left="84.3" Top="151.88" Width="140.25" Height="18.9" Text="[FQUOT_.fquot_廠商電話]" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text10" Left="557.6" Top="86.26" Width="79.01" Height="18.9" Text="頁    次:" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text17" Left="557.98" Top="108.26" Width="79.01" Height="18.9" Text="詢價憑證:" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text18" Left="557.6" Top="129.88" Width="79.01" Height="18.9" Text="聯 絡 人:" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text19" Left="557.6" Top="151.88" Width="79.01" Height="18.9" Text="統一編號:" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text20" Left="638.42" Top="86.26" Width="115.72" Height="18.9" Text="[Page]" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text21" Left="638.42" Top="108.26" Width="115.72" Height="18.9" Text="[FQUOT_.fquot_詢價單號]" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text22" Left="638.42" Top="129.88" Width="115.72" Height="18.9" Text="[FQUOT_.fquot_廠商聯絡人]" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text23" Left="638.42" Top="151.88" Width="115.72" Height="18.9" Text="[FQUOT_.fact_廠商統一編號]" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text25" Left="315.28" Top="151.88" Width="228.26" Height="18.9" Text="[FQUOT_.fact_廠商傳真]" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text26" Left="269.92" Top="86.26" Width="149.34" Height="18.9" Text="[FQUOT_.fquot_幣別編號][FQUOT_.fquot_幣別名稱]" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text27" Left="3.78" Top="179.46" Width="35.06" Height="15.49" Text="序號" WordWrap="false" Font="細明體, 11pt"/>
+      <TextObject Name="Text28" Left="43.4" Top="179.46" Width="156.8" Height="15.49" Text="產品編號" WordWrap="false" Font="細明體, 11pt"/>
+      <TextObject Name="Text29" Left="204.56" Top="179.46" Width="227.87" Height="15.49" Text="產品規格" WordWrap="false" Font="細明體, 11pt"/>
+      <TextObject Name="Text30" Left="436.38" Top="179.46" Width="88.43" Height="15.49" Text="數量" HorzAlign="Right" WordWrap="false" Font="細明體, 11pt"/>
+      <TextObject Name="Text31" Left="528.92" Top="179.46" Width="38.44" Height="15.49" Text="單位" WordWrap="false" Font="細明體, 11pt"/>
+      <TextObject Name="Text32" Left="571.94" Top="179.46" Width="88.43" Height="15.49" Text="單價" HorzAlign="Right" WordWrap="false" Font="細明體, 11pt"/>
+      <TextObject Name="Text33" Left="666.26" Top="179.46" Width="88.43" Height="15.49" Text="金額" HorzAlign="Right" WordWrap="false" Font="細明體, 11pt"/>
+      <LineObject Name="Line1" Left="-3.78" Top="174.92" Width="761.67" Border.Width="2"/>
+      <LineObject Name="Line2" Top="199.86" Width="758.65" Border.Width="2"/>
+      <TextObject Name="Text24" Left="84.3" Top="129.88" Width="458.48" Height="18.9" Text="[FQUOT_.fact_廠商地址]" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text7" Left="462.1" Top="42.38" Width="294.34" Height="15.88" Text="[txtadress]" WordWrap="false" Font="細明體, 10pt"/>
+      <TextObject Name="Text8" Left="462.1" Top="63.16" Width="294.34" Height="15.88" Text="[txttel]" WordWrap="false" Font="細明體, 10pt"/>
+    </PageHeaderBand>
+    <GroupHeaderBand Name="GroupHeader1" Top="241.77" Width="797.2" StartNewPage="true" Condition="[FQUOT_.fquot_詢價單號]" ResetPageNumber="true">
+      <GroupHeaderBand Name="GroupHeader2" Top="261.77" Width="797.2" Condition="[FQUOT_.fquotd_recordno]">
+        <DataBand Name="Data1" Top="281.77" Width="797.2" Height="17.38" CanGrow="true" CanShrink="true" DataSource="Table">
+          <TextObject Name="Text34" Left="3.78" Top="3.78" Width="35.06" Height="13.6" Text="[FQUOT_.fquotd_recordno]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" WordWrap="false" Font="細明體, 10pt" Trimming="EllipsisCharacter"/>
+          <TextObject Name="Text35" Left="43.4" Top="3.78" Width="156.8" Height="13.6" Text="[FQUOT_.fquotd_產品編號]" WordWrap="false" Font="細明體, 10pt"/>
+          <TextObject Name="Text36" Left="204.56" Top="3.78" Width="227.87" Height="13.6" Text="[FQUOT_.fquotd_品名規格]" WordWrap="false" Font="細明體, 10pt"/>
+          <TextObject Name="Text37" Left="436.38" Top="3.78" Width="88.43" Height="13.6" BeforePrintEvent="Text37_BeforePrint" Text="[FQUOT_.fquotd_數量]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="細明體, 10pt" Trimming="EllipsisCharacter"/>
+          <TextObject Name="Text38" Left="528.92" Top="3.78" Width="38.44" Height="13.6" Text="[FQUOT_.fquotd_單位]" WordWrap="false" Font="細明體, 10pt"/>
+          <TextObject Name="Text39" Left="571.94" Top="3.78" Width="88.43" Height="13.6" BeforePrintEvent="Text39_BeforePrint" Text="[FQUOT_.fquotd_外幣稅前單價]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="細明體, 10pt" Trimming="EllipsisCharacter"/>
+          <TextObject Name="Text40" Left="666.26" Top="3.78" Width="88.43" Height="13.6" BeforePrintEvent="Text40_BeforePrint" Text="[FQUOT_.fquotd_外幣稅前金額]" Format="Currency" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="細明體, 10pt" Trimming="EllipsisCharacter"/>
+        </DataBand>
+        <GroupFooterBand Name="GroupFooter2" Top="319.15" Width="797.2" Height="15.88" CanShrink="true">
+          <TextObject Name="Text67" Top="2.28" Width="756" Height="13.6" BeforePrintEvent="Text67_BeforePrint" Text="***** 以 下 空 白 *****" HorzAlign="Center" WordWrap="false" Font="細明體, 10pt"/>
+        </GroupFooterBand>
+      </GroupHeaderBand>
+      <GroupFooterBand Name="GroupFooter1" Top="355.03" Width="797.2" Height="187.79" PrintOnBottom="true" RepeatOnEveryPage="true">
+        <TextObject Name="Text41" Left="3.78" Top="26.06" Width="79.01" Height="18.9" Text="付款條件:" WordWrap="false" Font="細明體, 12pt"/>
+        <TextObject Name="Text42" Left="3.78" Top="47.58" Width="79.01" Height="18.9" Text="有效期限:" WordWrap="false" Font="細明體, 12pt"/>
+        <TextObject Name="Text43" Left="3.78" Top="69.1" Width="79.01" Height="18.9" Text="採購人員:" WordWrap="false" Font="細明體, 12pt"/>
+        <TextObject Name="Text47" Left="557.6" Top="26.06" Width="79.01" Height="18.9" Text="稅前合計:" WordWrap="false" Font="細明體, 12pt"/>
+        <TextObject Name="Text48" Left="557.6" Top="47.58" Width="79.01" Height="18.9" Text="營業稅額:" WordWrap="false" Font="細明體, 12pt"/>
+        <TextObject Name="Text49" Left="557.6" Top="69.1" Width="79.01" Height="18.9" Text="詢價總額:" WordWrap="false" Font="細明體, 12pt"/>
+        <TextObject Name="Text50" Left="84.68" Top="26.06" Width="471.75" Height="18.9" BeforePrintEvent="Text50_BeforePrint" Text="[FQUOT_.fquot_付款條件]" Format="Number" Format.UseLocale="true" WordWrap="false" Font="細明體, 12pt"/>
+        <TextObject Name="Text51" Left="84.68" Top="47.58" Width="471.75" Height="18.9" BeforePrintEvent="Text51_BeforePrint" Text="[FQUOT_.fquot_有效期限]" Format="Number" Format.UseLocale="true" WordWrap="false" Font="細明體, 12pt"/>
+        <TextObject Name="Text52" Left="640.32" Top="26.06" Width="115.72" Height="18.9" BeforePrintEvent="Text52_BeforePrint" Text="[FQUOT_.fquot_外幣合計]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="細明體, 12pt"/>
+        <TextObject Name="Text56" Left="640.32" Top="69.1" Width="115.72" Height="18.9" BeforePrintEvent="Text56_BeforePrint" Text="[FQUOT_.fquot_外幣詢價總額]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="細明體, 12pt"/>
+        <TextObject Name="Text57" Left="84.68" Top="69.1" Width="471.75" Height="18.9" BeforePrintEvent="Text57_BeforePrint" Text="[FQUOT_.fquot_採購人員編號]" Format="Number" Format.UseLocale="true" WordWrap="false" Font="細明體, 12pt"/>
+        <TextObject Name="Text58" Left="640.32" Top="47.58" Width="115.72" Height="18.9" BeforePrintEvent="Text58_BeforePrint" Text="[FQUOT_.fquot_外幣營業稅額]" Format="Number" Format.UseLocale="true" HorzAlign="Right" WordWrap="false" Font="細明體, 12pt"/>
+        <TextObject Name="Text61" Left="3.78" Top="98.92" Width="79.01" Height="18.9" Text="備    註:" WordWrap="false" Font="細明體, 12pt"/>
+        <TextObject Name="Text64" Left="86.45" Top="98.92" Width="669.59" Height="18.9" Text="[FQUOT_.fquot_備註]" WordWrap="false" Font="細明體, 12pt"/>
+        <LineObject Name="Line3" Top="21.92" Width="754.48" Border.Width="2"/>
+        <LineObject Name="Line4" Left="-3.78" Top="91.76" Width="760.53" Border.Width="2"/>
+        <TextObject Name="Text66" Left="0.38" Top="2.23" Width="756" Height="13.6" BeforePrintEvent="Text66_BeforePrint" Text="***** 續 下 頁 *****" HorzAlign="Center" WordWrap="false" Font="細明體, 10pt"/>
+        <TextObject Name="Text3" Left="4.16" Top="125.07" Width="753.73" Height="62.72" Text="[txtend]" WordWrap="false" Font="細明體, 12pt"/>
+      </GroupFooterBand>
+    </GroupHeaderBand>
+  </ReportPage>
+</Report>

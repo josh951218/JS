@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="Kind" targetNamespace="http://tempuri.org/Kind.xsd" xmlns:mstns="http://tempuri.org/Kind.xsd" xmlns="http://tempuri.org/Kind.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="1" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="_74ConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="_74ConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.S_61.Properties.Settings.GlobalReference.Default._74ConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="LONGConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="LONGConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.S_61.Properties.Settings.GlobalReference.Default.LONGConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="kindTableAdapter" GeneratorDataComponentClassName="kindTableAdapter" Name="kind" UserDataComponentName="kindTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="LONGConnectionString (Settings)" DbObjectName="LONG.dbo.kind" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT  *,稅='' 
+ FROM dbo.kind</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="kino" DataSetColumn="kino" />
+              <Mapping SourceColumn="kiname" DataSetColumn="kiname" />
+              <Mapping SourceColumn="kitax" DataSetColumn="kitax" />
+              <Mapping SourceColumn="kiserial" DataSetColumn="kiserial" />
+              <Mapping SourceColumn="稅" DataSetColumn="稅" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="Kind" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="Kind" msprop:Generator_UserDSName="Kind">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="kind" msprop:Generator_TableClassName="kindDataTable" msprop:Generator_TableVarName="tablekind" msprop:Generator_RowChangedName="kindRowChanged" msprop:Generator_TablePropName="kind" msprop:Generator_RowDeletingName="kindRowDeleting" msprop:Generator_RowChangingName="kindRowChanging" msprop:Generator_RowEvHandlerName="kindRowChangeEventHandler" msprop:Generator_RowDeletedName="kindRowDeleted" msprop:Generator_RowClassName="kindRow" msprop:Generator_UserTableName="kind" msprop:Generator_RowEvArgName="kindRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="kino" msprop:Generator_ColumnVarNameInTable="columnkino" msprop:Generator_ColumnPropNameInRow="kino" msprop:Generator_ColumnPropNameInTable="kinoColumn" msprop:Generator_UserColumnName="kino">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="kiname" msprop:Generator_ColumnVarNameInTable="columnkiname" msprop:Generator_ColumnPropNameInRow="kiname" msprop:Generator_ColumnPropNameInTable="kinameColumn" msprop:Generator_UserColumnName="kiname" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="kitax" msprop:Generator_ColumnVarNameInTable="columnkitax" msprop:Generator_ColumnPropNameInRow="kitax" msprop:Generator_ColumnPropNameInTable="kitaxColumn" msprop:Generator_UserColumnName="kitax" type="xs:decimal" minOccurs="0" />
+              <xs:element name="kiserial" msprop:Generator_ColumnVarNameInTable="columnkiserial" msprop:Generator_ColumnPropNameInRow="kiserial" msprop:Generator_ColumnPropNameInTable="kiserialColumn" msprop:Generator_UserColumnName="kiserial" type="xs:decimal" minOccurs="0" />
+              <xs:element name="稅" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="column稅" msprop:Generator_ColumnPropNameInRow="稅" msprop:Generator_ColumnPropNameInTable="稅Column" msprop:Generator_UserColumnName="稅" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:kind" />
+      <xs:field xpath="mstns:kino" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

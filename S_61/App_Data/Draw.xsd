@@ -1,0 +1,574 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="Draw" targetNamespace="http://tempuri.org/Draw.xsd" xmlns:mstns="http://tempuri.org/Draw.xsd" xmlns="http://tempuri.org/Draw.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="5" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="webConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="webConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.S_61.Properties.Settings.GlobalReference.Default.webConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="STOCKConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="STOCKConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.S_61.Properties.Settings.GlobalReference.Default.STOCKConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="_74ConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="_74ConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.S_61.Properties.Settings.GlobalReference.Default._74ConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="_71ConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="_71ConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.S_61.Properties.Settings.GlobalReference.Default._71ConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="CENTERConnectionString" IsAppSettingsProperty="true" Modifier="Assembly" Name="CENTERConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.S_61.Properties.Settings.GlobalReference.Default.CENTERConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="LONGConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="LONGConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.S_61.Properties.Settings.GlobalReference.Default.LONGConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="drawTableAdapter" GeneratorDataComponentClassName="drawTableAdapter" Name="draw" UserDataComponentName="drawTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="LONGConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT          a.drno AS Draw_drno, a.drdate1 AS Draw_drdate1, a.drdate2 AS Draw_drdate2, a.cono AS Draw_cono, 
+                            a.coname1 AS Draw_coname1, a.coname2 AS Draw_coname2, a.stnoo AS Draw_stnoo, a.stnameo AS Draw_stnameo, 
+                            a.stnoi AS Draw_stnoi, a.stnamei AS Draw_stnamei, a.emno AS Draw_emno, a.emname AS Draw_emname, 
+                            a.drmemo AS Draw_drmemo, a.bracket AS Draw_bracket, a.recordno AS Draw_recordno, a.UsrNo AS Draw_UsrNo, 
+                            a.DrDate AS Draw_DrDate, c.DrNo AS DrawBom_DrNo, c.BomID AS DrawBom_BomID, 
+                            c.BomRec AS DrawBom_BomRec, c.itno AS DrawBom_itno, c.itname AS DrawBom_itname, 
+                            c.itunit AS DrawBom_itunit, c.itqty AS DrawBom_itqty, c.itpareprs AS DrawBom_itpareprs, 
+                            c.itpkgqty AS DrawBom_itpkgqty, c.itrec AS DrawBom_itrec, c.itprice AS DrawBom_itprice, c.itprs AS DrawBom_itprs, 
+                            c.itmny AS DrawBom_itmny, c.itnote AS DrawBom_itnote, c.ItSource AS DrawBom_ItSource, 
+                            c.ItBuyPri AS DrawBom_ItBuyPri, c.ItBuyMny AS DrawBom_ItBuyMny, b.drno AS Drawd_drno, 
+                            b.drdate1 AS Drawd_drdate1, b.drdate2 AS Drawd_drdate2, b.cono AS Drawd_cono, b.stnoo AS Drawd_stnoo, 
+                            b.stnoi AS Drawd_stnoi, b.emno AS Drawd_emno, b.itno AS Drawd_itno, b.itname AS Drawd_itname, 
+                            b.ittrait AS Drawd_ittrait, b.itunit AS Drawd_itunit, b.itpkgqty AS Drawd_itpkgqty, b.qty AS Drawd_qty, 
+                            b.memo AS Drawd_memo, b.lowzero AS Drawd_lowzero, b.bomid AS Drawd_bomid, b.bomrec AS Drawd_bomrec, 
+                            b.recordno AS Drawd_recordno, b.sltflag AS Drawd_sltflag, b.extflag AS Drawd_extflag, b.bracket AS Drawd_bracket, 
+                            b.itdesp1 AS Drawd_itdesp1, b.itdesp2 AS Drawd_itdesp2, b.itdesp3 AS Drawd_itdesp3, b.itdesp4 AS Drawd_itdesp4, 
+                            b.itdesp5 AS Drawd_itdesp5, b.itdesp6 AS Drawd_itdesp6, b.itdesp7 AS Drawd_itdesp7, b.itdesp8 AS Drawd_itdesp8, 
+                            b.itdesp9 AS Drawd_itdesp9, b.itdesp10 AS Drawd_itdesp10, b.stNameo AS Drawd_stNameo, 
+                            b.stNamei AS Drawd_stNamei, b.DrDate AS Drawd_DrDate, a.drmemo1 AS Draw_drmemo1, 
+                            a.EdtDate AS Draw_EdtDate, a.EdtScNo AS Draw_EdtScNo, a.AppDate AS Draw_AppDate, 
+                            a.AppScNo AS Draw_AppScNo, a.totmnyb AS Draw_totmnyb, b.costb AS Drawd_costb, b.mnyb AS Drawd_mnyb,scrit.scname,scrit.scname1
+FROM              draw AS a 
+ LEFT   JOIN scrit ON a.appscno = scrit.scname  
+LEFT OUTER JOIN
+                            drawd AS b ON b.drno = a.drno LEFT OUTER JOIN
+                            DrawBom AS c ON b.bomid = c.BomID</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Draw_drno" DataSetColumn="Draw_drno" />
+              <Mapping SourceColumn="Draw_drdate2" DataSetColumn="Draw_drdate2" />
+              <Mapping SourceColumn="Draw_cono" DataSetColumn="Draw_cono" />
+              <Mapping SourceColumn="Draw_coname1" DataSetColumn="Draw_coname1" />
+              <Mapping SourceColumn="Draw_coname2" DataSetColumn="Draw_coname2" />
+              <Mapping SourceColumn="Draw_stnoo" DataSetColumn="Draw_stnoo" />
+              <Mapping SourceColumn="Draw_stnameo" DataSetColumn="Draw_stnameo" />
+              <Mapping SourceColumn="Draw_stnoi" DataSetColumn="Draw_stnoi" />
+              <Mapping SourceColumn="Draw_stnamei" DataSetColumn="Draw_stnamei" />
+              <Mapping SourceColumn="Draw_emno" DataSetColumn="Draw_emno" />
+              <Mapping SourceColumn="Draw_emname" DataSetColumn="Draw_emname" />
+              <Mapping SourceColumn="Draw_drmemo" DataSetColumn="Draw_drmemo" />
+              <Mapping SourceColumn="Draw_bracket" DataSetColumn="Draw_bracket" />
+              <Mapping SourceColumn="Draw_recordno" DataSetColumn="Draw_recordno" />
+              <Mapping SourceColumn="Draw_UsrNo" DataSetColumn="Draw_UsrNo" />
+              <Mapping SourceColumn="Draw_DrDate" DataSetColumn="Draw_DrDate" />
+              <Mapping SourceColumn="DrawBom_DrNo" DataSetColumn="DrawBom_DrNo" />
+              <Mapping SourceColumn="DrawBom_BomID" DataSetColumn="DrawBom_BomID" />
+              <Mapping SourceColumn="DrawBom_BomRec" DataSetColumn="DrawBom_BomRec" />
+              <Mapping SourceColumn="DrawBom_itno" DataSetColumn="DrawBom_itno" />
+              <Mapping SourceColumn="DrawBom_itname" DataSetColumn="DrawBom_itname" />
+              <Mapping SourceColumn="DrawBom_itunit" DataSetColumn="DrawBom_itunit" />
+              <Mapping SourceColumn="DrawBom_itqty" DataSetColumn="DrawBom_itqty" />
+              <Mapping SourceColumn="DrawBom_itpareprs" DataSetColumn="DrawBom_itpareprs" />
+              <Mapping SourceColumn="DrawBom_itpkgqty" DataSetColumn="DrawBom_itpkgqty" />
+              <Mapping SourceColumn="DrawBom_itrec" DataSetColumn="DrawBom_itrec" />
+              <Mapping SourceColumn="DrawBom_itprice" DataSetColumn="DrawBom_itprice" />
+              <Mapping SourceColumn="DrawBom_itprs" DataSetColumn="DrawBom_itprs" />
+              <Mapping SourceColumn="DrawBom_itmny" DataSetColumn="DrawBom_itmny" />
+              <Mapping SourceColumn="DrawBom_itnote" DataSetColumn="DrawBom_itnote" />
+              <Mapping SourceColumn="DrawBom_ItSource" DataSetColumn="DrawBom_ItSource" />
+              <Mapping SourceColumn="DrawBom_ItBuyPri" DataSetColumn="DrawBom_ItBuyPri" />
+              <Mapping SourceColumn="DrawBom_ItBuyMny" DataSetColumn="DrawBom_ItBuyMny" />
+              <Mapping SourceColumn="Drawd_drno" DataSetColumn="Drawd_drno" />
+              <Mapping SourceColumn="Drawd_cono" DataSetColumn="Drawd_cono" />
+              <Mapping SourceColumn="Drawd_stnoo" DataSetColumn="Drawd_stnoo" />
+              <Mapping SourceColumn="Drawd_stnoi" DataSetColumn="Drawd_stnoi" />
+              <Mapping SourceColumn="Drawd_emno" DataSetColumn="Drawd_emno" />
+              <Mapping SourceColumn="Drawd_itno" DataSetColumn="Drawd_itno" />
+              <Mapping SourceColumn="Drawd_itname" DataSetColumn="Drawd_itname" />
+              <Mapping SourceColumn="Drawd_ittrait" DataSetColumn="Drawd_ittrait" />
+              <Mapping SourceColumn="Drawd_itunit" DataSetColumn="Drawd_itunit" />
+              <Mapping SourceColumn="Drawd_itpkgqty" DataSetColumn="Drawd_itpkgqty" />
+              <Mapping SourceColumn="Drawd_qty" DataSetColumn="Drawd_qty" />
+              <Mapping SourceColumn="Drawd_memo" DataSetColumn="Drawd_memo" />
+              <Mapping SourceColumn="Drawd_lowzero" DataSetColumn="Drawd_lowzero" />
+              <Mapping SourceColumn="Drawd_bomid" DataSetColumn="Drawd_bomid" />
+              <Mapping SourceColumn="Drawd_bomrec" DataSetColumn="Drawd_bomrec" />
+              <Mapping SourceColumn="Drawd_recordno" DataSetColumn="Drawd_recordno" />
+              <Mapping SourceColumn="Drawd_sltflag" DataSetColumn="Drawd_sltflag" />
+              <Mapping SourceColumn="Drawd_extflag" DataSetColumn="Drawd_extflag" />
+              <Mapping SourceColumn="Drawd_bracket" DataSetColumn="Drawd_bracket" />
+              <Mapping SourceColumn="Drawd_itdesp1" DataSetColumn="Drawd_itdesp1" />
+              <Mapping SourceColumn="Drawd_itdesp2" DataSetColumn="Drawd_itdesp2" />
+              <Mapping SourceColumn="Drawd_itdesp3" DataSetColumn="Drawd_itdesp3" />
+              <Mapping SourceColumn="Drawd_itdesp4" DataSetColumn="Drawd_itdesp4" />
+              <Mapping SourceColumn="Drawd_itdesp5" DataSetColumn="Drawd_itdesp5" />
+              <Mapping SourceColumn="Drawd_itdesp6" DataSetColumn="Drawd_itdesp6" />
+              <Mapping SourceColumn="Drawd_itdesp7" DataSetColumn="Drawd_itdesp7" />
+              <Mapping SourceColumn="Drawd_itdesp8" DataSetColumn="Drawd_itdesp8" />
+              <Mapping SourceColumn="Drawd_itdesp9" DataSetColumn="Drawd_itdesp9" />
+              <Mapping SourceColumn="Drawd_itdesp10" DataSetColumn="Drawd_itdesp10" />
+              <Mapping SourceColumn="Drawd_stNameo" DataSetColumn="Drawd_stNameo" />
+              <Mapping SourceColumn="Drawd_stNamei" DataSetColumn="Drawd_stNamei" />
+              <Mapping SourceColumn="Drawd_DrDate" DataSetColumn="Drawd_DrDate" />
+              <Mapping SourceColumn="Draw_drdate1" DataSetColumn="Draw_drdate1" />
+              <Mapping SourceColumn="Drawd_drdate1" DataSetColumn="Drawd_drdate1" />
+              <Mapping SourceColumn="Drawd_drdate2" DataSetColumn="Drawd_drdate2" />
+              <Mapping SourceColumn="Draw_drmemo1" DataSetColumn="Draw_drmemo1" />
+              <Mapping SourceColumn="Draw_EdtDate" DataSetColumn="Draw_EdtDate" />
+              <Mapping SourceColumn="Draw_EdtScNo" DataSetColumn="Draw_EdtScNo" />
+              <Mapping SourceColumn="Draw_AppDate" DataSetColumn="Draw_AppDate" />
+              <Mapping SourceColumn="Draw_AppScNo" DataSetColumn="Draw_AppScNo" />
+              <Mapping SourceColumn="Draw_totmnyb" DataSetColumn="Draw_totmnyb" />
+              <Mapping SourceColumn="Drawd_costb" DataSetColumn="Drawd_costb" />
+              <Mapping SourceColumn="Drawd_mnyb" DataSetColumn="Drawd_mnyb" />
+              <Mapping SourceColumn="scname" DataSetColumn="scname" />
+              <Mapping SourceColumn="scname1" DataSetColumn="scname1" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="Draw" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="Draw" msprop:Generator_UserDSName="Draw">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="draw" msprop:Generator_TableClassName="drawDataTable" msprop:Generator_TableVarName="tabledraw" msprop:Generator_TablePropName="draw" msprop:Generator_RowDeletingName="drawRowDeleting" msprop:Generator_RowChangingName="drawRowChanging" msprop:Generator_RowEvHandlerName="drawRowChangeEventHandler" msprop:Generator_RowDeletedName="drawRowDeleted" msprop:Generator_UserTableName="draw" msprop:Generator_RowChangedName="drawRowChanged" msprop:Generator_RowEvArgName="drawRowChangeEvent" msprop:Generator_RowClassName="drawRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Draw_drno" msprop:Generator_ColumnVarNameInTable="columnDraw_drno" msprop:Generator_ColumnPropNameInRow="Draw_drno" msprop:Generator_ColumnPropNameInTable="Draw_drnoColumn" msprop:Generator_UserColumnName="Draw_drno">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="12" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Draw_drdate2" msprop:Generator_ColumnVarNameInTable="columnDraw_drdate2" msprop:Generator_ColumnPropNameInRow="Draw_drdate2" msprop:Generator_ColumnPropNameInTable="Draw_drdate2Column" msprop:Generator_UserColumnName="Draw_drdate2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Draw_cono" msprop:Generator_ColumnVarNameInTable="columnDraw_cono" msprop:Generator_ColumnPropNameInRow="Draw_cono" msprop:Generator_ColumnPropNameInTable="Draw_conoColumn" msprop:Generator_UserColumnName="Draw_cono" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Draw_coname1" msprop:Generator_ColumnVarNameInTable="columnDraw_coname1" msprop:Generator_ColumnPropNameInRow="Draw_coname1" msprop:Generator_ColumnPropNameInTable="Draw_coname1Column" msprop:Generator_UserColumnName="Draw_coname1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Draw_coname2" msprop:Generator_ColumnVarNameInTable="columnDraw_coname2" msprop:Generator_ColumnPropNameInRow="Draw_coname2" msprop:Generator_ColumnPropNameInTable="Draw_coname2Column" msprop:Generator_UserColumnName="Draw_coname2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Draw_stnoo" msprop:Generator_ColumnVarNameInTable="columnDraw_stnoo" msprop:Generator_ColumnPropNameInRow="Draw_stnoo" msprop:Generator_ColumnPropNameInTable="Draw_stnooColumn" msprop:Generator_UserColumnName="Draw_stnoo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Draw_stnameo" msprop:Generator_ColumnVarNameInTable="columnDraw_stnameo" msprop:Generator_ColumnPropNameInRow="Draw_stnameo" msprop:Generator_ColumnPropNameInTable="Draw_stnameoColumn" msprop:Generator_UserColumnName="Draw_stnameo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Draw_stnoi" msprop:Generator_ColumnVarNameInTable="columnDraw_stnoi" msprop:Generator_ColumnPropNameInRow="Draw_stnoi" msprop:Generator_ColumnPropNameInTable="Draw_stnoiColumn" msprop:Generator_UserColumnName="Draw_stnoi" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Draw_stnamei" msprop:Generator_ColumnVarNameInTable="columnDraw_stnamei" msprop:Generator_ColumnPropNameInRow="Draw_stnamei" msprop:Generator_ColumnPropNameInTable="Draw_stnameiColumn" msprop:Generator_UserColumnName="Draw_stnamei" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Draw_emno" msprop:Generator_ColumnVarNameInTable="columnDraw_emno" msprop:Generator_ColumnPropNameInRow="Draw_emno" msprop:Generator_ColumnPropNameInTable="Draw_emnoColumn" msprop:Generator_UserColumnName="Draw_emno" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Draw_emname" msprop:Generator_ColumnVarNameInTable="columnDraw_emname" msprop:Generator_ColumnPropNameInRow="Draw_emname" msprop:Generator_ColumnPropNameInTable="Draw_emnameColumn" msprop:Generator_UserColumnName="Draw_emname" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Draw_drmemo" msprop:Generator_ColumnVarNameInTable="columnDraw_drmemo" msprop:Generator_ColumnPropNameInRow="Draw_drmemo" msprop:Generator_ColumnPropNameInTable="Draw_drmemoColumn" msprop:Generator_UserColumnName="Draw_drmemo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Draw_bracket" msprop:Generator_ColumnVarNameInTable="columnDraw_bracket" msprop:Generator_ColumnPropNameInRow="Draw_bracket" msprop:Generator_ColumnPropNameInTable="Draw_bracketColumn" msprop:Generator_UserColumnName="Draw_bracket" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="6" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Draw_recordno" msprop:Generator_ColumnVarNameInTable="columnDraw_recordno" msprop:Generator_ColumnPropNameInRow="Draw_recordno" msprop:Generator_ColumnPropNameInTable="Draw_recordnoColumn" msprop:Generator_UserColumnName="Draw_recordno" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Draw_UsrNo" msprop:Generator_ColumnVarNameInTable="columnDraw_UsrNo" msprop:Generator_ColumnPropNameInRow="Draw_UsrNo" msprop:Generator_ColumnPropNameInTable="Draw_UsrNoColumn" msprop:Generator_UserColumnName="Draw_UsrNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Draw_DrDate" msprop:Generator_ColumnVarNameInTable="columnDraw_DrDate" msprop:Generator_ColumnPropNameInRow="Draw_DrDate" msprop:Generator_ColumnPropNameInTable="Draw_DrDateColumn" msprop:Generator_UserColumnName="Draw_DrDate" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DrawBom_DrNo" msprop:Generator_ColumnVarNameInTable="columnDrawBom_DrNo" msprop:Generator_ColumnPropNameInRow="DrawBom_DrNo" msprop:Generator_ColumnPropNameInTable="DrawBom_DrNoColumn" msprop:Generator_UserColumnName="DrawBom_DrNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="16" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DrawBom_BomID" msprop:Generator_ColumnVarNameInTable="columnDrawBom_BomID" msprop:Generator_ColumnPropNameInRow="DrawBom_BomID" msprop:Generator_ColumnPropNameInTable="DrawBom_BomIDColumn" msprop:Generator_UserColumnName="DrawBom_BomID" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DrawBom_BomRec" msprop:Generator_ColumnVarNameInTable="columnDrawBom_BomRec" msprop:Generator_ColumnPropNameInRow="DrawBom_BomRec" msprop:Generator_ColumnPropNameInTable="DrawBom_BomRecColumn" msprop:Generator_UserColumnName="DrawBom_BomRec" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DrawBom_itno" msprop:Generator_ColumnVarNameInTable="columnDrawBom_itno" msprop:Generator_ColumnPropNameInRow="DrawBom_itno" msprop:Generator_ColumnPropNameInTable="DrawBom_itnoColumn" msprop:Generator_UserColumnName="DrawBom_itno" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DrawBom_itname" msprop:Generator_ColumnVarNameInTable="columnDrawBom_itname" msprop:Generator_ColumnPropNameInRow="DrawBom_itname" msprop:Generator_ColumnPropNameInTable="DrawBom_itnameColumn" msprop:Generator_UserColumnName="DrawBom_itname" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DrawBom_itunit" msprop:Generator_ColumnVarNameInTable="columnDrawBom_itunit" msprop:Generator_ColumnPropNameInRow="DrawBom_itunit" msprop:Generator_ColumnPropNameInTable="DrawBom_itunitColumn" msprop:Generator_UserColumnName="DrawBom_itunit" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DrawBom_itqty" msprop:Generator_ColumnVarNameInTable="columnDrawBom_itqty" msprop:Generator_ColumnPropNameInRow="DrawBom_itqty" msprop:Generator_ColumnPropNameInTable="DrawBom_itqtyColumn" msprop:Generator_UserColumnName="DrawBom_itqty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="DrawBom_itpareprs" msprop:Generator_ColumnVarNameInTable="columnDrawBom_itpareprs" msprop:Generator_ColumnPropNameInRow="DrawBom_itpareprs" msprop:Generator_ColumnPropNameInTable="DrawBom_itpareprsColumn" msprop:Generator_UserColumnName="DrawBom_itpareprs" type="xs:decimal" minOccurs="0" />
+              <xs:element name="DrawBom_itpkgqty" msprop:Generator_ColumnVarNameInTable="columnDrawBom_itpkgqty" msprop:Generator_ColumnPropNameInRow="DrawBom_itpkgqty" msprop:Generator_ColumnPropNameInTable="DrawBom_itpkgqtyColumn" msprop:Generator_UserColumnName="DrawBom_itpkgqty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="DrawBom_itrec" msprop:Generator_ColumnVarNameInTable="columnDrawBom_itrec" msprop:Generator_ColumnPropNameInRow="DrawBom_itrec" msprop:Generator_ColumnPropNameInTable="DrawBom_itrecColumn" msprop:Generator_UserColumnName="DrawBom_itrec" type="xs:decimal" minOccurs="0" />
+              <xs:element name="DrawBom_itprice" msprop:Generator_ColumnVarNameInTable="columnDrawBom_itprice" msprop:Generator_ColumnPropNameInRow="DrawBom_itprice" msprop:Generator_ColumnPropNameInTable="DrawBom_itpriceColumn" msprop:Generator_UserColumnName="DrawBom_itprice" type="xs:decimal" minOccurs="0" />
+              <xs:element name="DrawBom_itprs" msprop:Generator_ColumnVarNameInTable="columnDrawBom_itprs" msprop:Generator_ColumnPropNameInRow="DrawBom_itprs" msprop:Generator_ColumnPropNameInTable="DrawBom_itprsColumn" msprop:Generator_UserColumnName="DrawBom_itprs" type="xs:decimal" minOccurs="0" />
+              <xs:element name="DrawBom_itmny" msprop:Generator_ColumnVarNameInTable="columnDrawBom_itmny" msprop:Generator_ColumnPropNameInRow="DrawBom_itmny" msprop:Generator_ColumnPropNameInTable="DrawBom_itmnyColumn" msprop:Generator_UserColumnName="DrawBom_itmny" type="xs:decimal" minOccurs="0" />
+              <xs:element name="DrawBom_itnote" msprop:Generator_ColumnVarNameInTable="columnDrawBom_itnote" msprop:Generator_ColumnPropNameInRow="DrawBom_itnote" msprop:Generator_ColumnPropNameInTable="DrawBom_itnoteColumn" msprop:Generator_UserColumnName="DrawBom_itnote" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DrawBom_ItSource" msprop:Generator_ColumnVarNameInTable="columnDrawBom_ItSource" msprop:Generator_ColumnPropNameInRow="DrawBom_ItSource" msprop:Generator_ColumnPropNameInTable="DrawBom_ItSourceColumn" msprop:Generator_UserColumnName="DrawBom_ItSource" type="xs:decimal" minOccurs="0" />
+              <xs:element name="DrawBom_ItBuyPri" msprop:Generator_ColumnVarNameInTable="columnDrawBom_ItBuyPri" msprop:Generator_ColumnPropNameInRow="DrawBom_ItBuyPri" msprop:Generator_ColumnPropNameInTable="DrawBom_ItBuyPriColumn" msprop:Generator_UserColumnName="DrawBom_ItBuyPri" type="xs:decimal" minOccurs="0" />
+              <xs:element name="DrawBom_ItBuyMny" msprop:Generator_ColumnVarNameInTable="columnDrawBom_ItBuyMny" msprop:Generator_ColumnPropNameInRow="DrawBom_ItBuyMny" msprop:Generator_ColumnPropNameInTable="DrawBom_ItBuyMnyColumn" msprop:Generator_UserColumnName="DrawBom_ItBuyMny" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Drawd_drno" msprop:Generator_ColumnVarNameInTable="columnDrawd_drno" msprop:Generator_ColumnPropNameInRow="Drawd_drno" msprop:Generator_ColumnPropNameInTable="Drawd_drnoColumn" msprop:Generator_UserColumnName="Drawd_drno" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="12" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Drawd_cono" msprop:Generator_ColumnVarNameInTable="columnDrawd_cono" msprop:Generator_ColumnPropNameInRow="Drawd_cono" msprop:Generator_ColumnPropNameInTable="Drawd_conoColumn" msprop:Generator_UserColumnName="Drawd_cono" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Drawd_stnoo" msprop:Generator_ColumnVarNameInTable="columnDrawd_stnoo" msprop:Generator_ColumnPropNameInRow="Drawd_stnoo" msprop:Generator_ColumnPropNameInTable="Drawd_stnooColumn" msprop:Generator_UserColumnName="Drawd_stnoo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Drawd_stnoi" msprop:Generator_ColumnVarNameInTable="columnDrawd_stnoi" msprop:Generator_ColumnPropNameInRow="Drawd_stnoi" msprop:Generator_ColumnPropNameInTable="Drawd_stnoiColumn" msprop:Generator_UserColumnName="Drawd_stnoi" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Drawd_emno" msprop:Generator_ColumnVarNameInTable="columnDrawd_emno" msprop:Generator_ColumnPropNameInRow="Drawd_emno" msprop:Generator_ColumnPropNameInTable="Drawd_emnoColumn" msprop:Generator_UserColumnName="Drawd_emno" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Drawd_itno" msprop:Generator_ColumnVarNameInTable="columnDrawd_itno" msprop:Generator_ColumnPropNameInRow="Drawd_itno" msprop:Generator_ColumnPropNameInTable="Drawd_itnoColumn" msprop:Generator_UserColumnName="Drawd_itno" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Drawd_itname" msprop:Generator_ColumnVarNameInTable="columnDrawd_itname" msprop:Generator_ColumnPropNameInRow="Drawd_itname" msprop:Generator_ColumnPropNameInTable="Drawd_itnameColumn" msprop:Generator_UserColumnName="Drawd_itname" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Drawd_ittrait" msprop:Generator_ColumnVarNameInTable="columnDrawd_ittrait" msprop:Generator_ColumnPropNameInRow="Drawd_ittrait" msprop:Generator_ColumnPropNameInTable="Drawd_ittraitColumn" msprop:Generator_UserColumnName="Drawd_ittrait" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Drawd_itunit" msprop:Generator_ColumnVarNameInTable="columnDrawd_itunit" msprop:Generator_ColumnPropNameInRow="Drawd_itunit" msprop:Generator_ColumnPropNameInTable="Drawd_itunitColumn" msprop:Generator_UserColumnName="Drawd_itunit" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Drawd_itpkgqty" msprop:Generator_ColumnVarNameInTable="columnDrawd_itpkgqty" msprop:Generator_ColumnPropNameInRow="Drawd_itpkgqty" msprop:Generator_ColumnPropNameInTable="Drawd_itpkgqtyColumn" msprop:Generator_UserColumnName="Drawd_itpkgqty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Drawd_qty" msprop:Generator_ColumnVarNameInTable="columnDrawd_qty" msprop:Generator_ColumnPropNameInRow="Drawd_qty" msprop:Generator_ColumnPropNameInTable="Drawd_qtyColumn" msprop:Generator_UserColumnName="Drawd_qty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Drawd_memo" msprop:Generator_ColumnVarNameInTable="columnDrawd_memo" msprop:Generator_ColumnPropNameInRow="Drawd_memo" msprop:Generator_ColumnPropNameInTable="Drawd_memoColumn" msprop:Generator_UserColumnName="Drawd_memo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Drawd_lowzero" msprop:Generator_ColumnVarNameInTable="columnDrawd_lowzero" msprop:Generator_ColumnPropNameInRow="Drawd_lowzero" msprop:Generator_ColumnPropNameInTable="Drawd_lowzeroColumn" msprop:Generator_UserColumnName="Drawd_lowzero" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Drawd_bomid" msprop:Generator_ColumnVarNameInTable="columnDrawd_bomid" msprop:Generator_ColumnPropNameInRow="Drawd_bomid" msprop:Generator_ColumnPropNameInTable="Drawd_bomidColumn" msprop:Generator_UserColumnName="Drawd_bomid" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Drawd_bomrec" msprop:Generator_ColumnVarNameInTable="columnDrawd_bomrec" msprop:Generator_ColumnPropNameInRow="Drawd_bomrec" msprop:Generator_ColumnPropNameInTable="Drawd_bomrecColumn" msprop:Generator_UserColumnName="Drawd_bomrec" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Drawd_recordno" msprop:Generator_ColumnVarNameInTable="columnDrawd_recordno" msprop:Generator_ColumnPropNameInRow="Drawd_recordno" msprop:Generator_ColumnPropNameInTable="Drawd_recordnoColumn" msprop:Generator_UserColumnName="Drawd_recordno" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Drawd_sltflag" msprop:Generator_ColumnVarNameInTable="columnDrawd_sltflag" msprop:Generator_ColumnPropNameInRow="Drawd_sltflag" msprop:Generator_ColumnPropNameInTable="Drawd_sltflagColumn" msprop:Generator_UserColumnName="Drawd_sltflag" type="xs:boolean" minOccurs="0" />
+              <xs:element name="Drawd_extflag" msprop:Generator_ColumnVarNameInTable="columnDrawd_extflag" msprop:Generator_ColumnPropNameInRow="Drawd_extflag" msprop:Generator_ColumnPropNameInTable="Drawd_extflagColumn" msprop:Generator_UserColumnName="Drawd_extflag" type="xs:boolean" minOccurs="0" />
+              <xs:element name="Drawd_bracket" msprop:Generator_ColumnVarNameInTable="columnDrawd_bracket" msprop:Generator_ColumnPropNameInRow="Drawd_bracket" msprop:Generator_ColumnPropNameInTable="Drawd_bracketColumn" msprop:Generator_UserColumnName="Drawd_bracket" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="6" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Drawd_itdesp1" msprop:Generator_ColumnVarNameInTable="columnDrawd_itdesp1" msprop:Generator_ColumnPropNameInRow="Drawd_itdesp1" msprop:Generator_ColumnPropNameInTable="Drawd_itdesp1Column" msprop:Generator_UserColumnName="Drawd_itdesp1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Drawd_itdesp2" msprop:Generator_ColumnVarNameInTable="columnDrawd_itdesp2" msprop:Generator_ColumnPropNameInRow="Drawd_itdesp2" msprop:Generator_ColumnPropNameInTable="Drawd_itdesp2Column" msprop:Generator_UserColumnName="Drawd_itdesp2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Drawd_itdesp3" msprop:Generator_ColumnVarNameInTable="columnDrawd_itdesp3" msprop:Generator_ColumnPropNameInRow="Drawd_itdesp3" msprop:Generator_ColumnPropNameInTable="Drawd_itdesp3Column" msprop:Generator_UserColumnName="Drawd_itdesp3" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Drawd_itdesp4" msprop:Generator_ColumnVarNameInTable="columnDrawd_itdesp4" msprop:Generator_ColumnPropNameInRow="Drawd_itdesp4" msprop:Generator_ColumnPropNameInTable="Drawd_itdesp4Column" msprop:Generator_UserColumnName="Drawd_itdesp4" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Drawd_itdesp5" msprop:Generator_ColumnVarNameInTable="columnDrawd_itdesp5" msprop:Generator_ColumnPropNameInRow="Drawd_itdesp5" msprop:Generator_ColumnPropNameInTable="Drawd_itdesp5Column" msprop:Generator_UserColumnName="Drawd_itdesp5" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Drawd_itdesp6" msprop:Generator_ColumnVarNameInTable="columnDrawd_itdesp6" msprop:Generator_ColumnPropNameInRow="Drawd_itdesp6" msprop:Generator_ColumnPropNameInTable="Drawd_itdesp6Column" msprop:Generator_UserColumnName="Drawd_itdesp6" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Drawd_itdesp7" msprop:Generator_ColumnVarNameInTable="columnDrawd_itdesp7" msprop:Generator_ColumnPropNameInRow="Drawd_itdesp7" msprop:Generator_ColumnPropNameInTable="Drawd_itdesp7Column" msprop:Generator_UserColumnName="Drawd_itdesp7" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Drawd_itdesp8" msprop:Generator_ColumnVarNameInTable="columnDrawd_itdesp8" msprop:Generator_ColumnPropNameInRow="Drawd_itdesp8" msprop:Generator_ColumnPropNameInTable="Drawd_itdesp8Column" msprop:Generator_UserColumnName="Drawd_itdesp8" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Drawd_itdesp9" msprop:Generator_ColumnVarNameInTable="columnDrawd_itdesp9" msprop:Generator_ColumnPropNameInRow="Drawd_itdesp9" msprop:Generator_ColumnPropNameInTable="Drawd_itdesp9Column" msprop:Generator_UserColumnName="Drawd_itdesp9" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Drawd_itdesp10" msprop:Generator_ColumnVarNameInTable="columnDrawd_itdesp10" msprop:Generator_ColumnPropNameInRow="Drawd_itdesp10" msprop:Generator_ColumnPropNameInTable="Drawd_itdesp10Column" msprop:Generator_UserColumnName="Drawd_itdesp10" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Drawd_stNameo" msprop:Generator_ColumnVarNameInTable="columnDrawd_stNameo" msprop:Generator_ColumnPropNameInRow="Drawd_stNameo" msprop:Generator_ColumnPropNameInTable="Drawd_stNameoColumn" msprop:Generator_UserColumnName="Drawd_stNameo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Drawd_stNamei" msprop:Generator_ColumnVarNameInTable="columnDrawd_stNamei" msprop:Generator_ColumnPropNameInRow="Drawd_stNamei" msprop:Generator_ColumnPropNameInTable="Drawd_stNameiColumn" msprop:Generator_UserColumnName="Drawd_stNamei" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Drawd_DrDate" msprop:Generator_ColumnVarNameInTable="columnDrawd_DrDate" msprop:Generator_ColumnPropNameInRow="Drawd_DrDate" msprop:Generator_ColumnPropNameInTable="Drawd_DrDateColumn" msprop:Generator_UserColumnName="Drawd_DrDate" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Draw_drdate1" msprop:Generator_ColumnVarNameInTable="columnDraw_drdate1" msprop:Generator_ColumnPropNameInRow="Draw_drdate1" msprop:Generator_ColumnPropNameInTable="Draw_drdate1Column" msprop:Generator_UserColumnName="Draw_drdate1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Drawd_drdate1" msprop:Generator_ColumnVarNameInTable="columnDrawd_drdate1" msprop:Generator_ColumnPropNameInRow="Drawd_drdate1" msprop:Generator_ColumnPropNameInTable="Drawd_drdate1Column" msprop:Generator_UserColumnName="Drawd_drdate1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Drawd_drdate2" msprop:Generator_ColumnVarNameInTable="columnDrawd_drdate2" msprop:Generator_ColumnPropNameInRow="Drawd_drdate2" msprop:Generator_ColumnPropNameInTable="Drawd_drdate2Column" msprop:Generator_UserColumnName="Drawd_drdate2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Draw_drmemo1" msprop:Generator_ColumnVarNameInTable="columnDraw_drmemo1" msprop:Generator_ColumnPropNameInRow="Draw_drmemo1" msprop:Generator_ColumnPropNameInTable="Draw_drmemo1Column" msprop:Generator_UserColumnName="Draw_drmemo1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Draw_EdtDate" msprop:Generator_ColumnVarNameInTable="columnDraw_EdtDate" msprop:Generator_ColumnPropNameInRow="Draw_EdtDate" msprop:Generator_ColumnPropNameInTable="Draw_EdtDateColumn" msprop:Generator_UserColumnName="Draw_EdtDate" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Draw_EdtScNo" msprop:Generator_ColumnVarNameInTable="columnDraw_EdtScNo" msprop:Generator_ColumnPropNameInRow="Draw_EdtScNo" msprop:Generator_ColumnPropNameInTable="Draw_EdtScNoColumn" msprop:Generator_UserColumnName="Draw_EdtScNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Draw_AppDate" msprop:Generator_ColumnVarNameInTable="columnDraw_AppDate" msprop:Generator_ColumnPropNameInRow="Draw_AppDate" msprop:Generator_ColumnPropNameInTable="Draw_AppDateColumn" msprop:Generator_UserColumnName="Draw_AppDate" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Draw_AppScNo" msprop:Generator_ColumnVarNameInTable="columnDraw_AppScNo" msprop:Generator_ColumnPropNameInRow="Draw_AppScNo" msprop:Generator_ColumnPropNameInTable="Draw_AppScNoColumn" msprop:Generator_UserColumnName="Draw_AppScNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Draw_totmnyb" msprop:Generator_ColumnVarNameInTable="columnDraw_totmnyb" msprop:Generator_ColumnPropNameInRow="Draw_totmnyb" msprop:Generator_ColumnPropNameInTable="Draw_totmnybColumn" msprop:Generator_UserColumnName="Draw_totmnyb" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Drawd_costb" msprop:Generator_ColumnVarNameInTable="columnDrawd_costb" msprop:Generator_ColumnPropNameInRow="Drawd_costb" msprop:Generator_ColumnPropNameInTable="Drawd_costbColumn" msprop:Generator_UserColumnName="Drawd_costb" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Drawd_mnyb" msprop:Generator_ColumnVarNameInTable="columnDrawd_mnyb" msprop:Generator_ColumnPropNameInRow="Drawd_mnyb" msprop:Generator_ColumnPropNameInTable="Drawd_mnybColumn" msprop:Generator_UserColumnName="Drawd_mnyb" type="xs:decimal" minOccurs="0" />
+              <xs:element name="scname" msprop:Generator_ColumnVarNameInTable="columnscname" msprop:Generator_ColumnPropNameInRow="scname" msprop:Generator_ColumnPropNameInTable="scnameColumn" msprop:Generator_UserColumnName="scname" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="scname1" msprop:Generator_ColumnVarNameInTable="columnscname1" msprop:Generator_ColumnPropNameInRow="scname1" msprop:Generator_ColumnPropNameInTable="scname1Column" msprop:Generator_UserColumnName="scname1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:draw" />
+      <xs:field xpath="mstns:Draw_drno" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

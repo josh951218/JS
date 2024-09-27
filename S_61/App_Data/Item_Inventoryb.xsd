@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="Item_Inventoryb" targetNamespace="http://tempuri.org/Item_Inventoryb.xsd" xmlns:mstns="http://tempuri.org/Item_Inventoryb.xsd" xmlns="http://tempuri.org/Item_Inventoryb.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="1" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="_74ConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="_74ConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.S_61.Properties.Settings.GlobalReference.Default._74ConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="LONGConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="LONGConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.S_61.Properties.Settings.GlobalReference.Default.LONGConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="itemTableAdapter" GeneratorDataComponentClassName="itemTableAdapter" Name="item" UserDataComponentName="itemTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="LONGConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>select 產品編號='',品名規格='',單位='',倉庫編號='',倉庫名稱='',倉庫類別='',庫存數量=0.0,單位成本=0.0,成本=0.0,倉庫類別名稱='' ,包裝數量=0.0,包裝單位='',小單位=0.0,大單位=0.0
+, 庫存倉數量=0.0,借出倉數量=0.0,加工倉數量=0.0,借入倉數量=0.0  from item 
+</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="產品編號" DataSetColumn="產品編號" />
+              <Mapping SourceColumn="品名規格" DataSetColumn="品名規格" />
+              <Mapping SourceColumn="單位" DataSetColumn="單位" />
+              <Mapping SourceColumn="倉庫編號" DataSetColumn="倉庫編號" />
+              <Mapping SourceColumn="倉庫名稱" DataSetColumn="倉庫名稱" />
+              <Mapping SourceColumn="倉庫類別" DataSetColumn="倉庫類別" />
+              <Mapping SourceColumn="庫存數量" DataSetColumn="庫存數量" />
+              <Mapping SourceColumn="單位成本" DataSetColumn="單位成本" />
+              <Mapping SourceColumn="成本" DataSetColumn="成本" />
+              <Mapping SourceColumn="倉庫類別名稱" DataSetColumn="倉庫類別名稱" />
+              <Mapping SourceColumn="包裝數量" DataSetColumn="包裝數量" />
+              <Mapping SourceColumn="包裝單位" DataSetColumn="包裝單位" />
+              <Mapping SourceColumn="小單位" DataSetColumn="小單位" />
+              <Mapping SourceColumn="大單位" DataSetColumn="大單位" />
+              <Mapping SourceColumn="庫存倉數量" DataSetColumn="庫存倉數量" />
+              <Mapping SourceColumn="借出倉數量" DataSetColumn="借出倉數量" />
+              <Mapping SourceColumn="加工倉數量" DataSetColumn="加工倉數量" />
+              <Mapping SourceColumn="借入倉數量" DataSetColumn="借入倉數量" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="Item_Inventoryb" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="Item_Inventoryb" msprop:Generator_UserDSName="Item_Inventoryb">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="item" msprop:Generator_TableClassName="itemDataTable" msprop:Generator_TableVarName="tableitem" msprop:Generator_RowChangedName="itemRowChanged" msprop:Generator_TablePropName="item" msprop:Generator_RowDeletingName="itemRowDeleting" msprop:Generator_RowChangingName="itemRowChanging" msprop:Generator_RowEvHandlerName="itemRowChangeEventHandler" msprop:Generator_RowDeletedName="itemRowDeleted" msprop:Generator_RowClassName="itemRow" msprop:Generator_UserTableName="item" msprop:Generator_RowEvArgName="itemRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="產品編號" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="column產品編號" msprop:Generator_ColumnPropNameInRow="產品編號" msprop:Generator_ColumnPropNameInTable="產品編號Column" msprop:Generator_UserColumnName="產品編號" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="品名規格" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="column品名規格" msprop:Generator_ColumnPropNameInRow="品名規格" msprop:Generator_ColumnPropNameInTable="品名規格Column" msprop:Generator_UserColumnName="品名規格" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="單位" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="column單位" msprop:Generator_ColumnPropNameInRow="單位" msprop:Generator_ColumnPropNameInTable="單位Column" msprop:Generator_UserColumnName="單位" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="倉庫編號" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="column倉庫編號" msprop:Generator_ColumnPropNameInRow="倉庫編號" msprop:Generator_ColumnPropNameInTable="倉庫編號Column" msprop:Generator_UserColumnName="倉庫編號" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="倉庫名稱" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="column倉庫名稱" msprop:Generator_ColumnPropNameInRow="倉庫名稱" msprop:Generator_ColumnPropNameInTable="倉庫名稱Column" msprop:Generator_UserColumnName="倉庫名稱" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="倉庫類別" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="column倉庫類別" msprop:Generator_ColumnPropNameInRow="倉庫類別" msprop:Generator_ColumnPropNameInTable="倉庫類別Column" msprop:Generator_UserColumnName="倉庫類別" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="庫存數量" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="column庫存數量" msprop:Generator_ColumnPropNameInRow="庫存數量" msprop:Generator_ColumnPropNameInTable="庫存數量Column" msprop:Generator_UserColumnName="庫存數量" type="xs:decimal" minOccurs="0" />
+              <xs:element name="單位成本" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="column單位成本" msprop:Generator_ColumnPropNameInRow="單位成本" msprop:Generator_ColumnPropNameInTable="單位成本Column" msprop:Generator_UserColumnName="單位成本" type="xs:decimal" minOccurs="0" />
+              <xs:element name="成本" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="column成本" msprop:Generator_ColumnPropNameInRow="成本" msprop:Generator_ColumnPropNameInTable="成本Column" msprop:Generator_UserColumnName="成本" type="xs:decimal" minOccurs="0" />
+              <xs:element name="倉庫類別名稱" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="column倉庫類別名稱" msprop:Generator_ColumnPropNameInRow="倉庫類別名稱" msprop:Generator_ColumnPropNameInTable="倉庫類別名稱Column" msprop:Generator_UserColumnName="倉庫類別名稱" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="包裝數量" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="column包裝數量" msprop:Generator_ColumnPropNameInRow="包裝數量" msprop:Generator_ColumnPropNameInTable="包裝數量Column" msprop:Generator_UserColumnName="包裝數量" type="xs:decimal" minOccurs="0" />
+              <xs:element name="包裝單位" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="column包裝單位" msprop:Generator_ColumnPropNameInRow="包裝單位" msprop:Generator_ColumnPropNameInTable="包裝單位Column" msprop:Generator_UserColumnName="包裝單位" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="小單位" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="column小單位" msprop:Generator_ColumnPropNameInRow="小單位" msprop:Generator_ColumnPropNameInTable="小單位Column" msprop:Generator_UserColumnName="小單位" type="xs:decimal" minOccurs="0" />
+              <xs:element name="大單位" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="column大單位" msprop:Generator_ColumnPropNameInRow="大單位" msprop:Generator_ColumnPropNameInTable="大單位Column" msprop:Generator_UserColumnName="大單位" type="xs:decimal" minOccurs="0" />
+              <xs:element name="庫存倉數量" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="column庫存倉數量" msprop:Generator_ColumnPropNameInRow="庫存倉數量" msprop:Generator_ColumnPropNameInTable="庫存倉數量Column" msprop:Generator_UserColumnName="庫存倉數量" type="xs:decimal" minOccurs="0" />
+              <xs:element name="借出倉數量" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="column借出倉數量" msprop:Generator_ColumnPropNameInRow="借出倉數量" msprop:Generator_ColumnPropNameInTable="借出倉數量Column" msprop:Generator_UserColumnName="借出倉數量" type="xs:decimal" minOccurs="0" />
+              <xs:element name="加工倉數量" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="column加工倉數量" msprop:Generator_ColumnPropNameInRow="加工倉數量" msprop:Generator_ColumnPropNameInTable="加工倉數量Column" msprop:Generator_UserColumnName="加工倉數量" type="xs:decimal" minOccurs="0" />
+              <xs:element name="借入倉數量" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="column借入倉數量" msprop:Generator_ColumnPropNameInRow="借入倉數量" msprop:Generator_ColumnPropNameInTable="借入倉數量Column" msprop:Generator_UserColumnName="借入倉數量" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

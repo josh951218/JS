@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" DoublePass="true" StartReportEvent="_StartReport" ReportInfo.Created="04/24/2015 15:00:30" ReportInfo.Modified="09/30/2016 13:50:15" ReportInfo.CreatorVersion="2013.2.5.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+    private void Text47_BeforePrint(object sender, EventArgs e)
+    {
+     string formet = &quot;f&quot;+ ((String)Report.GetParameterValue(&quot;庫存數量小數&quot;));
+     Text47.Text =  ((Decimal)Report.GetColumnValue(&quot;Batch_.庫存數量&quot;)).ToString(formet);
+    }
+
+    private void Text130_BeforePrint(object sender, EventArgs e)
+    {
+      if (((Int32)Report.GetVariableValue(&quot;Page&quot;))==((Int32)Report.GetVariableValue(&quot;TotalPages&quot;)))
+      {
+        Text130.Text=&quot;*****以下空白*****&quot;;
+      }
+      else
+      {
+        Text130.Text=&quot;*****續下頁*****&quot;;
+      }
+    }
+
+    private void PageFooter1_BeforePrint(object sender, EventArgs e)
+    {
+      if (((Int32)Report.GetVariableValue(&quot;Page&quot;))==((Int32)Report.GetVariableValue(&quot;TotalPages&quot;)))
+      {
+       PageFooter1.Visible = true;
+      }
+      else 
+      {
+       PageFooter1.Visible = false;
+      }
+    }
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <MsSqlDataConnection Name="Connection" ConnectionString="rijcmlq+rW0RkboK+/8CKGGYUID3ctBV8q9SvKYxl3iiE7vBnh7Tgou0+4WFf3NfmPSvHVFX/S2Yvz0Ibm2enAAh/bj5IwCF1OGDq6mzCDV0cmqq5lzdq8B2h44YdiG1MkNRxzZmCUdOqUj+K3AG9XjPOZ10l1hTt5wCehW4pW/Oo6W7fw=">
+      <TableDataSource Name="Table" Alias="Batch_" DataType="System.Int32" Enabled="true" SelectCommand=" select BatchStock.Stno ,stname ,BatchStock.itno  , BatchStock.StnoQty  ,BatchInformation.Batchno  ,item.itname , item.itunit ,item.itpkgqty   ,item.itunitp  ,item.itnoudf  ,包裝整數=0.0,包裝餘數=0.0,倉庫類別='',stkroom.sttrait ,BatchInformation.fano ,fact.faname1 ,BatchInformation.Date ,BatchInformation.Date1  from BatchInformation  left join BatchStock on BatchStock.Bno = BatchInformation.Bno left join item on item.itno = BatchInformation.itno left join fact on fact.fano = BatchInformation.fano left join stkroom on BatchStock.stno = stkroom.stno  where 0=0 ">
+        <Column Name="包裝整數" DataType="System.Decimal"/>
+        <Column Name="包裝餘數" DataType="System.Decimal"/>
+        <Column Name="倉庫類別" DataType="System.String"/>
+        <Column Name="sttrait" DataType="System.Decimal"/>
+        <Column Name="Stno" Alias="倉庫編號" DataType="System.String"/>
+        <Column Name="stname" Alias="倉庫名稱" DataType="System.String"/>
+        <Column Name="itno" Alias="產品編號" DataType="System.String"/>
+        <Column Name="StnoQty" Alias="庫存數量" DataType="System.Decimal"/>
+        <Column Name="Batchno" Alias="批次編號" DataType="System.String"/>
+        <Column Name="itpkgqty" Alias="包裝數量" DataType="System.Decimal"/>
+        <Column Name="itunitp" Alias="包裝單位" DataType="System.String"/>
+        <Column Name="itnoudf" Alias="自訂編號" DataType="System.String"/>
+        <Column Name="fano" Alias="廠商編號" DataType="System.String"/>
+        <Column Name="faname1" Alias="廠商簡稱" DataType="System.String"/>
+        <Column Name="itname" Alias="產品名稱" DataType="System.String"/>
+        <Column Name="itunit" Alias="單位" DataType="System.String"/>
+        <Column Name="Date" DataType="System.String"/>
+        <Column Name="Date1" DataType="System.String"/>
+        <Column Name="序號" DataType="System.Int64"/>
+      </TableDataSource>
+    </MsSqlDataConnection>
+    <Relation Name="Table_Table1" ParentDataSource="Table" ChildDataSource="null" ParentColumns="saled_itno" ChildColumns="itno" Enabled="true"/>
+    <Parameter Name="User_DateTime" DataType="System.String"/>
+    <Parameter Name="庫存數量小數" DataType="System.String"/>
+    <Parameter Name="日期區間" DataType="System.String"/>
+    <Parameter Name="txtend" DataType="System.String"/>
+    <Parameter Name="txtstart" DataType="System.String"/>
+    <Total Name="序號" TotalType="Count" Evaluator="Data1" ResetOnReprint="true"/>
+  </Dictionary>
+  <ReportPage Name="Page1" PaperWidth="215.9" PaperHeight="279.4" RawPaperSize="1" LeftMargin="2.5" TopMargin="2.5" RightMargin="2.5" BottomMargin="2.5" FirstPageSource="15" OtherPagesSource="15" Guides="0" ResetPageNumber="true">
+    <ReportTitleBand Name="ReportTitle1" Width="797.2"/>
+    <PageHeaderBand Name="PageHeader1" Top="4" Width="797.2" Height="120.77" CanShrink="true" BeforePrintEvent="PageHeader1_BeforePrint">
+      <TextObject Name="Text37" Left="714.81" Top="74.97" Width="103.4" Height="20.5" Text="頁數: [Page]/[TotalPages]" HorzAlign="Justify" VertAlign="Center" WordWrap="false" Font="細明體, 11.25pt"/>
+      <TextObject Name="Text38" Left="217.99" Top="33.59" Width="361.22" Height="33.8" Text="批號現有庫存明細表_產品排序" HorzAlign="Center" VertAlign="Center" WordWrap="false" Font="細明體, 14pt, style=Bold"/>
+      <LineObject Name="Line2" Top="95.72" Width="801.36" Border.Width="2" Diagonal="true"/>
+      <TextObject Name="Text2" Top="99.47" Width="96.39" Height="14.9" Text="批號" WordWrap="false" Font="細明體, 10pt"/>
+      <TextObject Name="Text4" Left="99.12" Top="99.47" Width="85.05" Height="14.9" Text="廠商編號" WordWrap="false" Font="細明體, 10pt"/>
+      <TextObject Name="Text6" Left="186.89" Top="99.47" Width="145.3" Height="14.9" Text="廠商名稱" WordWrap="false" Font="細明體, 10pt"/>
+      <TextObject Name="Text14" Left="334.92" Top="99.47" Width="60.48" Height="14.9" Text="倉庫編號" WordWrap="false" Font="細明體, 10pt"/>
+      <TextObject Name="Text39" Left="398.12" Top="100.15" Width="64.26" Height="14.9" Text="倉庫名稱" WordWrap="false" Font="細明體, 10pt"/>
+      <TextObject Name="Text40" Left="465.48" Top="99.47" Width="60.48" Height="14.9" Text="倉庫類別" WordWrap="false" Font="細明體, 10pt"/>
+      <TextObject Name="Text41" Left="684.18" Top="99.47" Width="107.73" Height="14.9" Text="庫存數量" HorzAlign="Right" WordWrap="false" Font="細明體, 10pt"/>
+      <TextObject Name="Text49" Left="529.4" Top="99.47" Width="73.4" Height="14.9" Text="製造日期" WordWrap="false" Font="細明體, 10pt"/>
+      <TextObject Name="Text50" Left="603.56" Top="99.47" Width="77.48" Height="14.9" Text="有效日期" WordWrap="false" Font="細明體, 10pt"/>
+      <LineObject Name="Line3" Top="116.35" Width="801.36" Border.Width="2" Diagonal="true"/>
+      <TextObject Name="Text131" Width="797.38" Height="28.23" Text="[txtstart]" HorzAlign="Center" Font="細明體, 16pt, style=Bold"/>
+    </PageHeaderBand>
+    <GroupHeaderBand Name="GroupHeader1" Top="128.77" Width="797.2" Height="28.47" Condition="[Batch_.產品編號]">
+      <TextObject Name="Text48" Top="7.48" Width="64.57" Height="18.9" Text="產品名稱:" WordWrap="false" Font="細明體, 10pt"/>
+      <TextObject Name="Text3" Left="67.52" Top="7.48" Width="282.35" Height="18.9" Text="[Batch_.產品編號]　[Batch_.產品名稱]" WordWrap="false" Font="細明體, 10pt"/>
+      <LineObject Name="Line1" Top="28.47" Width="801.36" Border.Width="0.5"/>
+      <GroupHeaderBand Name="GroupHeader2" Top="161.24" Width="797.2" Condition="[Batch_.批次編號]">
+        <GroupHeaderBand Name="GroupHeader3" Top="165.24" Width="797.2" Condition="[Batch_.廠商編號]">
+          <GroupHeaderBand Name="GroupHeader4" Top="169.24" Width="797.2" Condition="[Batch_.倉庫編號]">
+            <DataBand Name="Data1" Top="173.24" Width="797.2" Height="14.9" DataSource="Table">
+              <TextObject Name="Text1" Width="96.39" Height="14.9" Text="[Batch_.批次編號]" WordWrap="false" Font="細明體, 10pt"/>
+              <TextObject Name="Text42" Left="99.12" Width="85.05" Height="14.9" Text="[Batch_.廠商編號]" WordWrap="false" Font="細明體, 10pt"/>
+              <TextObject Name="Text43" Left="186.89" Width="145.3" Height="14.9" Text="[Batch_.廠商簡稱]" WordWrap="false" Font="細明體, 10pt"/>
+              <TextObject Name="Text44" Left="334.92" Width="60.48" Height="14.9" Text="[Batch_.倉庫編號]" WordWrap="false" Font="細明體, 10pt"/>
+              <TextObject Name="Text45" Left="398.12" Width="64.26" Height="14.9" Text="[Batch_.倉庫名稱]" WordWrap="false" Font="細明體, 10pt"/>
+              <TextObject Name="Text46" Left="465.48" Width="64.26" Height="14.9" Text="[Batch_.倉庫類別]" WordWrap="false" Font="細明體, 10pt"/>
+              <TextObject Name="Text47" Left="684.18" Width="107.73" Height="14.9" BeforePrintEvent="Text47_BeforePrint" Text="[Batch_.庫存數量]" HorzAlign="Right" WordWrap="false" Font="細明體, 10pt"/>
+              <TextObject Name="Text51" Left="529.4" Width="73.4" Height="14.9" Text="[Batch_.Date]" WordWrap="false" Font="細明體, 10pt"/>
+              <TextObject Name="Text52" Left="603.56" Width="77.48" Height="14.9" Text="[Batch_.Date1]" WordWrap="false" Font="細明體, 10pt"/>
+            </DataBand>
+            <GroupFooterBand Name="GroupFooter4" Top="192.14" Width="797.2"/>
+          </GroupHeaderBand>
+          <GroupFooterBand Name="GroupFooter3" Top="196.14" Width="797.2"/>
+        </GroupHeaderBand>
+        <GroupFooterBand Name="GroupFooter2" Top="200.14" Width="797.2" Height="1.7">
+          <LineObject Name="Line4" Top="0.34" Width="801.36" Border.Width="0.5"/>
+        </GroupFooterBand>
+      </GroupHeaderBand>
+      <GroupFooterBand Name="GroupFooter1" Top="205.84" Width="797.2"/>
+    </GroupHeaderBand>
+    <ColumnFooterBand Name="ColumnFooter1" Top="209.84" Width="797.2" Height="14.27">
+      <TextObject Name="Text130" Top="0.67" Width="793.8" Height="13.6" CanGrow="true" CanShrink="true" BeforePrintEvent="Text130_BeforePrint" Text="*****以下空白*****" HorzAlign="Center" WordWrap="false" Font="細明體, 10pt"/>
+    </ColumnFooterBand>
+    <PageFooterBand Name="PageFooter1" Top="228.11" Width="797.2" Height="23.82" BeforePrintEvent="PageFooter1_BeforePrint">
+      <TextObject Name="Text7" Top="5.79" Width="797.38" Height="18.03" Text="[txtend]" Font="細明體, 10pt"/>
+      <LineObject Name="Line5" Top="1.71" Width="801.36" Border.Width="2" Diagonal="true"/>
+    </PageFooterBand>
+  </ReportPage>
+</Report>

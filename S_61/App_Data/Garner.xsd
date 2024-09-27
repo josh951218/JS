@@ -1,0 +1,588 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="Garner" targetNamespace="http://tempuri.org/Garner.xsd" xmlns:mstns="http://tempuri.org/Garner.xsd" xmlns="http://tempuri.org/Garner.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="3" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="webConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="webConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.S_61.Properties.Settings.GlobalReference.Default.webConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="STOCKConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="STOCKConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.S_61.Properties.Settings.GlobalReference.Default.STOCKConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="CENTERConnectionString" IsAppSettingsProperty="true" Modifier="Assembly" Name="CENTERConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.S_61.Properties.Settings.GlobalReference.Default.CENTERConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="LONGConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="LONGConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.S_61.Properties.Settings.GlobalReference.Default.LONGConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="garnerTableAdapter" GeneratorDataComponentClassName="garnerTableAdapter" Name="garner" UserDataComponentName="garnerTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="LONGConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT          a.gano AS Garner_gano, a.gadate AS Garner_gadate, a.gadate1 AS Garner_gadate1, a.gadate2 AS Garner_gadate2, 
+                            a.cono AS Garner_cono, a.coname1 AS Garner_coname1, a.coname2 AS Garner_coname2, a.stnoo AS Garner_stnoo, 
+                            a.stnameo AS Garner_stnameo, a.stnoi AS Garner_stnoi, a.stnamei AS Garner_stnamei, a.orno AS Garner_orno, 
+                            a.emno AS Garner_emno, a.emname AS Garner_emname, a.totmnyb AS Garner_totmnyb, 
+                            a.costflag AS Garner_costflag, a.gamemo AS Garner_gamemo, a.bracket AS Garner_bracket, 
+                            a.recordno AS Garner_recordno, a.UsrNo AS Garner_UsrNo, b.gano AS Garnerd_gano, b.gadate AS Garnerd_gadate, 
+                            b.gadate2 AS Garnerd_gadate2, b.gadate1 AS Garnerd_gadate1, b.cono AS Garnerd_cono, b.stnoo AS Garnerd_stnoo, 
+                            b.stnoi AS Garnerd_stnoi, b.orno AS Garnerd_orno, b.emno AS Garnerd_emno, b.costflag AS Garnerd_costflag, 
+                            b.itno AS Garnerd_itno, b.itname AS Garnerd_itname, b.ittrait AS Garnerd_ittrait, b.itunit AS Garnerd_itunit, 
+                            b.itpkgqty AS Garnerd_itpkgqty, b.qty AS Garnerd_qty, b.costb AS Garnerd_costb, b.costb1 AS Garnerd_costb1, 
+                            b.mnyb AS Garnerd_mnyb, b.memo AS Garnerd_memo, b.lowzero AS Garnerd_lowzero, b.bomid AS Garnerd_bomid, 
+                            b.bomrec AS Garnerd_bomrec, b.recordno AS Garnerd_recordno, b.sltflag AS Garnerd_sltflag, 
+                            b.extflag AS Garnerd_extflag, b.bracket AS Garnerd_bracket, b.itdesp1 AS Garnerd_itdesp1, 
+                            b.itdesp2 AS Garnerd_itdesp2, b.itdesp3 AS Garnerd_itdesp3, b.itdesp4 AS Garnerd_itdesp4, 
+                            b.itdesp5 AS Garnerd_itdesp5, b.itdesp6 AS Garnerd_itdesp6, b.itdesp7 AS Garnerd_itdesp7, 
+                            b.itdesp8 AS Garnerd_itdesp8, b.itdesp9 AS Garnerd_itdesp9, b.itdesp10 AS Garnerd_itdesp10, 
+                            b.stName AS Garnerd_stName, c.GaNo AS GarnBom_GaNo, c.BomID AS GarnBom_BomID, 
+                            c.BomRec AS GarnBom_BomRec, c.itno AS GarnBom_itno, c.itname AS GarnBom_itname, c.itunit AS GarnBom_itunit, 
+                            c.itqty AS GarnBom_itqty, c.itpareprs AS GarnBom_itpareprs, c.itpkgqty AS GarnBom_itpkgqty, 
+                            c.itrec AS GarnBom_itrec, c.itprice AS GarnBom_itprice, c.itprs AS GarnBom_itprs, c.itmny AS GarnBom_itmny, 
+                            c.itnote AS GarnBom_itnote, c.ItSource AS GarnBom_ItSource, c.ItBuyPri AS GarnBom_ItBuyPri, 
+                            c.ItBuyMny AS GarnBom_ItBuyMny, a.AppScNo AS Garner_AppScNo, a.AppDate AS Garner_AppDate, 
+                            a.EdtScNo AS Garner_EdtScNo, a.EdtDate AS Garner_EdtDate, a.gamemo1 AS Garner_gamemo1,scrit.scname,scrit.scname1  
+FROM              garner AS a 
+ LEFT  JOIN scrit ON a.appscno = scrit.scname  
+LEFT OUTER JOIN
+                            garnerd AS b ON a.gano = b.gano LEFT OUTER JOIN
+                            GarnBom AS c ON b.bomid = c.BomID</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Garner_gano" DataSetColumn="Garner_gano" />
+              <Mapping SourceColumn="Garner_gadate" DataSetColumn="Garner_gadate" />
+              <Mapping SourceColumn="Garner_gadate2" DataSetColumn="Garner_gadate2" />
+              <Mapping SourceColumn="Garner_cono" DataSetColumn="Garner_cono" />
+              <Mapping SourceColumn="Garner_coname1" DataSetColumn="Garner_coname1" />
+              <Mapping SourceColumn="Garner_coname2" DataSetColumn="Garner_coname2" />
+              <Mapping SourceColumn="Garner_stnoo" DataSetColumn="Garner_stnoo" />
+              <Mapping SourceColumn="Garner_stnameo" DataSetColumn="Garner_stnameo" />
+              <Mapping SourceColumn="Garner_stnoi" DataSetColumn="Garner_stnoi" />
+              <Mapping SourceColumn="Garner_stnamei" DataSetColumn="Garner_stnamei" />
+              <Mapping SourceColumn="Garner_orno" DataSetColumn="Garner_orno" />
+              <Mapping SourceColumn="Garner_emno" DataSetColumn="Garner_emno" />
+              <Mapping SourceColumn="Garner_emname" DataSetColumn="Garner_emname" />
+              <Mapping SourceColumn="Garner_totmnyb" DataSetColumn="Garner_totmnyb" />
+              <Mapping SourceColumn="Garner_costflag" DataSetColumn="Garner_costflag" />
+              <Mapping SourceColumn="Garner_gamemo" DataSetColumn="Garner_gamemo" />
+              <Mapping SourceColumn="Garner_bracket" DataSetColumn="Garner_bracket" />
+              <Mapping SourceColumn="Garner_recordno" DataSetColumn="Garner_recordno" />
+              <Mapping SourceColumn="Garner_UsrNo" DataSetColumn="Garner_UsrNo" />
+              <Mapping SourceColumn="Garnerd_gano" DataSetColumn="Garnerd_gano" />
+              <Mapping SourceColumn="Garnerd_gadate" DataSetColumn="Garnerd_gadate" />
+              <Mapping SourceColumn="Garnerd_cono" DataSetColumn="Garnerd_cono" />
+              <Mapping SourceColumn="Garnerd_stnoo" DataSetColumn="Garnerd_stnoo" />
+              <Mapping SourceColumn="Garnerd_stnoi" DataSetColumn="Garnerd_stnoi" />
+              <Mapping SourceColumn="Garnerd_orno" DataSetColumn="Garnerd_orno" />
+              <Mapping SourceColumn="Garnerd_emno" DataSetColumn="Garnerd_emno" />
+              <Mapping SourceColumn="Garnerd_costflag" DataSetColumn="Garnerd_costflag" />
+              <Mapping SourceColumn="Garnerd_itno" DataSetColumn="Garnerd_itno" />
+              <Mapping SourceColumn="Garnerd_itname" DataSetColumn="Garnerd_itname" />
+              <Mapping SourceColumn="Garnerd_ittrait" DataSetColumn="Garnerd_ittrait" />
+              <Mapping SourceColumn="Garnerd_itunit" DataSetColumn="Garnerd_itunit" />
+              <Mapping SourceColumn="Garnerd_itpkgqty" DataSetColumn="Garnerd_itpkgqty" />
+              <Mapping SourceColumn="Garnerd_qty" DataSetColumn="Garnerd_qty" />
+              <Mapping SourceColumn="Garnerd_costb" DataSetColumn="Garnerd_costb" />
+              <Mapping SourceColumn="Garnerd_costb1" DataSetColumn="Garnerd_costb1" />
+              <Mapping SourceColumn="Garnerd_mnyb" DataSetColumn="Garnerd_mnyb" />
+              <Mapping SourceColumn="Garnerd_memo" DataSetColumn="Garnerd_memo" />
+              <Mapping SourceColumn="Garnerd_lowzero" DataSetColumn="Garnerd_lowzero" />
+              <Mapping SourceColumn="Garnerd_bomid" DataSetColumn="Garnerd_bomid" />
+              <Mapping SourceColumn="Garnerd_bomrec" DataSetColumn="Garnerd_bomrec" />
+              <Mapping SourceColumn="Garnerd_recordno" DataSetColumn="Garnerd_recordno" />
+              <Mapping SourceColumn="Garnerd_sltflag" DataSetColumn="Garnerd_sltflag" />
+              <Mapping SourceColumn="Garnerd_extflag" DataSetColumn="Garnerd_extflag" />
+              <Mapping SourceColumn="Garnerd_bracket" DataSetColumn="Garnerd_bracket" />
+              <Mapping SourceColumn="Garnerd_itdesp1" DataSetColumn="Garnerd_itdesp1" />
+              <Mapping SourceColumn="Garnerd_itdesp2" DataSetColumn="Garnerd_itdesp2" />
+              <Mapping SourceColumn="Garnerd_itdesp3" DataSetColumn="Garnerd_itdesp3" />
+              <Mapping SourceColumn="Garnerd_itdesp4" DataSetColumn="Garnerd_itdesp4" />
+              <Mapping SourceColumn="Garnerd_itdesp5" DataSetColumn="Garnerd_itdesp5" />
+              <Mapping SourceColumn="Garnerd_itdesp6" DataSetColumn="Garnerd_itdesp6" />
+              <Mapping SourceColumn="Garnerd_itdesp7" DataSetColumn="Garnerd_itdesp7" />
+              <Mapping SourceColumn="Garnerd_itdesp8" DataSetColumn="Garnerd_itdesp8" />
+              <Mapping SourceColumn="Garnerd_itdesp9" DataSetColumn="Garnerd_itdesp9" />
+              <Mapping SourceColumn="Garnerd_itdesp10" DataSetColumn="Garnerd_itdesp10" />
+              <Mapping SourceColumn="Garnerd_stName" DataSetColumn="Garnerd_stName" />
+              <Mapping SourceColumn="GarnBom_GaNo" DataSetColumn="GarnBom_GaNo" />
+              <Mapping SourceColumn="GarnBom_BomID" DataSetColumn="GarnBom_BomID" />
+              <Mapping SourceColumn="GarnBom_BomRec" DataSetColumn="GarnBom_BomRec" />
+              <Mapping SourceColumn="GarnBom_itno" DataSetColumn="GarnBom_itno" />
+              <Mapping SourceColumn="GarnBom_itname" DataSetColumn="GarnBom_itname" />
+              <Mapping SourceColumn="GarnBom_itunit" DataSetColumn="GarnBom_itunit" />
+              <Mapping SourceColumn="GarnBom_itqty" DataSetColumn="GarnBom_itqty" />
+              <Mapping SourceColumn="GarnBom_itpareprs" DataSetColumn="GarnBom_itpareprs" />
+              <Mapping SourceColumn="GarnBom_itpkgqty" DataSetColumn="GarnBom_itpkgqty" />
+              <Mapping SourceColumn="GarnBom_itrec" DataSetColumn="GarnBom_itrec" />
+              <Mapping SourceColumn="GarnBom_itprice" DataSetColumn="GarnBom_itprice" />
+              <Mapping SourceColumn="GarnBom_itprs" DataSetColumn="GarnBom_itprs" />
+              <Mapping SourceColumn="GarnBom_itmny" DataSetColumn="GarnBom_itmny" />
+              <Mapping SourceColumn="GarnBom_itnote" DataSetColumn="GarnBom_itnote" />
+              <Mapping SourceColumn="GarnBom_ItSource" DataSetColumn="GarnBom_ItSource" />
+              <Mapping SourceColumn="GarnBom_ItBuyPri" DataSetColumn="GarnBom_ItBuyPri" />
+              <Mapping SourceColumn="GarnBom_ItBuyMny" DataSetColumn="GarnBom_ItBuyMny" />
+              <Mapping SourceColumn="Garner_gadate1" DataSetColumn="Garner_gadate1" />
+              <Mapping SourceColumn="Garnerd_gadate2" DataSetColumn="Garnerd_gadate2" />
+              <Mapping SourceColumn="Garnerd_gadate1" DataSetColumn="Garnerd_gadate1" />
+              <Mapping SourceColumn="Garner_AppScNo" DataSetColumn="Garner_AppScNo" />
+              <Mapping SourceColumn="Garner_AppDate" DataSetColumn="Garner_AppDate" />
+              <Mapping SourceColumn="Garner_EdtScNo" DataSetColumn="Garner_EdtScNo" />
+              <Mapping SourceColumn="Garner_EdtDate" DataSetColumn="Garner_EdtDate" />
+              <Mapping SourceColumn="Garner_gamemo1" DataSetColumn="Garner_gamemo1" />
+              <Mapping SourceColumn="scname" DataSetColumn="scname" />
+              <Mapping SourceColumn="scname1" DataSetColumn="scname1" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="Garner" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="Garner" msprop:Generator_UserDSName="Garner">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="garner" msprop:Generator_TableClassName="garnerDataTable" msprop:Generator_TableVarName="tablegarner" msprop:Generator_RowChangedName="garnerRowChanged" msprop:Generator_TablePropName="garner" msprop:Generator_RowDeletingName="garnerRowDeleting" msprop:Generator_RowChangingName="garnerRowChanging" msprop:Generator_RowEvHandlerName="garnerRowChangeEventHandler" msprop:Generator_RowDeletedName="garnerRowDeleted" msprop:Generator_RowClassName="garnerRow" msprop:Generator_UserTableName="garner" msprop:Generator_RowEvArgName="garnerRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Garner_gano" msprop:Generator_ColumnVarNameInTable="columnGarner_gano" msprop:Generator_ColumnPropNameInRow="Garner_gano" msprop:Generator_ColumnPropNameInTable="Garner_ganoColumn" msprop:Generator_UserColumnName="Garner_gano">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="12" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Garner_gadate" msprop:Generator_ColumnVarNameInTable="columnGarner_gadate" msprop:Generator_ColumnPropNameInRow="Garner_gadate" msprop:Generator_ColumnPropNameInTable="Garner_gadateColumn" msprop:Generator_UserColumnName="Garner_gadate" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Garner_gadate2" msprop:Generator_ColumnVarNameInTable="columnGarner_gadate2" msprop:Generator_ColumnPropNameInRow="Garner_gadate2" msprop:Generator_ColumnPropNameInTable="Garner_gadate2Column" msprop:Generator_UserColumnName="Garner_gadate2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Garner_cono" msprop:Generator_ColumnVarNameInTable="columnGarner_cono" msprop:Generator_ColumnPropNameInRow="Garner_cono" msprop:Generator_ColumnPropNameInTable="Garner_conoColumn" msprop:Generator_UserColumnName="Garner_cono" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Garner_coname1" msprop:Generator_ColumnVarNameInTable="columnGarner_coname1" msprop:Generator_ColumnPropNameInRow="Garner_coname1" msprop:Generator_ColumnPropNameInTable="Garner_coname1Column" msprop:Generator_UserColumnName="Garner_coname1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Garner_coname2" msprop:Generator_ColumnVarNameInTable="columnGarner_coname2" msprop:Generator_ColumnPropNameInRow="Garner_coname2" msprop:Generator_ColumnPropNameInTable="Garner_coname2Column" msprop:Generator_UserColumnName="Garner_coname2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Garner_stnoo" msprop:Generator_ColumnVarNameInTable="columnGarner_stnoo" msprop:Generator_ColumnPropNameInRow="Garner_stnoo" msprop:Generator_ColumnPropNameInTable="Garner_stnooColumn" msprop:Generator_UserColumnName="Garner_stnoo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Garner_stnameo" msprop:Generator_ColumnVarNameInTable="columnGarner_stnameo" msprop:Generator_ColumnPropNameInRow="Garner_stnameo" msprop:Generator_ColumnPropNameInTable="Garner_stnameoColumn" msprop:Generator_UserColumnName="Garner_stnameo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Garner_stnoi" msprop:Generator_ColumnVarNameInTable="columnGarner_stnoi" msprop:Generator_ColumnPropNameInRow="Garner_stnoi" msprop:Generator_ColumnPropNameInTable="Garner_stnoiColumn" msprop:Generator_UserColumnName="Garner_stnoi" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Garner_stnamei" msprop:Generator_ColumnVarNameInTable="columnGarner_stnamei" msprop:Generator_ColumnPropNameInRow="Garner_stnamei" msprop:Generator_ColumnPropNameInTable="Garner_stnameiColumn" msprop:Generator_UserColumnName="Garner_stnamei" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Garner_orno" msprop:Generator_ColumnVarNameInTable="columnGarner_orno" msprop:Generator_ColumnPropNameInRow="Garner_orno" msprop:Generator_ColumnPropNameInTable="Garner_ornoColumn" msprop:Generator_UserColumnName="Garner_orno" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="16" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Garner_emno" msprop:Generator_ColumnVarNameInTable="columnGarner_emno" msprop:Generator_ColumnPropNameInRow="Garner_emno" msprop:Generator_ColumnPropNameInTable="Garner_emnoColumn" msprop:Generator_UserColumnName="Garner_emno" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Garner_emname" msprop:Generator_ColumnVarNameInTable="columnGarner_emname" msprop:Generator_ColumnPropNameInRow="Garner_emname" msprop:Generator_ColumnPropNameInTable="Garner_emnameColumn" msprop:Generator_UserColumnName="Garner_emname" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Garner_totmnyb" msprop:Generator_ColumnVarNameInTable="columnGarner_totmnyb" msprop:Generator_ColumnPropNameInRow="Garner_totmnyb" msprop:Generator_ColumnPropNameInTable="Garner_totmnybColumn" msprop:Generator_UserColumnName="Garner_totmnyb" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Garner_costflag" msprop:Generator_ColumnVarNameInTable="columnGarner_costflag" msprop:Generator_ColumnPropNameInRow="Garner_costflag" msprop:Generator_ColumnPropNameInTable="Garner_costflagColumn" msprop:Generator_UserColumnName="Garner_costflag" type="xs:boolean" minOccurs="0" />
+              <xs:element name="Garner_gamemo" msprop:Generator_ColumnVarNameInTable="columnGarner_gamemo" msprop:Generator_ColumnPropNameInRow="Garner_gamemo" msprop:Generator_ColumnPropNameInTable="Garner_gamemoColumn" msprop:Generator_UserColumnName="Garner_gamemo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Garner_bracket" msprop:Generator_ColumnVarNameInTable="columnGarner_bracket" msprop:Generator_ColumnPropNameInRow="Garner_bracket" msprop:Generator_ColumnPropNameInTable="Garner_bracketColumn" msprop:Generator_UserColumnName="Garner_bracket" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="6" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Garner_recordno" msprop:Generator_ColumnVarNameInTable="columnGarner_recordno" msprop:Generator_ColumnPropNameInRow="Garner_recordno" msprop:Generator_ColumnPropNameInTable="Garner_recordnoColumn" msprop:Generator_UserColumnName="Garner_recordno" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Garner_UsrNo" msprop:Generator_ColumnVarNameInTable="columnGarner_UsrNo" msprop:Generator_ColumnPropNameInRow="Garner_UsrNo" msprop:Generator_ColumnPropNameInTable="Garner_UsrNoColumn" msprop:Generator_UserColumnName="Garner_UsrNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Garnerd_gano" msprop:Generator_ColumnVarNameInTable="columnGarnerd_gano" msprop:Generator_ColumnPropNameInRow="Garnerd_gano" msprop:Generator_ColumnPropNameInTable="Garnerd_ganoColumn" msprop:Generator_UserColumnName="Garnerd_gano" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="12" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Garnerd_gadate" msprop:Generator_ColumnVarNameInTable="columnGarnerd_gadate" msprop:Generator_ColumnPropNameInRow="Garnerd_gadate" msprop:Generator_ColumnPropNameInTable="Garnerd_gadateColumn" msprop:Generator_UserColumnName="Garnerd_gadate" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Garnerd_cono" msprop:Generator_ColumnVarNameInTable="columnGarnerd_cono" msprop:Generator_ColumnPropNameInRow="Garnerd_cono" msprop:Generator_ColumnPropNameInTable="Garnerd_conoColumn" msprop:Generator_UserColumnName="Garnerd_cono" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Garnerd_stnoo" msprop:Generator_ColumnVarNameInTable="columnGarnerd_stnoo" msprop:Generator_ColumnPropNameInRow="Garnerd_stnoo" msprop:Generator_ColumnPropNameInTable="Garnerd_stnooColumn" msprop:Generator_UserColumnName="Garnerd_stnoo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Garnerd_stnoi" msprop:Generator_ColumnVarNameInTable="columnGarnerd_stnoi" msprop:Generator_ColumnPropNameInRow="Garnerd_stnoi" msprop:Generator_ColumnPropNameInTable="Garnerd_stnoiColumn" msprop:Generator_UserColumnName="Garnerd_stnoi" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Garnerd_orno" msprop:Generator_ColumnVarNameInTable="columnGarnerd_orno" msprop:Generator_ColumnPropNameInRow="Garnerd_orno" msprop:Generator_ColumnPropNameInTable="Garnerd_ornoColumn" msprop:Generator_UserColumnName="Garnerd_orno" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="16" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Garnerd_emno" msprop:Generator_ColumnVarNameInTable="columnGarnerd_emno" msprop:Generator_ColumnPropNameInRow="Garnerd_emno" msprop:Generator_ColumnPropNameInTable="Garnerd_emnoColumn" msprop:Generator_UserColumnName="Garnerd_emno" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Garnerd_costflag" msprop:Generator_ColumnVarNameInTable="columnGarnerd_costflag" msprop:Generator_ColumnPropNameInRow="Garnerd_costflag" msprop:Generator_ColumnPropNameInTable="Garnerd_costflagColumn" msprop:Generator_UserColumnName="Garnerd_costflag" type="xs:boolean" minOccurs="0" />
+              <xs:element name="Garnerd_itno" msprop:Generator_ColumnVarNameInTable="columnGarnerd_itno" msprop:Generator_ColumnPropNameInRow="Garnerd_itno" msprop:Generator_ColumnPropNameInTable="Garnerd_itnoColumn" msprop:Generator_UserColumnName="Garnerd_itno" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Garnerd_itname" msprop:Generator_ColumnVarNameInTable="columnGarnerd_itname" msprop:Generator_ColumnPropNameInRow="Garnerd_itname" msprop:Generator_ColumnPropNameInTable="Garnerd_itnameColumn" msprop:Generator_UserColumnName="Garnerd_itname" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Garnerd_ittrait" msprop:Generator_ColumnVarNameInTable="columnGarnerd_ittrait" msprop:Generator_ColumnPropNameInRow="Garnerd_ittrait" msprop:Generator_ColumnPropNameInTable="Garnerd_ittraitColumn" msprop:Generator_UserColumnName="Garnerd_ittrait" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Garnerd_itunit" msprop:Generator_ColumnVarNameInTable="columnGarnerd_itunit" msprop:Generator_ColumnPropNameInRow="Garnerd_itunit" msprop:Generator_ColumnPropNameInTable="Garnerd_itunitColumn" msprop:Generator_UserColumnName="Garnerd_itunit" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Garnerd_itpkgqty" msprop:Generator_ColumnVarNameInTable="columnGarnerd_itpkgqty" msprop:Generator_ColumnPropNameInRow="Garnerd_itpkgqty" msprop:Generator_ColumnPropNameInTable="Garnerd_itpkgqtyColumn" msprop:Generator_UserColumnName="Garnerd_itpkgqty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Garnerd_qty" msprop:Generator_ColumnVarNameInTable="columnGarnerd_qty" msprop:Generator_ColumnPropNameInRow="Garnerd_qty" msprop:Generator_ColumnPropNameInTable="Garnerd_qtyColumn" msprop:Generator_UserColumnName="Garnerd_qty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Garnerd_costb" msprop:Generator_ColumnVarNameInTable="columnGarnerd_costb" msprop:Generator_ColumnPropNameInRow="Garnerd_costb" msprop:Generator_ColumnPropNameInTable="Garnerd_costbColumn" msprop:Generator_UserColumnName="Garnerd_costb" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Garnerd_costb1" msprop:Generator_ColumnVarNameInTable="columnGarnerd_costb1" msprop:Generator_ColumnPropNameInRow="Garnerd_costb1" msprop:Generator_ColumnPropNameInTable="Garnerd_costb1Column" msprop:Generator_UserColumnName="Garnerd_costb1" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Garnerd_mnyb" msprop:Generator_ColumnVarNameInTable="columnGarnerd_mnyb" msprop:Generator_ColumnPropNameInRow="Garnerd_mnyb" msprop:Generator_ColumnPropNameInTable="Garnerd_mnybColumn" msprop:Generator_UserColumnName="Garnerd_mnyb" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Garnerd_memo" msprop:Generator_ColumnVarNameInTable="columnGarnerd_memo" msprop:Generator_ColumnPropNameInRow="Garnerd_memo" msprop:Generator_ColumnPropNameInTable="Garnerd_memoColumn" msprop:Generator_UserColumnName="Garnerd_memo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Garnerd_lowzero" msprop:Generator_ColumnVarNameInTable="columnGarnerd_lowzero" msprop:Generator_ColumnPropNameInRow="Garnerd_lowzero" msprop:Generator_ColumnPropNameInTable="Garnerd_lowzeroColumn" msprop:Generator_UserColumnName="Garnerd_lowzero" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Garnerd_bomid" msprop:Generator_ColumnVarNameInTable="columnGarnerd_bomid" msprop:Generator_ColumnPropNameInRow="Garnerd_bomid" msprop:Generator_ColumnPropNameInTable="Garnerd_bomidColumn" msprop:Generator_UserColumnName="Garnerd_bomid" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Garnerd_bomrec" msprop:Generator_ColumnVarNameInTable="columnGarnerd_bomrec" msprop:Generator_ColumnPropNameInRow="Garnerd_bomrec" msprop:Generator_ColumnPropNameInTable="Garnerd_bomrecColumn" msprop:Generator_UserColumnName="Garnerd_bomrec" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Garnerd_recordno" msprop:Generator_ColumnVarNameInTable="columnGarnerd_recordno" msprop:Generator_ColumnPropNameInRow="Garnerd_recordno" msprop:Generator_ColumnPropNameInTable="Garnerd_recordnoColumn" msprop:Generator_UserColumnName="Garnerd_recordno" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Garnerd_sltflag" msprop:Generator_ColumnVarNameInTable="columnGarnerd_sltflag" msprop:Generator_ColumnPropNameInRow="Garnerd_sltflag" msprop:Generator_ColumnPropNameInTable="Garnerd_sltflagColumn" msprop:Generator_UserColumnName="Garnerd_sltflag" type="xs:boolean" minOccurs="0" />
+              <xs:element name="Garnerd_extflag" msprop:Generator_ColumnVarNameInTable="columnGarnerd_extflag" msprop:Generator_ColumnPropNameInRow="Garnerd_extflag" msprop:Generator_ColumnPropNameInTable="Garnerd_extflagColumn" msprop:Generator_UserColumnName="Garnerd_extflag" type="xs:boolean" minOccurs="0" />
+              <xs:element name="Garnerd_bracket" msprop:Generator_ColumnVarNameInTable="columnGarnerd_bracket" msprop:Generator_ColumnPropNameInRow="Garnerd_bracket" msprop:Generator_ColumnPropNameInTable="Garnerd_bracketColumn" msprop:Generator_UserColumnName="Garnerd_bracket" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="6" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Garnerd_itdesp1" msprop:Generator_ColumnVarNameInTable="columnGarnerd_itdesp1" msprop:Generator_ColumnPropNameInRow="Garnerd_itdesp1" msprop:Generator_ColumnPropNameInTable="Garnerd_itdesp1Column" msprop:Generator_UserColumnName="Garnerd_itdesp1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Garnerd_itdesp2" msprop:Generator_ColumnVarNameInTable="columnGarnerd_itdesp2" msprop:Generator_ColumnPropNameInRow="Garnerd_itdesp2" msprop:Generator_ColumnPropNameInTable="Garnerd_itdesp2Column" msprop:Generator_UserColumnName="Garnerd_itdesp2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Garnerd_itdesp3" msprop:Generator_ColumnVarNameInTable="columnGarnerd_itdesp3" msprop:Generator_ColumnPropNameInRow="Garnerd_itdesp3" msprop:Generator_ColumnPropNameInTable="Garnerd_itdesp3Column" msprop:Generator_UserColumnName="Garnerd_itdesp3" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Garnerd_itdesp4" msprop:Generator_ColumnVarNameInTable="columnGarnerd_itdesp4" msprop:Generator_ColumnPropNameInRow="Garnerd_itdesp4" msprop:Generator_ColumnPropNameInTable="Garnerd_itdesp4Column" msprop:Generator_UserColumnName="Garnerd_itdesp4" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Garnerd_itdesp5" msprop:Generator_ColumnVarNameInTable="columnGarnerd_itdesp5" msprop:Generator_ColumnPropNameInRow="Garnerd_itdesp5" msprop:Generator_ColumnPropNameInTable="Garnerd_itdesp5Column" msprop:Generator_UserColumnName="Garnerd_itdesp5" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Garnerd_itdesp6" msprop:Generator_ColumnVarNameInTable="columnGarnerd_itdesp6" msprop:Generator_ColumnPropNameInRow="Garnerd_itdesp6" msprop:Generator_ColumnPropNameInTable="Garnerd_itdesp6Column" msprop:Generator_UserColumnName="Garnerd_itdesp6" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Garnerd_itdesp7" msprop:Generator_ColumnVarNameInTable="columnGarnerd_itdesp7" msprop:Generator_ColumnPropNameInRow="Garnerd_itdesp7" msprop:Generator_ColumnPropNameInTable="Garnerd_itdesp7Column" msprop:Generator_UserColumnName="Garnerd_itdesp7" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Garnerd_itdesp8" msprop:Generator_ColumnVarNameInTable="columnGarnerd_itdesp8" msprop:Generator_ColumnPropNameInRow="Garnerd_itdesp8" msprop:Generator_ColumnPropNameInTable="Garnerd_itdesp8Column" msprop:Generator_UserColumnName="Garnerd_itdesp8" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Garnerd_itdesp9" msprop:Generator_ColumnVarNameInTable="columnGarnerd_itdesp9" msprop:Generator_ColumnPropNameInRow="Garnerd_itdesp9" msprop:Generator_ColumnPropNameInTable="Garnerd_itdesp9Column" msprop:Generator_UserColumnName="Garnerd_itdesp9" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Garnerd_itdesp10" msprop:Generator_ColumnVarNameInTable="columnGarnerd_itdesp10" msprop:Generator_ColumnPropNameInRow="Garnerd_itdesp10" msprop:Generator_ColumnPropNameInTable="Garnerd_itdesp10Column" msprop:Generator_UserColumnName="Garnerd_itdesp10" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Garnerd_stName" msprop:Generator_ColumnVarNameInTable="columnGarnerd_stName" msprop:Generator_ColumnPropNameInRow="Garnerd_stName" msprop:Generator_ColumnPropNameInTable="Garnerd_stNameColumn" msprop:Generator_UserColumnName="Garnerd_stName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="GarnBom_GaNo" msprop:Generator_ColumnVarNameInTable="columnGarnBom_GaNo" msprop:Generator_ColumnPropNameInRow="GarnBom_GaNo" msprop:Generator_ColumnPropNameInTable="GarnBom_GaNoColumn" msprop:Generator_UserColumnName="GarnBom_GaNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="16" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="GarnBom_BomID" msprop:Generator_ColumnVarNameInTable="columnGarnBom_BomID" msprop:Generator_ColumnPropNameInRow="GarnBom_BomID" msprop:Generator_ColumnPropNameInTable="GarnBom_BomIDColumn" msprop:Generator_UserColumnName="GarnBom_BomID" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="GarnBom_BomRec" msprop:Generator_ColumnVarNameInTable="columnGarnBom_BomRec" msprop:Generator_ColumnPropNameInRow="GarnBom_BomRec" msprop:Generator_ColumnPropNameInTable="GarnBom_BomRecColumn" msprop:Generator_UserColumnName="GarnBom_BomRec" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="GarnBom_itno" msprop:Generator_ColumnVarNameInTable="columnGarnBom_itno" msprop:Generator_ColumnPropNameInRow="GarnBom_itno" msprop:Generator_ColumnPropNameInTable="GarnBom_itnoColumn" msprop:Generator_UserColumnName="GarnBom_itno" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="GarnBom_itname" msprop:Generator_ColumnVarNameInTable="columnGarnBom_itname" msprop:Generator_ColumnPropNameInRow="GarnBom_itname" msprop:Generator_ColumnPropNameInTable="GarnBom_itnameColumn" msprop:Generator_UserColumnName="GarnBom_itname" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="GarnBom_itunit" msprop:Generator_ColumnVarNameInTable="columnGarnBom_itunit" msprop:Generator_ColumnPropNameInRow="GarnBom_itunit" msprop:Generator_ColumnPropNameInTable="GarnBom_itunitColumn" msprop:Generator_UserColumnName="GarnBom_itunit" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="GarnBom_itqty" msprop:Generator_ColumnVarNameInTable="columnGarnBom_itqty" msprop:Generator_ColumnPropNameInRow="GarnBom_itqty" msprop:Generator_ColumnPropNameInTable="GarnBom_itqtyColumn" msprop:Generator_UserColumnName="GarnBom_itqty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="GarnBom_itpareprs" msprop:Generator_ColumnVarNameInTable="columnGarnBom_itpareprs" msprop:Generator_ColumnPropNameInRow="GarnBom_itpareprs" msprop:Generator_ColumnPropNameInTable="GarnBom_itpareprsColumn" msprop:Generator_UserColumnName="GarnBom_itpareprs" type="xs:decimal" minOccurs="0" />
+              <xs:element name="GarnBom_itpkgqty" msprop:Generator_ColumnVarNameInTable="columnGarnBom_itpkgqty" msprop:Generator_ColumnPropNameInRow="GarnBom_itpkgqty" msprop:Generator_ColumnPropNameInTable="GarnBom_itpkgqtyColumn" msprop:Generator_UserColumnName="GarnBom_itpkgqty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="GarnBom_itrec" msprop:Generator_ColumnVarNameInTable="columnGarnBom_itrec" msprop:Generator_ColumnPropNameInRow="GarnBom_itrec" msprop:Generator_ColumnPropNameInTable="GarnBom_itrecColumn" msprop:Generator_UserColumnName="GarnBom_itrec" type="xs:decimal" minOccurs="0" />
+              <xs:element name="GarnBom_itprice" msprop:Generator_ColumnVarNameInTable="columnGarnBom_itprice" msprop:Generator_ColumnPropNameInRow="GarnBom_itprice" msprop:Generator_ColumnPropNameInTable="GarnBom_itpriceColumn" msprop:Generator_UserColumnName="GarnBom_itprice" type="xs:decimal" minOccurs="0" />
+              <xs:element name="GarnBom_itprs" msprop:Generator_ColumnVarNameInTable="columnGarnBom_itprs" msprop:Generator_ColumnPropNameInRow="GarnBom_itprs" msprop:Generator_ColumnPropNameInTable="GarnBom_itprsColumn" msprop:Generator_UserColumnName="GarnBom_itprs" type="xs:decimal" minOccurs="0" />
+              <xs:element name="GarnBom_itmny" msprop:Generator_ColumnVarNameInTable="columnGarnBom_itmny" msprop:Generator_ColumnPropNameInRow="GarnBom_itmny" msprop:Generator_ColumnPropNameInTable="GarnBom_itmnyColumn" msprop:Generator_UserColumnName="GarnBom_itmny" type="xs:decimal" minOccurs="0" />
+              <xs:element name="GarnBom_itnote" msprop:Generator_ColumnVarNameInTable="columnGarnBom_itnote" msprop:Generator_ColumnPropNameInRow="GarnBom_itnote" msprop:Generator_ColumnPropNameInTable="GarnBom_itnoteColumn" msprop:Generator_UserColumnName="GarnBom_itnote" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="GarnBom_ItSource" msprop:Generator_ColumnVarNameInTable="columnGarnBom_ItSource" msprop:Generator_ColumnPropNameInRow="GarnBom_ItSource" msprop:Generator_ColumnPropNameInTable="GarnBom_ItSourceColumn" msprop:Generator_UserColumnName="GarnBom_ItSource" type="xs:decimal" minOccurs="0" />
+              <xs:element name="GarnBom_ItBuyPri" msprop:Generator_ColumnVarNameInTable="columnGarnBom_ItBuyPri" msprop:Generator_ColumnPropNameInRow="GarnBom_ItBuyPri" msprop:Generator_ColumnPropNameInTable="GarnBom_ItBuyPriColumn" msprop:Generator_UserColumnName="GarnBom_ItBuyPri" type="xs:decimal" minOccurs="0" />
+              <xs:element name="GarnBom_ItBuyMny" msprop:Generator_ColumnVarNameInTable="columnGarnBom_ItBuyMny" msprop:Generator_ColumnPropNameInRow="GarnBom_ItBuyMny" msprop:Generator_ColumnPropNameInTable="GarnBom_ItBuyMnyColumn" msprop:Generator_UserColumnName="GarnBom_ItBuyMny" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Garner_gadate1" msprop:Generator_ColumnVarNameInTable="columnGarner_gadate1" msprop:Generator_ColumnPropNameInRow="Garner_gadate1" msprop:Generator_ColumnPropNameInTable="Garner_gadate1Column" msprop:Generator_UserColumnName="Garner_gadate1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Garnerd_gadate2" msprop:Generator_ColumnVarNameInTable="columnGarnerd_gadate2" msprop:Generator_ColumnPropNameInRow="Garnerd_gadate2" msprop:Generator_ColumnPropNameInTable="Garnerd_gadate2Column" msprop:Generator_UserColumnName="Garnerd_gadate2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Garnerd_gadate1" msprop:Generator_ColumnVarNameInTable="columnGarnerd_gadate1" msprop:Generator_ColumnPropNameInRow="Garnerd_gadate1" msprop:Generator_ColumnPropNameInTable="Garnerd_gadate1Column" msprop:Generator_UserColumnName="Garnerd_gadate1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Garner_AppScNo" msprop:Generator_ColumnVarNameInTable="columnGarner_AppScNo" msprop:Generator_ColumnPropNameInRow="Garner_AppScNo" msprop:Generator_ColumnPropNameInTable="Garner_AppScNoColumn" msprop:Generator_UserColumnName="Garner_AppScNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Garner_AppDate" msprop:Generator_ColumnVarNameInTable="columnGarner_AppDate" msprop:Generator_ColumnPropNameInRow="Garner_AppDate" msprop:Generator_ColumnPropNameInTable="Garner_AppDateColumn" msprop:Generator_UserColumnName="Garner_AppDate" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Garner_EdtScNo" msprop:Generator_ColumnVarNameInTable="columnGarner_EdtScNo" msprop:Generator_ColumnPropNameInRow="Garner_EdtScNo" msprop:Generator_ColumnPropNameInTable="Garner_EdtScNoColumn" msprop:Generator_UserColumnName="Garner_EdtScNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Garner_EdtDate" msprop:Generator_ColumnVarNameInTable="columnGarner_EdtDate" msprop:Generator_ColumnPropNameInRow="Garner_EdtDate" msprop:Generator_ColumnPropNameInTable="Garner_EdtDateColumn" msprop:Generator_UserColumnName="Garner_EdtDate" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Garner_gamemo1" msprop:Generator_ColumnVarNameInTable="columnGarner_gamemo1" msprop:Generator_ColumnPropNameInRow="Garner_gamemo1" msprop:Generator_ColumnPropNameInTable="Garner_gamemo1Column" msprop:Generator_UserColumnName="Garner_gamemo1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="scname" msprop:Generator_ColumnVarNameInTable="columnscname" msprop:Generator_ColumnPropNameInRow="scname" msprop:Generator_ColumnPropNameInTable="scnameColumn" msprop:Generator_UserColumnName="scname" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="scname1" msprop:Generator_ColumnVarNameInTable="columnscname1" msprop:Generator_ColumnPropNameInRow="scname1" msprop:Generator_ColumnPropNameInTable="scname1Column" msprop:Generator_UserColumnName="scname1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:garner" />
+      <xs:field xpath="mstns:Garner_gano" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

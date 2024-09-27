@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" DoublePass="true" ReportInfo.Created="03/11/2015 18:35:11" ReportInfo.Modified="04/23/2015 09:21:10" ReportInfo.CreatorVersion="2013.2.5.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {              
+    private void Text7_BeforePrint(object sender, EventArgs e)
+    {
+        var a = Report.GetTotalValue(&quot;Ttot&quot;);
+        var b = Report.GetTotalValue(&quot;Tct&quot;);
+        Text7.Text = FormatNumber(a/b,2);
+    }
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <MsSqlDataConnection Name="Connection" ConnectionString="rijcmlq+rW0RkboK+/8CKGGYUID3ctBV8q9SvKYxl3iiE7vBnh7Tgou0+4WFf3NfmPSvHVFMb+6VV8AQa1o8PejGBoK8wrAy/t3nmq4U8bTrZ2dbE5oNTCbtG9HIkRIcs5KGiFKjR/3HHbR5Jq1DamB/JvE1kkuDCxC5WsU3aI+GUVbpn8=">
+      <TableDataSource Name="Table" DataType="System.Int32" Enabled="true" SelectCommand="Select sadate='',sadate1='',ct=0.0,SalTot=0.0,pg=0.0 from sale where 1=0">
+        <Column Name="sadate" DataType="System.String"/>
+        <Column Name="sadate1" DataType="System.String"/>
+        <Column Name="ct" DataType="System.Decimal"/>
+        <Column Name="SalTot" DataType="System.Decimal"/>
+        <Column Name="pg" DataType="System.Decimal"/>
+      </TableDataSource>
+    </MsSqlDataConnection>
+    <Parameter Name="txtstart" DataType="System.String"/>
+    <Parameter Name="DateRange" DataType="System.String"/>
+    <Parameter Name="機台" DataType="System.String"/>
+    <Parameter Name="班別" DataType="System.String"/>
+    <Total Name="Tct" Expression="[Table.ct]" Evaluator="Data1" PrintOn="ReportSummary1"/>
+    <Total Name="Ttot" Expression="[Table.SalTot]" Evaluator="Data1" PrintOn="ReportSummary1"/>
+  </Dictionary>
+  <ReportPage Name="Page1" PaperWidth="215.9" PaperHeight="279.4" RawPaperSize="1">
+    <PageHeaderBand Name="PageHeader1" Width="740.5" Height="139.86">
+      <TextObject Name="txtstart" Width="727.65" Height="28.35" Text="[txtstart]" HorzAlign="Center" Font="細明體, 18pt, style=Bold"/>
+      <TextObject Name="Text11" Top="30.24" Width="727.65" Height="28.35" Text="客單價分析表" HorzAlign="Center" Font="細明體, 14pt, style=Bold"/>
+      <TextObject Name="Text15" Left="85.05" Top="60.7" Width="223.02" Height="18.9" Text="[DateRange]" Format="Date" Format.Format="f" Font="細明體, 11pt"/>
+      <TextObject Name="Text16" Top="61.15" Width="85.05" Height="18.9" Text="統計區間：" Font="細明體, 11pt"/>
+      <TextObject Name="Text17" Left="85.05" Top="83.16" Width="223.02" Height="18.9" Text="[機台]" Format="Date" Format.Format="f" Font="細明體, 11pt"/>
+      <TextObject Name="Text18" Top="83.61" Width="85.05" Height="18.9" Text="機    台：" Font="細明體, 11pt"/>
+      <TextObject Name="Text19" Left="606.69" Top="83.16" Width="117.18" Height="18.9" Text="[班別]" Format="Date" Format.Format="f" Font="細明體, 11pt"/>
+      <TextObject Name="Text20" Left="521.64" Top="83.61" Width="85.05" Height="18.9" Text="班    別：" Font="細明體, 11pt"/>
+      <LineObject Name="Line1" Top="105.84" Width="725.76"/>
+      <TextObject Name="Text27" Top="113.4" Width="128.52" Height="18.9" Text="日期" Font="細明體, 11pt"/>
+      <TextObject Name="Text28" Left="189" Top="113.4" Width="128.52" Height="18.9" Text="客戶數" HorzAlign="Right" Font="細明體, 11pt"/>
+      <TextObject Name="Text29" Left="393.12" Top="113.4" Width="128.52" Height="18.9" Text="銷費金額" HorzAlign="Right" Font="細明體, 11pt"/>
+      <TextObject Name="Text30" Left="582.12" Top="113.4" Width="128.52" Height="18.9" Text="客單價平均" HorzAlign="Right" Font="細明體, 11pt"/>
+      <LineObject Name="Line2" Top="136.08" Width="725.76"/>
+      <TextObject Name="Text31" Left="606.69" Top="60.48" Width="117.18" Height="18.9" Text="[Page]" Format="Date" Format.Format="f" Font="細明體, 11pt"/>
+      <TextObject Name="Text32" Left="521.64" Top="60.93" Width="85.05" Height="18.9" Text="頁    次：" Font="細明體, 11pt"/>
+    </PageHeaderBand>
+    <DataBand Name="Data1" Top="143.06" Width="740.5" Height="22.68" DataSource="Table">
+      <TextObject Name="Text1" Top="7.56" Width="128.52" Height="15.12" Text="[Table.sadate]" Font="細明體, 11pt"/>
+      <TextObject Name="Text2" Left="189" Top="7.56" Width="128.52" Height="15.12" Text="[Table.ct]" HorzAlign="Right" WordWrap="false" Font="細明體, 11pt"/>
+      <TextObject Name="Text3" Left="393.12" Top="7.56" Width="128.52" Height="15.12" Text="[Table.SalTot]" HorzAlign="Right" WordWrap="false" Font="細明體, 11pt"/>
+      <TextObject Name="Text4" Left="582.12" Top="7.56" Width="128.52" Height="15.12" Text="[Table.pg]" HorzAlign="Right" WordWrap="false" Font="細明體, 11pt"/>
+    </DataBand>
+    <ReportSummaryBand Name="ReportSummary1" Top="168.94" Width="740.5" Height="37.8">
+      <TextObject Name="Text33" Top="15.12" Width="128.52" Height="18.9" Text="區間總計" Font="細明體, 11pt"/>
+      <LineObject Name="Line3" Top="7.56" Width="725.76"/>
+      <TextObject Name="Text5" Left="189" Top="15.12" Width="128.52" Height="18.9" Text="[Tct]" HorzAlign="Right" Font="細明體, 11pt"/>
+      <TextObject Name="Text6" Left="393.12" Top="15.12" Width="128.52" Height="18.9" Text="[Ttot]" HorzAlign="Right" Font="細明體, 11pt"/>
+      <TextObject Name="Text7" Left="582.12" Top="15.12" Width="128.52" Height="18.9" BeforePrintEvent="Text7_BeforePrint" HorzAlign="Right" Font="細明體, 11pt"/>
+    </ReportSummaryBand>
+  </ReportPage>
+</Report>

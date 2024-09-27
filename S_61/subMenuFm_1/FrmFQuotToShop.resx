@@ -1,0 +1,225 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <metadata name="sqlSelectCommand1.DesignTimeVisible" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <metadata name="sqlSelectCommand1.CommandDesignTimeVisible" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <metadata name="sqlSelectCommand1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>0, 0</value>
+  </metadata>
+  <metadata name="cn.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>88, 16</value>
+  </metadata>
+  <metadata name="daM.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="sqlDeleteCommand1.DesignTimeVisible" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <metadata name="sqlDeleteCommand1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>0, 0</value>
+  </metadata>
+  <metadata name="sqlDeleteCommand1.CommandDesignTimeVisible" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <data name="sqlDeleteCommand1.CommandText" xml:space="preserve">
+    <value>DELETE FROM [fquot] WHERE (([fqno] = @Original_fqno) AND ((@IsNull_fqdate = 1 AND [fqdate] IS NULL) OR ([fqdate] = @Original_fqdate)) AND ((@IsNull_fqdate1 = 1 AND [fqdate1] IS NULL) OR ([fqdate1] = @Original_fqdate1)) AND ((@IsNull_fqdate2 = 1 AND [fqdate2] IS NULL) OR ([fqdate2] = @Original_fqdate2)) AND ((@IsNull_fqdates = 1 AND [fqdates] IS NULL) OR ([fqdates] = @Original_fqdates)) AND ((@IsNull_fqdates1 = 1 AND [fqdates1] IS NULL) OR ([fqdates1] = @Original_fqdates1)) AND ((@IsNull_fqdates2 = 1 AND [fqdates2] IS NULL) OR ([fqdates2] = @Original_fqdates2)) AND ((@IsNull_cono = 1 AND [cono] IS NULL) OR ([cono] = @Original_cono)) AND ((@IsNull_coname1 = 1 AND [coname1] IS NULL) OR ([coname1] = @Original_coname1)) AND ((@IsNull_coname2 = 1 AND [coname2] IS NULL) OR ([coname2] = @Original_coname2)) AND ((@IsNull_fano = 1 AND [fano] IS NULL) OR ([fano] = @Original_fano)) AND ((@IsNull_faname2 = 1 AND [faname2] IS NULL) OR ([faname2] = @Original_faname2)) AND ((@IsNull_faname1 = 1 AND [faname1] IS NULL) OR ([faname1] = @Original_faname1)) AND ((@IsNull_fatel1 = 1 AND [fatel1] IS NULL) OR ([fatel1] = @Original_fatel1)) AND ((@IsNull_faper1 = 1 AND [faper1] IS NULL) OR ([faper1] = @Original_faper1)) AND ((@IsNull_emno = 1 AND [emno] IS NULL) OR ([emno] = @Original_emno)) AND ((@IsNull_emname = 1 AND [emname] IS NULL) OR ([emname] = @Original_emname)) AND ((@IsNull_xa1no = 1 AND [xa1no] IS NULL) OR ([xa1no] = @Original_xa1no)) AND ((@IsNull_xa1name = 1 AND [xa1name] IS NULL) OR ([xa1name] = @Original_xa1name)) AND ((@IsNull_xa1par = 1 AND [xa1par] IS NULL) OR ([xa1par] = @Original_xa1par)) AND ((@IsNull_taxmnyf = 1 AND [taxmnyf] IS NULL) OR ([taxmnyf] = @Original_taxmnyf)) AND ((@IsNull_taxmnyb = 1 AND [taxmnyb] IS NULL) OR ([taxmnyb] = @Original_taxmnyb)) AND ((@IsNull_taxmny = 1 AND [taxmny] IS NULL) OR ([taxmny] = @Original_taxmny)) AND ((@IsNull_x3no = 1 AND [x3no] IS NULL) OR ([x3no] = @Original_x3no)) AND ((@IsNull_rate = 1 AND [rate] IS NULL) OR ([rate] = @Original_rate)) AND ((@IsNull_tax = 1 AND [tax] IS NULL) OR ([tax] = @Original_tax)) AND ((@IsNull_totmny = 1 AND [totmny] IS NULL) OR ([totmny] = @Original_totmny)) AND ((@IsNull_taxb = 1 AND [taxb] IS NULL) OR ([taxb] = @Original_taxb)) AND ((@IsNull_totmnyb = 1 AND [totmnyb] IS NULL) OR ([totmnyb] = @Original_totmnyb)) AND ((@IsNull_fqpayment = 1 AND [fqpayment] IS NULL) OR ([fqpayment] = @Original_fqpayment)) AND ((@IsNull_fqperiod = 1 AND [fqperiod] IS NULL) OR ([fqperiod] = @Original_fqperiod)) AND ((@IsNull_fqmemo = 1 AND [fqmemo] IS NULL) OR ([fqmemo] = @Original_fqmemo)) AND ((@IsNull_recordno = 1 AND [recordno] IS NULL) OR ([recordno] = @Original_recordno)) AND ((@IsNull_UsrNo = 1 AND [UsrNo] IS NULL) OR ([UsrNo] = @Original_UsrNo)) AND ((@IsNull_AppScNo = 1 AND [AppScNo] IS NULL) OR ([AppScNo] = @Original_AppScNo)) AND ((@IsNull_AppDate = 1 AND [AppDate] IS NULL) OR ([AppDate] = @Original_AppDate)) AND ((@IsNull_EdtScNo = 1 AND [EdtScNo] IS NULL) OR ([EdtScNo] = @Original_EdtScNo)) AND ((@IsNull_EdtDate = 1 AND [EdtDate] IS NULL) OR ([EdtDate] = @Original_EdtDate)))</value>
+  </data>
+  <metadata name="sqlInsertCommand.DesignTimeVisible" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <metadata name="sqlInsertCommand.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>0, 0</value>
+  </metadata>
+  <metadata name="sqlInsertCommand.CommandDesignTimeVisible" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <data name="sqlInsertCommand.CommandText" xml:space="preserve">
+    <value>INSERT INTO [fquot] ([fqno], [fqdate], [fqdate1], [fqdate2], [fqdates], [fqdates1], [fqdates2], [cono], [coname1], [coname2], [fano], [faname2], [faname1], [fatel1], [faper1], [emno], [emname], [xa1no], [xa1name], [xa1par], [taxmnyf], [taxmnyb], [taxmny], [x3no], [rate], [tax], [totmny], [taxb], [totmnyb], [fqpayment], [fqperiod], [fqmemo], [recordno], [UsrNo], [AppScNo], [AppDate], [EdtScNo], [EdtDate], [fqmemo1]) VALUES (@fqno, @fqdate, @fqdate1, @fqdate2, @fqdates, @fqdates1, @fqdates2, @cono, @coname1, @coname2, @fano, @faname2, @faname1, @fatel1, @faper1, @emno, @emname, @xa1no, @xa1name, @xa1par, @taxmnyf, @taxmnyb, @taxmny, @x3no, @rate, @tax, @totmny, @taxb, @totmnyb, @fqpayment, @fqperiod, @fqmemo, @recordno, @UsrNo, @AppScNo, @AppDate, @EdtScNo, @EdtDate, @fqmemo1);
+SELECT fqno, fqdate, fqdate1, fqdate2, fqdates, fqdates1, fqdates2, cono, coname1, coname2, fano, faname2, faname1, fatel1, faper1, emno, emname, xa1no, xa1name, xa1par, taxmnyf, taxmnyb, taxmny, x3no, rate, tax, totmny, taxb, totmnyb, fqpayment, fqperiod, fqmemo, recordno, UsrNo, AppScNo, AppDate, EdtScNo, EdtDate, fqmemo1 FROM fquot WHERE (fqno = @fqno) ORDER BY fqno DESC</value>
+  </data>
+  <metadata name="sqlUpdateCommand.DesignTimeVisible" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <metadata name="sqlUpdateCommand.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>0, 0</value>
+  </metadata>
+  <metadata name="sqlUpdateCommand.CommandDesignTimeVisible" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <data name="sqlUpdateCommand.CommandText" xml:space="preserve">
+    <value>UPDATE [fquot] SET [fqno] = @fqno, [fqdate] = @fqdate, [fqdate1] = @fqdate1, [fqdate2] = @fqdate2, [fqdates] = @fqdates, [fqdates1] = @fqdates1, [fqdates2] = @fqdates2, [cono] = @cono, [coname1] = @coname1, [coname2] = @coname2, [fano] = @fano, [faname2] = @faname2, [faname1] = @faname1, [fatel1] = @fatel1, [faper1] = @faper1, [emno] = @emno, [emname] = @emname, [xa1no] = @xa1no, [xa1name] = @xa1name, [xa1par] = @xa1par, [taxmnyf] = @taxmnyf, [taxmnyb] = @taxmnyb, [taxmny] = @taxmny, [x3no] = @x3no, [rate] = @rate, [tax] = @tax, [totmny] = @totmny, [taxb] = @taxb, [totmnyb] = @totmnyb, [fqpayment] = @fqpayment, [fqperiod] = @fqperiod, [fqmemo] = @fqmemo, [recordno] = @recordno, [UsrNo] = @UsrNo, [AppScNo] = @AppScNo, [AppDate] = @AppDate, [EdtScNo] = @EdtScNo, [EdtDate] = @EdtDate, [fqmemo1] = @fqmemo1 WHERE (([fqno] = @Original_fqno) AND ((@IsNull_fqdate = 1 AND [fqdate] IS NULL) OR ([fqdate] = @Original_fqdate)) AND ((@IsNull_fqdate1 = 1 AND [fqdate1] IS NULL) OR ([fqdate1] = @Original_fqdate1)) AND ((@IsNull_fqdate2 = 1 AND [fqdate2] IS NULL) OR ([fqdate2] = @Original_fqdate2)) AND ((@IsNull_fqdates = 1 AND [fqdates] IS NULL) OR ([fqdates] = @Original_fqdates)) AND ((@IsNull_fqdates1 = 1 AND [fqdates1] IS NULL) OR ([fqdates1] = @Original_fqdates1)) AND ((@IsNull_fqdates2 = 1 AND [fqdates2] IS NULL) OR ([fqdates2] = @Original_fqdates2)) AND ((@IsNull_cono = 1 AND [cono] IS NULL) OR ([cono] = @Original_cono)) AND ((@IsNull_coname1 = 1 AND [coname1] IS NULL) OR ([coname1] = @Original_coname1)) AND ((@IsNull_coname2 = 1 AND [coname2] IS NULL) OR ([coname2] = @Original_coname2)) AND ((@IsNull_fano = 1 AND [fano] IS NULL) OR ([fano] = @Original_fano)) AND ((@IsNull_faname2 = 1 AND [faname2] IS NULL) OR ([faname2] = @Original_faname2)) AND ((@IsNull_faname1 = 1 AND [faname1] IS NULL) OR ([faname1] = @Original_faname1)) AND ((@IsNull_fatel1 = 1 AND [fatel1] IS NULL) OR ([fatel1] = @Original_fatel1)) AND ((@IsNull_faper1 = 1 AND [faper1] IS NULL) OR ([faper1] = @Original_faper1)) AND ((@IsNull_emno = 1 AND [emno] IS NULL) OR ([emno] = @Original_emno)) AND ((@IsNull_emname = 1 AND [emname] IS NULL) OR ([emname] = @Original_emname)) AND ((@IsNull_xa1no = 1 AND [xa1no] IS NULL) OR ([xa1no] = @Original_xa1no)) AND ((@IsNull_xa1name = 1 AND [xa1name] IS NULL) OR ([xa1name] = @Original_xa1name)) AND ((@IsNull_xa1par = 1 AND [xa1par] IS NULL) OR ([xa1par] = @Original_xa1par)) AND ((@IsNull_taxmnyf = 1 AND [taxmnyf] IS NULL) OR ([taxmnyf] = @Original_taxmnyf)) AND ((@IsNull_taxmnyb = 1 AND [taxmnyb] IS NULL) OR ([taxmnyb] = @Original_taxmnyb)) AND ((@IsNull_taxmny = 1 AND [taxmny] IS NULL) OR ([taxmny] = @Original_taxmny)) AND ((@IsNull_x3no = 1 AND [x3no] IS NULL) OR ([x3no] = @Original_x3no)) AND ((@IsNull_rate = 1 AND [rate] IS NULL) OR ([rate] = @Original_rate)) AND ((@IsNull_tax = 1 AND [tax] IS NULL) OR ([tax] = @Original_tax)) AND ((@IsNull_totmny = 1 AND [totmny] IS NULL) OR ([totmny] = @Original_totmny)) AND ((@IsNull_taxb = 1 AND [taxb] IS NULL) OR ([taxb] = @Original_taxb)) AND ((@IsNull_totmnyb = 1 AND [totmnyb] IS NULL) OR ([totmnyb] = @Original_totmnyb)) AND ((@IsNull_fqpayment = 1 AND [fqpayment] IS NULL) OR ([fqpayment] = @Original_fqpayment)) AND ((@IsNull_fqperiod = 1 AND [fqperiod] IS NULL) OR ([fqperiod] = @Original_fqperiod)) AND ((@IsNull_fqmemo = 1 AND [fqmemo] IS NULL) OR ([fqmemo] = @Original_fqmemo)) AND ((@IsNull_recordno = 1 AND [recordno] IS NULL) OR ([recordno] = @Original_recordno)) AND ((@IsNull_UsrNo = 1 AND [UsrNo] IS NULL) OR ([UsrNo] = @Original_UsrNo)) AND ((@IsNull_AppScNo = 1 AND [AppScNo] IS NULL) OR ([AppScNo] = @Original_AppScNo)) AND ((@IsNull_AppDate = 1 AND [AppDate] IS NULL) OR ([AppDate] = @Original_AppDate)) AND ((@IsNull_EdtScNo = 1 AND [EdtScNo] IS NULL) OR ([EdtScNo] = @Original_EdtScNo)) AND ((@IsNull_EdtDate = 1 AND [EdtDate] IS NULL) OR ([EdtDate] = @Original_EdtDate)));
+SELECT fqno, fqdate, fqdate1, fqdate2, fqdates, fqdates1, fqdates2, cono, coname1, coname2, fano, faname2, faname1, fatel1, faper1, emno, emname, xa1no, xa1name, xa1par, taxmnyf, taxmnyb, taxmny, x3no, rate, tax, totmny, taxb, totmnyb, fqpayment, fqperiod, fqmemo, recordno, UsrNo, AppScNo, AppDate, EdtScNo, EdtDate, fqmemo1 FROM fquot WHERE (fqno = @fqno) ORDER BY fqno DESC</value>
+  </data>
+  <metadata name="稅別.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="點選.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="產品編號.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="品名規格.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="單位.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="數量.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="單價.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="sqlSelectCommand2.DesignTimeVisible" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <metadata name="sqlSelectCommand2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>0, 0</value>
+  </metadata>
+  <metadata name="sqlSelectCommand2.CommandDesignTimeVisible" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <metadata name="sqlInsertCommand2.DesignTimeVisible" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <metadata name="sqlInsertCommand2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>0, 0</value>
+  </metadata>
+  <metadata name="sqlInsertCommand2.CommandDesignTimeVisible" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <data name="sqlInsertCommand2.CommandText" xml:space="preserve">
+    <value>INSERT INTO [fquotd] ([fqno], [fqdate], [fqdate1], [fqdate2], [fqdates], [fqdates1], [fqdates2], [fano], [emno], [xa1no], [xa1par], [itno], [itname], [ittrait], [itunit], [itpkgqty], [qty], [price], [prs], [rate], [taxprice], [mny], [priceb], [taxpriceb], [mnyb], [memo], [lowzero], [bomid], [bomrec], [recordno], [sltflag], [extflag], [itdesp1], [itdesp2], [itdesp3], [itdesp4], [itdesp5], [itdesp6], [itdesp7], [itdesp8], [itdesp9], [itdesp10], [stName]) VALUES (@fqno, @fqdate, @fqdate1, @fqdate2, @fqdates, @fqdates1, @fqdates2, @fano, @emno, @xa1no, @xa1par, @itno, @itname, @ittrait, @itunit, @itpkgqty, @qty, @price, @prs, @rate, @taxprice, @mny, @priceb, @taxpriceb, @mnyb, @memo, @lowzero, @bomid, @bomrec, @recordno, @sltflag, @extflag, @itdesp1, @itdesp2, @itdesp3, @itdesp4, @itdesp5, @itdesp6, @itdesp7, @itdesp8, @itdesp9, @itdesp10, @stName);
+SELECT fqno, fqdate, fqdate1, fqdate2, fqdates, fqdates1, fqdates2, fano, emno, xa1no, xa1par, itno, itname, ittrait, itunit, itpkgqty, qty, price, prs, rate, taxprice, mny, priceb, taxpriceb, mnyb, memo, lowzero, bomid, bomrec, recordno, sltflag, extflag, itdesp1, itdesp2, itdesp3, itdesp4, itdesp5, itdesp6, itdesp7, itdesp8, itdesp9, itdesp10, stName, FqID, (SELECT TOP (1) itnoudf FROM item WHERE (itno = fquotd.itno)) AS ItNoUdf FROM fquotd WHERE (FqID = SCOPE_IDENTITY()) ORDER BY recordno</value>
+  </data>
+  <metadata name="daD.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>153, 16</value>
+  </metadata>
+  <metadata name="statusStripT1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>228, 16</value>
+  </metadata>
+  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>42</value>
+  </metadata>
+</root>

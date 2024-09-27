@@ -1,0 +1,322 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" DoublePass="true" ReportInfo.Created="03/11/2015 18:35:11" ReportInfo.Modified="10/06/2016 16:39:28" ReportInfo.CreatorVersion="2013.2.5.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  { 
+    int  CurrentRecCounter,TotalRecs;
+
+
+    private void Text123_BeforePrint(object sender, EventArgs e)
+    {
+      if (((Int32)Report.GetVariableValue(&quot;Page&quot;))!=((Int32)Report.GetVariableValue(&quot;TotalPages&quot;)))
+      {
+        Text123.Text=&quot;*****續下頁*****&quot;;
+      }
+      else
+      {
+        Text123.Text=&quot;*****以下空白*****&quot;;
+      }
+    }
+
+    
+
+    private void PageFooter1_BeforePrint(object sender, EventArgs e)
+    {
+      //頁腳
+      if (((Int32)Report.GetVariableValue(&quot;Page&quot;))==((Int32)Report.GetVariableValue(&quot;TotalPages&quot;)))
+      {
+        
+        PageFooter1.Visible = true;
+      }
+      else
+      {
+        PageFooter1.Visible =false;
+      }
+    }
+
+    private void Text132_BeforePrint(object sender, EventArgs e)
+    {
+      //訂單數量
+      string formet = &quot;f&quot;+ ((String)Report.GetParameterValue(&quot;庫存數量小數&quot;));
+      Text132.Text = ((Decimal)Report.GetColumnValue(&quot;ORDER_.數量&quot;)).ToString(formet);
+    }
+
+    private void Text134_BeforePrint(object sender, EventArgs e)
+    {
+      //單價
+      string formet = &quot;f&quot;+ ((String)Report.GetParameterValue(&quot;銷貨單價小數&quot;));
+      Text134.Text = ((Decimal)Report.GetColumnValue(&quot;ORDER_.單價&quot;)).ToString(formet);
+      Text134.Visible = ((Boolean)Report.GetParameterValue(&quot;price&quot;));
+    }
+
+    private void Text136_BeforePrint(object sender, EventArgs e)
+    {
+      //未交量
+      string formet = &quot;f&quot;+ ((String)Report.GetParameterValue(&quot;庫存數量小數&quot;));
+      Text136.Text = ((Decimal)Report.GetColumnValue(&quot;ORDER_.未交量&quot;)).ToString(formet);
+    }
+
+    private void Text18_BeforePrint(object sender, EventArgs e)
+    {
+      //數量合計
+      string formet = &quot;f&quot;+ ((String)Report.GetParameterValue(&quot;庫存數量小數&quot;));
+      Text18.Text =  ((Decimal)Report.GetTotalValue(&quot;數量合計&quot;)).ToString(formet);
+    }
+
+    private void Text21_BeforePrint(object sender, EventArgs e)
+    {
+      //數量總計
+      string formet = &quot;f&quot;+ ((String)Report.GetParameterValue(&quot;庫存數量小數&quot;));
+      Text21.Text =  ((Decimal)Report.GetTotalValue(&quot;數量總計&quot;)).ToString(formet);
+    }
+
+    private void Text138_BeforePrint(object sender, EventArgs e)
+    {
+      //未交量合計
+      string formet = &quot;f&quot;+ ((String)Report.GetParameterValue(&quot;庫存數量小數&quot;));
+      Text138.Text =  ((Decimal)Report.GetTotalValue(&quot;未交量合計&quot;)).ToString(formet); 
+    }
+
+    private void Text139_BeforePrint(object sender, EventArgs e)
+    {
+      //未交量總計
+      string formet = &quot;f&quot;+ ((String)Report.GetParameterValue(&quot;庫存數量小數&quot;));
+      Text139.Text =  ((Decimal)Report.GetTotalValue(&quot;未交量總計&quot;)).ToString(formet);
+    }
+
+    private void Text143_BeforePrint(object sender, EventArgs e)
+    {
+      //未交量合計_產品排序
+      string formet = &quot;f&quot;+ ((String)Report.GetParameterValue(&quot;庫存數量小數&quot;));
+      Text143.Text = ((Decimal)Report.GetTotalValue(&quot;未交量合計_產品排序&quot;)).ToString(formet);
+    }
+
+    private void Text130_BeforePrint(object sender, EventArgs e)
+    {
+      //客戶名稱
+      string str;
+      str =　((String)Report.GetColumnValue(&quot;ORDER_.客戶編號&quot;));
+      if(((String)Report.GetColumnValue(&quot;ORDER_.客戶簡稱&quot;))!=&quot;&quot;)
+      {
+        str += &quot; &quot; + ((String)Report.GetColumnValue(&quot;ORDER_.客戶簡稱&quot;));
+      }
+      if(((String)Report.GetColumnValue(&quot;ORDER_.客戶聯絡人&quot;))!=&quot;&quot;)
+      {
+        str += &quot; &quot; + ((String)Report.GetColumnValue(&quot;ORDER_.客戶聯絡人&quot;));
+      }
+      Text130.Text = str;
+    }
+
+    private void Text94_BeforePrint(object sender, EventArgs e)
+    {
+      //售價抬頭
+      Text94.Visible = ((Boolean)Report.GetParameterValue(&quot;price&quot;));
+    }
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <MsSqlDataConnection Name="Connection" ConnectionString="rijcmlq+rW0RkboK+/8CKGGYUID3ctBV8q9SvKYxl3iiE7vBnh7Tgou0+4WFf3NfmPSvHVFX/S2Yvz0Ibm2enAAh/bj5IwCF1OGDq6mzCDV0cmqq5lzdq8B2h44YdiG1MkNRxzZmCUdOqUj+K3AG9XjPOZ10g6AknSn7V3iv+uy7N42RdI=">
+      <TableDataSource Name="Table" Alias="ORDER_" DataType="System.Int32" Enabled="true" SelectCommand="SELECT 交貨日期= case when 1=1 then d.esdate when 2=1 then d.esdate1 end,訂單日期= case when 1=1 then d.ordate when 2=1 then d.ordate1 end,序號='',ISNULL((select top 1 sano from rsaled where orno = a.orno), '') as 銷退單號,(select top 1 sano from saled where orno = a.orno) as 銷貨單號,a.orpayment as 付款條件,weborder.orno as 網路訂單號,a.cuper1  as 收件人,a.totmny ,d.*,a.ormemo,a.cuname1,a.emname,c.cuper1,c.cutel1,c.cufax1,a.spno,item.itdesp1 as item_itdesp1,item.itdesp2 as item_itdesp2,item.itdesp3 as item_itdesp3,item.itdesp4 as item_itdesp4,item.itdesp5 as item_itdesp5,item.itdesp6 as item_itdesp6,item.itdesp7 as item_itdesp7,item.itdesp8 as item_itdesp8,item.itdesp9 as item_itdesp9,item.itdesp10 as item_itdesp10,item.itnoudf as item_itnoudf,a.CardNo as 卡號 from [order] a left join orderd d on a.orno=d.orno left join cust c on d.cuno=c.cuno left join item on d.itno = item.itno left join weborder  on  a.orno = weborder.SysOrNo">
+        <Column Name="交貨日期" DataType="System.String"/>
+        <Column Name="訂單日期" DataType="System.String"/>
+        <Column Name="序號" DataType="System.String"/>
+        <Column Name="銷退單號" DataType="System.String"/>
+        <Column Name="銷貨單號" DataType="System.String"/>
+        <Column Name="付款條件" DataType="System.String"/>
+        <Column Name="網路訂單號" DataType="System.String"/>
+        <Column Name="收件人" DataType="System.String"/>
+        <Column Name="totmny" Alias="外幣訂單總額" DataType="System.Decimal"/>
+        <Column Name="OrID" DataType="System.Int32"/>
+        <Column Name="orno" Alias="訂單編號" DataType="System.String"/>
+        <Column Name="ordate" DataType="System.String"/>
+        <Column Name="ordate1" DataType="System.String"/>
+        <Column Name="ordate2" DataType="System.String"/>
+        <Column Name="quno" Alias="報價單號" DataType="System.String"/>
+        <Column Name="ortrnflag" DataType="System.Boolean" BindableControl="CheckBox"/>
+        <Column Name="cuno" Alias="客戶編號" DataType="System.String"/>
+        <Column Name="emno" Alias="業務編號" DataType="System.String"/>
+        <Column Name="xa1no" Alias="幣別編號" DataType="System.String"/>
+        <Column Name="xa1par" Alias="匯率" DataType="System.Decimal"/>
+        <Column Name="trno" Alias="報價類別編號" DataType="System.String"/>
+        <Column Name="itno" Alias="產品編號" DataType="System.String"/>
+        <Column Name="itname" Alias="品名規格" DataType="System.String"/>
+        <Column Name="ittrait" Alias="產品組成" DataType="System.Decimal"/>
+        <Column Name="itunit" Alias="單位" DataType="System.String"/>
+        <Column Name="itpkgqty" Alias="包裝數量" DataType="System.Decimal"/>
+        <Column Name="qty" Alias="數量" DataType="System.Decimal"/>
+        <Column Name="price" Alias="單價" DataType="System.Decimal"/>
+        <Column Name="prs" Alias="折數" DataType="System.Decimal"/>
+        <Column Name="rate" Alias="稅率" DataType="System.Decimal"/>
+        <Column Name="taxprice" Alias="稅前單價" DataType="System.Decimal"/>
+        <Column Name="mny" Alias="稅前小計" DataType="System.Decimal"/>
+        <Column Name="priceb" Alias="本幣單價" DataType="System.Decimal"/>
+        <Column Name="taxpriceb" Alias="本幣稅前單價" DataType="System.Decimal"/>
+        <Column Name="mnyb" Alias="本幣稅前小計" DataType="System.Decimal"/>
+        <Column Name="qtyout" DataType="System.Decimal"/>
+        <Column Name="qtyin" DataType="System.Decimal"/>
+        <Column Name="esdate" DataType="System.String"/>
+        <Column Name="esdate1" DataType="System.String"/>
+        <Column Name="esdate2" DataType="System.String"/>
+        <Column Name="stkqtyflag" DataType="System.Decimal"/>
+        <Column Name="memo" Alias="說明" DataType="System.String"/>
+        <Column Name="lowzero" DataType="System.String"/>
+        <Column Name="bomid" DataType="System.String"/>
+        <Column Name="bomrec" DataType="System.Decimal"/>
+        <Column Name="recordno" DataType="System.Decimal"/>
+        <Column Name="sltflag" DataType="System.Boolean" BindableControl="CheckBox"/>
+        <Column Name="extflag" DataType="System.Boolean" BindableControl="CheckBox"/>
+        <Column Name="itdesp1" Alias="規格說明1" DataType="System.String"/>
+        <Column Name="itdesp2" Alias="規格說明2" DataType="System.String"/>
+        <Column Name="itdesp3" Alias="規格說明3" DataType="System.String"/>
+        <Column Name="itdesp4" Alias="規格說明4" DataType="System.String"/>
+        <Column Name="itdesp5" Alias="規格說明5" DataType="System.String"/>
+        <Column Name="itdesp6" Alias="規格說明6" DataType="System.String"/>
+        <Column Name="itdesp7" Alias="規格說明7" DataType="System.String"/>
+        <Column Name="itdesp8" Alias="規格說明8" DataType="System.String"/>
+        <Column Name="itdesp9" Alias="規格說明9" DataType="System.String"/>
+        <Column Name="itdesp10" Alias="規格說明10" DataType="System.String"/>
+        <Column Name="stName" Alias="倉庫名稱" DataType="System.String"/>
+        <Column Name="qtyNotOut" Alias="未交量" DataType="System.Decimal"/>
+        <Column Name="qtyNotInStk" DataType="System.Decimal"/>
+        <Column Name="Punit" DataType="System.String"/>
+        <Column Name="Pqty" DataType="System.Decimal"/>
+        <Column Name="mqty" DataType="System.Decimal"/>
+        <Column Name="munit" DataType="System.String"/>
+        <Column Name="mlong" DataType="System.Decimal"/>
+        <Column Name="mwidth1" DataType="System.Decimal"/>
+        <Column Name="mwidth2" DataType="System.Decimal"/>
+        <Column Name="mwidth3" DataType="System.Decimal"/>
+        <Column Name="mwidth4" DataType="System.Decimal"/>
+        <Column Name="mformula" DataType="System.Decimal"/>
+        <Column Name="Pformula" DataType="System.String"/>
+        <Column Name="AdAddr" DataType="System.String"/>
+        <Column Name="Adper1" DataType="System.String"/>
+        <Column Name="Adtel" DataType="System.String"/>
+        <Column Name="AdName" DataType="System.String"/>
+        <Column Name="standard" DataType="System.String"/>
+        <Column Name="box" DataType="System.Decimal"/>
+        <Column Name="ormemo" Alias="ORDER_備註" DataType="System.String"/>
+        <Column Name="cuname1" Alias="客戶簡稱" DataType="System.String"/>
+        <Column Name="emname" Alias="業務名稱" DataType="System.String"/>
+        <Column Name="cuper1" Alias="客戶聯絡人" DataType="System.String"/>
+        <Column Name="cutel1" Alias="客戶電話" DataType="System.String"/>
+        <Column Name="cufax1" Alias="客戶傳真" DataType="System.String"/>
+        <Column Name="spno" Alias="專案編號" DataType="System.String"/>
+        <Column Name="item_itdesp1" DataType="System.String"/>
+        <Column Name="item_itdesp2" DataType="System.String"/>
+        <Column Name="item_itdesp3" DataType="System.String"/>
+        <Column Name="item_itdesp4" DataType="System.String"/>
+        <Column Name="item_itdesp5" DataType="System.String"/>
+        <Column Name="item_itdesp6" DataType="System.String"/>
+        <Column Name="item_itdesp7" DataType="System.String"/>
+        <Column Name="item_itdesp8" DataType="System.String"/>
+        <Column Name="item_itdesp9" DataType="System.String"/>
+        <Column Name="item_itdesp10" DataType="System.String"/>
+        <Column Name="item_itnoudf" DataType="System.String"/>
+        <Column Name="卡號" DataType="System.String"/>
+      </TableDataSource>
+    </MsSqlDataConnection>
+    <Parameter Name="txtstart" DataType="System.String"/>
+    <Parameter Name="txtend" DataType="System.String"/>
+    <Parameter Name="銷項金額小數" DataType="System.String"/>
+    <Parameter Name="txtaddress" DataType="System.String"/>
+    <Parameter Name="txttel" DataType="System.String"/>
+    <Parameter Name="銷貨單價小數" DataType="System.String"/>
+    <Parameter Name="銷貨單據小數" DataType="System.String"/>
+    <Parameter Name="銷項稅額小數" DataType="System.String"/>
+    <Parameter Name="庫存數量小數" DataType="System.String"/>
+    <Parameter Name="txtRange" DataType="System.String"/>
+    <Parameter Name="txttoday" DataType="System.String"/>
+    <Parameter Name="date" DataType="System.String"/>
+    <Parameter Name="製表日期" DataType="System.String"/>
+    <Parameter Name="price" DataType="System.Boolean"/>
+    <Total Name="數量合計" Expression="[ORDER_.數量]" Evaluator="Data1" PrintOn="GroupFooter1"/>
+    <Total Name="小計合計" Expression="[ORDER_.稅前小計]" Evaluator="Data1" PrintOn="GroupFooter1"/>
+    <Total Name="數量總計" Expression="[ORDER_.數量]" Evaluator="Data1" ResetAfterPrint="false"/>
+    <Total Name="小計總計" Expression="[ORDER_.稅前小計]" Evaluator="Data1" ResetAfterPrint="false"/>
+    <Total Name="未交量合計" Expression="[ORDER_.未交量]" Evaluator="Data1" PrintOn="GroupFooter1"/>
+    <Total Name="未交量總計" Expression="[ORDER_.未交量]" Evaluator="Data1" ResetAfterPrint="false"/>
+    <Total Name="未交量合計_產品排序" Expression="[ORDER_.未交量]" Evaluator="Data1" PrintOn="GroupFooter2"/>
+  </Dictionary>
+  <ReportPage Name="Page1" PaperWidth="215.9" PaperHeight="279.4" RawPaperSize="1" LeftMargin="2.5" TopMargin="2.5" RightMargin="2.5" BottomMargin="2.5" FirstPageSource="15" OtherPagesSource="15" Guides="378,757.89">
+    <PageHeaderBand Name="PageHeader1" Width="797.2" Height="118.66">
+      <TextObject Name="Text11" Top="35.75" Width="756" Height="22.3" CanGrow="true" CanShrink="true" Text="客戶別-訂單明細表" HorzAlign="Center" WordWrap="false" Font="細明體, 14pt, style=Bold"/>
+      <TextObject Name="Text14" Top="63.1" Width="79.01" Height="18.9" CanGrow="true" CanShrink="true" Text="帳款區間:" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text1" Left="82.98" Top="63.1" Width="211.68" Height="18.9" CanGrow="true" CanShrink="true" Text="[txtRange]" Font="新細明體, 12pt"/>
+      <TextObject Name="Text2" Left="298.62" Top="63.1" Width="79.01" Height="18.9" CanGrow="true" CanShrink="true" Text="製表日期:" WordWrap="false" Font="新細明體, 12pt"/>
+      <TextObject Name="Text67" Left="381.78" Top="63.1" Width="147.42" Height="18.9" CanGrow="true" CanShrink="true" Text="[製表日期]" Font="新細明體, 12pt"/>
+      <TextObject Name="Text69" Left="619.92" Top="63.1" Width="79.01" Height="18.9" CanGrow="true" CanShrink="true" Text="頁    次:" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text6" Left="703.02" Top="63.1" Width="54.87" Height="18.9" CanGrow="true" CanShrink="true" Text="[Page]" HorzAlign="Right" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text90" Left="1.79" Top="91.45" Width="143.64" Height="13.6" CanGrow="true" CanShrink="true" Text="產品編號/品名規格" WordWrap="false" Font="細明體, 10pt"/>
+      <TextObject Name="Text91" Left="429.3" Top="91.45" Width="74.35" Height="13.6" CanGrow="true" CanShrink="true" Text="訂單數量" HorzAlign="Right" WordWrap="false" Font="細明體, 10pt"/>
+      <TextObject Name="Text93" Left="145.43" Top="91.45" Width="32.89" Height="13.6" CanGrow="true" CanShrink="true" Text="單位" WordWrap="false" Font="細明體, 10pt"/>
+      <TextObject Name="Text94" Left="503.65" Top="91.45" Width="74.84" Height="13.6" CanGrow="true" CanShrink="true" BeforePrintEvent="Text94_BeforePrint" Text="售價" HorzAlign="Right" WordWrap="false" Font="細明體, 10pt"/>
+      <TextObject Name="Text83" Left="578.49" Top="91.45" Width="86.55" Height="13.6" CanGrow="true" CanShrink="true" Text="未交量" HorzAlign="Right" WordWrap="false" Font="細明體, 10pt"/>
+      <LineObject Name="Line1" Top="86.8" Width="757.89" Border.Width="2" CanGrow="true" CanShrink="true"/>
+      <LineObject Name="Line2" Top="105.85" Width="757.89" Border.Width="2" CanGrow="true" CanShrink="true"/>
+      <TextObject Name="Text124" Left="1.06" Width="757.51" Height="30.33" CanGrow="true" CanShrink="true" Text="[txtstart]" HorzAlign="Center" WordWrap="false" Font="細明體, 18pt, style=Bold"/>
+      <TextObject Name="Text27" Left="253.16" Top="91.45" Width="101.3" Height="13.6" CanGrow="true" CanShrink="true" Text="訂單憑證" WordWrap="false" Font="細明體, 10pt"/>
+      <TextObject Name="Text142" Left="665.04" Top="91.45" Width="85.69" Height="13.6" CanGrow="true" CanShrink="true" Text="未交量總計" HorzAlign="Right" WordWrap="false" Font="細明體, 10pt"/>
+      <TextObject Name="Text121" Left="178.32" Top="91.45" Width="74.84" Height="13.6" CanGrow="true" CanShrink="true" Text="交貨日期" WordWrap="false" Font="細明體, 10pt"/>
+      <TextObject Name="Text140" Left="354.46" Top="91.45" Width="74.84" Height="13.6" CanGrow="true" CanShrink="true" Text="訂單日期" WordWrap="false" Font="細明體, 10pt"/>
+    </PageHeaderBand>
+    <GroupHeaderBand Name="GroupHeader1" Top="122.66" Width="797.2" Height="22.67" KeepWithData="true" Condition="[ORDER_.客戶編號]">
+      <LineObject Name="Line4" Top="22.65" Width="757.89" CanGrow="true" CanShrink="true"/>
+      <TextObject Name="Text125" Left="1.79" Top="7.86" Width="65.15" Height="13.6" CanGrow="true" CanShrink="true" Text="客戶名稱:" WordWrap="false" Font="細明體, 10pt"/>
+      <TextObject Name="Text130" Left="69.78" Top="7.86" Width="294.06" Height="13.6" BeforePrintEvent="Text130_BeforePrint" Text="[ORDER_.客戶簡稱]" WordWrap="false" Font="細明體, 10pt"/>
+      <TextObject Name="Text144" Left="367.12" Top="7.86" Width="36.04" Height="13.6" CanGrow="true" CanShrink="true" Text="電話:" WordWrap="false" Font="細明體, 10pt"/>
+      <TextObject Name="Text145" Left="409.61" Top="7.86" Width="107.44" Height="13.6" CanGrow="true" CanShrink="true" Text="[ORDER_.客戶電話]" WordWrap="false" Font="細明體, 10pt"/>
+      <TextObject Name="Text146" Left="521.16" Top="7.86" Width="36.04" Height="13.6" CanGrow="true" CanShrink="true" Text="傳真:" WordWrap="false" Font="細明體, 10pt"/>
+      <TextObject Name="Text147" Left="564.4" Top="7.86" Width="107.44" Height="13.6" CanGrow="true" CanShrink="true" Text="[ORDER_.客戶傳真]" WordWrap="false" Font="細明體, 10pt"/>
+      <GroupHeaderBand Name="GroupHeader2" Top="149.33" Width="797.2" Condition="[ORDER_.產品編號]">
+        <DataBand Name="Data1" Top="153.33" Width="797.2" Height="36.4" BeforePrintEvent="Data1_BeforePrint" DataSource="Table">
+          <TextObject Name="Text128" Left="253.16" Top="8.88" Width="101.3" Height="13.6" Text="[ORDER_.訂單編號]" WordWrap="false" Font="細明體, 10pt"/>
+          <TextObject Name="Text131" Left="1.79" Top="8.88" Width="143.64" Height="13.6" Text="[ORDER_.產品編號]" WordWrap="false" Font="細明體, 10pt"/>
+          <TextObject Name="Text132" Left="429.3" Top="8.88" Width="74.35" Height="13.6" BeforePrintEvent="Text132_BeforePrint" Text="[ORDER_.數量]" HorzAlign="Right" WordWrap="false" Font="細明體, 10pt"/>
+          <TextObject Name="Text133" Left="145.43" Top="8.88" Width="32.89" Height="13.6" Text="[ORDER_.單位]" WordWrap="false" Font="細明體, 10pt"/>
+          <TextObject Name="Text134" Left="503.65" Top="8.88" Width="74.84" Height="13.6" BeforePrintEvent="Text134_BeforePrint" Text="[ORDER_.單價]" HorzAlign="Right" WordWrap="false" Font="細明體, 10pt"/>
+          <TextObject Name="Text136" Left="578.49" Top="8.88" Width="86.55" Height="13.6" BeforePrintEvent="Text136_BeforePrint" Text="[ORDER_.未交量]" HorzAlign="Right" WordWrap="false" Font="細明體, 10pt"/>
+          <TextObject Name="Text137" Left="1.79" Top="22.8" Width="757.46" Height="13.6" Text="[ORDER_.品名規格]" WordWrap="false" Font="細明體, 10pt"/>
+          <TextObject Name="Text129" Left="178.32" Top="8.88" Width="74.84" Height="13.6" Text="[ORDER_.交貨日期]" WordWrap="false" Font="細明體, 10pt"/>
+          <TextObject Name="Text141" Left="354.46" Top="8.88" Width="74.84" Height="13.6" Text="[ORDER_.訂單日期]" WordWrap="false" Font="細明體, 10pt"/>
+        </DataBand>
+        <GroupFooterBand Name="GroupFooter2" Top="193.73" Width="797.2" Height="17.36">
+          <TextObject Name="Text143" Left="606.2" Top="0.7" Width="144.53" Height="13.6" BeforePrintEvent="Text143_BeforePrint" Text="[ORDER_.未交量]" HorzAlign="Right" WordWrap="false" Font="細明體, 10pt"/>
+        </GroupFooterBand>
+      </GroupHeaderBand>
+      <GroupFooterBand Name="GroupFooter1" Top="215.09" Width="797.2" Height="33.02" KeepWithData="true">
+        <TextObject Name="Text122" Left="1.79" Top="5.97" Width="37" Height="15.49" CanGrow="true" CanShrink="true" Text="合計:" WordWrap="false" Font="細明體, 10pt"/>
+        <TextObject Name="Text18" Left="124.62" Top="5.97" Width="379.03" Height="15.49" BeforePrintEvent="Text18_BeforePrint" Text="[數量合計]" HorzAlign="Right" WordWrap="false" Font="細明體, 10pt"/>
+        <LineObject Name="Line3" Width="757.89" CanGrow="true" CanShrink="true"/>
+        <TextObject Name="Text138" Left="507.77" Top="5.97" Width="167.49" Height="15.49" BeforePrintEvent="Text138_BeforePrint" Text="[未交量合計]" HorzAlign="Right" WordWrap="false" Font="細明體, 10pt"/>
+      </GroupFooterBand>
+    </GroupHeaderBand>
+    <ColumnFooterBand Name="ColumnFooter1" Top="252.11" Width="797.2" Height="13.49" CanShrink="true">
+      <TextObject Name="Text123" Left="1.89" Top="-0.11" Width="756" Height="13.6" CanShrink="true" BeforePrintEvent="Text123_BeforePrint" Text="*****以下空白*****" HorzAlign="Center" WordWrap="false" Font="細明體, 10pt"/>
+    </ColumnFooterBand>
+    <PageFooterBand Name="PageFooter1" Top="269.6" Width="797.2" Height="42.46" CanShrink="true" BeforePrintEvent="PageFooter1_BeforePrint">
+      <TextObject Name="Text120" Left="1.79" Top="2.42" Width="37" Height="15.49" CanShrink="true" Text="總計:" WordWrap="false" Font="細明體, 10pt"/>
+      <TextObject Name="Text3" Left="0.38" Top="21.32" Width="757.51" Height="21.14" CanShrink="true" Text="[txtend]" WordWrap="false" Font="細明體, 12pt"/>
+      <TextObject Name="Text21" Left="124.62" Top="2.42" Width="379.03" Height="15.49" BeforePrintEvent="Text21_BeforePrint" Text="[數量總計]" HorzAlign="Right" WordWrap="false" Font="細明體, 10pt"/>
+      <LineObject Name="Line5" Top="0.43" Width="757.89" Border.Width="2" CanGrow="true" CanShrink="true"/>
+      <LineObject Name="Line6" Top="17.36" Width="757.89" Border.Width="2" CanGrow="true" CanShrink="true"/>
+      <TextObject Name="Text139" Left="507.77" Top="2.42" Width="167.49" Height="15.49" BeforePrintEvent="Text139_BeforePrint" Text="[未交量總計]" HorzAlign="Right" WordWrap="false" Font="細明體, 10pt"/>
+    </PageFooterBand>
+  </ReportPage>
+</Report>

@@ -1,0 +1,255 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="08/31/2015 09:32:49" ReportInfo.Modified="04/07/2016 17:21:18" ReportInfo.CreatorVersion="2013.2.5.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;                                                
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+    private void datenow_BeforePrint(object sender, EventArgs e)
+    {
+      datenow.Text = ((String)Report.GetColumnValue(&quot;invprint.invdate1&quot;))+&quot; &quot;+DateTime.Now.ToString(&quot;hh:mm:ss&quot;);
+    }
+    private void rand4_BeforePrint(object sender, EventArgs e)
+    {
+      rand4.Text=((String)Report.GetColumnValue(&quot;invprint.invrandom&quot;));
+      
+      if (((String)Report.GetColumnValue(&quot;invprint.invtaxno&quot;)).Trim()==&quot;&quot; &amp;&amp; ((String)Report.GetColumnValue(&quot;invprint.detaiPrint&quot;)).Trim()== &quot;&quot;)//沒有統編又不印明細
+      {
+        Text13.Visible=false;  //買方
+        Text14.Visible=false;
+        Text15.Visible=false;
+        Text16.Visible=false;
+        Text17.Visible=false; 
+        Text18.Visible=false;
+        Text19.Visible=false;
+        Text29.Visible=false;
+        Text28.Visible=false;
+        Text20.Visible=false;
+        Text22.Visible=false;
+        Text23.Visible=false;
+        Text24.Visible=false;
+        Text25.Visible=false;
+        Text26.Visible=false;
+        Text5.Visible=false;      //格式
+        Text12.Visible=false;
+        Text36.Visible = false;
+        Text38.Visible=false;
+        Text39.Visible = false;
+      } 
+      else
+      {
+        Text13.Visible=true;  //買方
+        Text14.Visible=true;
+        Text15.Visible=true;
+        Text16.Visible=true;
+        Text17.Visible=true; 
+        Text18.Visible=true;
+        Text19.Visible=true;
+        Text29.Visible=true;
+        Text28.Visible=true;
+        Text5.Visible=true;
+        Text12.Visible=true;
+        Text36.Visible = true;
+        Text20.Visible=true;
+        Text22.Visible=true;
+        Text23.Visible=true;
+        Text24.Visible=true;
+        Text25.Visible=true;
+        Text26.Visible=true;
+        Text38.Visible=false;
+        Text39.Visible = false;
+        if (((String)Report.GetColumnValue(&quot;invprint.invtaxno&quot;)).Trim()==&quot;&quot; )
+        {
+          Text13.Visible=false;  //買方
+          Text14.Visible=false;
+          Text20.Visible=false;
+          Text22.Visible=false;
+          Text23.Visible=false;
+          Text24.Visible=false;
+          Text25.Visible=false;
+          Text26.Visible=false;
+          Text38.Visible=true;
+          Text39.Visible = true;
+        }
+     }
+
+  }
+    private void Barcode1_BeforePrint(object sender, EventArgs e)
+    {      
+      string s = ((String)Report.GetColumnValue(&quot;invprint.InvDateY&quot;))
+        + ((String)Report.GetColumnValue(&quot;invprint.InvDateM&quot;))
+        + ((String)Report.GetColumnValue(&quot;invprint.invno&quot;))
+        + ((String)Report.GetColumnValue(&quot;invprint.invrandom&quot;));
+
+       Barcode1.Text= s.Trim();
+    }
+    private void Barcode3_BeforePrint(object sender, EventArgs e)
+    {
+    　 Barcode2.Text=((String)Report.GetColumnValue(&quot;invprint.qrStr&quot;)) ;
+       Barcode3.Text=((String)Report.GetColumnValue(&quot;invprint.detail&quot;));
+    }
+
+    private void Text9_BeforePrint(object sender, EventArgs e)
+    {
+       Text9.Text = ((Decimal)Report.GetColumnValue(&quot;invprint.totmnyb&quot;)).ToString(&quot;n0&quot;);          
+    }
+
+    private void Text17_BeforePrint(object sender, EventArgs e)
+    {
+      Text17.Text =((Decimal)Report.GetColumnValue(&quot;invprint.qty&quot;)).ToString(&quot;n0&quot;);
+    }
+
+    private void Text18_BeforePrint(object sender, EventArgs e)
+    {
+       Text18.Text =((Decimal)Report.GetColumnValue(&quot;invprint.taxpriceb&quot;)).ToString(&quot;n0&quot;);
+    }               
+
+    private void Text19_BeforePrint(object sender, EventArgs e)
+    {
+      Text19.Text =((Decimal)Report.GetColumnValue(&quot;invprint.mnyb&quot;)).ToString(&quot;n0&quot;);
+    }
+
+    private void Text22_BeforePrint(object sender, EventArgs e)
+    {
+      Text22.Text =((Decimal)Report.GetColumnValue(&quot;invprint.taxmnyb&quot;)).ToString(&quot;n0&quot;);
+    }
+
+    private void Text24_BeforePrint(object sender, EventArgs e)
+    {
+      Text24.Text =((Decimal)Report.GetColumnValue(&quot;invprint.taxb&quot;)).ToString(&quot;n0&quot;);
+    }
+
+    private void Text26_BeforePrint(object sender, EventArgs e)
+    {
+      Text26.Text =((Decimal)Report.GetColumnValue(&quot;invprint.totmnyb&quot;)).ToString(&quot;n0&quot;);
+    }
+
+    private void Text3_BeforePrint(object sender, EventArgs e)
+    {
+        Text3.Text = ((String)Report.GetColumnValue(&quot;invprint.invno&quot;)).Substring(0,2)
+                      +&quot;-&quot;+((String)Report.GetColumnValue(&quot;invprint.invno&quot;)).Substring(2,8);
+    }
+
+    private void Text20_BeforePrint(object sender, EventArgs e)
+    {
+        Text20.Text = &quot;銷售額(&quot;+((String)Report.GetColumnValue(&quot;invprint.x3noname&quot;))+&quot;)&quot;  ;
+    }
+
+    private void Text1_BeforePrint(object sender, EventArgs e)
+    {
+      if(((String)Report.GetColumnValue(&quot;invprint.einvB2CPrint&quot;)).Trim()!=&quot;&quot; )
+      {
+        Text1.Visible = false;
+        Text37.Visible = true;
+      }
+      else
+      {
+        Text37.Visible = false;
+        Text1.Visible = true;
+      }
+    }
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <MsSqlDataConnection Name="Connection" ConnectionString="rijcmlq+rW0RkboK+/8CKGGYUID3ctBV8q9SvKYxl3iiE7vBnh7Tgou0+4WFf3NfmPSvHVFX/S2Yvz0Ibm2enAAh/bj5IwCF1OGDq6mzCDV0cmqq5lzdq8B2h44YdiG1MkNRxzZmCUdOqUj+K3AG9XjPOZ10p8aHpeyRvVCNVNAf5damVU=">
+      <TableDataSource Name="Table2" Alias="invprint" DataType="System.Int32" Enabled="true" SelectCommand="select &#13;&#10;coname1='',couno='',             invkinds='',x3noname='',InvDateY='',InvDateM='',qrStr='',&#13;&#10;detail='',&#13;&#10;InvDateSM='',InvDateEM='',detaiPrint ='',               sale.sano,invdate,invdate1,invno,invrandom,invtaxno,x3no,taxmnyb,taxb,totmnyb,sale.recordno,einvB2CPrint,invkind, &#13;&#10;itname,qty,taxpriceb,mnyb&#13;&#10;from sale left join saled on sale.sano = saled.sano">
+        <Column Name="coname1" DataType="System.String"/>
+        <Column Name="couno" DataType="System.String"/>
+        <Column Name="invkinds" DataType="System.String"/>
+        <Column Name="x3noname" DataType="System.String"/>
+        <Column Name="InvDateY" DataType="System.String"/>
+        <Column Name="InvDateSM" DataType="System.String"/>
+        <Column Name="InvDateEM" DataType="System.String"/>
+        <Column Name="detaiPrint" DataType="System.String"/>
+        <Column Name="sano" DataType="System.String"/>
+        <Column Name="invdate" DataType="System.String"/>
+        <Column Name="invdate1" DataType="System.String"/>
+        <Column Name="invno" DataType="System.String"/>
+        <Column Name="invrandom" DataType="System.String"/>
+        <Column Name="invtaxno" DataType="System.String"/>
+        <Column Name="x3no" DataType="System.Decimal"/>
+        <Column Name="taxmnyb" DataType="System.Decimal"/>
+        <Column Name="taxb" DataType="System.Decimal"/>
+        <Column Name="totmnyb" DataType="System.Decimal"/>
+        <Column Name="recordno" DataType="System.Decimal"/>
+        <Column Name="einvB2CPrint" DataType="System.String"/>
+        <Column Name="invkind" DataType="System.String"/>
+        <Column Name="itname" DataType="System.String"/>
+        <Column Name="qty" DataType="System.Decimal"/>
+        <Column Name="taxpriceb" DataType="System.Decimal"/>
+        <Column Name="mnyb" DataType="System.Decimal"/>
+        <Column Name="InvDateM" DataType="System.String"/>
+        <Column Name="qrStr" DataType="System.String"/>
+        <Column Name="detail" DataType="System.String"/>
+      </TableDataSource>
+    </MsSqlDataConnection>
+    <Relation Name="Table_Table1" ParentDataSource="null" ChildDataSource="null" ParentColumns="sale_sano" ChildColumns="saled_sano" Enabled="true"/>
+  </Dictionary>
+  <ReportPage Name="Page1" PaperWidth="57" LeftMargin="0" TopMargin="0" RightMargin="0" BottomMargin="0" FirstPageSource="15" OtherPagesSource="15" Guides="217.35,217.35,217.35,13.45,211.68,9.45">
+    <GroupHeaderBand Name="GroupHeader1" Width="215.46" Height="360.62" CanShrink="true" StartNewPage="true" Condition="[invprint.invno]" SortOrder="Descending">
+      <BarcodeObject Name="Barcode2" Left="13.45" Top="236.25" Width="94.5" Height="94.5" BeforePrintEvent="Barcode3_BeforePrint" AutoSize="false" Text="AB112233441020523999900000145000001540000000001234567ydXZt4LAN1UHN/j1juVcRA==:**********:3:3:1:乾電池:1:105:" ShowText="false" Barcode="QR Code" Barcode.ErrorCorrection="L" Barcode.Encoding="UTF8" Barcode.QuietZone="true"/>
+      <BarcodeObject Name="Barcode3" Left="103.95" Top="236.25" Width="94.5" Height="94.5" BeforePrintEvent="Barcode3_BeforePrint" AutoSize="false" Text="**口罩:1:210:牛奶:1:25" ShowText="false" Barcode="QR Code" Barcode.ErrorCorrection="L" Barcode.Encoding="UTF8" Barcode.QuietZone="true"/>
+      <TextObject Name="Text10" Left="13.45" Top="183.33" Width="46.87" Height="13.23" Text="賣方:" HorzAlign="Center" Font="SimSun-ExtB, 9pt"/>
+      <TextObject Name="Text11" Left="53.29" Top="183.33" Width="58.95" Height="13.23" Text="[invprint.couno]" Font="SimSun-ExtB, 9pt"/>
+      <TextObject Name="Text13" Left="103.95" Top="183.33" Width="40.82" Height="13.23" Text="買方:" Font="SimSun-ExtB, 9pt"/>
+      <TextObject Name="Text14" Left="138.34" Top="183.33" Width="58.95" Height="13.23" Text="[invprint.invtaxno]" Font="SimSun-ExtB, 9pt"/>
+      <TextObject Name="Text6" Left="13.45" Top="164.43" Width="52.7" Height="13.23" Text="隨機碼:" Padding="2, 0, 0, 0" HorzAlign="Center" Font="SimSun-ExtB, 9pt"/>
+      <TextObject Name="rand4" Left="58.59" Top="164.43" Width="37.8" Height="13.23" BeforePrintEvent="rand4_BeforePrint" Text="[invprint.invrandom]" Font="SimSun-ExtB, 9pt"/>
+      <TextObject Name="Text8" Left="96.39" Top="164.43" Width="40.82" Height="13.23" Text="總計:" Padding="2, 0, 0, 0" Font="SimSun-ExtB, 9pt"/>
+      <TextObject Name="Text9" Left="127" Top="164.43" Width="73.34" Height="13.23" BeforePrintEvent="Text9_BeforePrint" Text="[invprint.totmnyb]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" Font="SimSun-ExtB, 9pt"/>
+      <TextObject Name="datenow" Left="13.45" Top="145.53" Width="132.3" Height="13.23" BeforePrintEvent="datenow_BeforePrint" Text="YYYY-MM-DD hh;MM;ss" HorzAlign="Center" Font="SimSun-ExtB, 9pt"/>
+      <TextObject Name="Text5" Left="137.97" Top="145.53" Width="39.69" Height="13.23" Text="格式:" HorzAlign="Right" Font="SimSun-ExtB, 9pt"/>
+      <TextObject Name="Text12" Left="173.88" Top="145.53" Width="34.02" Height="13.23" Text="[invprint.invkinds]" Font="SimSun-ExtB, 9pt"/>
+      <TextObject Name="Text3" Left="13.45" Top="107.73" Width="189" Height="28.35" BeforePrintEvent="Text3_BeforePrint" Text="[invprint.invno]" HorzAlign="Center" Font="SimSun-ExtB, 20pt, style=Bold"/>
+      <TextObject Name="Text30" Left="13.45" Top="75.6" Width="56.7" Height="28.35" Text="[invprint.InvDateY]" HorzAlign="Center" Font="SimSun-ExtB, 20pt, style=Bold"/>
+      <TextObject Name="Text31" Left="47.25" Top="75.6" Width="56.7" Height="28.35" Text="年" HorzAlign="Center" Font="SimSun-ExtB, 20pt, style=Bold"/>
+      <TextObject Name="Text32" Left="85.05" Top="75.6" Width="47.25" Height="28.35" Text="[invprint.InvDateSM]" HorzAlign="Center" Font="SimSun-ExtB, 20pt, style=Bold"/>
+      <TextObject Name="Text33" Left="132.3" Top="75.6" Width="47.25" Height="28.35" Text="[invprint.InvDateEM]" HorzAlign="Center" Font="SimSun-ExtB, 20pt, style=Bold"/>
+      <TextObject Name="Text34" Left="160.65" Top="75.6" Width="37.8" Height="28.35" Text="月" HorzAlign="Center" Font="SimSun-ExtB, 20pt, style=Bold"/>
+      <TextObject Name="Text35" Left="113.4" Top="75.6" Width="37.8" Height="28.35" Text="-" HorzAlign="Center" Font="SimSun-ExtB, 20pt, style=Bold"/>
+      <TextObject Name="Text1" Top="47.25" Width="217.35" Height="22.68" BeforePrintEvent="Text1_BeforePrint" Text="電子發票證明聯" HorzAlign="Center" Font="SimSun-ExtB, 18pt"/>
+      <TextObject Name="Cname" Left="13.45" Top="3.78" Width="188.78" Height="41.58" Text="[invprint.coname1]" HorzAlign="Center" Font="SimSun-ExtB, 15.75pt"/>
+      <TextObject Name="Text15" Top="343.98" Width="217.35" Height="12.86" Text="交易明細" HorzAlign="Center" Font="SimSun-ExtB, 10pt"/>
+      <LineObject Name="Line1" Top="340.2" Width="217.35" Border.Style="Dash" Border.Width="1.5"/>
+      <TextObject Name="Text37" Left="7.78" Top="47.25" Width="209.57" Height="24.57" BeforePrintEvent="Text1_BeforePrint" Text="電子發票證明聯(補印)" Padding="0, 0, 0, 0" HorzAlign="Center" Font="SimSun-ExtB, 14pt"/>
+      <BarcodeObject Name="Barcode1" Left="24.95" Top="204.12" Width="162.54" Height="24.57" BeforePrintEvent="Barcode1_BeforePrint" AutoSize="false" Text="10410YF005721319247" ShowText="false" Barcode.WideBarRatio="2.3" Barcode.CalcCheckSum="false"/>
+      <LineObject Name="Line3" Top="158.76" Diagonal="true"/>
+      <DataBand Name="Data1" Top="364.62" Width="215.46" Height="20.79" CanShrink="true" DataSource="Table2">
+        <TextObject Name="Text16" Left="13.45" Top="1.89" Width="75.6" Height="18.9" CanShrink="true" CanBreak="false" Text="[invprint.itname]" Font="SimSun-ExtB, 7pt"/>
+        <TextObject Name="Text17" Left="85.05" Top="1.89" Width="18.9" Height="18.9" BeforePrintEvent="Text17_BeforePrint" Text="[invprint.qty]" Padding="0, 0, 0, 0" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Right" Font="SimSun-ExtB, 7pt"/>
+        <TextObject Name="Text18" Left="103.95" Top="1.89" Width="43.47" Height="18.9" BeforePrintEvent="Text18_BeforePrint" Text="[invprint.taxmnyb]" Padding="0, 0, 0, 0" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Right" Font="SimSun-ExtB, 7pt"/>
+        <TextObject Name="Text19" Left="142.53" Top="1.89" Width="52.92" Height="18.9" BeforePrintEvent="Text19_BeforePrint" Text="[invprint.mnyb]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Right" Font="SimSun-ExtB, 7pt"/>
+        <Sort>
+          <Sort Expression="[invprint.recordno]"/>
+        </Sort>
+      </DataBand>
+      <GroupFooterBand Name="GroupFooter1" Top="389.41" Width="215.46" Height="65.78" CanShrink="true" Guides="18.9">
+        <TextObject Name="Text25" Left="17.23" Top="52.92" Width="56.7" Height="12.86" Text="總計" Padding="0, 0, 0, 0" Font="SimSun-ExtB, 9pt"/>
+        <TextObject Name="Text26" Left="98.84" Top="52.92" Width="96.61" Height="12.86" BeforePrintEvent="Text26_BeforePrint" Text="[invprint.totmnyb]" Padding="0, 0, 0, 0" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Right" Font="SimSun-ExtB, 9pt"/>
+        <TextObject Name="Text23" Left="17.23" Top="35.91" Width="56.7" Height="12.86" Text="稅額" Padding="0, 0, 0, 0" Font="SimSun-ExtB, 9pt"/>
+        <TextObject Name="Text24" Left="98.84" Top="35.91" Width="96.61" Height="12.86" BeforePrintEvent="Text24_BeforePrint" Text="[invprint.taxb]" Padding="0, 0, 0, 0" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Right" Font="SimSun-ExtB, 9pt"/>
+        <TextObject Name="Text20" Left="17.23" Top="18.9" Width="87.29" Height="12.86" BeforePrintEvent="Text20_BeforePrint" Text="銷售額(應稅)" Padding="0, 0, 0, 0" Font="SimSun-ExtB, 9pt"/>
+        <TextObject Name="Text22" Left="98.84" Top="18.9" Width="96.61" Height="12.86" BeforePrintEvent="Text22_BeforePrint" Text="[invprint.taxmnyb]" Padding="0, 0, 0, 0" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Right" Font="SimSun-ExtB, 9pt"/>
+        <TextObject Name="Text28" Left="91.83" Top="1.89" Width="18.9" Height="12.86" Text="項" Padding="0, 0, 0, 0" Font="SimSun-ExtB, 10pt"/>
+        <TextObject Name="Text29" Left="42.15" Top="1.89" Width="47.25" Height="12.86" BeforePrintEvent="Text29_BeforePrint" Text="[invprint.recordno]" Padding="0, 0, 0, 0" HorzAlign="Center" Font="SimSun-ExtB, 10pt"/>
+        <TextObject Name="Text36" Left="21.01" Top="1.89" Width="18.9" Height="12.86" Text="共" Padding="0, 0, 0, 0" Font="SimSun-ExtB, 10pt"/>
+        <TextObject Name="Text38" Left="20.23" Top="24.94" Width="90.72" Height="12.86" Visible="false" BeforePrintEvent="Text25_BeforePrint" Text="總計(應稅)" Padding="0, 0, 0, 0" Font="SimSun-ExtB, 10pt"/>
+        <TextObject Name="Text39" Left="105.62" Top="24.94" Width="96.61" Height="12.86" Visible="false" BeforePrintEvent="Text26_BeforePrint" Text="[invprint.totmnyb]" Padding="0, 0, 0, 0" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Right" Font="SimSun-ExtB, 10pt"/>
+      </GroupFooterBand>
+    </GroupHeaderBand>
+  </ReportPage>
+</Report>

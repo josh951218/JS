@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" DoublePass="true" ReportInfo.Created="03/11/2015 18:35:11" ReportInfo.Modified="07/14/2016 16:30:22" ReportInfo.CreatorVersion="2013.2.5.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {                                                  
+    private void Text5_BeforePrint(object sender, EventArgs e)
+    {
+      string formet = &quot;f&quot;+((Int32)Report.GetParameterValue(&quot;銷貨單據小數&quot;));     
+      Text5.Text=((Decimal)Report.GetColumnValue(&quot;Table.cardmny&quot;)).ToString(formet);
+    }
+
+    private void Text29_BeforePrint(object sender, EventArgs e)
+    {
+      string formet = &quot;f&quot;+((Int32)Report.GetParameterValue(&quot;銷貨單據小數&quot;));      
+      Text29.Text=((Decimal)Report.GetTotalValue(&quot;Total&quot;)).ToString(formet); 
+    }
+    
+    private void Text30_BeforePrint(object sender, EventArgs e)
+    {
+         Text30.Text = GroupHeader2.RowNo.ToString();
+    }
+
+    private void Text2_BeforePrint(object sender, EventArgs e)
+    {
+      string date = ((String)Report.GetColumnValue(&quot;Table.sadate1&quot;));
+      string date1 = &quot;&quot;;
+      if(((String)Report.GetParameterValue(&quot;date&quot;)) == &quot;民國&quot;)
+      {
+        date1 = (Convert.ToInt32((date.Substring(0,4)))-1911).ToString()+&quot;/&quot;;
+        date1 += date.Substring(4,2)+&quot;/&quot;+date.Substring(6,2); 
+      }
+      else
+      {
+        date1 = date.Substring(0,4)+&quot;/&quot;;
+        date1 += date.Substring(4,2)+&quot;/&quot;+date.Substring(6,2); 
+      }
+      Text2.Text = date1;
+    }
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <MsSqlDataConnection Name="Connection" ConnectionString="rijcmlqzll1ADON3bMwZw0y93PRdXvKgVCL0FZ+dw3Ft4flpNVPxR3gATGglq/HLk1CkexJ7vrNXgHLmqnIilQI5B5U33mfqHzx+igCLSbUE/UIlOL3c8fv1A6hGO0+KSpOXRg8CNhlz36FFirSb3jN+VofPiE9yoSrO1VDcKOdcp6W3eaOBBgLtxE4SUdBpg49Qbo0md3JVnMYmTKb+qMHeFhqSA==">
+      <TableDataSource Name="Table" DataType="System.Int32" Enabled="true" SelectCommand="select sano, sadate1, cuname1, cardno, cardmny, samemo ,sename ,seno from sale">
+        <Column Name="sano" DataType="System.String"/>
+        <Column Name="cuname1" DataType="System.String"/>
+        <Column Name="cardno" DataType="System.String"/>
+        <Column Name="cardmny" DataType="System.Decimal"/>
+        <Column Name="samemo" DataType="System.String"/>
+        <Column Name="sename" DataType="System.String"/>
+        <Column Name="seno" DataType="System.String"/>
+        <Column Name="sadate1" DataType="System.String"/>
+      </TableDataSource>
+    </MsSqlDataConnection>
+    <Parameter Name="txtstart" DataType="System.String"/>
+    <Parameter Name="DateRange" DataType="System.String"/>
+    <Parameter Name="銷項金額小數" DataType="System.Int32"/>
+    <Parameter Name="date" DataType="System.String"/>
+    <Parameter Name="today" DataType="System.String"/>
+    <Parameter Name="銷貨單據小數" DataType="System.Int32"/>
+    <Total Name="Total" Expression="[Table.cardmny]" Evaluator="Data1" ResetAfterPrint="false"/>
+  </Dictionary>
+  <ReportPage Name="Page1" PaperWidth="215.9" PaperHeight="279.4" RawPaperSize="2" FirstPageSource="15" OtherPagesSource="15">
+    <PageHeaderBand Name="PageHeader1" Top="20" Width="740.5" Height="119.29">
+      <TextObject Name="txtstart" Width="727.65" Height="28.35" Text="[txtstart]" HorzAlign="Center" WordWrap="false" Font="細明體, 18pt, style=Bold"/>
+      <TextObject Name="Text11" Top="30.24" Width="727.65" Height="20.79" Text="機台刷卡統計表" HorzAlign="Center" Font="細明體, 14pt, style=Bold"/>
+      <LineObject Name="Line1" Top="92.02" Width="725.76"/>
+      <LineObject Name="Line2" Top="117.02" Width="725.76"/>
+      <TextObject Name="Text14" Left="640.71" Top="72.49" Width="86.94" Height="15.12" Text="[Page]" WordWrap="false" Font="細明體, 11pt"/>
+      <TextObject Name="Text16" Top="53.59" Width="85.05" Height="34.02" Text="製表日期：&#13;&#10;查詢區間：" WordWrap="false" Font="細明體, 11pt"/>
+      <TextObject Name="Text17" Left="551.88" Top="72.49" Width="85.05" Height="15.12" Text="頁    次：" WordWrap="false" Font="細明體, 11pt"/>
+      <TextObject Name="Text13" Left="86.94" Top="53.59" Width="245.7" Height="34.02" BeforePrintEvent="Text13_BeforePrint" Text="[today]&#13;&#10;[DateRange]" WordWrap="false" Font="細明體, 11pt"/>
+      <TextObject Name="Text18" Top="96.79" Width="102.06" Height="15.12" Text="銷貨單號" WordWrap="false" Font="細明體, 11pt"/>
+      <TextObject Name="Text19" Left="102.06" Top="96.79" Width="75.6" Height="15.12" Text="銷貨日" WordWrap="false" Font="細明體, 11pt"/>
+      <TextObject Name="Text20" Left="177.66" Top="96.79" Width="75.6" Height="15.12" Text="客戶簡稱" WordWrap="false" Font="細明體, 11pt"/>
+      <TextObject Name="Text21" Left="253.26" Top="96.79" Width="143.64" Height="15.12" Text="卡號" WordWrap="false" Font="細明體, 11pt"/>
+      <TextObject Name="Text22" Left="396.9" Top="96.79" Width="75.6" Height="15.12" Text="刷卡金額" HorzAlign="Right" WordWrap="false" Font="細明體, 11pt"/>
+      <TextObject Name="Text23" Left="470.61" Top="96.79" Width="257.04" Height="15.12" Text="備註" WordWrap="false" Font="細明體, 11pt"/>
+      <TextObject Name="Text26" Left="336.42" Top="72.49" Width="215.46" Height="15.12" Text="機台:[Table.seno]" WordWrap="false" Font="細明體, 11pt"/>
+    </PageHeaderBand>
+    <GroupHeaderBand Name="GroupHeader2" Top="159.29" Width="740.5" Condition="[Table.sano]">
+      <DataBand Name="Data1" Top="179.29" Width="740.5" Height="23.06" CanGrow="true" CanShrink="true" DataSource="Table">
+        <TextObject Name="Text1" Top="1.9" Width="102.06" Height="18.9" Text="[Table.sano]" WordWrap="false" Font="細明體, 10pt"/>
+        <TextObject Name="Text2" Left="102.06" Top="1.9" Width="75.6" Height="18.9" BeforePrintEvent="Text2_BeforePrint" Text="[Table.sadate1]" WordWrap="false" Font="細明體, 10pt"/>
+        <TextObject Name="Text3" Left="177.66" Top="1.9" Width="75.6" Height="18.9" Text="[Table.cuname1]" WordWrap="false" Font="細明體, 10pt"/>
+        <TextObject Name="Text4" Left="253.26" Top="1.9" Width="143.64" Height="18.9" Text="[Table.cardno]" WordWrap="false" Font="細明體, 10pt"/>
+        <TextObject Name="Text5" Left="396.9" Top="1.9" Width="75.6" Height="18.9" BeforePrintEvent="Text5_BeforePrint" Text="[Table.cardmny]" HorzAlign="Right" WordWrap="false" Font="細明體, 10pt"/>
+        <TextObject Name="Text6" Left="470.61" Top="1.9" Width="257.04" Height="18.9" Text="[Table.samemo]" WordWrap="false" Font="細明體, 10pt"/>
+      </DataBand>
+      <GroupFooterBand Name="GroupFooter2" Top="222.35" Width="740.5" CanGrow="true" CanShrink="true"/>
+    </GroupHeaderBand>
+    <ReportSummaryBand Name="ReportSummary1" Top="281.25" Width="740.5" Height="22.68" PrintOnBottom="true">
+      <TextObject Name="Text27" Top="3.78" Width="85.05" Height="18.9" Text="總筆數：" HorzAlign="Right" WordWrap="false" Font="細明體, 11pt"/>
+      <TextObject Name="Text28" Left="296.73" Top="3.78" Width="100.17" Height="18.9" Text="總金額：" HorzAlign="Right" WordWrap="false" Font="細明體, 11pt"/>
+      <TextObject Name="Text29" Left="396.9" Top="3.78" Width="110.76" Height="18.9" BeforePrintEvent="Text29_BeforePrint" Text="[Total]" HorzAlign="Right" WordWrap="false" Font="細明體, 11pt"/>
+      <TextObject Name="Text30" Left="85.05" Top="3.78" Width="111.91" Height="18.9" BeforePrintEvent="Text30_BeforePrint" HorzAlign="Right" WordWrap="false" Font="細明體, 11pt"/>
+      <LineObject Name="Line3" Width="725.76"/>
+    </ReportSummaryBand>
+    <ColumnFooterBand Name="ColumnFooter1" Top="242.35" Width="740.5" Height="18.9" CanGrow="true" CanShrink="true">
+      <TextObject Name="Text12" Width="727.65" Height="18.9" BeforePrintEvent="Text12_BeforePrint" AfterDataEvent="Text12_AfterData" Text="[IIf([Page]&lt;[TotalPages],&quot;***續下頁***&quot;,&quot;***以下空白***&quot;)]" HorzAlign="Center" Font="細明體, 10pt"/>
+    </ColumnFooterBand>
+  </ReportPage>
+</Report>

@@ -1,0 +1,437 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" DoublePass="true" StartReportEvent="_StartReport" ReportInfo.Created="04/24/2015 15:00:30" ReportInfo.Modified="07/28/2016 11:26:35" ReportInfo.CreatorVersion="2013.2.5.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+    private void Text6_BeforePrint(object sender, EventArgs e)
+    {                                                               
+      string date  = ((String)Report.GetColumnValue(&quot;Data_.sale_sadate&quot;));
+      string date1 = ((String)Report.GetColumnValue(&quot;Data_.sale_sadate1&quot;));
+      if(((String)Report.GetParameterValue(&quot;民國或西元&quot;)) == &quot;1&quot;)
+      {                                                       
+        Text6.Text = &quot;銷貨日期:&quot; + Substring(date,0,3) + &quot;/&quot; + Substring(date,3,2)+ &quot;/&quot; + Substring(date,5,2) ;
+      } 
+      else
+           Text6.Text = &quot;銷貨日期:&quot; + Substring(date1,0,4) + &quot;/&quot; + Substring(date1,4,2)+ &quot;/&quot; + Substring(date1,6,2) ;
+    }
+
+    private void Data2_BeforePrint(object sender, EventArgs e)
+    {
+      if(((String)Report.GetColumnValue(&quot;Data_.saled_memo&quot;)) == &quot;&quot;)      
+        Data2.Visible = false;
+       
+      //是否列印備註說明
+      if(((String)Report.GetParameterValue(&quot;列印備註說明&quot;)) == &quot;True&quot;) 
+        Data2.Visible = true;
+      else
+        Data2.Visible = false;
+    }
+    
+    private void Text11_BeforePrint(object sender, EventArgs e)
+    { 
+      Text11.Text = &quot;頁    次:&quot;+((Int32)Report.GetVariableValue(&quot;Page&quot;)).ToString() + &quot;/&quot; +((Int32)Report.GetVariableValue(&quot;TotalPages&quot;)).ToString();
+    }
+    
+    private void Text1_BeforePrint(object sender, EventArgs e)
+    {
+        if(((String)Report.GetParameterValue(&quot;列印抬頭&quot;)) == &quot;True&quot;)   Text1.Visible = true;
+        else   Text1.Visible = false;
+    }
+
+
+
+    private void Text27_BeforePrint(object sender, EventArgs e)
+    {
+      string formate = &quot;f&quot;+ ((String)Report.GetParameterValue(&quot;庫存數量小數&quot;)) ;
+      Text27.Text = ((Decimal)Report.GetColumnValue(&quot;Data_.saled_qty&quot;)).ToString(formate)    ;
+    }
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <MsSqlDataConnection Name="Connection" ConnectionString="rijcmlqeMLmoNdM6Z/8lCaBdIA0LQfYJaFXSJLSJrou7QfUfF8D2YJ1zydodl0zFt1ADkIpLwSzQy049SStzTrwC4yudINx9RQmR/mkMcSHtqhUvHkOGLHjk3tQHfWkXVbmT8Ie27153QuBK48RuPuqhylcovpTeDybTHuAwmJcHEY1PobhPclrAHPMzSbUaZxAGOeko5eMd4PlsrymcS8mYPYqTQ==">
+      <TableDataSource Name="Table" Alias="Data_" DataType="System.Int32" Enabled="true" SelectCommand="SELECT            sale.AdAddr as sale_AdAddr,sale.Adper1 as sale_Adper1,sale.Adtel as sale_Adtel&#13;&#10;                         ,saled.AdAddr as saled_AdAddr,saled.Adper1 as saled_Adper1,saled.Adtel as saled_Adtel, saled.AdName as  saled_AdName,&#13;&#10;                            sale.sano AS sale_sano, sale.sadate AS sale_sadate, sale.sadateac AS sale_sadateac, &#13;&#10;                            sale.sadate1 AS sale_sadate1, sale.sadate2 AS sale_sadate2, sale.sadateac1 AS sale_sadateac1, &#13;&#10;                            sale.sadateac2 AS sale_sadateac2, sale.quno AS sale_quno, sale.cono AS sale_cono, &#13;&#10;                            sale.coname1 AS sale_coname1, sale.coname2 AS sale_coname2, sale.cuno AS sale_cuno, &#13;&#10;                            sale.cuname2 AS sale_cuname2, sale.cuname1 AS sale_cuname1, sale.cutel1 AS sale_cutel1, &#13;&#10;                            sale.cuper1 AS sale_cuper1, sale.emno AS sale_emno, sale.emname AS sale_emname, sale.spno AS sale_spno, &#13;&#10;                            sale.spname AS sale_spname, sale.stno AS sale_stno, sale.stname AS sale_stname, sale.xa1no AS sale_xa1no, &#13;&#10;                            sale.Xa1Name AS sale_xa1name, sale.xa1par AS sale_xa1par, sale.taxmnyf AS sale_taxmnyf, &#13;&#10;                            sale.taxmnyb AS sale_taxmnyb, sale.taxmny AS sale_taxmny, sale.x3no AS sale_x3no, sale.rate AS sale_rate, &#13;&#10;                            sale.x5no AS sale_x5no, sale.seno AS sale_seno, sale.sename AS sale_sename, sale.x4no AS sale_x4no, &#13;&#10;                            sale.x4name AS sale_x4name, sale.tax AS sale_tax, sale.totmny AS sale_totmny, sale.taxb AS sale_taxb, &#13;&#10;                            sale.totmnyb AS sale_totmnyb, sale.discount AS sale_discount, sale.cashmny AS sale_cashmny, &#13;&#10;                            sale.cardmny AS sale_cardmny, sale.cardno AS sale_cardno, sale.ticket AS sale_ticket, &#13;&#10;                            sale.collectmny AS sale_collectmny, sale.getprvacc AS sale_getprvacc, sale.acctmny AS sale_acctmny, &#13;&#10;                            sale.samemo AS sale_samemo, sale.samemo1 AS sale_samemo1, sale.bracket AS sale_bracket, &#13;&#10;                            sale.recordno AS sale_recordno, sale.invno AS sale_invno, sale.invdate AS sale_invdate, &#13;&#10;                            sale.invdate1 AS sale_invdate1, sale.invname AS sale_invname, sale.invtaxno AS sale_invtaxno, &#13;&#10;                            sale.invaddr1 AS sale_invaddr1, sale.invbatch AS sale_invbatch, sale.invbatflg AS sale_invbatflg, &#13;&#10;                            sale.appdate AS sale_appdate, sale.edtdate AS sale_edtdate, sale.appscno AS sale_appscno, &#13;&#10;                            sale.edtscno AS sale_edtscno, sale.acno AS sale_acno, sale.cloflag AS sale_cloflag, &#13;&#10;                            sale.SendAddr AS sale_sendaddr, sale.UsrNo AS sale_usrno, saled.saID AS saled_said, saled.sano AS saled_sano, &#13;&#10;                            saled.sadate AS saled_sadate, saled.sadate1 AS saled_sadate1, saled.sadate2 AS saled_sadate2, &#13;&#10;                            saled.sadateac AS saled_sadateac, saled.sadateac1 AS saled_sadateac1, saled.sadateac2 AS saled_dateac2, &#13;&#10;                            saled.quno AS saled_quno, saled.cono AS saled_cono, saled.cuno AS saled_cuno, saled.emno AS saled_emno, &#13;&#10;                            saled.spno AS saled_spno, saled.stno AS saled_stno, saled.xa1no AS saled_xa1no, saled.xa1par AS saled_xa1par, &#13;&#10;                            saled.seno AS saled_seno, saled.sename AS saled_sename, saled.x4no AS saled_x4no, &#13;&#10;                            saled.x4name AS saled_x4name, saled.orno AS saled_orno, saled.itno AS saled_itno, saled.itname AS saled_itname, &#13;&#10;                            saled.ittrait AS saled_ittrait, saled.itunit AS saled_itunit, saled.itpkgqty AS saled_itpkgqty, saled.qty AS saled_qty, &#13;&#10;                            saled.price AS saled_price, saled.prs AS saled_prs, saled.rate AS saled_rate, saled.taxprice AS saled_taxprice, &#13;&#10;                            saled.mny AS saled_mny, saled.priceb AS saled_priceb, saled.taxpriceb AS saled_taxpriceb, &#13;&#10;                            saled.mnyb AS saled_mnyb, saled.memo AS saled_memo, saled.lowzero AS saled_lowzero, &#13;&#10;                            saled.bomid AS saled_bomid, saled.bomrec AS saled_bomrec, saled.recordno AS saled_recordno, &#13;&#10;                            saled.sltflag AS saled_sltflag, saled.extflag AS saled_extflag, saled.bracket AS saled_bracket, &#13;&#10;                            saled.itdesp1 AS saled_itdesp1, saled.itdesp2 AS saled_itdesp2, saled.itdesp3 AS saled_itdesp3, &#13;&#10;                            saled.itdesp4 AS saled_itdesp4, saled.itdesp5 AS saled_itdesp5, saled.itdesp6 AS saled_itdesp6, &#13;&#10;                            saled.itdesp7 AS saled_itdesp7, saled.itdesp8 AS saled_itdesp8, saled.itdesp9 AS saled_itdesp9, &#13;&#10;                            saled.itdesp10 AS saled_itdesp10, saled.Pqty AS saled_PQty, saled.Punit AS saled_PUnit, &#13;&#10;                            saled.stName AS saled_stname, saled.RecordNo_D AS saled_recordno_d, saled.mwidth1 AS saled_mwidth1, &#13;&#10;                            saled.mwidth2 AS saled_mwidth2, saled.mwidth3 AS saled_mwidth3, saled.mwidth4 AS saled_mwidth4, &#13;&#10;                            cust.cuno AS cust_cuno, cust.cuname2 AS cust_cuname2, cust.cuname1 AS cust_cuname1, &#13;&#10;                            cust.cuinvoname AS cust_cuinvoname, cust.cuchkname AS cust_cuchkname, cust.cuxa1no AS cust_cuxa1no, &#13;&#10;                            cust.cupareno AS cust_cupareno, cust.cucono AS cust_cucono, cust.cuime AS cust_cuime, &#13;&#10;                            cust.cux1no AS cust_cux1no, cust.cuemno1 AS cust_cuemno1, cust.cuper1 AS cust_cuper1, &#13;&#10;                            cust.cuper2 AS cust_cuper2, cust.cuper AS cust_cuper, cust.cutel1 AS cust_cutel1, cust.cutel2 AS cust_cutel2, &#13;&#10;                            cust.cufax1 AS cust_cufax1, cust.cuatel1 AS cust_cuatel1, cust.cuatel2 AS cust_cuatel2, cust.cuatel3 AS cust_cuatel3, &#13;&#10;                            cust.cubbc AS cust_cubbc, cust.cuaddr1 AS cust_cuaddr1, cust.cur1 AS cust_cur1, cust.cuaddr2 AS cust_cuaddr2, &#13;&#10;                            cust.cur2 AS cust_cur2, cust.cuaddr3 AS cust_cuaddr3, cust.cur3 AS cust_cur3, cust.cuslevel AS cust_cuslevel, &#13;&#10;                            cust.cudisc AS cust_cudisc, cust.cuemail AS cust_cuemail, cust.cuwww AS cust_cuwww, cust.cux2no AS cust_cux2no, &#13;&#10;                            cust.cuuno AS cust_cuuno, cust.cux3no AS cust_cux3no, cust.cux4no AS cust_cux4no, cust.cucredit AS cust_cucredit, &#13;&#10;                            cust.cuengname AS cust_cuengname, cust.cuengaddr AS cust_cuengaddr, cust.cuengr1 AS cust_cuengr1, &#13;&#10;                            cust.cumemo1 AS cust_cumemo1, cust.cumemo2 AS cust_cumemo2, cust.cux5no AS cust_cux5no, &#13;&#10;                            cust.cuarea AS cust_cuarea, cust.cuudf1 AS cust_cuudf1, cust.cuudf2 AS cust_cuudf2, cust.cuudf3 AS cust_cuudf3, &#13;&#10;                            cust.cuudf4 AS cust_cuudf4, cust.cuudf5 AS cust_cuudf5, cust.cuudf6 AS cust_cuudf6, cust.cudate AS cust_cudate, &#13;&#10;                            cust.cudate1 AS cust_cudate1, cust.cudate2 AS cust_date2, cust.culastday AS cust_culastday, &#13;&#10;                            cust.culastday1 AS cust_culastday1, cust.culastday2 AS cust_culastday2, cust.cufirreceiv AS cust_cufirreceiv, &#13;&#10;                            cust.cusparercv AS cust_cusparercv, cust.cureceiv AS cust_cureceiv, cust.cufirrcvpar AS cust_cufirrcvpar, &#13;&#10;                            cust.cufiradvamt AS cust_cufiradvamt, cust.cuadvamt AS cust_cuadvamt, cust.cunote AS cust_cunote, &#13;&#10;                            cust.cubirth AS cust_cubirth, cust.cubirth1 AS cust_cubirth1, cust.cubirth2 AS cust_cubirth2, &#13;&#10;                            cust.cusex AS cust_cusex, cust.cublood AS cust_cublood, cust.cuidno AS cust_cuidno, &#13;&#10;                            cust.ServDate AS cust_servdate, cust.BetwDates AS cust_betwdates, cust.MsgFlag AS cust_msgflag, &#13;&#10;                            cust.CuPause AS cust_cupause, SaleBom.SaNo AS salebom_sano, SaleBom.BomID AS salebom_bomid, &#13;&#10;                            SaleBom.BomRec AS salebom_bomrec, SaleBom.itno AS salebom_itno, SaleBom.itname AS salebom_itname, &#13;&#10;                            SaleBom.itunit AS salebom_itunit, SaleBom.itqty AS salebom_itqty, SaleBom.itpareprs AS salebom_itpareprs, &#13;&#10;                            SaleBom.itpkgqty AS salebom_itpkgqty, SaleBom.itrec AS salebom_itrec, SaleBom.itprice AS salebom_itprice, &#13;&#10;                            SaleBom.itprs AS salebom_itprs, SaleBom.itmny AS salebom_itmny, SaleBom.itnote AS salebom_itnote, &#13;&#10;                            SaleBom.ItSource AS salebom_itsource, SaleBom.ItBuyPri AS salebom_itbuypri, &#13;&#10;                            SaleBom.ItBuyMny AS salebom_itbuymny, item.pic AS item_pic, item.itpicture AS item_showpic, &#13;&#10;                            item.itudf1 AS item_ItUdf1,scrit.scname,scrit.scname1, saled.Pformula,item.kino,kind.kiname  &#13;&#10;FROM              sale &#13;&#10;LEFT OUTER JOIN                            scrit ON sale.appscno = scrit.scname &#13;&#10;LEFT OUTER JOIN                            saled ON sale.sano = saled.sano &#13;&#10;LEFT OUTER JOIN                            cust ON sale.cuno = cust.cuno &#13;&#10;LEFT OUTER JOIN                            item ON saled.itno = item.itno &#13;&#10;LEFT OUTER JOIN                            kind ON item.kino = kind.kino&#13;&#10;LEFT OUTER JOIN                            SaleBom ON saled.bomid = SaleBom.BomID&#13;&#10;WHERE          (1 = 0)">
+        <Column Name="sale_AdAddr" DataType="System.String"/>
+        <Column Name="sale_Adper1" DataType="System.String"/>
+        <Column Name="sale_Adtel" DataType="System.String"/>
+        <Column Name="saled_AdAddr" DataType="System.String"/>
+        <Column Name="saled_Adper1" DataType="System.String"/>
+        <Column Name="saled_Adtel" DataType="System.String"/>
+        <Column Name="saled_AdName" DataType="System.String"/>
+        <Column Name="sale_sano" DataType="System.String"/>
+        <Column Name="sale_sadate" DataType="System.String"/>
+        <Column Name="sale_sadateac" DataType="System.String"/>
+        <Column Name="sale_sadate1" DataType="System.String"/>
+        <Column Name="sale_sadate2" DataType="System.String"/>
+        <Column Name="sale_sadateac1" DataType="System.String"/>
+        <Column Name="sale_sadateac2" DataType="System.String"/>
+        <Column Name="sale_quno" DataType="System.String"/>
+        <Column Name="sale_cono" DataType="System.String"/>
+        <Column Name="sale_coname1" DataType="System.String"/>
+        <Column Name="sale_coname2" DataType="System.String"/>
+        <Column Name="sale_cuno" DataType="System.String"/>
+        <Column Name="sale_cuname2" DataType="System.String"/>
+        <Column Name="sale_cuname1" DataType="System.String"/>
+        <Column Name="sale_cutel1" DataType="System.String"/>
+        <Column Name="sale_cuper1" DataType="System.String"/>
+        <Column Name="sale_emno" DataType="System.String"/>
+        <Column Name="sale_emname" DataType="System.String"/>
+        <Column Name="sale_spno" DataType="System.String"/>
+        <Column Name="sale_spname" DataType="System.String"/>
+        <Column Name="sale_stno" DataType="System.String"/>
+        <Column Name="sale_stname" DataType="System.String"/>
+        <Column Name="sale_xa1no" DataType="System.String"/>
+        <Column Name="sale_xa1name" DataType="System.String"/>
+        <Column Name="sale_xa1par" DataType="System.Decimal"/>
+        <Column Name="sale_taxmnyf" DataType="System.Decimal"/>
+        <Column Name="sale_taxmnyb" DataType="System.Decimal"/>
+        <Column Name="sale_taxmny" DataType="System.Decimal"/>
+        <Column Name="sale_x3no" DataType="System.Decimal"/>
+        <Column Name="sale_rate" DataType="System.Decimal"/>
+        <Column Name="sale_x5no" DataType="System.Decimal"/>
+        <Column Name="sale_seno" DataType="System.String"/>
+        <Column Name="sale_sename" DataType="System.String"/>
+        <Column Name="sale_x4no" DataType="System.String"/>
+        <Column Name="sale_x4name" DataType="System.String"/>
+        <Column Name="sale_tax" DataType="System.Decimal"/>
+        <Column Name="sale_totmny" DataType="System.Decimal"/>
+        <Column Name="sale_taxb" DataType="System.Decimal"/>
+        <Column Name="sale_totmnyb" DataType="System.Decimal"/>
+        <Column Name="sale_discount" DataType="System.Decimal"/>
+        <Column Name="sale_cashmny" DataType="System.Decimal"/>
+        <Column Name="sale_cardmny" DataType="System.Decimal"/>
+        <Column Name="sale_cardno" DataType="System.String"/>
+        <Column Name="sale_ticket" DataType="System.Decimal"/>
+        <Column Name="sale_collectmny" DataType="System.Decimal"/>
+        <Column Name="sale_getprvacc" DataType="System.Decimal"/>
+        <Column Name="sale_acctmny" DataType="System.Decimal"/>
+        <Column Name="sale_samemo" DataType="System.String"/>
+        <Column Name="sale_samemo1" DataType="System.String"/>
+        <Column Name="sale_bracket" DataType="System.String"/>
+        <Column Name="sale_recordno" DataType="System.Decimal"/>
+        <Column Name="sale_invno" DataType="System.String"/>
+        <Column Name="sale_invdate" DataType="System.String"/>
+        <Column Name="sale_invdate1" DataType="System.String"/>
+        <Column Name="sale_invname" DataType="System.String"/>
+        <Column Name="sale_invtaxno" DataType="System.String"/>
+        <Column Name="sale_invaddr1" DataType="System.String"/>
+        <Column Name="sale_invbatch" DataType="System.Decimal"/>
+        <Column Name="sale_invbatflg" DataType="System.Decimal"/>
+        <Column Name="sale_appdate" DataType="System.String"/>
+        <Column Name="sale_edtdate" DataType="System.String"/>
+        <Column Name="sale_appscno" DataType="System.String"/>
+        <Column Name="sale_edtscno" DataType="System.String"/>
+        <Column Name="sale_acno" DataType="System.String"/>
+        <Column Name="sale_cloflag" DataType="System.Boolean" BindableControl="CheckBox"/>
+        <Column Name="sale_sendaddr" DataType="System.String"/>
+        <Column Name="sale_usrno" DataType="System.String"/>
+        <Column Name="saled_said" DataType="System.Int32"/>
+        <Column Name="saled_sano" DataType="System.String"/>
+        <Column Name="saled_sadate" DataType="System.String"/>
+        <Column Name="saled_sadate1" DataType="System.String"/>
+        <Column Name="saled_sadate2" DataType="System.String"/>
+        <Column Name="saled_sadateac" DataType="System.String"/>
+        <Column Name="saled_sadateac1" DataType="System.String"/>
+        <Column Name="saled_dateac2" DataType="System.String"/>
+        <Column Name="saled_quno" DataType="System.String"/>
+        <Column Name="saled_cono" DataType="System.String"/>
+        <Column Name="saled_cuno" DataType="System.String"/>
+        <Column Name="saled_emno" DataType="System.String"/>
+        <Column Name="saled_spno" DataType="System.String"/>
+        <Column Name="saled_stno" DataType="System.String"/>
+        <Column Name="saled_xa1no" DataType="System.String"/>
+        <Column Name="saled_xa1par" DataType="System.Decimal"/>
+        <Column Name="saled_seno" DataType="System.String"/>
+        <Column Name="saled_sename" DataType="System.String"/>
+        <Column Name="saled_x4no" DataType="System.String"/>
+        <Column Name="saled_x4name" DataType="System.String"/>
+        <Column Name="saled_orno" DataType="System.String"/>
+        <Column Name="saled_itno" DataType="System.String"/>
+        <Column Name="saled_itname" DataType="System.String"/>
+        <Column Name="saled_ittrait" DataType="System.Decimal"/>
+        <Column Name="saled_itunit" DataType="System.String"/>
+        <Column Name="saled_itpkgqty" DataType="System.Decimal"/>
+        <Column Name="saled_qty" DataType="System.Decimal"/>
+        <Column Name="saled_price" DataType="System.Decimal"/>
+        <Column Name="saled_prs" DataType="System.Decimal"/>
+        <Column Name="saled_rate" DataType="System.Decimal"/>
+        <Column Name="saled_taxprice" DataType="System.Decimal"/>
+        <Column Name="saled_mny" DataType="System.Decimal"/>
+        <Column Name="saled_priceb" DataType="System.Decimal"/>
+        <Column Name="saled_taxpriceb" DataType="System.Decimal"/>
+        <Column Name="saled_mnyb" DataType="System.Decimal"/>
+        <Column Name="saled_memo" DataType="System.String"/>
+        <Column Name="saled_lowzero" DataType="System.String"/>
+        <Column Name="saled_bomid" DataType="System.String"/>
+        <Column Name="saled_bomrec" DataType="System.Decimal"/>
+        <Column Name="saled_recordno" DataType="System.Decimal"/>
+        <Column Name="saled_sltflag" DataType="System.Boolean" BindableControl="CheckBox"/>
+        <Column Name="saled_extflag" DataType="System.Boolean" BindableControl="CheckBox"/>
+        <Column Name="saled_bracket" DataType="System.String"/>
+        <Column Name="saled_itdesp1" DataType="System.String"/>
+        <Column Name="saled_itdesp2" DataType="System.String"/>
+        <Column Name="saled_itdesp3" DataType="System.String"/>
+        <Column Name="saled_itdesp4" DataType="System.String"/>
+        <Column Name="saled_itdesp5" DataType="System.String"/>
+        <Column Name="saled_itdesp6" DataType="System.String"/>
+        <Column Name="saled_itdesp7" DataType="System.String"/>
+        <Column Name="saled_itdesp8" DataType="System.String"/>
+        <Column Name="saled_itdesp9" DataType="System.String"/>
+        <Column Name="saled_itdesp10" DataType="System.String"/>
+        <Column Name="saled_PQty" DataType="System.Decimal"/>
+        <Column Name="saled_PUnit" DataType="System.String"/>
+        <Column Name="saled_stname" DataType="System.String"/>
+        <Column Name="saled_recordno_d" DataType="System.Decimal"/>
+        <Column Name="saled_mwidth1" DataType="System.Decimal"/>
+        <Column Name="saled_mwidth2" DataType="System.Decimal"/>
+        <Column Name="saled_mwidth3" DataType="System.Decimal"/>
+        <Column Name="saled_mwidth4" DataType="System.Decimal"/>
+        <Column Name="cust_cuno" DataType="System.String"/>
+        <Column Name="cust_cuname2" DataType="System.String"/>
+        <Column Name="cust_cuname1" DataType="System.String"/>
+        <Column Name="cust_cuinvoname" DataType="System.String"/>
+        <Column Name="cust_cuchkname" DataType="System.String"/>
+        <Column Name="cust_cuxa1no" DataType="System.String"/>
+        <Column Name="cust_cupareno" DataType="System.String"/>
+        <Column Name="cust_cucono" DataType="System.String"/>
+        <Column Name="cust_cuime" DataType="System.String"/>
+        <Column Name="cust_cux1no" DataType="System.String"/>
+        <Column Name="cust_cuemno1" DataType="System.String"/>
+        <Column Name="cust_cuper1" DataType="System.String"/>
+        <Column Name="cust_cuper2" DataType="System.String"/>
+        <Column Name="cust_cuper" DataType="System.String"/>
+        <Column Name="cust_cutel1" DataType="System.String"/>
+        <Column Name="cust_cutel2" DataType="System.String"/>
+        <Column Name="cust_cufax1" DataType="System.String"/>
+        <Column Name="cust_cuatel1" DataType="System.String"/>
+        <Column Name="cust_cuatel2" DataType="System.String"/>
+        <Column Name="cust_cuatel3" DataType="System.String"/>
+        <Column Name="cust_cubbc" DataType="System.String"/>
+        <Column Name="cust_cuaddr1" DataType="System.String"/>
+        <Column Name="cust_cur1" DataType="System.String"/>
+        <Column Name="cust_cuaddr2" DataType="System.String"/>
+        <Column Name="cust_cur2" DataType="System.String"/>
+        <Column Name="cust_cuaddr3" DataType="System.String"/>
+        <Column Name="cust_cur3" DataType="System.String"/>
+        <Column Name="cust_cuslevel" DataType="System.String"/>
+        <Column Name="cust_cudisc" DataType="System.Decimal"/>
+        <Column Name="cust_cuemail" DataType="System.String"/>
+        <Column Name="cust_cuwww" DataType="System.String"/>
+        <Column Name="cust_cux2no" DataType="System.String"/>
+        <Column Name="cust_cuuno" DataType="System.String"/>
+        <Column Name="cust_cux3no" DataType="System.String"/>
+        <Column Name="cust_cux4no" DataType="System.String"/>
+        <Column Name="cust_cucredit" DataType="System.Decimal"/>
+        <Column Name="cust_cuengname" DataType="System.String"/>
+        <Column Name="cust_cuengaddr" DataType="System.String"/>
+        <Column Name="cust_cuengr1" DataType="System.String"/>
+        <Column Name="cust_cumemo1" DataType="System.String"/>
+        <Column Name="cust_cumemo2" DataType="System.String"/>
+        <Column Name="cust_cux5no" DataType="System.String"/>
+        <Column Name="cust_cuarea" DataType="System.String"/>
+        <Column Name="cust_cuudf1" DataType="System.String"/>
+        <Column Name="cust_cuudf2" DataType="System.String"/>
+        <Column Name="cust_cuudf3" DataType="System.String"/>
+        <Column Name="cust_cuudf4" DataType="System.String"/>
+        <Column Name="cust_cuudf5" DataType="System.String"/>
+        <Column Name="cust_cuudf6" DataType="System.String"/>
+        <Column Name="cust_cudate" DataType="System.String"/>
+        <Column Name="cust_cudate1" DataType="System.String"/>
+        <Column Name="cust_date2" DataType="System.String"/>
+        <Column Name="cust_culastday" DataType="System.String"/>
+        <Column Name="cust_culastday1" DataType="System.String"/>
+        <Column Name="cust_culastday2" DataType="System.String"/>
+        <Column Name="cust_cufirreceiv" DataType="System.Decimal"/>
+        <Column Name="cust_cusparercv" DataType="System.Decimal"/>
+        <Column Name="cust_cureceiv" DataType="System.Decimal"/>
+        <Column Name="cust_cufirrcvpar" DataType="System.Decimal"/>
+        <Column Name="cust_cufiradvamt" DataType="System.Decimal"/>
+        <Column Name="cust_cuadvamt" DataType="System.Decimal"/>
+        <Column Name="cust_cunote" DataType="System.String"/>
+        <Column Name="cust_cubirth" DataType="System.String"/>
+        <Column Name="cust_cubirth1" DataType="System.String"/>
+        <Column Name="cust_cubirth2" DataType="System.String"/>
+        <Column Name="cust_cusex" DataType="System.String"/>
+        <Column Name="cust_cublood" DataType="System.String"/>
+        <Column Name="cust_cuidno" DataType="System.String"/>
+        <Column Name="cust_servdate" DataType="System.String"/>
+        <Column Name="cust_betwdates" DataType="System.Int16"/>
+        <Column Name="cust_msgflag" DataType="System.Boolean" BindableControl="CheckBox"/>
+        <Column Name="cust_cupause" DataType="System.Int16"/>
+        <Column Name="salebom_sano" DataType="System.String"/>
+        <Column Name="salebom_bomid" DataType="System.String"/>
+        <Column Name="salebom_bomrec" DataType="System.String"/>
+        <Column Name="salebom_itno" DataType="System.String"/>
+        <Column Name="salebom_itname" DataType="System.String"/>
+        <Column Name="salebom_itunit" DataType="System.String"/>
+        <Column Name="salebom_itqty" DataType="System.Decimal"/>
+        <Column Name="salebom_itpareprs" DataType="System.Decimal"/>
+        <Column Name="salebom_itpkgqty" DataType="System.Decimal"/>
+        <Column Name="salebom_itrec" DataType="System.Decimal"/>
+        <Column Name="salebom_itprice" DataType="System.Decimal"/>
+        <Column Name="salebom_itprs" DataType="System.Decimal"/>
+        <Column Name="salebom_itmny" DataType="System.Decimal"/>
+        <Column Name="salebom_itnote" DataType="System.String"/>
+        <Column Name="salebom_itsource" DataType="System.Decimal"/>
+        <Column Name="salebom_itbuypri" DataType="System.Decimal"/>
+        <Column Name="salebom_itbuymny" DataType="System.Decimal"/>
+        <Column Name="item_pic" DataType="System.Byte[]" BindableControl="Picture"/>
+        <Column Name="item_showpic" DataType="System.String"/>
+        <Column Name="item_ItUdf1" DataType="System.String"/>
+        <Column Name="scname" DataType="System.String"/>
+        <Column Name="scname1" DataType="System.String"/>
+        <Column Name="Pformula" DataType="System.String"/>
+        <Column Name="kino" DataType="System.String"/>
+        <Column Name="kiname" DataType="System.String"/>
+      </TableDataSource>
+      <TableDataSource Name="Table1" Alias="Item_" DataType="System.Int32" Enabled="true" SelectCommand="  Select item.itno, itnoudf, itname, kino, itime, ittrait, itunit, itunitp, itpkgqty, itbuypri, itprice, itprice1, itprice2, itprice3, itprice4, &#13;&#10;                                                       itprice5, itcost, itbuyprip, itpricep, itpricep1, itpricep2, itpricep3, itpricep4, itpricep5, itcostp, itbuyunit, itsalunit, &#13;&#10;                                                       itsafeqty, itlastqty, itnw, itnwunit, itcostslt, itcodeslt, itcodeno, itdesp1, itdesp2, itdesp3, itdesp4, itdesp5, itdesp6, &#13;&#10;                                                       itdesp7, itdesp8, itdesp9, itdesp10, itdate, itdate1, itdate2, itbuydate, itbuydate1, itbuydate2, itsaldate, itsaldate1, &#13;&#10;                                                       itSaldate2, itfircost, itfirtqty, itfirtcost, itstockqty, itnote, itudf1, itudf2, itudf3, itudf4, itudf5, itweblist, itwebpic, itwebctl1, &#13;&#10;                                                       itwebctl2, IsUse, ItSource, itpicture, IsEnable, fano, Punit, ScNo&#13;&#10;                                                from (&#13;&#10;		                                                Select itno from saled where 1 = 0 group by itno&#13;&#10;	                                                  )A&#13;&#10;                                                left join item on A.itno = item.itno">
+        <Column Name="itno" DataType="System.String"/>
+        <Column Name="itnoudf" DataType="System.String"/>
+        <Column Name="itname" DataType="System.String"/>
+        <Column Name="kino" DataType="System.String"/>
+        <Column Name="itime" DataType="System.String"/>
+        <Column Name="ittrait" DataType="System.Decimal"/>
+        <Column Name="itunit" DataType="System.String"/>
+        <Column Name="itunitp" DataType="System.String"/>
+        <Column Name="itpkgqty" DataType="System.Decimal"/>
+        <Column Name="itbuypri" DataType="System.Decimal"/>
+        <Column Name="itprice" DataType="System.Decimal"/>
+        <Column Name="itprice1" DataType="System.Decimal"/>
+        <Column Name="itprice2" DataType="System.Decimal"/>
+        <Column Name="itprice3" DataType="System.Decimal"/>
+        <Column Name="itprice4" DataType="System.Decimal"/>
+        <Column Name="itprice5" DataType="System.Decimal"/>
+        <Column Name="itcost" DataType="System.Decimal"/>
+        <Column Name="itbuyprip" DataType="System.Decimal"/>
+        <Column Name="itpricep" DataType="System.Decimal"/>
+        <Column Name="itpricep1" DataType="System.Decimal"/>
+        <Column Name="itpricep2" DataType="System.Decimal"/>
+        <Column Name="itpricep3" DataType="System.Decimal"/>
+        <Column Name="itpricep4" DataType="System.Decimal"/>
+        <Column Name="itpricep5" DataType="System.Decimal"/>
+        <Column Name="itcostp" DataType="System.Decimal"/>
+        <Column Name="itbuyunit" DataType="System.Decimal"/>
+        <Column Name="itsalunit" DataType="System.Decimal"/>
+        <Column Name="itsafeqty" DataType="System.Decimal"/>
+        <Column Name="itlastqty" DataType="System.Decimal"/>
+        <Column Name="itnw" DataType="System.Decimal"/>
+        <Column Name="itnwunit" DataType="System.String"/>
+        <Column Name="itcostslt" DataType="System.Decimal"/>
+        <Column Name="itcodeslt" DataType="System.Decimal"/>
+        <Column Name="itcodeno" DataType="System.Decimal"/>
+        <Column Name="itdesp1" DataType="System.String"/>
+        <Column Name="itdesp2" DataType="System.String"/>
+        <Column Name="itdesp3" DataType="System.String"/>
+        <Column Name="itdesp4" DataType="System.String"/>
+        <Column Name="itdesp5" DataType="System.String"/>
+        <Column Name="itdesp6" DataType="System.String"/>
+        <Column Name="itdesp7" DataType="System.String"/>
+        <Column Name="itdesp8" DataType="System.String"/>
+        <Column Name="itdesp9" DataType="System.String"/>
+        <Column Name="itdesp10" DataType="System.String"/>
+        <Column Name="itdate" DataType="System.String"/>
+        <Column Name="itdate1" DataType="System.String"/>
+        <Column Name="itdate2" DataType="System.String"/>
+        <Column Name="itbuydate" DataType="System.String"/>
+        <Column Name="itbuydate1" DataType="System.String"/>
+        <Column Name="itbuydate2" DataType="System.String"/>
+        <Column Name="itsaldate" DataType="System.String"/>
+        <Column Name="itsaldate1" DataType="System.String"/>
+        <Column Name="itSaldate2" DataType="System.String"/>
+        <Column Name="itfircost" DataType="System.Decimal"/>
+        <Column Name="itfirtqty" DataType="System.Decimal"/>
+        <Column Name="itfirtcost" DataType="System.Decimal"/>
+        <Column Name="itstockqty" DataType="System.Decimal"/>
+        <Column Name="itnote" DataType="System.String"/>
+        <Column Name="itudf1" DataType="System.String"/>
+        <Column Name="itudf2" DataType="System.String"/>
+        <Column Name="itudf3" DataType="System.String"/>
+        <Column Name="itudf4" DataType="System.String"/>
+        <Column Name="itudf5" DataType="System.String"/>
+        <Column Name="itweblist" DataType="System.Decimal"/>
+        <Column Name="itwebpic" DataType="System.String"/>
+        <Column Name="itwebctl1" DataType="System.Decimal"/>
+        <Column Name="itwebctl2" DataType="System.Decimal"/>
+        <Column Name="IsUse" DataType="System.Boolean" BindableControl="CheckBox"/>
+        <Column Name="ItSource" DataType="System.Decimal"/>
+        <Column Name="itpicture" DataType="System.String"/>
+        <Column Name="IsEnable" DataType="System.Decimal"/>
+        <Column Name="fano" DataType="System.String"/>
+        <Column Name="Punit" DataType="System.String"/>
+        <Column Name="ScNo" DataType="System.String"/>
+      </TableDataSource>
+    </MsSqlDataConnection>
+    <Relation Name="Table_Table1" ParentDataSource="Table" ChildDataSource="Table1" ParentColumns="saled_itno" ChildColumns="itno" Enabled="true"/>
+    <Parameter Name="txtend" DataType="System.String"/>
+    <Parameter Name="民國或西元" DataType="System.String"/>
+    <Parameter Name="庫存數量小數" DataType="System.String"/>
+    <Parameter Name="列印抬頭" DataType="System.String"/>
+    <Parameter Name="列印備註說明" DataType="System.String"/>
+    <Parameter Name="備註抬頭" DataType="System.String"/>
+    <Total Name="序號" TotalType="Count" Evaluator="Data1" PrintOn="GroupFooter1" ResetOnReprint="true"/>
+  </Dictionary>
+  <ReportPage Name="Page1" PaperWidth="215.9" PaperHeight="279.4" RawPaperSize="1" LeftMargin="2.5" TopMargin="2.5" RightMargin="2.5" BottomMargin="2.5" FirstPageSource="15" OtherPagesSource="15" Guides="756" ResetPageNumber="true">
+    <ReportTitleBand Name="ReportTitle1" Top="20" Width="797.2"/>
+    <PageHeaderBand Name="PageHeader1" Top="40" Width="797.2" Height="177.55" BeforePrintEvent="PageHeader1_BeforePrint">
+      <TextObject Name="Text2" Top="94.5" Width="548.1" Height="18.9" Text="客戶名稱:[Data_.saled_AdName] { [Data_.saled_Adper1] }" Font="細明體, 12pt"/>
+      <TextObject Name="Text1" Left="-18.9" Top="4.72" Width="774.9" Height="28.35" BeforePrintEvent="Text1_BeforePrint" Text="[Data_.cust_cuname2]" HorzAlign="Center" VertAlign="Center" Font="細明體, 18pt, style=Bold"/>
+      <TextObject Name="Text3" Top="37.8" Width="756" Height="28.35" Text="銷 貨 單 " HorzAlign="Center" Font="細明體, 15.75pt, style=Bold, Underline"/>
+      <TextObject Name="Text6" Top="75.6" Width="240.25" Height="18.9" BeforePrintEvent="Text6_BeforePrint" Text="銷貨日期:" Font="細明體, 12pt"/>
+      <TextObject Name="Text4" Top="113.4" Width="548.1" Height="18.9" Text="公司地址:[Data_.saled_AdAddr]" Font="細明體, 12pt"/>
+      <TextObject Name="Text5" Top="132.3" Width="264.6" Height="18.9" Text="電    話:[Data_.saled_Adtel]" Font="細明體, 12pt"/>
+      <TextObject Name="Text8" Left="264.6" Top="132.3" Width="283.5" Height="18.9" Text="傳真機:[Data_.cust_cufax1]" Font="細明體, 12pt"/>
+      <TextObject Name="Text10" Left="550.55" Top="93.5" Width="205.45" Height="18.9" Text="銷貨憑證:[Data_.sale_sano]" Font="細明體, 12pt"/>
+      <TextObject Name="Text11" Left="550.55" Top="75.6" Width="205.45" Height="18.9" BeforePrintEvent="Text11_BeforePrint" Text="頁    次:[PageNofM]" Font="細明體, 12pt"/>
+      <TextObject Name="Text12" Left="550.55" Top="113.4" Width="205.45" Height="18.9" Text="統一編號:[Data_.sale_invtaxno]" Font="細明體, 12pt"/>
+      <TextObject Name="Text13" Left="550.55" Top="132.3" Width="205.45" Height="18.9" BeforePrintEvent="Text13_BeforePrint" Text="發票號碼:[Data_.sale_invno]" Font="細明體, 12pt"/>
+      <LineObject Name="Line1" Top="154.65" Width="756" Border.Width="2"/>
+      <TextObject Name="Text15" Left="66.15" Top="158.65" Width="151.2" Height="18.9" Text="產品編號" Font="細明體, 10pt"/>
+      <TextObject Name="Text18" Left="444.15" Top="158.65" Width="85.05" Height="18.9" Text="銷貨數量" HorzAlign="Right" Font="細明體, 10pt"/>
+      <TextObject Name="Text19" Left="538.65" Top="158.65" Width="37.8" Height="18.9" Text="單位" Font="細明體, 10pt"/>
+      <TextObject Name="Text22" Left="226.8" Top="158.65" Width="217.35" Height="18.9" Text="品名規格" Font="細明體, 10pt"/>
+      <TextObject Name="Text23" Top="158.65" Width="56.7" Height="18.9" Text="序號" Font="細明體, 10pt"/>
+      <LineObject Name="Line2" Top="175.55" Width="756" Border.Width="2"/>
+    </PageHeaderBand>
+    <GroupHeaderBand Name="GroupHeader2" Top="237.55" Width="797.2" BeforePrintEvent="GroupHeader2_BeforePrint" StartNewPage="true" Condition="[Data_.sale_sano]" ResetPageNumber="true">
+      <GroupHeaderBand Name="GroupHeader1" Top="257.55" Width="797.2" BeforePrintEvent="GroupHeader1_BeforePrint" StartNewPage="true" Condition="[Data_.saled_AdAddr]">
+        <DataBand Name="Data1" Top="277.55" Width="797.2" Height="18.9" DataSource="Table">
+          <TextObject Name="Text16" Left="66.15" Width="151.2" Height="18.9" Text="[Data_.saled_itno]" Font="細明體, 10pt"/>
+          <TextObject Name="Text20" Left="538.65" Width="37.8" Height="18.9" Text="[Data_.saled_itunit]" Font="細明體, 10pt"/>
+          <TextObject Name="Text21" Left="226.8" Width="217.35" Height="18.9" Text="[Data_.saled_itname]" Font="細明體, 10pt"/>
+          <TextObject Name="Text27" Left="444.15" Width="85.05" Height="18.9" BeforePrintEvent="Text27_BeforePrint" Text="[Data_.saled_qty]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Right" Font="細明體, 10pt"/>
+          <TextObject Name="Text28" Width="56.7" Height="18.9" BeforePrintEvent="Text28_BeforePrint" Text="[Row#]" Font="細明體, 10pt"/>
+          <DataBand Name="Data2" Top="316.45" Width="797.2" Height="18.9" BeforePrintEvent="Data2_BeforePrint">
+            <TextObject Name="Text33" Left="444.15" Width="378" Height="18.9" Text="[備註抬頭]：[Data_.saled_memo]" Font="細明體, 10pt"/>
+          </DataBand>
+        </DataBand>
+        <GroupFooterBand Name="GroupFooter1" Top="355.35" Width="797.2"/>
+      </GroupHeaderBand>
+      <GroupFooterBand Name="GroupFooter2" Top="375.35" Width="797.2" BeforePrintEvent="GroupFooter2_BeforePrint"/>
+    </GroupHeaderBand>
+    <PageFooterBand Name="PageFooter1" Top="395.35" Width="797.2" Height="172.55">
+      <TextObject Name="Text24" Top="62.15" Width="472.5" Height="18.9" Text="備    註:[Data_.sale_samemo]" Font="細明體, 12pt"/>
+      <TextObject Name="Text25" Top="33.8" Width="472.5" Height="18.9" Text="專案名稱:[Data_.sale_spno] [Data_.sale_spname]&#13;&#10;" Font="細明體, 12pt"/>
+      <TextObject Name="Text26" Left="481.95" Top="43.25" Width="463.05" Height="28.35" Text="客戶簽章:" Font="細明體, 15.75pt, style=Bold"/>
+      <LineObject Name="Line3" Top="2" Width="756" Border.Width="2"/>
+      <LineObject Name="Line4" Top="26.35" Width="756" Border.Width="2"/>
+      <TextObject Name="Text29" Left="1.45" Top="5.45" Width="302.4" Height="18.9" Text="送貨方式:[Data_.sale_sename]" Font="細明體, 12pt"/>
+      <TextObject Name="Text30" Left="453.6" Top="5.45" Width="302.4" Height="18.9" Text="業務人員:[Data_.sale_emname]" Font="細明體, 12pt"/>
+      <TextObject Name="Text14" Top="96.95" Width="756" Height="75.6" Text="[txtend]" Font="細明體, 12pt"/>
+    </PageFooterBand>
+  </ReportPage>
+</Report>

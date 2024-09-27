@@ -1,0 +1,373 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="Special" targetNamespace="http://tempuri.org/Special.xsd" xmlns:mstns="http://tempuri.org/Special.xsd" xmlns="http://tempuri.org/Special.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="1" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="_74ConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="_74ConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.S_61.Properties.Settings.GlobalReference.Default._74ConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="LONGConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="LONGConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.S_61.Properties.Settings.GlobalReference.Default.LONGConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="SpecialTableAdapter" GeneratorDataComponentClassName="SpecialTableAdapter" Name="Special" UserDataComponentName="SpecialTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="LONGConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT          Speciald.SpID, Speciald.SpNo, Speciald.SDate, Speciald.SDate1, Speciald.SDate2, Speciald.EDate, Speciald.EDate1, 
+                            Speciald.EDate2, Speciald.EmNo, Speciald.SpTrait, Speciald.SpTraitName, Speciald.ItNo, Speciald.ItName, 
+                            Speciald.ItTrait, Speciald.ItUnit, Speciald.Itpkgqty, Speciald.Qty, Speciald.Price, Speciald.ItPrice, Speciald.Point, 
+                            Speciald.Prs, Speciald.Memo, Speciald.BomID, Speciald.BomRec, Speciald.ReCordNo, Speciald.Sltflag, 
+                            Speciald.Extflag, Speciald.ItDesp1, Speciald.ItDesp2, Speciald.ItDesp3, Speciald.ItDesp4, Speciald.ItDesp5, 
+                            Speciald.ItDesp6, Speciald.ItDesp7, Speciald.ItDesp8, Speciald.ItDesp9, Speciald.ItDesp10, 
+                            Special.SpNo AS SpecialSpNo, Special.SDate AS SpecialSDate, Special.SDate1 AS SpecialSDate1, 
+                            Special.SDate2 AS SpecialSDate2, Special.EDate AS SpecialEDate, Special.EDate1 AS SpecialEDate1, 
+                            Special.EDate2 AS SpecialEDate2, Special.EmNo AS SpecialEmNo, Special.EmName AS SpecialEmName, 
+                            Special.SpTrait AS SpecialSpTrait, Special.SpMemo AS SpecialSpMemo, Special.RecordNo AS SpecialRecordNo
+FROM              Speciald LEFT OUTER JOIN
+                            Special ON Speciald.SpNo = Special.SpNo
+WHERE          (0 = 0)</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="SpNo" DataSetColumn="SpNo" />
+              <Mapping SourceColumn="SDate" DataSetColumn="SDate" />
+              <Mapping SourceColumn="SDate1" DataSetColumn="SDate1" />
+              <Mapping SourceColumn="SDate2" DataSetColumn="SDate2" />
+              <Mapping SourceColumn="EDate" DataSetColumn="EDate" />
+              <Mapping SourceColumn="EDate1" DataSetColumn="EDate1" />
+              <Mapping SourceColumn="EDate2" DataSetColumn="EDate2" />
+              <Mapping SourceColumn="EmNo" DataSetColumn="EmNo" />
+              <Mapping SourceColumn="SpTrait" DataSetColumn="SpTrait" />
+              <Mapping SourceColumn="SpID" DataSetColumn="SpID" />
+              <Mapping SourceColumn="SpTraitName" DataSetColumn="SpTraitName" />
+              <Mapping SourceColumn="ItNo" DataSetColumn="ItNo" />
+              <Mapping SourceColumn="ItName" DataSetColumn="ItName" />
+              <Mapping SourceColumn="ItTrait" DataSetColumn="ItTrait" />
+              <Mapping SourceColumn="ItUnit" DataSetColumn="ItUnit" />
+              <Mapping SourceColumn="Itpkgqty" DataSetColumn="Itpkgqty" />
+              <Mapping SourceColumn="Qty" DataSetColumn="Qty" />
+              <Mapping SourceColumn="Price" DataSetColumn="Price" />
+              <Mapping SourceColumn="ItPrice" DataSetColumn="ItPrice" />
+              <Mapping SourceColumn="Point" DataSetColumn="Point" />
+              <Mapping SourceColumn="Prs" DataSetColumn="Prs" />
+              <Mapping SourceColumn="Memo" DataSetColumn="Memo" />
+              <Mapping SourceColumn="BomID" DataSetColumn="BomID" />
+              <Mapping SourceColumn="BomRec" DataSetColumn="BomRec" />
+              <Mapping SourceColumn="ReCordNo" DataSetColumn="ReCordNo" />
+              <Mapping SourceColumn="Sltflag" DataSetColumn="Sltflag" />
+              <Mapping SourceColumn="Extflag" DataSetColumn="Extflag" />
+              <Mapping SourceColumn="ItDesp1" DataSetColumn="ItDesp1" />
+              <Mapping SourceColumn="ItDesp2" DataSetColumn="ItDesp2" />
+              <Mapping SourceColumn="ItDesp3" DataSetColumn="ItDesp3" />
+              <Mapping SourceColumn="ItDesp4" DataSetColumn="ItDesp4" />
+              <Mapping SourceColumn="ItDesp5" DataSetColumn="ItDesp5" />
+              <Mapping SourceColumn="ItDesp6" DataSetColumn="ItDesp6" />
+              <Mapping SourceColumn="ItDesp7" DataSetColumn="ItDesp7" />
+              <Mapping SourceColumn="ItDesp8" DataSetColumn="ItDesp8" />
+              <Mapping SourceColumn="ItDesp9" DataSetColumn="ItDesp9" />
+              <Mapping SourceColumn="ItDesp10" DataSetColumn="ItDesp10" />
+              <Mapping SourceColumn="SpecialSpNo" DataSetColumn="SpecialSpNo" />
+              <Mapping SourceColumn="SpecialSDate" DataSetColumn="SpecialSDate" />
+              <Mapping SourceColumn="SpecialSDate1" DataSetColumn="SpecialSDate1" />
+              <Mapping SourceColumn="SpecialSDate2" DataSetColumn="SpecialSDate2" />
+              <Mapping SourceColumn="SpecialEDate" DataSetColumn="SpecialEDate" />
+              <Mapping SourceColumn="SpecialEDate1" DataSetColumn="SpecialEDate1" />
+              <Mapping SourceColumn="SpecialEDate2" DataSetColumn="SpecialEDate2" />
+              <Mapping SourceColumn="SpecialEmNo" DataSetColumn="SpecialEmNo" />
+              <Mapping SourceColumn="SpecialEmName" DataSetColumn="SpecialEmName" />
+              <Mapping SourceColumn="SpecialSpTrait" DataSetColumn="SpecialSpTrait" />
+              <Mapping SourceColumn="SpecialSpMemo" DataSetColumn="SpecialSpMemo" />
+              <Mapping SourceColumn="SpecialRecordNo" DataSetColumn="SpecialRecordNo" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="Special" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="Special" msprop:Generator_UserDSName="Special">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Special" msprop:Generator_TableClassName="SpecialDataTable" msprop:Generator_TableVarName="tableSpecial" msprop:Generator_RowChangedName="SpecialRowChanged" msprop:Generator_TablePropName="_Special" msprop:Generator_RowDeletingName="SpecialRowDeleting" msprop:Generator_RowChangingName="SpecialRowChanging" msprop:Generator_RowEvHandlerName="SpecialRowChangeEventHandler" msprop:Generator_RowDeletedName="SpecialRowDeleted" msprop:Generator_RowClassName="SpecialRow" msprop:Generator_UserTableName="Special" msprop:Generator_RowEvArgName="SpecialRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="SpNo" msprop:Generator_ColumnVarNameInTable="columnSpNo" msprop:Generator_ColumnPropNameInRow="SpNo" msprop:Generator_ColumnPropNameInTable="SpNoColumn" msprop:Generator_UserColumnName="SpNo">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SDate" msprop:Generator_ColumnVarNameInTable="columnSDate" msprop:Generator_ColumnPropNameInRow="SDate" msprop:Generator_ColumnPropNameInTable="SDateColumn" msprop:Generator_UserColumnName="SDate" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SDate1" msprop:Generator_ColumnVarNameInTable="columnSDate1" msprop:Generator_ColumnPropNameInRow="SDate1" msprop:Generator_ColumnPropNameInTable="SDate1Column" msprop:Generator_UserColumnName="SDate1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SDate2" msprop:Generator_ColumnVarNameInTable="columnSDate2" msprop:Generator_ColumnPropNameInRow="SDate2" msprop:Generator_ColumnPropNameInTable="SDate2Column" msprop:Generator_UserColumnName="SDate2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="EDate" msprop:Generator_ColumnVarNameInTable="columnEDate" msprop:Generator_ColumnPropNameInRow="EDate" msprop:Generator_ColumnPropNameInTable="EDateColumn" msprop:Generator_UserColumnName="EDate" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="EDate1" msprop:Generator_ColumnVarNameInTable="columnEDate1" msprop:Generator_ColumnPropNameInRow="EDate1" msprop:Generator_ColumnPropNameInTable="EDate1Column" msprop:Generator_UserColumnName="EDate1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="EDate2" msprop:Generator_ColumnVarNameInTable="columnEDate2" msprop:Generator_ColumnPropNameInRow="EDate2" msprop:Generator_ColumnPropNameInTable="EDate2Column" msprop:Generator_UserColumnName="EDate2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="EmNo" msprop:Generator_ColumnVarNameInTable="columnEmNo" msprop:Generator_ColumnPropNameInRow="EmNo" msprop:Generator_ColumnPropNameInTable="EmNoColumn" msprop:Generator_UserColumnName="EmNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SpTrait" msprop:Generator_ColumnVarNameInTable="columnSpTrait" msprop:Generator_ColumnPropNameInRow="SpTrait" msprop:Generator_ColumnPropNameInTable="SpTraitColumn" msprop:Generator_UserColumnName="SpTrait" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SpID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnSpID" msprop:Generator_ColumnPropNameInRow="SpID" msprop:Generator_ColumnPropNameInTable="SpIDColumn" msprop:Generator_UserColumnName="SpID" type="xs:int" />
+              <xs:element name="SpTraitName" msprop:Generator_ColumnVarNameInTable="columnSpTraitName" msprop:Generator_ColumnPropNameInRow="SpTraitName" msprop:Generator_ColumnPropNameInTable="SpTraitNameColumn" msprop:Generator_UserColumnName="SpTraitName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ItNo" msprop:Generator_ColumnVarNameInTable="columnItNo" msprop:Generator_ColumnPropNameInRow="ItNo" msprop:Generator_ColumnPropNameInTable="ItNoColumn" msprop:Generator_UserColumnName="ItNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ItName" msprop:Generator_ColumnVarNameInTable="columnItName" msprop:Generator_ColumnPropNameInRow="ItName" msprop:Generator_ColumnPropNameInTable="ItNameColumn" msprop:Generator_UserColumnName="ItName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ItTrait" msprop:Generator_ColumnVarNameInTable="columnItTrait" msprop:Generator_ColumnPropNameInRow="ItTrait" msprop:Generator_ColumnPropNameInTable="ItTraitColumn" msprop:Generator_UserColumnName="ItTrait" type="xs:decimal" minOccurs="0" />
+              <xs:element name="ItUnit" msprop:Generator_ColumnVarNameInTable="columnItUnit" msprop:Generator_ColumnPropNameInRow="ItUnit" msprop:Generator_ColumnPropNameInTable="ItUnitColumn" msprop:Generator_UserColumnName="ItUnit" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Itpkgqty" msprop:Generator_ColumnVarNameInTable="columnItpkgqty" msprop:Generator_ColumnPropNameInRow="Itpkgqty" msprop:Generator_ColumnPropNameInTable="ItpkgqtyColumn" msprop:Generator_UserColumnName="Itpkgqty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Qty" msprop:Generator_ColumnVarNameInTable="columnQty" msprop:Generator_ColumnPropNameInRow="Qty" msprop:Generator_ColumnPropNameInTable="QtyColumn" msprop:Generator_UserColumnName="Qty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Price" msprop:Generator_ColumnVarNameInTable="columnPrice" msprop:Generator_ColumnPropNameInRow="Price" msprop:Generator_ColumnPropNameInTable="PriceColumn" msprop:Generator_UserColumnName="Price" type="xs:decimal" minOccurs="0" />
+              <xs:element name="ItPrice" msprop:Generator_ColumnVarNameInTable="columnItPrice" msprop:Generator_ColumnPropNameInRow="ItPrice" msprop:Generator_ColumnPropNameInTable="ItPriceColumn" msprop:Generator_UserColumnName="ItPrice" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Point" msprop:Generator_ColumnVarNameInTable="columnPoint" msprop:Generator_ColumnPropNameInRow="Point" msprop:Generator_ColumnPropNameInTable="PointColumn" msprop:Generator_UserColumnName="Point" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Prs" msprop:Generator_ColumnVarNameInTable="columnPrs" msprop:Generator_ColumnPropNameInRow="Prs" msprop:Generator_ColumnPropNameInTable="PrsColumn" msprop:Generator_UserColumnName="Prs" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Memo" msprop:Generator_ColumnVarNameInTable="columnMemo" msprop:Generator_ColumnPropNameInRow="Memo" msprop:Generator_ColumnPropNameInTable="MemoColumn" msprop:Generator_UserColumnName="Memo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BomID" msprop:Generator_ColumnVarNameInTable="columnBomID" msprop:Generator_ColumnPropNameInRow="BomID" msprop:Generator_ColumnPropNameInTable="BomIDColumn" msprop:Generator_UserColumnName="BomID" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BomRec" msprop:Generator_ColumnVarNameInTable="columnBomRec" msprop:Generator_ColumnPropNameInRow="BomRec" msprop:Generator_ColumnPropNameInTable="BomRecColumn" msprop:Generator_UserColumnName="BomRec" type="xs:decimal" minOccurs="0" />
+              <xs:element name="ReCordNo" msprop:Generator_ColumnVarNameInTable="columnReCordNo" msprop:Generator_ColumnPropNameInRow="ReCordNo" msprop:Generator_ColumnPropNameInTable="ReCordNoColumn" msprop:Generator_UserColumnName="ReCordNo" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Sltflag" msprop:Generator_ColumnVarNameInTable="columnSltflag" msprop:Generator_ColumnPropNameInRow="Sltflag" msprop:Generator_ColumnPropNameInTable="SltflagColumn" msprop:Generator_UserColumnName="Sltflag" type="xs:boolean" minOccurs="0" />
+              <xs:element name="Extflag" msprop:Generator_ColumnVarNameInTable="columnExtflag" msprop:Generator_ColumnPropNameInRow="Extflag" msprop:Generator_ColumnPropNameInTable="ExtflagColumn" msprop:Generator_UserColumnName="Extflag" type="xs:boolean" minOccurs="0" />
+              <xs:element name="ItDesp1" msprop:Generator_ColumnVarNameInTable="columnItDesp1" msprop:Generator_ColumnPropNameInRow="ItDesp1" msprop:Generator_ColumnPropNameInTable="ItDesp1Column" msprop:Generator_UserColumnName="ItDesp1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ItDesp2" msprop:Generator_ColumnVarNameInTable="columnItDesp2" msprop:Generator_ColumnPropNameInRow="ItDesp2" msprop:Generator_ColumnPropNameInTable="ItDesp2Column" msprop:Generator_UserColumnName="ItDesp2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ItDesp3" msprop:Generator_ColumnVarNameInTable="columnItDesp3" msprop:Generator_ColumnPropNameInRow="ItDesp3" msprop:Generator_ColumnPropNameInTable="ItDesp3Column" msprop:Generator_UserColumnName="ItDesp3" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ItDesp4" msprop:Generator_ColumnVarNameInTable="columnItDesp4" msprop:Generator_ColumnPropNameInRow="ItDesp4" msprop:Generator_ColumnPropNameInTable="ItDesp4Column" msprop:Generator_UserColumnName="ItDesp4" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ItDesp5" msprop:Generator_ColumnVarNameInTable="columnItDesp5" msprop:Generator_ColumnPropNameInRow="ItDesp5" msprop:Generator_ColumnPropNameInTable="ItDesp5Column" msprop:Generator_UserColumnName="ItDesp5" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ItDesp6" msprop:Generator_ColumnVarNameInTable="columnItDesp6" msprop:Generator_ColumnPropNameInRow="ItDesp6" msprop:Generator_ColumnPropNameInTable="ItDesp6Column" msprop:Generator_UserColumnName="ItDesp6" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ItDesp7" msprop:Generator_ColumnVarNameInTable="columnItDesp7" msprop:Generator_ColumnPropNameInRow="ItDesp7" msprop:Generator_ColumnPropNameInTable="ItDesp7Column" msprop:Generator_UserColumnName="ItDesp7" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ItDesp8" msprop:Generator_ColumnVarNameInTable="columnItDesp8" msprop:Generator_ColumnPropNameInRow="ItDesp8" msprop:Generator_ColumnPropNameInTable="ItDesp8Column" msprop:Generator_UserColumnName="ItDesp8" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ItDesp9" msprop:Generator_ColumnVarNameInTable="columnItDesp9" msprop:Generator_ColumnPropNameInRow="ItDesp9" msprop:Generator_ColumnPropNameInTable="ItDesp9Column" msprop:Generator_UserColumnName="ItDesp9" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ItDesp10" msprop:Generator_ColumnVarNameInTable="columnItDesp10" msprop:Generator_ColumnPropNameInRow="ItDesp10" msprop:Generator_ColumnPropNameInTable="ItDesp10Column" msprop:Generator_UserColumnName="ItDesp10" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SpecialSpNo" msprop:Generator_ColumnVarNameInTable="columnSpecialSpNo" msprop:Generator_ColumnPropNameInRow="SpecialSpNo" msprop:Generator_ColumnPropNameInTable="SpecialSpNoColumn" msprop:Generator_UserColumnName="SpecialSpNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SpecialSDate" msprop:Generator_ColumnVarNameInTable="columnSpecialSDate" msprop:Generator_ColumnPropNameInRow="SpecialSDate" msprop:Generator_ColumnPropNameInTable="SpecialSDateColumn" msprop:Generator_UserColumnName="SpecialSDate" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SpecialSDate1" msprop:Generator_ColumnVarNameInTable="columnSpecialSDate1" msprop:Generator_ColumnPropNameInRow="SpecialSDate1" msprop:Generator_ColumnPropNameInTable="SpecialSDate1Column" msprop:Generator_UserColumnName="SpecialSDate1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SpecialSDate2" msprop:Generator_ColumnVarNameInTable="columnSpecialSDate2" msprop:Generator_ColumnPropNameInRow="SpecialSDate2" msprop:Generator_ColumnPropNameInTable="SpecialSDate2Column" msprop:Generator_UserColumnName="SpecialSDate2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SpecialEDate" msprop:Generator_ColumnVarNameInTable="columnSpecialEDate" msprop:Generator_ColumnPropNameInRow="SpecialEDate" msprop:Generator_ColumnPropNameInTable="SpecialEDateColumn" msprop:Generator_UserColumnName="SpecialEDate" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SpecialEDate1" msprop:Generator_ColumnVarNameInTable="columnSpecialEDate1" msprop:Generator_ColumnPropNameInRow="SpecialEDate1" msprop:Generator_ColumnPropNameInTable="SpecialEDate1Column" msprop:Generator_UserColumnName="SpecialEDate1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SpecialEDate2" msprop:Generator_ColumnVarNameInTable="columnSpecialEDate2" msprop:Generator_ColumnPropNameInRow="SpecialEDate2" msprop:Generator_ColumnPropNameInTable="SpecialEDate2Column" msprop:Generator_UserColumnName="SpecialEDate2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SpecialEmNo" msprop:Generator_ColumnVarNameInTable="columnSpecialEmNo" msprop:Generator_ColumnPropNameInRow="SpecialEmNo" msprop:Generator_ColumnPropNameInTable="SpecialEmNoColumn" msprop:Generator_UserColumnName="SpecialEmNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SpecialEmName" msprop:Generator_ColumnVarNameInTable="columnSpecialEmName" msprop:Generator_ColumnPropNameInRow="SpecialEmName" msprop:Generator_ColumnPropNameInTable="SpecialEmNameColumn" msprop:Generator_UserColumnName="SpecialEmName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SpecialSpTrait" msprop:Generator_ColumnVarNameInTable="columnSpecialSpTrait" msprop:Generator_ColumnPropNameInRow="SpecialSpTrait" msprop:Generator_ColumnPropNameInTable="SpecialSpTraitColumn" msprop:Generator_UserColumnName="SpecialSpTrait" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SpecialSpMemo" msprop:Generator_ColumnVarNameInTable="columnSpecialSpMemo" msprop:Generator_ColumnPropNameInRow="SpecialSpMemo" msprop:Generator_ColumnPropNameInTable="SpecialSpMemoColumn" msprop:Generator_UserColumnName="SpecialSpMemo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SpecialRecordNo" msprop:Generator_ColumnVarNameInTable="columnSpecialRecordNo" msprop:Generator_ColumnPropNameInRow="SpecialRecordNo" msprop:Generator_ColumnPropNameInTable="SpecialRecordNoColumn" msprop:Generator_UserColumnName="SpecialRecordNo" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Special" />
+      <xs:field xpath="mstns:SpNo" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>
